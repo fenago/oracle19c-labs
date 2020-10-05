@@ -1,0 +1,139 @@
+PRESIDENT TABLE LABS
+
+
+	Create 7 tables in the personnel database.  The seven tables are
+	called:  PRESIDENT, ELECTION, ADMIN_PR_VP, ADMINISTRATION,
+	PRES_HOBBY, PRES_MARRIAGE, STATE.  See pres.sql.
+
+	CREATE TABLE PRESIDENT
+	(PRES_NAME		char(20) NOT NULL,
+	 BIRTH_YR			smallint  NULL,
+            YRS_SERV			smallint  NULL,
+	 DEATH_AGE		smallint  NULL,
+	PARTY			char(20) NULL,
+	STATE_BORN		char(20) NULL)	
+
+	the specs for these tables can be found on subsequent pages of this
+	lab.  Remember to check the sample against the specs to make sure
+	they match up.  See presothr.sql for a complete list of how to create
+    	the tables properly.
+
+1.  	 Insert your name into the PRESIDENT table. Execute uinsert.sql to 
+	load 	the tables. No changes are needed to these inserts. See 
+	uinsert.sql.
+
+2.  	Execute 'SELECT' statements through SLQPLUS
+	
+3.  List the president's name, year born, year married, and spouse's
+	     name of all married presidents.
+		SELECT P.PRES_NAME, 				
+		BIRTH_YR,MAR_YEAR,SPOUSE_NAME
+		FROM PRESIDENT P,PRES_MARRIAGE M,
+		WHERE P.PRES_NAME = M.PRES_NAME
+		
+4.  Show the average votes received by winning candidates.
+
+		SELECT AVG(VOTES) FROM ELECTION WHERE 			
+		WINNER_LOSER_INDIC = 'W'
+
+5.  Join PRESIDENT and PRES_HOBBY on PRES_NAME.
+
+	   SELECT P.PRES_NAME,STATE_BORN,HOBBY FROM 
+	PRESIDENT  P, PRES_HOBBY H where P.PRES_NAME =
+	H.PRES_NAME
+ 
+6.  Add data to the ELECTION table for the 1984 election. Ronald
+		Reagan received 525 electoral votes.
+
+		INSERT INTO ELECTION VALUES(1984,'REAGAN R',525,'W')
+
+7.  Create a single list  (without duplicates) of all the names of all
+	     individuals mentioned in the lab tables.  Present the output in
+	     name order.  (use a union).
+
+		SELECT PRES_NAME from PRESIDENT
+		UNION
+		SELECT SPOUSE_NAME FROM PRES_MARRIAGE
+		UNION
+		SELECT VICE_PRES_NAME from ADMIN_PR_VP
+		UNION
+		SELECT CANDIDATE from ELECTION
+		ORDER BY 1
+
+8.  Change all occurrences of 'Republican' to 'Conservative'
+		
+		update PRESIDENT 
+		    set PARTY = 'Conservative'
+		    where PARTY like  'Republican%'
+
+9.  Create a SPOUSE table that contains spouse name and marriage
+	     year.  Load it from the PRES_Marriage table.
+	
+		CREATE TABLE SPOUSE
+		(SPOUSE_NAME		char(2),
+		MAR_YEAR			smalint)
+
+10.  California has fallen into the Pacific.  Delete it from the STATE table.
+
+		DELETE FROM STATE WHERE STATE = 'CALIFORNIA'
+
+
+11.  Print the dept,name, years and salary of any CLERK  who has the 	
+	     minimum salary. Give this person(S) a 15% increase in salary.
+
+		select DEPT,NAME,YEARS,SALARY FROM STAFF
+			WHERE JOB = 'CLERK' AND SALARY = 
+			(SELECT MIN(SALARY) FROM STAFF)
+
+		UPDATE STAFF
+		SET SALARY = SALARY * 1.15
+		WHERE SALARY = (SELECT MIN(SALARY) FROM STAFF)
+12. Add a column to the STATE table for state flower.
+
+		alter table STATE
+  		     add FLOWER char(20) NULL
+
+13. Create a table for flowers containing columns for flower name and 
+	       color.  Insert your own state flower data.
+		create table STATE_FLOWER
+		(FLOWER 	char(20),
+		 COLOR	char(20))
+
+14.  Add a column for height in the FLOWER table.
+
+		alter table STATE_FLOWER
+			ADD HEIGHT smallint NULL
+
+15.  Delete the FLOWER table
+		
+		drop TABLE STATE_FLOWER
+
+16. Which Presidents never won an election? (Use a subquery)
+
+		SELECT PRES_NAME,PARTY
+		from PRESIDENT where PRES_NAME not in
+		(select PRES_NAME from ELECTION where 
+		WINNER_LOSER_INDIC = 'W'
+
+Optional Queries:
+
+1.  How many candidates have there been?
+
+		select count(distinct CANDIDATE) from ELECTION
+
+
+2.  Summarize total votes by candidate without regard to election year.
+     Show in descending total vote sequence.
+
+		select SUM(VOTES),CANDIDATE from ELECTION
+		GROUP BY CANDIDATE 
+		order by 1,desc
+		
+
+3.  Add yourself to the PRESIDENT table as the next president.
+
+
+4. Add a marriage record for yourself ( may be real or fantasy
+
+
+
