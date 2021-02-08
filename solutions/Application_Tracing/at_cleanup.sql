@@ -1,0 +1,8 @@
+set echo on
+
+exec DBMS_SERVICE.STOP_SERVICE('TRACESERV');
+
+exec DBMS_SERVICE.DELETE_SERVICE('TRACESERV');
+
+exit;
+

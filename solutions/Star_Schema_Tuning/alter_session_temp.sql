@@ -1,0 +1,1 @@
+ALTER SESSION SET star_transformation_enabled=TRUE;
