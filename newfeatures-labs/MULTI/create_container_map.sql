@@ -14,7 +14,7 @@ CREATE PLUGGABLE DATABASE hr_root AS APPLICATION CONTAINER
   CREATE_FILE_DEST='/u02/app/oracle/oradata/ORCL/hr_root';
 ALTER PLUGGABLE DATABASE hr_root OPEN;
 
-CONNECT sys/Welcome_1@hr_root AS SYSDBA 
+CONNECT sys/fenago@hr_root AS SYSDBA 
 ALTER PLUGGABLE DATABASE application hr_app begin install '1.0';
 CREATE USER hr_mgr identified BY Welcome_1 container=all;
 GRANT CREATE SESSION, dba TO hr_mgr container=all;
@@ -63,13 +63,13 @@ CREATE PLUGGABLE DATABASE RESEARCH admin USER admin identified BY admin
 ALTER PLUGGABLE DATABASE research OPEN;
 
 
-CONNECT sys/Welcome_1@sales AS SYSDBA
+CONNECT sys/fenago@sales AS SYSDBA
 ALTER PLUGGABLE DATABASE application hr_app sync;
 
-CONNECT sys/Welcome_1@accounting AS SYSDBA
+CONNECT sys/fenago@accounting AS SYSDBA
 ALTER PLUGGABLE DATABASE application hr_app sync;
 
-CONNECT sys/Welcome_1@research AS SYSDBA
+CONNECT sys/fenago@research AS SYSDBA
 ALTER PLUGGABLE DATABASE application hr_app sync;
 
 CONNECT scott/Welcome_1@accounting
@@ -98,7 +98,7 @@ INSERT INTO EMP VALUES (7844,'TURNER','SALESMAN',7698,TO_date('8-9-1981','dd-mm-
 INSERT INTO EMP VALUES (7900,'JAMES','CLERK',7698,TO_date('3-12-1981','dd-mm-yyyy'),950,NULL,30);
 commit;
 
-CONNECT sys/Welcome_1@hr_root AS SYSDBA
+CONNECT sys/fenago@hr_root AS SYSDBA
 CREATE TABLE scott.maptable 
       (deptno number, name varchar2(30))
       PARTITION BY LIST (deptno)

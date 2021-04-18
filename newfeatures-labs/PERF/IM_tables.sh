@@ -3,8 +3,8 @@
 #
 #
 
-export ORACLE_SID=ORCL
-export ORACLE_HOME=/u01/app/oracle/product/18.0.0/dbhome_1
+export ORACLE_SID=fenagodb
+export ORACLE_HOME=/u01/app/oracle/product/19.3.0/dbhome_1
 PATH=$ORACLE_HOME/bin:$PATH; export PATH
 
 cd $HOME/labs/PERF
@@ -23,7 +23,7 @@ $ORACLE_HOME/bin/sqlplus "/ as sysdba" @$HOME/labs/SEC/shutdown.sql
 
 $ORACLE_HOME/bin/sqlplus "/ as sysdba" @$HOME/labs/SEC/startup.sql
 $ORACLE_HOME/bin/sqlplus "/ as sysdba" @$HOME/labs/admin/create_PDB1.sql
-$ORACLE_HOME/bin/sqlplus "system/Welcome_1@PDB1" @create_IM_tables.sql
+$ORACLE_HOME/bin/sqlplus "system/fenago@PDB1" @create_IM_tables.sql
 $ORACLE_HOME/bin/rman target / <<EOF
  DELETE ARCHIVELOG ALL;
  DELETE OBSOLETE;
@@ -55,4 +55,4 @@ $ORACLE_HOME/bin/rman target / <<EOF
  DELETE OBSOLETE;
 exit
 EOF
-$ORACLE_HOME/bin/sqlplus "system/Welcome_1@PDB1" @load_IM_tables.sql
+$ORACLE_HOME/bin/sqlplus "system/fenago@PDB1" @load_IM_tables.sql
