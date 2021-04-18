@@ -1,7 +1,6 @@
 #!/bin/sh
 # use bash shell
 #
-# Written by: Dominique.Jeunot@oracle.com
 #
 
 export NLS_DATE_FORMAT='DD-MM-YYYY HH:MI:SS'

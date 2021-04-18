@@ -1,7 +1,6 @@
 #!/bin/sh
 # use bash shell
 #
-# Written by: Dominique.Jeunot@oracle.com
 #
 # Updated by D. Keesling, April 2018
 #
