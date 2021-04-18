@@ -1,0 +1,182 @@
+REGION_ID,REGION_NAME,COUNTRY_ID,COUNTRY_NAME,STATE_PROVINCE_ID,STATE_PROVINCE_NAME
+AFRICA,Africa,ZM,Zambia,LUSAKA_ZM,Lusaka - ZM
+SOUTH_AMERICA,South America,VE,Venezuela,CARABOBO_VE,Carabobo - VE
+NORTH_AMERICA,North America,CA,Canada,BRITISH_COLUMBIA_CA,British Columbia - CA
+NORTH_AMERICA,North America,CA,Canada,ONTARIO_CA,Ontario - CA
+ASIA,Asia,IN,India,GUJARAT_IN,Gujarat - IN
+EUROPE,Europe,NL,Netherlands,(S/P)_NL,NETHERLANDS (S/P) - NL
+AFRICA,Africa,EG,Egypt,ALEXANDRIA_EG,Alexandria - EG
+ASIA,Asia,CN,China,LIAONING_CN,Liaoning - CN
+AFRICA,Africa,MZ,Mozambique,MAPUTO_MZ,Maputo - MZ
+ASIA,Asia,IN,India,HARYANA_IN,Haryana - IN
+EUROPE,Europe,IT,Italy,(S/P)_IT,ITALY (S/P) - IT
+ASIA,Asia,SA,Saudi Arabia,MAKKAH_SA,Makkah - SA
+SOUTH_AMERICA,South America,BR,Brazil,GOIAS_BR,Goias - BR
+ASIA,Asia,IN,India,KARNATAKA_IN,Karnataka - IN
+ASIA,Asia,SA,Saudi Arabia,AR_RIYAD_SA,Ar Riyad - SA
+SOUTH_AMERICA,South America,AR,Argentina,MENDOZA_AR,Mendoza - AR
+EUROPE,Europe,PL,Poland,(S/P)_PL,POLAND (S/P) - PL
+SOUTH_AMERICA,South America,VE,Venezuela,CAPITAL_DISTRICT_VE,Capital District - VE
+NORTH_AMERICA,North America,MX,Mexico,DISTRITO_FEDERAL_MX,Distrito Federal - MX
+SOUTH_AMERICA,South America,BR,Brazil,PERNAMBUCO_BR,Pernambuco - BR
+SOUTH_AMERICA,South America,BR,Brazil,ESPIRITO_SANTO_BR,Espirito Santo - BR
+ASIA,Asia,CN,China,HEILONGJIANG_CN,Heilongjiang - CN
+SOUTH_AMERICA,South America,BR,Brazil,BAHIA_BR,Bahia - BR
+ASIA,Asia,ID,Indonesia,EAST_JAVA_ID,East Java - ID
+ASIA,Asia,CN,China,SHANXI_CN,Shanxi - CN
+AFRICA,Africa,CM,Cameroon,CENTRE_CM,Centre - CM
+NORTH_AMERICA,North America,MX,Mexico,COAHUILA_MX,Coahuila - MX
+NORTH_AMERICA,North America,US,United States,WASHINGTON_US,Washington - US
+SOUTH_AMERICA,South America,CO,Colombia,SANTANDER_CO,Santander - CO
+ASIA,Asia,CN,China,GUIZHOOU_CN,Guizhoou - CN
+ASIA,Asia,AM,Armenia,YEREVAN_AM,Yerevan - AM
+SOUTH_AMERICA,South America,CO,Colombia,CARIBBEAN_CO,Caribbean - CO
+ASIA,Asia,ID,Indonesia,SOUTH_SUMATRA_ID,South Sumatra - ID
+SOUTH_AMERICA,South America,EC,Ecuador,PICHINCHA_EC,Pichincha - EC
+ASIA,Asia,KZ,Kazakhstan,ALMATY_KZ,Almaty - KZ
+AFRICA,Africa,EG,Egypt,CAIRO_EG,Cairo - EG
+ASIA,Asia,CN,China,GIUZHOU_CN,Giuzhou - CN
+ASIA,Asia,TH,Thailand,BANGKOK_TH,Bangkok - TH
+AFRICA,Africa,NG,Nigeria,KADUNA_NG,Kaduna - NG
+ASIA,Asia,CN,China,ANHUI_CN,Anhui - CN
+OCEANIA,Oceania,NZ,New Zealand,NORTH_ISLAND_NZ,North Island - NZ
+ASIA,Asia,IN,India,BIHAR_IN,Bihar - IN
+ASIA,Asia,IN,India,UTTAR_PRADESH_IN,Uttar Pradesh - IN
+ASIA,Asia,RU,Russian Federation,(S/P)_RU,RUSSIAN_FEDERATION (S/P) - RU
+AFRICA,Africa,ET,Ethiopia,ADDIS_ABABA_ET,Addis Ababa - ET
+ASIA,Asia,ID,Indonesia,SOUTH_SULAWESI_ID,South Sulawesi - ID
+ASIA,Asia,CN,China,SHANDONG_CN,Shandong - CN
+ASIA,Asia,IN,India,KERALA_IN,Kerala - IN
+ASIA,Asia,JP,Japan,HOKKAIDO_JP,Hokkaido - JP
+NORTH_AMERICA,North America,US,United States,MASSACHUSETTS_US,Massachusetts - US
+ASIA,Asia,CN,China,HENAN_CN,Henan - CN
+NORTH_AMERICA,North America,US,United States,MICHIGAN_US,Michigan - US
+NORTH_AMERICA,North America,US,United States,GEORGIA_US,Georgia - US
+AFRICA,Africa,NG,Nigeria,KANO_NG,Kano - NG
+NORTH_AMERICA,North America,US,United States,FLORIDA_US,Florida - US
+SOUTH_AMERICA,South America,BR,Brazil,AMAZONAS_BR,Amazonas - BR
+ASIA,Asia,CN,China,ZHEJIANG_CN,Zhejiang - CN
+SOUTH_AMERICA,South America,BR,Brazil,SERGIPE_BR,Sergipe - BR
+ASIA,Asia,ID,Indonesia,WEST_JAVA_ID,West Java - ID
+SOUTH_AMERICA,South America,PY,Paraguay,GRAN_ASUNCION_PY,Gran Asuncion - PY
+SOUTH_AMERICA,South America,BR,Brazil,PARANA_BR,Parana - BR
+SOUTH_AMERICA,South America,CL,Chile,SANTIAGO_CL,Santiago - CL
+ASIA,Asia,UA,Ukraine,KHARKIV_UA,Kharkiv - UA
+ASIA,Asia,BD,Bangladesh,CHITTAGONG_BD,Chittagong - BD
+ASIA,Asia,CN,China,HONG_KONG_SAR_CN,Hong Kong SAR - CN
+ASIA,Asia,CN,China,YUNNAN_CN,Yunnan - CN
+ASIA,Asia,CN,China,JIANGSU_CN,Jiangsu - CN
+SOUTH_AMERICA,South America,VE,Venezuela,ZULIA_VE,Zulia - VE
+ASIA,Asia,CN,China,JIANGXI_CN,Jiangxi - CN
+EUROPE,Europe,AT,Austria,(S/P)_AT,AUSTRIA (S/P) - AT
+ASIA,Asia,CN,China,SHANGHAI_CN,Shanghai - CN
+EUROPE,Europe,FI,Finland,(S/P)_FI,FINLAND (S/P) - FI
+ASIA,Asia,IN,India,JHARKHAND_IN,Jharkhand - IN
+ASIA,Asia,PK,Pakistan,PUNJAB_PK,Punjab - PK
+ASIA,Asia,SA,Saudi Arabia,WESTERN_SA,Western - SA
+ASIA,Asia,CN,China,BEIJING_CN,Beijing - CN
+ASIA,Asia,TR,Turkey,IZMIR_TR,Izmir - TR
+NORTH_AMERICA,North America,US,United States,TEXAS_US,Texas - US
+AFRICA,Africa,KE,Kenya,NAIROBI_KE,Nairobi - KE
+SOUTH_AMERICA,South America,BR,Brazil,CEARA_BR,Ceara - BR
+ASIA,Asia,SG,Singapore,SINGAPORE_SG,Singapore - SG
+ASIA,Asia,IN,India,WEST_BENGAL_IN,West Bengal - IN
+NORTH_AMERICA,North America,MX,Mexico,BAJA_CALIFORNIA_MX,Baja California - MX
+NORTH_AMERICA,North America,MX,Mexico,JALISCO_MX,Jalisco - MX
+ASIA,Asia,IN,India,MADHYA_PRADESH_IN,Madhya Pradesh - IN
+ASIA,Asia,CN,China,HEBEI_CN,Hebei - CN
+SOUTH_AMERICA,South America,PE,Peru,LIMA_PE,Lima - PE
+SOUTH_AMERICA,South America,CO,Colombia,VALLE_DEL_CAUCA_CO,Valle Del Cauca - CO
+ASIA,Asia,CN,China,TIANJIN_CN,Tianjin - CN
+ASIA,Asia,JP,Japan,OKASKA_JP,Okaska - JP
+AFRICA,Africa,MG,Madagascar,ANTANANARIVO_MG,Antananarivo - MG
+ASIA,Asia,JP,Japan,FUKUOKA_JP,Fukuoka - JP
+AFRICA,Africa,SO,Somalia,MOGADISHU_SO,Mogadishu - SO
+NORTH_AMERICA,North America,US,United States,CALIFORNIA_US,California - US
+AFRICA,Africa,NG,Nigeria,LAGOS_NG,Lagos - NG
+SOUTH_AMERICA,South America,EC,Ecuador,GUAYAS_EC,Guayas - EC
+SOUTH_AMERICA,South America,BR,Brazil,SAO_PAULO_BR,Sao Paulo - BR
+SOUTH_AMERICA,South America,VE,Venezuela,ARAGUA_VE,Aragua - VE
+ASIA,Asia,AF,Afghanistan,KABUL_AF,Kabul - AF
+ASIA,Asia,BD,Bangladesh,KHULNA_BD,Khulna - BD
+SOUTH_AMERICA,South America,BR,Brazil,CAMPINAS_BR,Campinas - BR
+SOUTH_AMERICA,South America,BR,Brazil,RIO_GRA_DO_SUL_BR,Rio Gra Do Sul - BR
+NORTH_AMERICA,North America,CA,Canada,ALBERTA_CA,Alberta - CA
+SOUTH_AMERICA,South America,SV,El Salvador,SAN_SALVADOR_SV,San Salvador - SV
+AFRICA,Africa,CM,Cameroon,LITTORAL_CM,Littoral - CM
+ASIA,Asia,KR,South Korea,PUSAN_KR,Pusan - KR
+AFRICA,Africa,GH,Ghana,GREATER_ACCRA_GH,Greater Accra - GH
+ASIA,Asia,CN,China,FUJIAN_CN,Fujian - CN
+ASIA,Asia,IN,India,ANDHRA_PRADESH_IN,Andhra Pradesh - IN
+SOUTH_AMERICA,South America,BR,Brazil,ALAGOAS_BR,Alagoas - BR
+NORTH_AMERICA,North America,US,United States,NEW_YORK_US,New York - US
+ASIA,Asia,IN,India,MAHARASHTRA_IN,Maharashtra - IN
+ASIA,Asia,CN,China,GUANGXI_ZHUANG_CN,Guangxi Zhuang - CN
+ASIA,Asia,IN,India,DELHI_IN,Delhi - IN
+EUROPE,Europe,GR,Greece,(S/P)_GR,GREECE (S/P) - GR
+ASIA,Asia,ID,Indonesia,GREAT_JAKARTA_ID,Great Jakarta - ID
+NORTH_AMERICA,North America,US,United States,RHODE_ISLAND_US,Rhode Island - US
+NORTH_AMERICA,North America,MX,Mexico,NEUVO_LEON_MX,Neuvo Leon - MX
+AFRICA,Africa,CD,Congo,KINSHASA_CD,Kinshasa - CD
+ASIA,Asia,CN,China,HUNAN_CN,Hunan - CN
+NORTH_AMERICA,North America,US,United States,OHIO_US,Ohio - US
+ASIA,Asia,MY,Malaysia,KUALA_LUMPUR_MY,Kuala Lumpur - MY
+EUROPE,Europe,HU,Hungary,(S/P)_HU,HUNGARY (S/P) - HU
+NORTH_AMERICA,North America,US,United States,NEVADA_US,Nevada - US
+ASIA,Asia,IN,India,PUNJAB_IN,Punjab - IN
+NORTH_AMERICA,North America,US,United States,MISSOURI_US,Missouri - US
+ASIA,Asia,CN,China,CHONGQING_CN,Chongqing - CN
+ASIA,Asia,ID,Indonesia,NORTH_SUMATRA_ID,North Sumatra - ID
+EUROPE,Europe,CS,Serbia,BELGRADE_CS,Belgrade - CS
+NORTH_AMERICA,North America,US,United States,TENNESSEE_US,Tennessee - US
+ASIA,Asia,PK,Pakistan,SINDH_PK,Sindh - PK
+AFRICA,Africa,CD,Congo,BRAZZAVILLE_CG,Brazzaville - CD
+SOUTH_AMERICA,South America,AR,Argentina,BUENOS_AIRES_AR,Buenos Aires - AR
+ASIA,Asia,IN,India,JAMMU_IN,Jammu - IN
+ASIA,Asia,CN,China,LIAOYANG_CN,Liaoyang - CN
+ASIA,Asia,JP,Japan,TOKYO_JP,Tokyo - JP
+ASIA,Asia,IN,India,RAJASTHAN_IN,Rajasthan - IN
+ASIA,Asia,JO,Jordan,CAPITAL_GOVERNORATE_JO,Capital Governorate - JO
+ASIA,Asia,CN,China,INNER_MONGOLIA_CN,Inner Mongolia - CN
+NORTH_AMERICA,North America,CA,Canada,QUEBEC_CA,Quebec - CA
+SOUTH_AMERICA,South America,HN,Honduras,DISTRITO_CENTRAL_HN,Distrito Central - HN
+NORTH_AMERICA,North America,US,United States,VIRGINIA_US,Virginia - US
+ASIA,Asia,UZ,Uzbekistan,TASHKENT_UZ,Tashkent - UZ
+ASIA,Asia,CN,China,SICHUAN_CN,Sichuan - CN
+ASIA,Asia,JP,Japan,KYOTO_JP,Kyoto - JP
+AFRICA,Africa,AO,Angola,LUANDA_AO,Luanda - AO
+ASIA,Asia,CN,China,GANSU_CN,Gansu - CN
+ASIA,Asia,CN,China,HUBEI_CN,Hubei - CN
+SOUTH_AMERICA,South America,UY,Uruguay,MONTEVIDEO_UY,Montevideo - UY
+SOUTH_AMERICA,South America,BR,Brazil,RIO_DE_JANEIRO_BR,Rio de Janeiro - BR
+SOUTH_AMERICA,South America,BR,Brazil,PARA_BR,Para - BR
+EUROPE,Europe,PT,Portugal,(S/P)_PT,PORTUGAL (S/P) - PT
+EUROPE,Europe,FR,France,(S/P)_FR,FRANCE (S/P) - FR
+NORTH_AMERICA,North America,US,United States,PENNSYLVANIA_US,Pennsylvania - US
+ASIA,Asia,CN,China,JILIN_CN,Jilin - CN
+SOUTH_AMERICA,South America,BR,Brazil,DISTRITO_FEDERAL_BR,Distrito Federal - BR
+AFRICA,Africa,ML,Mali,BAMAKO_ML,Bamako - ML
+ASIA,Asia,PK,Pakistan,NORTHWEST_FRONTIER_PK,North-West Frontier - PK
+EUROPE,Europe,DE,Germany,(S/P)_DE,GERMANY (S/P) - DE
+ASIA,Asia,CN,China,GUANGDONG_CN,Guangdong - CN
+SOUTH_AMERICA,South America,CO,Colombia,ANTIOQUIA_CO,Antioquia - CO
+NORTH_AMERICA,North America,US,United States,ILLINOIS_US,Illinois - US
+NORTH_AMERICA,North America,CU,Cuba,CIUDAD_DE_LA_HABANA_CU,Ciudad de La Habana - CU
+AFRICA,Africa,CD,Congo,KATANGA_CD,Katanga - CD
+EUROPE,Europe,GB,United Kingdom,(S/P)_GB,UNITED_KINGDOM (S/P) - GB
+ASIA,Asia,CN,China,GUANGXI_CN,Guangxi - CN
+AFRICA,Africa,NG,Nigeria,OYO_NG,Oyo - NG
+SOUTH_AMERICA,South America,AR,Argentina,SANTA_FE_AR,Santa Fe - AR
+NORTH_AMERICA,North America,MX,Mexico,GUANAJUATO_MX,Guanajuato - MX
+SOUTH_AMERICA,South America,BR,Brazil,MINAS_GERAIS_BR,Minas Gerais - BR
+AFRICA,Africa,SN,Senegal,DAKAR_SN,Dakar - SN
+SOUTH_AMERICA,South America,CO,Colombia,DISTRITO_CAPITAL_CO,Distrito Capital - CO
+ASIA,Asia,IL,Israel,TEL_AVIV_IL,Tel Aviv - IL
+SOUTH_AMERICA,South America,AR,Argentina,CORDOBA_AR,Cordoba - AR
+NORTH_AMERICA,North America,MX,Mexico,CHIHUAHUA_MX,Chihuahua - MX
+NORTH_AMERICA,North America,MX,Mexico,PUEBLA_MX,Puebla - MX
+ASIA,Asia,BY,Belarus,MINSK_BY,Minsk - BY
+EUROPE,Europe,RO,Romania,(S/P)_RO,ROMANIA (S/P) - RO
+ASIA,Asia,CN,China,XINJIANG_UYGUR_CN,Xinjiang Uygur - CN
+NORTH_AMERICA,North America,MX,Mexico,MEXICO_MX,Mexico - MX
+ASIA,Asia,IN,India,TAMIL_NADU_IN,Tamil Nadu - IN

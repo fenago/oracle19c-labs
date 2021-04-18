@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <!-- Part number: E92484-01 -->
+    <!-- Published date: December 2017 -->
+    <!-- See this link for directions on getting a part number: https://confluence.oraclecorp.com/confluence/display/DLPP/Archive+an+OBE -->
+    <!-- Template date: 10/18/17 -->
+    <title>Cloning Active PDBs Using RMAN DUPLICATE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <meta name="description" content="Learn how to clone a PDB into an existing
+                opened read/write CDB using the RMAN DUPLICATE command.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/obe-lite.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="js/jquery.tocify.jd.js"></script>
+    <script src="js/leftnav.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="w1024" style="min-height:55px; display:block;"> <a href="https://docs.oracle.com"
+          class="oracle-logo"> <img src="./img/oracle_doc_logo.png" alt="Oracle Documentation"
+            style="max-width: none;" height="22" width="236"></a> </div>
+    </header>
+    <!--end header-->
+    <div id="content">
+      <h1><img src="./img/obe_tag.png" alt="Oracle by Example branding" align="middle">Cloning
+        Active PDBs Using RMAN DUPLICATE</h1>
+      <div class="w1024" style="clear:both; position:relative; margin-top:40px;">
+        <div class="navbackwide border-right"><!-- --></div>
+        <div id="shownav" title="Show Navigation" tabindex="0"><span class="fa fa-list"></span></div>
+        <div id="sidebar"><!-- -->
+          <div class="left-nav-tut"><!-- -->
+            <div id="hidenavw" title="Hide Navigation" tabindex="0"><span class="fa fa-close"></span></div>
+            <div id="navbar" class="left-nav-w"><!-- -->
+              <div id="toc" class="tocify"><!-- --></div>
+            </div>
+          </div>
+        </div>
+        <div id="bookContainer">
+          <article>
+            <section>
+              <h2><img src="./img/32_begin.png" alt="section 0" class="num_circ"
+                  height="32" width="32">Before You Begin</h2>
+              <p>This 15-minute tutorial shows how to clone a pluggable database
+                (PDB) into an existing opened read/write container database
+                (CDB) using the Recovery Manager (RMAN) <code> DUPLICATE </code>
+                command without the use of a fresh auxiliary instance.</p>
+              <h3>Background</h3>
+              <p> In Oracle Database 12c, the PDB duplication uses a fresh
+                auxiliary instance. </p>
+              <p>Oracle Database 18c dispenses from the use of a fresh auxiliary
+                instance.</p>
+              <h3>What Do You Need?</h3>
+              <ul>
+                <li>Familiarity with PDB duplication</li>
+                <li>Oracle Database 18c installed</li>
+                <ul>
+                </ul>
+                <li>One CDB as the source (this is the <code> TARGET </code>
+                  in <code> DUPLICATE </code> command)</li>
+                <li>One PDB in the source CDB</li>
+                <li>One CDB as the auxiliary (this is the destination for the
+                  cloned PDB)</li>
+              </ul>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_1" role="button" style="text-align: left;"><img src="./img/32_1.png"
+                  alt="section 1" class="num_circ" height="32" width="32">Duplicate
+                a PDB into Another CDB</h2>
+              <p>In this section, you want to duplicate the active <code> PDB1
+                </code> from <code> ORCL </code> into <code> cdb1. </code> </p>
+              <ol>
+                <li> Log into <code> ORCL </code> to verify the existence of <code>
+                    PDB1 </code> in <code> ORCL. </code>
+                  <pre><code>sqlplus sys@ORCL AS SYSDBA<br>Enter password: <em>password</em></code></pre>
+                </li>
+                <li>Verify the existence of <code> PDB1. </code>
+                  <pre><code>SHOW PDBS<br>    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO
+         4 PDB1                           READ WRITE NO<br></code></pre>
+                </li>
+                <li>To check the content of <code> HR.REGIONS </code> table in
+                  <code> PDB1, </code> first connect to <code> PDB1. </code>
+                  <br>
+                  <pre><code>CONNECT hr@PDB1 <br>Enter password: <em>password</em></code></pre>
+                </li>
+                <li>Display the content of <code> HR.REGIONS </code> table.
+                  <pre><code>SELECT * FROM hr.regions;<br><br> REGION_ID REGION_NAME
+---------- -------------------------
+         1 Europe
+         2 Americas
+         3 Asia
+         4 Middle East and Africa</code></pre>
+                </li>
+                <li>Connect to <code> PDB1 </code> to verify that there is no
+                  <code> PDB1 </code> in <code> cdb1. </code>
+                  <pre><code>CONNECT sys@cdb1 AS SYSDBA<br>Enter password: <em> password </em> </code></pre>
+                </li>
+                <li>Verify that there is no <code> PDB1 </code> in <code>
+                    cdb1. </code>
+                  <pre><code>SHOW PDBS<br>    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO</code></pre>
+                </li>
+                <li>Set the initialization parameter <code>
+                    REMOTE_RECOVERY_FILE_DEST </code> to restore foreign
+                  archive log.
+                  <pre><code>ALTER SYSTEM SET REMOTE_RECOVERY_FILE_DEST='/home/oracle/labs' SCOPE=BOTH;</code></pre>
+                </li>
+                <li>Quit the session.<br>
+                  <pre><code>EXIT</code></pre>
+                </li>
+                <li>Open an RMAN session.<br>
+                  <pre><code>rman</code></pre>
+                </li>
+                <li>Connect to the source <code> ORCL </code> CDB.<br>
+                  <pre><code>CONNECT TARGET "sys@ORCL AS SYSDBA"
+
+target database Password: <em>password </em> <br>connected to target database: ORCL (DBID=1490974532)
+</code></pre></li>
+                <li>Connect to the auxiliary <code> cdb1 </code> CDB.<br>
+                  <pre><code>CONNECT AUXILIARY "sys@cdb1 AS SYSDBA"
+
+auxiliary database Password: <em>password </em><br>connected to auxiliary database: CDB1 (DBID=936911243)
+</code></pre></li>
+                <li>Duplicate <code> PDB_ORCL </code> into <code> cdb1. </code>
+                  <pre><code>DUPLICATE PLUGGABLE DATABASE pdb1 FROM ACTIVE DATABASE
+          DB_FILE_NAME_CONVERT ('ORCL', 'cdb1');</code></pre>
+                </li>
+                <li> Read the progress of the duplicate operation from <a href="files/code1.txt"
+                    target="_blank">code1</a>. If the error occurs, recreate the
+                  password file of one of the CDBs so that the password of SYS
+                  user matches the password of SYS user of the other CDB.<br>
+                  <pre><code>cd $ORACLE_HOME/dbs<br>orapwd file=orapwcdb1 entries=5 force=Y
+Enter password for SYS: <em>password </em><br></code></pre>
+                </li>
+                <li>Quit the session.
+                  <pre><code>EXIT</code></pre>
+                </li>
+                <li>Start a new rman session to launch the <code> DUPLICATE </code>
+                  command.
+                  <pre><code>rman</code></pre>
+                </li>
+                <li>Connect to the source <code> ORCL </code> CDB.<br>
+                  <pre><code>CONNECT TARGET "sys@ORCL AS SYSDBA"
+
+target database Password: <em>password </em> <br>connected to target database: ORCL (DBID=1490974532)
+</code></pre></li>
+                <li>Connect to the auxiliary <code> cdb1 </code> CDB.<br>
+                  <pre><code>CONNECT AUXILIARY "sys@cdb1 AS SYSDBA"
+
+auxiliary database Password: <em>password </em><br>connected to auxiliary database: CDB1 (DBID=936911243)
+</code></pre></li>
+                <li>Launch the <code> DUPLICATE </code> command.
+                  <pre><code>DUPLICATE PLUGGABLE DATABASE pdb1 FROM ACTIVE DATABASE
+          DB_FILE_NAME_CONVERT ('ORCL', 'cdb1');</code></pre>
+                </li>
+                <li> Read the progress of the duplicate operation from <a href="files/code2.txt"
+                    target="_blank">code2</a>. Observe that the initialization
+                  parameter <code> REMOTE_RECOVERY_FILE_DEST </code> was used
+                  to restore foreign archive log.</li>
+                <li>Quit the session.
+                  <pre><code>EXIT</code></pre>
+                </li>
+                <li>Log in to <code> PDB1 </code> to verify that <code> PDB1
+                  </code> is duplicated into <code> cdb1. </code>
+                  <pre><code>sqlplus sys@cdb1 AS SYSDBA <br>Enter password: <em>password</em></code></pre>
+                </li>
+                <li>Verify that <code> PDB1 </code> is duplicated into <code>
+                    cdb1. </code>
+                  <pre><code>SHOW PDBS <br>    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO
+         3 PDB1                           READ WRITE NO
+</code></pre> It is not easy nor recommended to handle two PDBs with the same
+                  name in two different CDBs. Go to the next section to see how
+                  to duplicate a PDB under another name.</li>
+                <li>Set your session to <code> PDB1 </code> to check the
+                  content of <code> HR.REGIONS </code> table in <code> PDB1 </code>
+                  in <code> cdb1. </code>
+                  <pre><code>ALTER SESSION SET CONTAINER = PDB1;</code></pre>
+                </li>
+                <li>Check the content of <code> HR.REGIONS </code> table in <code>
+                    PDB1 </code> in <code> cdb1. </code>
+                  <pre><code>SELECT * FROM hr.regions;<br><br> REGION_ID REGION_NAME
+---------- -------------------------
+         1 Europe
+         2 Americas
+         3 Asia
+         4 Middle East and Africa</code></pre>
+                </li>
+                <li>To drop the duplicated PDB from <code> cdb1, </code> first
+                  set your session to the CDB root.
+                  <pre><code>ALTER SESSION SET CONTAINER = CDB$ROOT;</code></pre>
+                </li>
+                <li>Close the PDB before dropping it.
+                  <pre><code>ALTER PLUGGABLE DATABASE pdb1 CLOSE;</code></pre>
+                </li>
+                <li>Drop the duplicated PDB from <code> cdb1. </code>
+                  <pre><code>DROP PLUGGABLE DATABASE pdb1 INCLUDING DATAFILES;</code></pre>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_2" role="button" style="text-align: left;"><img src="./img/32_2.png"
+                  alt="section 2" class="num_circ" height="32" width="32">Duplicate
+                a PDB into Another CDB under Another PDB Name</h2>
+              <p>In this section, you want to duplicate the active <code>PDB1</code>
+                from <code> ORCL </code> into <code> cdb1 </code> as <code>
+                  PDB1_IN_CDB1. </code></p>
+              <ol>
+                <li>Verify that there is no <code> PDB1_IN_CDB1</code> in <code>
+                    cdb1. </code> If there is <code> PDB1_IN_CDB1, </code>
+                  then drop the PDB. First connect to the CDB root.
+                  <pre><code>CONNECT sys@cdb1 AS SYSDBA</code> <br>Enter password: <em>password</em></pre>
+                </li>
+                <li>Verify that there is no <code> PDB1_IN_CDB1</code> in <code>
+                    cdb1.</code>
+                  <pre><code>SHOW PDBS <br>    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO                   </code></pre>
+                </li>
+                <li>Open an RMAN session.<br>
+                  <pre><code>rman</code></pre>
+                </li>
+                <li>Connect to the source <code> ORCL </code> CDB.<br>
+                  <pre><code>CONNECT TARGET "sys@ORCL AS SYSDBA"
+
+target database Password: <em>password</em>
+connected to target database: ORCL (DBID=1490974532)
+</code></pre></li>
+                <li>Connect to the auxiliary <code> cdb1 </code> CDB.<br>
+                  <pre><code>CONNECT AUXILIARY "sys@cdb1 AS SYSDBA"
+
+auxiliary database Password: <em>password</em>
+connected to auxiliary database: CDB1 (DBID=936911243)
+</code></pre></li>
+                <li>Duplicate <code> PDB1 </code> into <code> cdb1 </code>
+                  as <code> PDB1_IN_CDB1. </code>
+                  <pre><code>DUPLICATE PLUGGABLE DATABASE pdb1 AS pdb1_in_cdb1 
+          FROM ACTIVE DATABASE
+          DB_FILE_NAME_CONVERT ('ORCL', 'cdb1');</code></pre>
+                </li>
+                <li> Read the progress of the duplicate operation from <a href="files/code3.txt"
+                    target="_blank">code3</a>. Observe that the initialization
+                  parameter <code>REMOTE_RECOVERY_FILE_DEST</code> was used to
+                  restore foreign archive log. </li>
+                <li> Quit the session.
+                  <pre><code>EXIT</code></pre>
+                </li>
+                <li>Log in to <code> cdb1 </code> to verify that <code> PDB1
+                  </code> is duplicated as <code> PDB1_IN_CDB1 </code> into <code>
+                    cdb1.</code>
+                  <pre><code>sqlplus sys@cdb1 AS SYSDBA<br>Enter password: <em>password</em></code></pre>
+                </li>
+                <li>Verify that <code> PDB1 </code> is duplicated as <code>
+                    PDB1_IN_CDB1 </code> into <code> cdb1.</code>
+                  <pre><code>SHOW PDBS <br>    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO
+         3 PDB1_IN_CDB1                   READ WRITE NO<br></code></pre>
+                </li>
+                <li>Set your session to <code> PDB1_IN_CDB1 </code> to check
+                  the content of <code> HR.REGIONS </code> table in <code>
+                    PDB1_IN_CDB1 </code> in <code> cdb1.</code> <br>
+                  <pre><code>ALTER SESSION SET CONTAINER = pdb1_in_cdb1;</code></pre>
+                </li>
+                <li>Check the content of <code> HR.REGIONS </code> table in <code>
+                    PDB1_IN_CDB1 </code> in <code> cdb1.</code>
+                  <pre><code>SELECT * FROM hr.regions;
+
+ REGION_ID REGION_NAME
+---------- -------------------------
+         1 Europe
+         2 Americas
+         3 Asia
+         4 Middle East and Africa</code></pre>
+                </li>
+              </ol>
+            </section>
+          </article>
+        </div>
+        <br class="clearfloat">
+      </div>
+    </div>
+    <!--close main-->
+    <!--end content-->
+    <div class="footer-container ">
+      <div style="max-width: 994px; padding:10px 0 0 17px;">
+        <footer class="footer-list">
+          <ul>
+            <li> <a href="https://www.oracle.com/corporate/index.html" target="_blank">About
+                Oracle</a> </li>
+            <li> <a href="https://www.oracle.com/us/corporate/contact/index.html"
+                target="_blank">Contact Us</a> </li>
+            <li> <a href="https://www.oracle.com/us/legal/index.html" target="_blank">Legal
+                Notices</a> </li>
+            <li> <a href="https://www.oracle.com/us/legal/terms/index.html" target="_blank">Terms
+                of Use</a> </li>
+            <li> <a href="https://www.oracle.com/us/legal/privacy/index.html" target="_blank">Your
+                Privacy Rights</a> </li>
+            <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=cpyr&amp;id=en">Copyright
+                © 2017, 2018, Oracle and/or its affiliates. All rights reserved.</a></li>
+          </ul>
+        </footer>
+      </div>
+      <script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_docs.js"></script>
+    </div>
+  </body>
+</html>

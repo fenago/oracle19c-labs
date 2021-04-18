@@ -1,0 +1,8 @@
+    PDB_ID PDB_NAME STATUS  IS_PROXY_PDB
+---------- -------- ------- ------------
+         3 PDB_ORCL NORMAL  NO
+         2 PDB$SEED NORMAL  NO
+         4 cdb1     STUB    YES
+         5 PDB1     STUB    YES
+         7 cdb2     STUB    YES
+         8 PDB2     STUB    YES

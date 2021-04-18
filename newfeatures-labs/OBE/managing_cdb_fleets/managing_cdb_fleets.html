@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <!-- Part number: E92407-01 -->
+    <!-- Published date: December 2017 -->
+    <!-- See this link for directions on getting a part number: https://confluence.oraclecorp.com/confluence/display/DLPP/Archive+an+OBE -->
+    <!-- Template date: 10/18/17 -->
+    <title>Managing CDB Fleets</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <meta name="description" content="Learn how to create a CDB Fleet with its CDB lead and members and how to monitor CDBs and PDBs within a CDB Fleet.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/obe-lite.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="js/jquery.tocify.jd.js"></script>
+    <script src="js/leftnav.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="w1024" style="min-height:55px; display:block;"> <a href="https://docs.oracle.com"
+
+          class="oracle-logo"> <img src="./img/oracle_doc_logo.png" alt="Oracle Documentation"
+
+            style="max-width: none;" height="22" width="236"></a> </div>
+    </header>
+    <!--end header-->
+    <div id="content">
+      <h1><img src="./img/obe_tag.png" alt="Oracle by Example branding" align="middle">Managing
+        CDB Fleets</h1>
+      <div class="w1024" style="clear:both; position:relative; margin-top:40px;">
+        <div class="navbackwide border-right"><!-- --></div>
+        <div id="shownav" title="Show Navigation" tabindex="0"><span class="fa fa-list"></span></div>
+        <div id="sidebar"><!-- -->
+          <div class="left-nav-tut"><!-- -->
+            <div id="hidenavw" title="Hide Navigation" tabindex="0"><span class="fa fa-close"></span></div>
+            <div id="navbar" class="left-nav-w"><!-- -->
+              <div id="toc" class="tocify"><!-- --></div>
+            </div>
+          </div>
+        </div>
+        <div id="bookContainer">
+          <article>
+            <section>
+              <h2><img src="./img/32_begin.png" alt="section 0" class="num_circ"
+
+                  height="32" width="32">Before You Begin</h2>
+              <p><br>
+                This 15-minute tutorial shows you how to define a CDB as the CDB
+                lead within a CDB fleet and how to define other CDBs as members
+                of the CDB fleet. It also shows how to monitor CDBs and PDBs of
+                a CDB fleet.</p>
+              <h3>Background</h3>
+              <p> Oracle Database 18c introduces the CDB fleet concept, which is
+                a collection of different CDBs that can be managed as one
+                logical CDB to provide the underlying infrastructure for massive
+                scalability and centralized management of many CDBs.</p>
+              <p>This technique uses database properties setting and database
+                links.</p>
+              <h3>What Do You Need?</h3>
+              <ul>
+                <li>Oracle Database 18c installed</li>
+                <li>Three container databases (CDB) and a pluggable database
+                  (PDB) in two of the CDBs: <code> ORCL </code> CDB as the CDB
+                  lead, <code> cdb1 </code> and <code> cdb2 </code> as CDB
+                  members, <code> PDB1 </code> PDB in <code> cdb1 </code>
+                  CDB and <code> PDB2 </code> PDB in <code> cdb2 </code> CDB</li>
+              </ul>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_1" role="button" style="text-align: left;"><img src="./img/32_1.png"
+
+                  alt="section 1" class="num_circ" height="32" width="32">Set
+                the CDB Lead in the CDB Fleet</h2>
+              <ol>
+                <li>Log in to <code> ORCL </code> CDB as <code> SYS. </code>This
+                  session is called <span style="font-style: italic;">Session1</span>.
+                  <pre><code>export ORACLE_SID=<strong>ORCL</strong><br>sqlplus / AS SYSDBA</code></pre>
+                </li>
+                <li>Verify before setting <code> ORCL </code> as the CDB lead
+                  in the CDB fleet that the CDB is not already a CDB lead. <br>
+                  <pre><code>SELECT property_name, property_value FROM database_properties
+WHERE  property_name LIKE 'LEAD%';
+
+no rows selected<br></code></pre>
+                  There is another way to verify this.<br>
+                  <pre><code>SELECT sys_context('userenv', 'is_lead_cdb') LEAD_CDB FROM dual;
+ 
+LEAD_CDB
+--------------------------------------------------------------------
+<strong>NO</strong></code></pre>
+                </li>
+                <li>Set <code> ORCL </code> as the CDB lead in the CDB fleet.
+                  <pre><code>ALTER DATABASE SET LEAD_CDB = true;</code></pre>
+                </li>
+                <li>Verify that <code> ORCL </code> is the CDB lead in the CDB
+                  fleet.
+                  <pre><code>SELECT sys_context('userenv', 'is_lead_cdb') LEAD_CDB FROM dual;
+ 
+LEAD_CDB
+--------------------------------------------------------------------
+<strong>YES</strong></code></pre>
+                </li>
+                <li>View the same information of the lead role of the CDB in the
+                  alert log file.<br>
+                  <pre><code>$ tail /u01/app/oracle/diag/rdbms/orcl/ORCL/trace/a*
+...
+2017-12-12T03:37:33.595312+00:00
+ALTER DATABASE SET LEAD_CDB = true
+2017-12-12T03:37:33.595487+00:00
+<strong>The role of current CDB in the Fleet is: LEAD</strong>
+Completed: ALTER DATABASE SET LEAD_CDB = true<br></code></pre>
+                </li>
+                <li>Grant the appropriate privileges to the common user in the
+                  CDB lead that will be used for future CDB members to exchange
+                  with the CDB lead through database links.
+                  <pre><code>GRANT sysoper TO system CONTAINER=ALL;</code></pre>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_2" role="button" style="text-align: left;"><img src="./img/32_2.png"
+
+                  alt="section 2" class="num_circ" height="32" width="32">Define
+                CDBs as Members of the Fleet</h2>
+              <ol>
+                <li>In another terminal window, log in to <code> cdb1 </code>
+                  as <code> SYS. </code> This session is called <em>Session2</em>.
+                  <pre><code>export ORACLE_SID=<strong>cdb1</strong><br>sqlplus / AS SYSDBA</code></pre>
+                </li>
+                <li>Set <code> cdb1 </code> as a member of the fleet.
+                  <pre><code>SELECT sys_context('userenv', 'is_member_cdb') MEMBER_CDB FROM dual;
+  
+MEMBER_CDB
+------------
+<strong>NO</strong><br></code></pre>
+                </li>
+                <li>Use a common user in the CDB member identical to a common
+                  user in the CDB lead that will be used to create the fixed
+                  user database link.
+                  <pre><code>CREATE PUBLIC DATABASE LINK lorcl
+     CONNECT TO system IDENTIFIED BY <em>password</em>
+     USING 'ORCL';
+</code></pre></li>
+                <li>Set the CDB as a member of the fleet.
+                  <pre><code>ALTER DATABASE SET LEAD_CDB_URI = 'dblink:lorcl';
+</code></pre></li>
+                <li>Verify that <code> cdb1 </code> is a CDB member in the CDB
+                  fleet. <br>
+                  <pre><code>SELECT sys_context('userenv', 'is_member_cdb') MEMBER_CDB FROM dual;
+  
+MEMBER_CDB
+------------<strong>
+YES</strong></code></pre>
+                </li>
+                <li>View the same information of the member role of the CDB in
+                  the alert log file.<br>
+                  <pre><code>$ tail /u01/app/oracle/diag/rdbms/cdb1/cdb1/trace/a*
+...
+2017-12-12T04:15:00.352901+00:00
+ALTER DATABASE SET LEAD_CDB_URI = 'dblink:lorcl'
+2017-12-12T04:15:00.423278+00:00
+<strong>The role of current CDB in the Fleet is: MEMBER</strong>
+Completed: ALTER DATABASE SET LEAD_CDB_URI = 'dblink:lorcl'<em><br></em></code></pre>
+                </li>
+                <li>List the PDBs of the CDB member.
+                  <pre><code>SHOW PDBS
+
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO
+         3 PDB1                           READ WRITE NO</code></pre>
+                </li>
+                <li>In <em>Session1</em>, list all PDBs of all CDBs in the
+                  fleet.
+                  <pre><code>SHOW PDBS
+
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO
+         3 PDB_ORCL                       READ WRITE NO
+         5 PDB1                           MOUNTED        </code></pre>
+                  Why is the <code> OPEN_MODE </code> value of the <code>
+                    pdb1 </code> member <code> MOUNTED </code> in the CDB
+                  lead whereas it is <code> OPENED </code> in <code> cdb1? </code>
+                  Members can only be opened in the CDB where they physically
+                  exist.<br>
+                  <pre><code>SELECT pdb_id, pdb_name, status, is_proxy_pdb "IS_PROXY_PDB" FROM dba_pdbs;
+
+    PDB_ID PDB_NAME STATUS  IS_PROXY_PDB
+---------- -------- ------- ------------
+         3 PDB_ORCL NORMAL  NO
+         2 PDB$SEED NORMAL  NO
+         4 cdb1     <strong>STUB    </strong>YES
+         5 PDB1     <strong>STUB    </strong>YES
+</code></pre> The <code> STUB </code> value in the <code> STATUS </code>
+                  column defines the CDB and its PDBs as members in the
+                  fleet.&nbsp; After you configure the CDB fleet, PDB
+                  information from the various CDB members including the CDB
+                  member is synchronized with the lead CDB. All PDBs in the CDB
+                  members are now “visible” in the lead CDB, enabling you to
+                  access the PDBs in the fleet as a single, logical CDB from the
+                  lead CDB.</li>
+                <li>In another terminal window, log in to <code> cdb2 </code>
+                  as <code> SYS. </code>This session is called <em>Session3</em>,
+                  <pre><code>export ORACLE_SID=<strong>cdb2</strong><br>sqlplus / AS SYSDBA</code></pre>
+                </li>
+                <li>Repeat the steps 2 to 5 in order to set <code> cdb2 </code>
+                  as another member of the fleet. <br>
+                  <pre><code>SELECT sys_context('userenv', 'is_member_cdb') MEMBER_CDB FROM dual;
+  
+MEMBER_CDB
+------------
+<strong>NO</strong><br></code></pre>
+                </li>
+                <li>Use a common user in the CDB member identical to a common
+                  user in the CDB lead that will be used to create the fixed
+                  user database link.
+                  <pre><code>CREATE PUBLIC DATABASE LINK lorcl
+     CONNECT TO system IDENTIFIED BY <em>password</em>
+     USING '<strong>ORCL</strong>';
+</code></pre></li>
+                <li>Set the CDB as a member of the fleet.
+                  <pre><code><strong>ALTER DATABASE SET LEAD_CDB_URI = 'dblink:lorcl';</strong></code></pre>
+                </li>
+                <li>Verify that <code>cdb2 </code>is a CDB member in the CDB
+                  fleet. <br>
+                  <pre><code>SELECT sys_context('userenv', 'is_member_cdb') MEMBER_CDB FROM dual;
+  
+MEMBER_CDB
+------------<strong>
+YES</strong></code></pre>
+                </li>
+                <li>View the same information of the member role of the CDB in
+                  the alert log file.<br>
+                  <pre><code>$ tail /u01/app/oracle/diag/rdbms/cdb2/cdb2/trace/a*
+...
+2017-12-12T04:20:00.352901+00:00
+ALTER DATABASE SET LEAD_CDB_URI = 'dblink:lorcl'
+2017-12-12T04:20:00.423999+00:00
+<strong>The role of current CDB in the Fleet is: MEMBER</strong>
+Completed: ALTER DATABASE SET LEAD_CDB_URI = 'dblink:lorcl'<em><br></em></code></pre>
+                </li>
+                <li>List the PDBs of the CDB member.
+                  <pre><code>SHOW PDBS
+
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO
+         3 PDB2                           READ WRITE NO</code></pre>
+                </li>
+                <li>In <em>Session1</em>, check that PDB information from the
+                  CDB members is synchronized with the CDB lead. Read the list
+                  from <a href="files/code1.txt" target="_blank">code1</a>.<br>
+                  <pre><code>SELECT name, open_mode, member_cdb "MEMBER_CDB" FROM v$containers;
+</code></pre></li>
+                <li>Read the list from another view. See the result from <a href="files/code2.txt"
+
+                    target="_blank"> code2. </a>
+                  <pre><code>SELECT pdb_id, pdb_name, status, is_proxy_pdb "IS_PROXY_PDB" FROM dba_pdbs;</code></pre>
+                </li>
+                <li>Still in <em>Session1</em>, where you are connected as <code>
+                    SYS,</code> a cross-container query issued in the CDB lead
+                  automatically executes in all PDBs across the CDB fleet
+                  through Oracle-supplied objects like V$ and CDB views. For
+                  example, list all local users of all PDB members in the fleet.<br>
+                  <pre><code>SELECT username, CDB$NAME, CON$NAME FROM CONTAINERS(dba_users)
+WHERE  common = 'NO'
+GROUP  BY username, CDB$NAME, CON$NAME;
+   
+USERNAME                       CDB$NAME   CON$NAME
+------------------------------ ---------- ----------
+PDBADMIN                                  PDB1
+PDBADMIN                                  PDB2
+PDBADMIN                       ORCL       PDB_ORCL <br></code></pre>
+                </li>
+                <li>As another example, list all common users of all PDB members
+                  in the fleet. Read the result from <a href="files/code3.txt"
+
+                    target="_blank">code3</a>.<br>
+                  <pre><code>SELECT username, CDB$NAME, CON$NAME FROM CONTAINERS(dba_users)
+WHERE  common = 'YES'
+GROUP  BY username, CDB$NAME, CON$NAME;</code></pre>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_3" role="button" style="text-align: left;"><img src="./img/32_3.png"
+
+                  alt="section 3" class="num_circ" height="32" width="32">Unset
+                the CDB Lead</h2>
+              <ol>
+                <li>You decide to deactivate the CDB lead. In <em>Session1</em>,
+                  execute the following <code> ALTER DATABASE </code>
+                  statement.<br>
+                  <pre><code>ALTER DATABASE SET LEAD_CDB = false;
+</code></pre>Does it deactivate CDB members? No, it does not because the
+                  membership property is still maintained in CDB members. The
+                  CDB members can be reattached to the CDB lead <code> ORCL </code>
+                  once <code> ORCL </code> will have been reset as the lead of
+                  the fleet.</li>
+                <li> Verify in <em> Session2. </em>
+                  <pre><code>SELECT sys_context('userenv', 'is_member_cdb') MEMBER_CDB FROM dual;
+ 
+MEMBER_CDB
+------------
+<strong>YES<br></strong></code></pre>
+                </li>
+                <li>In <em> Session1, </em> reset the CDB lead.
+                  <pre><code>ALTER DATABASE SET LEAD_CDB = true;
+</code></pre></li>
+                <li>Observe that the members of the fleet reappear in the list
+                  of monitored PDBs once they get re-registered to the lead.
+                  <pre><code>SELECT pdb_id, pdb_name, status, is_proxy_pdb "IS_PROXY_PDB" FROM dba_pdbs;
+
+    PDB_ID PDB_NAME STATUS  IS_PROXY_PDB
+---------- -------- ------- ------------
+         3 PDB_ORCL NORMAL  NO
+         2 PDB$SEED NORMAL  NO
+</code></pre></li>
+                <li> Repeat the query to see the CDB members reattaching.
+                  <pre><code>SELECT pdb_id, pdb_name, status, is_proxy_pdb "IS_PROXY_PDB" FROM dba_pdbs;
+
+    PDB_ID PDB_NAME STATUS  IS_PROXY_PDB
+---------- -------- ------- ------------
+         3 PDB_ORCL NORMAL  NO
+         2 PDB$SEED NORMAL  NO
+         4 cdb1     STUB    YES
+         5 PDB1     STUB    YES
+</code></pre></li>
+                <li> Repeat the query to see the CDB members reattaching.
+                  <pre><code>SELECT pdb_id, pdb_name, status, is_proxy_pdb "IS_PROXY_PDB" FROM dba_pdbs;
+
+    PDB_ID PDB_NAME STATUS  IS_PROXY_PDB
+---------- -------- ------- ------------
+         3 PDB_ORCL NORMAL  NO
+         2 PDB$SEED NORMAL  NO
+         4 cdb1     STUB    YES
+         5 PDB1     STUB    YES
+         6 cdb2     STUB    YES
+         7 PDB2     STUB    YES</code></pre>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_4" role="button" style="text-align: left;"><img src="./img/32_4.png"
+
+                  alt="section 4" class="num_circ" height="32" width="32">Unset
+                a CDB Member</h2>
+              <ol>
+                <li>You decide to release the membership of <code> cdb1 </code>
+                  from the fleet. You may prefer to associate it to another
+                  fleet. Go to <em> Session2. </em>
+                  <pre><code>ALTER DATABASE SET LEAD_CDB_URI = '';</code></pre>
+                </li>
+                <li>In <em> Session1, </em> check that the CDB lead does not
+                  monitor it anymore.
+                  <pre><code>SELECT pdb_id, pdb_name, status, is_proxy_pdb "IS_PROXY_PDB" FROM dba_pdbs;
+
+    PDB_ID PDB_NAME STATUS  IS_PROXY_PDB
+---------- -------- ------- ------------
+         3 PDB_ORCL NORMAL  NO
+         2 PDB$SEED NORMAL  NO
+         6 cdb2     STUB    YES
+         7 PDB2     STUB    YES</code></pre>
+                </li>
+              </ol>
+            </section>
+          </article>
+          <code> </code></div>
+        <code> <br class="clearfloat">
+        </code></div>
+      <code> </code></div>
+    <code>
+      <!--close main-->
+      <!--end content-->
+      <div class="footer-container ">
+        <div style="max-width: 994px; padding:10px 0 0 17px;">
+          <footer class="footer-list">
+            <ul>
+              <li> <a href="https://www.oracle.com/corporate/index.html" target="_blank">About
+                  Oracle</a> </li>
+              <li> <a href="https://www.oracle.com/us/corporate/contact/index.html"
+
+                  target="_blank">Contact Us</a> </li>
+              <li> <a href="https://www.oracle.com/us/legal/index.html" target="_blank">Legal
+                  Notices</a> </li>
+              <li> <a href="https://www.oracle.com/us/legal/terms/index.html" target="_blank">Terms
+                  of Use</a> </li>
+              <li> <a href="https://www.oracle.com/us/legal/privacy/index.html"
+
+                  target="_blank">Your Privacy Rights</a> </li>
+              <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=cpyr&amp;id=en">Copyright
+                  © 2017, 2018, Oracle and/or its affiliates. All rights
+                  reserved.</a></li>
+            </ul>
+          </footer>
+        </div>
+        <script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_docs.js"></script>
+      </div>
+    </code>
+  </body>
+</html>

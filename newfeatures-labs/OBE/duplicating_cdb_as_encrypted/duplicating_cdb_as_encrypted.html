@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <!-- Part number: E92485-01 -->
+    <!-- Published date: December 2017 -->
+    <!-- See this link for directions on getting a part number: https://confluence.oraclecorp.com/confluence/display/DLPP/Archive+an+OBE -->
+    <!-- Template date: 10/18/17 -->
+    <title>Duplicating a CDB as an Encrypted CDB</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <meta name="description" content="Learn how to duplicate a container database (CDB) with encrypted tablespaces to be compatible on Cloud.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/obe-lite.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="js/jquery.tocify.jd.js"></script>
+    <script src="js/leftnav.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="w1024" style="min-height:55px; display:block;"> <a href="https://docs.oracle.com"
+          class="oracle-logo"> <img src="./img/oracle_doc_logo.png" alt="Oracle Documentation"
+            style="max-width: none;" height="22" width="236"></a> </div>
+    </header>
+    <!--end header-->
+    <div id="content">
+      <h1><img src="./img/obe_tag.png" alt="Oracle by Example branding" align="middle">Duplicating
+        a CDB as an Encrypted CDB</h1>
+      <div class="w1024" style="clear:both; position:relative; margin-top:40px;">
+        <div class="navbackwide border-right"><!-- --></div>
+        <div id="shownav" title="Show Navigation" tabindex="0"><span class="fa fa-list"></span></div>
+        <div id="sidebar"><!-- -->
+          <div class="left-nav-tut"><!-- -->
+            <div id="hidenavw" title="Hide Navigation" tabindex="0"><span class="fa fa-close"></span></div>
+            <div id="navbar" class="left-nav-w"><!-- -->
+              <div id="toc" class="tocify"><!-- --></div>
+            </div>
+          </div>
+        </div>
+        <div id="bookContainer"> <br>
+          <article>
+            <section>
+              <h2><img src="./img/32_begin.png" alt="section 0" class="num_circ"
+                  height="32" width="32">Before You Begin</h2>
+              <p><br>
+                This 15-minute tutorial show how to duplicate a container
+                database (CDB) with encrypted tablespaces to be compatible on
+                Cloud. Duplication as encrypted or decrypted aids with the
+                transition from on-premise to Cloud and vice-versa.<br>
+                This is important to know that any user-defined tablespace in a
+                Cloud CDB is encrypted. So, if you decided to migrate an
+                on-premise CDBs to the Cloud, the tablespaces are encrypted.</p>
+              <h3>Background</h3>
+              <p> You are already familiar with the traditional CDB duplication
+                in Oracle Database 12<em>c</em> and know how to manage keystores
+                and master encryption keys in CDB root and pluggable database
+                (PDBs).</p>
+              <h3>What Do You Need?</h3>
+              <ul>
+                <li>Familiarity with CDB duplication</li>
+                <li>Oracle Database 18c installed</li>
+                <li>One CDB with one PDB opened</li>
+                <li>The CDB root keystore created and the transparent data
+                  encryption (TDE) master key set in the CDB root and PDB</li>
+              </ul>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_1" role="button" style="text-align: left;"><img src="./img/32_1.png"
+                  alt="section 1" class="num_circ" height="32" width="32">Create
+                an Encrypted Tablespace in Source CDB</h2>
+              <p>In this section, you create an encrypted tablespace in the <code>
+                  PDB1. </code></p>
+              <ol>
+                <li>Log into <code> ORCL </code> to check that the CDB root
+                  holds an opened keystore. <br>
+                  <pre><code>sqlplus sys@ORCL AS SYSDBA<br>Enter password: <em>password</em></code></pre>
+                </li>
+                <li>Check that the CDB root holds an opened keystore.
+                  <pre><code>SELECT wrl_parameter, status, wallet_type FROM v$encryption_wallet;<br><br>WRL_PARAMETER                            STATUS  WALLET_TYPE
+---------------------------------------- ------- ------------
+/u01/app/oracle/admin/ORCL/wallet/       OPEN    PASSWORD
+                                         CLOSED  UNKNOWN
+                                         OPEN    PASSWORD</code></pre>
+                </li>
+                <li>Check that a TDE master encryption key is set in <code>
+                    PDB1. </code> <br>
+                  <pre><code>SELECT key_id, key_use, con_id FROM v$encryption_keys;<br><br>KEY_ID                         KEY_USE        CON_ID
+------------------------------ ---------- ----------
+AUYnUhDIz0/SvzYoC3adcvMAAAAAAA TDE IN PDB          1
+AAAAAAAAAAAAAAAAAAAAAA
+
+AazAkjtRGU+Bv5chqSRA4YEAAAAAAA TDE IN PDB          4
+AAAAAAAAAAAAAAAAAAAAAA
+</code></pre> </li>
+                <li>Log in to <code> PDB1 </code> to create the <code>
+                    TBSORCL_ENC </code> tablespace as encrypted. <br>
+                  <pre><code>CONNECT system@PDB1<br>Enter password: <em>password</em></code></pre>
+                </li>
+                <li>Create the <code> TBSORCL_ENC </code> tablespace as
+                  encrypted.
+                  <pre><code>CREATE TABLESPACE tbsorcl_enc <br>       DATAFILE '/u02/app/oracle/oradata/ORCL/pdb1/tbsenc01.dbf' SIZE 10M<br>       ENCRYPTION USING 'AES256' ENCRYPT;</code></pre>
+                </li>
+                <li>Create the user <code> HR. </code>
+                  <pre><code>CREATE USER hr IDENTIFIED BY <em>password</em>;</code></pre>
+                </li>
+                <li>Grant the user <code> HR </code> appropriate privileges.
+                  <pre><code>GRANT create session, create table, unlimited tablespace TO hr;</code></pre>
+                </li>
+                <li>Create the <code> HR.ENC </code> table in the tablespace <code>
+                    TBSORCL_ENC.</code>
+                  <pre><code>CREATE TABLE hr.enc (c NUMBER) TABLESPACE tbsorcl_enc;</code></pre>
+                </li>
+                <li>Insert rows into the <code> HR.ENC </code> table.
+                  <pre><code>INSERT INTO hr.enc VALUES (1);
+COMMIT;</code></pre>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_2" role="button" style="text-align: left;"><img src="./img/32_2.png"
+                  alt="section 2" class="num_circ" height="32" width="32">Prepare
+                the Source CDB To Be Duplicated As Encrypted</h2>
+              <p>In this section, you prepare the <code> ORCL </code> to be
+                duplicated as the <code> CDBENC </code> and be compatible to
+                the Cloud.</p>
+              <ol>
+                <li>Copy the <code> ORCL </code> pfile for <code> CDBENC. </code>
+                  First connect to the CDB root. <br>
+                  <pre><code>CONNECT / AS SYSDBA</code></pre>
+                </li>
+                <li>Copy the <code> ORCL </code> pfile for <code> CDBENC. </code>
+                  <pre><code>CREATE PFILE FROM SPFILE;</code></pre>
+                </li>
+                <li> Quit the session.
+                  <pre><code>EXIT</code></pre>
+                </li>
+                <li>Copy the <code> ORCL </code> pfile for <code> CDBENC. </code>
+                  <pre><code>cp $ORACLE_HOME/dbs/initORCL.ora $ORACLE_HOME/dbs/initCDBENC.ora</code></pre>
+                </li>
+                <li>Read the <code> CDBENC </code> PFILE.
+                  <pre><code>cat $ORACLE_HOME/dbs/initCDBENC.ora</code></pre>
+                </li>
+                <li>Edit the <code> CDBENC </code> PFILE from <a href="files/code1.txt"
+                    target="_blank">code1</a>.<br>
+                  <ul>
+                    <li>Substitute all <code> ORCL </code> entries to <code>
+                        CDBENC. </code></li>
+                    <li>Add the <code> ENCRYPT_NEW_TABLESPACES </code> and set
+                      it to <code> ALWAYS </code> to simulate the Cloud CDB
+                      environment if you were migrating the on-premises CDB to
+                      Cloud.</li>
+                    <li> Add files conversion parameters. </li>
+                  </ul>
+                </li>
+                <li>Create the TDE keystore directory for <code> CDBENC. </code>
+                  <pre><code>mkdir -p /u01/app/oracle/admin/CDBENC/wallet</code></pre>
+                </li>
+                <li>Copy the <code> ORCL </code> keystore for <code> CDBENC </code>
+                  to the directory.
+                  <pre><code>cp /u01/app/oracle/admin/ORCL/wallet/ewallet.p12 /u01/app/oracle/admin/CDBENC/wallet/ewallet.p12</code>
+</pre> </li>
+                <li>Update the <code> $ORACLE_HOME/network/admin/sqlnet.ora </code>
+                  file to set the keystore location for <code> CDBENC </code>
+                  to <code> /u01/app/oracle/admin/CDBENC/tde_wallet. </code>
+                  Read the final content of <code>$ORACLE_HOME/network/admin/sqlnet.ora</code>
+                  file from <a href="files/code2.txt" target="_blank">code2</a>.<br>
+                </li>
+                <li>Insert a net service name entry <code> CDBENC </code> for
+                  <code> CDBENC </code> in <code>
+                    $ORACLE_HOME/network/admin/tnsnames.ora. </code><br>
+                  <pre><code><strong>CDBENC </strong>=
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = <em>hostname</em>)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = <strong>CDBENC</strong>)
+    )
+  )
+</code></pre></li>
+                <li>Reload the listener.
+                  <pre><code>lsnrctl reload</code></pre>
+                </li>
+                <li>Create the directories required for <code> CDBENC </code>
+                  instance to start.
+                  <pre><code>mkdir -p /u01/app/oracle/admin/CDBENC/adump<br>mkdir -p /u03/app/oracle/fast_recovery_area/CDBENC</code></pre>
+                </li>
+                <li>Create the password file for <code> CDBENC </code> with
+                  the same password as for <code> ORCL. </code>
+                  <pre><code>orapwd file=$ORACLE_HOME/dbs/orapwCDBENC password=<em>password </em>entries=5</code></pre>
+                </li>
+                <li>Set the <code> ORACLE_SID </code> environment variable to
+                  <code> CDBENC </code> to start a connection into <code>
+                    CDBENC. </code>
+                  <pre><code>export ORACLE_SID=CDBENC<br>sqlplus / AS SYSDBA            </code></pre>
+                </li>
+                <li>Create the SPFILE from PFILE for <code> CDBENC. </code>
+                  <pre><code>CREATE SPFILE FROM PFILE;               </code></pre>
+                </li>
+                <li>Start the <code> CDBENC </code> instance.<br>
+                  <pre>STARTUP NOMOUNT<code>             </code></pre>
+                </li>
+                <li>Open the <code> CDBENC </code> wallet.
+                  <pre>ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY <em>password </em><br>           CONTAINER = ALL;<code></code></pre>
+                </li>
+                <li>Check that the <code> CDBENC </code> wallet is opened.
+                  <pre><code>SELECT wrl_parameter, status, wallet_type FROM v$encryption_wallet;<br><br>WRL_PARAMETER                            STATUS  WALLET_TYPE
+---------------------------------------- ------- ------------
+/u01/app/oracle/admin/CDBENC/wallet/     OPEN    PASSWORD
+</code></pre> </li>
+                <li>Quit the session.
+                  <pre><code>EXIT</code></pre>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_3" role="button" style="text-align: left;"><img src="./img/32_3.png"
+                  alt="section 3" class="num_circ" height="32" width="32">Duplicate
+                the Source CDB to a new Encrypted CDB</h2>
+              <p>In this section, you duplicate the <code> ORCL </code> CDB
+                containing encrypted tablespaces to <code> CDBENC. </code></p>
+              <ol>
+                <li>Launch <code> rman </code> to create a connection to the
+                  auxiliary CDB instance that will be the new duplicated <code>
+                    CDBENC </code> CDB and to the source (RMAN target) <code>
+                    ORCL </code> that will be duplicated.<br>
+                  <pre><code>rman AUXILIARY sys@CDBENC TARGET sys@ORCL<br><br>target database Password: <em>password<br></em>connected to target database: ORCL (DBID=1490974532)<br>auxiliary database Password: <em>password<br></em>connected to auxiliary database: CDBENC (not mounted)</code></pre>
+                </li>
+                <li>Before starting the duplication, set the decryption on. <br>
+                  <pre><code>SET DECRYPTION WALLET OPEN IDENTIFIED BY <em>password</em>;<br></code></pre>
+                  During the duplicate operation, if the auxiliary instance is
+                  using a keystore that is not autologin, you need to supply the
+                  password for the keystore using <code> SET DECRYPTION </code>
+                  command. This is because the backups are encrypted using the
+                  keystore on the source CDB and those backups needs to be
+                  decrypted in order for the resource to work. Similarly, the
+                  media recovery needs to apply redo which could also be
+                  encrypted. For those operation to succeed, the auxiliary
+                  keystore needs to be opened during the duplicate. By supplying
+                  the password of the keystore in duplicate command, the
+                  duplicate command opens the keystore automatically after the
+                  auxiliary is bounced during the duplicate process.</li>
+                <li>Start the duplication.
+                  <pre><code>DUPLICATE TARGET DATABASE TO cdbenc <br>          FROM ACTIVE DATABASE
+          DB_FILE_NAME_CONVERT ('ORCL', 'CDBENC')
+          AS ENCRYPTED;</code></pre>
+                </li>
+                <li>See the progress of the duplication operation from <a href="files/code3.txt"
+                    target="_blank">code3</a>.<br>
+                </li>
+                <li>Exit rman.
+                  <pre><code>EXIT</code></pre>
+                </li>
+                <li>Launch a SQL*Plus session.<br>
+                  <pre><code>sqlplus sys@CDBENC AS SYSDBA<br>Enter password: <em>password</em><br></code></pre>
+                </li>
+                <li>Observe the PDB created.<br>
+                  <pre><code>SHOW PDBS<br>
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO
+         4 <strong>PDB1                           </strong>READ WRITE NO<br></code></pre>
+                </li>
+                <li>Because <code> PDB1 </code> exists in <code> ORCL </code>
+                  and also in <code> CDBENC, </code> there might be confusion
+                  in connections to <code> PDB1. </code> Before you solve this
+                  ambiguity by renaming one of the two PDBs or by assigning
+                  different service names, shut down <code>ORCL </code>so as
+                  to connect to <code> PDB1 </code> in <code> CDBENC </code>
+                  without ambiguity.<br>
+                  <pre><code>CONNECT sys@ORCL AS SYSDBA<br>Enter password: <em>password</em></code></pre>
+                  <pre>SHUTDOWN IMMEDIATE<code><code></code></code></pre>
+                </li>
+                <li>Connect to <code> PDB1 </code> in <code> CDBENC. </code><br>
+                  <pre><code>CONNECT sys@PDB1 AS SYSDBA<br>Enter password: <em>password</em></code></pre>
+                </li>
+                <li>Check in <code> CDBENC </code> that the <code>
+                    TBSORCL_ENC </code> tablespace is encrypted.<br>
+                  <pre><code>SELECT tablespace_name, encrypted FROM dba_tablespaces;
+
+TABLESPACE_NAME                ENC
+------------------------------ ---
+SYSTEM                         YES
+SYSAUX                         YES
+UNDOTBS1                       YES
+TEMP                           NO
+<strong>TBSORCL_ENC                    YES</strong></code></pre>
+                </li>
+                <li>Check that any new tablespace would be encrypted. Before
+                  completing this new operation, open the keystore in the PDB.
+                  <pre><code>ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY <em>password </em><br>           CONTAINER = ALL;</code></pre>
+                </li>
+                <li>Create a new tablespace.
+                  <pre><code>CREATE TABLESPACE new_tbs_enc ENCRYPTION ENCRYPT;</code></pre>
+                </li>
+                <li>Verify that the new tablespace is encrypted.<br>
+                  <pre><code>SELECT tablespace_name, encrypted FROM dba_tablespaces;
+
+TABLESPACE_NAME                ENC
+------------------------------ ---
+SYSTEM                         YES
+SYSAUX                         YES</code>
+UNDOTBS1                       YES
+TEMP                           NO
+<strong>TBSORCL_ENC                    YES<br>NEW_TBS_ENC                    YES<br></strong></pre>
+                </li>
+              </ol>
+            </section>
+          </article>
+          <code> </code></div>
+        <code> <br class="clearfloat">
+        </code></div>
+      <code> </code></div>
+    <code>
+      <!--close main-->
+      <!--end content-->
+      <div class="footer-container ">
+        <div style="max-width: 994px; padding:10px 0 0 17px;">
+          <footer class="footer-list">
+            <ul>
+              <li> <a href="https://www.oracle.com/corporate/index.html" target="_blank">About
+                  Oracle</a> </li>
+              <li> <a href="https://www.oracle.com/us/corporate/contact/index.html"
+                  target="_blank">Contact Us</a> </li>
+              <li> <a href="https://www.oracle.com/us/legal/index.html" target="_blank">Legal
+                  Notices</a> </li>
+              <li> <a href="https://www.oracle.com/us/legal/terms/index.html" target="_blank">Terms
+                  of Use</a> </li>
+              <li> <a href="https://www.oracle.com/us/legal/privacy/index.html"
+                  target="_blank">Your Privacy Rights</a> </li>
+              <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=cpyr&amp;id=en">Copyright
+                  © 2017, 2018 Oracle and/or its affiliates. All rights
+                  reserved.</a></li>
+            </ul>
+          </footer>
+        </div>
+        <script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_docs.js"></script>
+      </div>
+    </code>
+  </body>
+</html>

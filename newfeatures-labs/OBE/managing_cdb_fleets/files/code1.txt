@@ -1,0 +1,9 @@
+NAME         OPEN_MODE  MEMBER_CDB
+------------ ---------- ------------
+CDB$ROOT     READ WRITE NO
+PDB$SEED     READ ONLY  NO
+PDB_ORCL     READ WRITE NO
+cdb1         MOUNTED    YES
+PDB1         MOUNTED    NO
+cdb2         MOUNTED    YES
+PDB2         MOUNTED    NO 

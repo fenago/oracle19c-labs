@@ -1,0 +1,66 @@
+USERNAME                         CDB$NAME   CON$NAME
+-------------------------------- ---------- ----------
+XS$NULL                          ORCL       CDB$ROOT
+OLAPSYS                          ORCL       CDB$ROOT
+C##FLEET                         ORCL       CDB$ROOT
+ORDSYS                           cdb1       cdb1
+DBSNMP                           cdb1       cdb1
+XS$NULL                          cdb2       cdb2
+OLAPSYS                          cdb2       cdb2
+ANONYMOUS                        cdb2       cdb2
+ORDPLUGINS                       cdb2       cdb2
+REMOTE_SCHEDULER_AGENT           cdb2       cdb2
+SYS                              ORCL       PDB_ORCL
+LBACSYS                          ORCL       PDB_ORCL
+SYSDG                            ORCL       PDB_ORCL
+SYSKM                            ORCL       PDB_ORCL
+OLAPSYS                                     PDB1
+XS$NULL                                     PDB2
+APPQOSSYS                                   PDB2
+REMOTE_SCHEDULER_AGENT                      PDB2
+SYSTEM                           ORCL       CDB$ROOT
+OJVMSYS                          ORCL       CDB$ROOT
+ANONYMOUS                        ORCL       CDB$ROOT
+SYSDG                            ORCL       CDB$ROOT
+LBACSYS                          cdb1       cdb1
+SYS$UMF                          cdb1       cdb1
+GSMUSER                          cdb1       cdb1
+SYSDG                            cdb1       cdb1
+ORACLE_OCM                       cdb1       cdb1
+MDSYS                            cdb2       cdb2
+MDDATA                           cdb2       cdb2
+SYSRAC                           cdb2       cdb2
+C##FLEET                         ORCL       PDB_ORCL
+DVF                                         PDB1
+DBSNMP                                      PDB1
+MDSYS                                       PDB1
+DBSFWUSER                                   PDB1
+DVSYS                                       PDB1
+SI_INFORMTN_SCHEMA                          PDB2
+MDDATA                           ORCL       CDB$ROOT
+SYSRAC                           ORCL       CDB$ROOT
+OJVMSYS                          cdb1       cdb1
+ORDPLUGINS                       cdb1       cdb1
+MDDATA                           cdb1       cdb1
+SYS$UMF                          cdb2       cdb2
+ORACLE_OCM                       cdb2       cdb2
+SYSRAC                           ORCL       PDB_ORCL
+AUDSYS                           ORCL       PDB_ORCL
+ORDDATA                                     PDB1
+XDB                                         PDB2
+C##FLEET                                    PDB2
+AUDSYS                                      PDB2
+SYS                              ORCL       CDB$ROOT
+CTXSYS                           ORCL       CDB$ROOT
+ORACLE_OCM                       ORCL       CDB$ROOT
+DBSNMP                           cdb2       cdb2
+XDB                              cdb2       cdb2
+SI_INFORMTN_SCHEMA               ORCL       PDB_ORCL
+ORDDATA                          ORCL       PDB_ORCL
+CTXSYS                           ORCL       PDB_ORCL
+OJVMSYS                          ORCL       PDB_ORCL
+SYSTEM                                      PDB1
+OUTLN                                       PDB1
+GSMADMIN_INTERNAL                           PDB2
+SYS$UMF                                     PDB2
+... 

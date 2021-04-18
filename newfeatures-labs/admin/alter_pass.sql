@@ -1,0 +1,4 @@
+set echo on
+ALTER USER sys IDENTIFIED BY Welcome_1 CONTAINER=ALL;
+ALTER USER system IDENTIFIED BY Welcome_1 CONTAINER=ALL;
+exit

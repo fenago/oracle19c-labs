@@ -1,0 +1,12 @@
+LIST PREPLUGIN ARCHIVELOG ALL;
+
+List of Archived Log Copies for database with db_unique_name ORCL
+=====================================================================
+
+Key     Thrd Seq     S Low Time
+------- ---- ------- - ---------
+1       1    1       A 12-JAN-18
+        Name: /u03/app/oracle/fast_recovery_area/NONCDB/archivelog/2018_01_12/o1_mf_1_1_f5jbonxd_.arc
+
+2       1    2       A 12-JAN-18
+        Name: /u03/app/oracle/fast_recovery_area/NONCDB/archivelog/2018_01_12/o1_mf_1_2_f5jbq3px_.arc

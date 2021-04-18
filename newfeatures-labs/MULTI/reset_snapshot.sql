@@ -1,0 +1,2 @@
+ALTER SYSTEM SET clonedb=TRUE SCOPE=SPFILE;
+exit

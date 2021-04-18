@@ -1,0 +1,23 @@
+RECOVER PLUGGABLE DATABASE pdb_noncdb;
+Starting recover at 12-JAN-18
+using channel ORA_DISK_1
+using target database control file instead of recovery catalog
+
+starting media recovery
+
+archived log for thread 1 with sequence 131 is already on disk as file /u03/app/oracle/fast_recovery_area/ORCL/archivelog/2018_01_12/o1_mf_1_131_f5jc0p8h_.arc
+archived log for thread 1 with sequence 132 is already on disk as file /u03/app/oracle/fast_recovery_area/ORCL/archivelog/2018_01_12/o1_mf_1_132_f5jc1kws_.arc
+archived log for thread 1 with sequence 133 is already on disk as file /u03/app/oracle/fast_recovery_area/ORCL/archivelog/2018_01_12/o1_mf_1_133_f5jcqlts_.arc
+archived log for thread 1 with sequence 134 is already on disk as file /u03/app/oracle/fast_recovery_area/ORCL/archivelog/2018_01_12/o1_mf_1_134_f5jcs77t_.arc
+archived log for thread 1 with sequence 135 is already on disk as file /u03/app/oracle/fast_recovery_area/ORCL/archivelog/2018_01_12/o1_mf_1_135_f5jcw1s9_.arc
+archived log for thread 1 with sequence 136 is already on disk as file /u03/app/oracle/fast_recovery_area/ORCL/archivelog/2018_01_12/o1_mf_1_136_f5jcyg3p_.arc
+archived log for thread 1 with sequence 137 is already on disk as file /u03/app/oracle/fast_recovery_area/ORCL/archivelog/2018_01_12/o1_mf_1_137_f5jd0zwh_.arc
+archived log for thread 1 with sequence 138 is already on disk as file /u03/app/oracle/fast_recovery_area/ORCL/archivelog/2018_01_12/o1_mf_1_138_f5jd4nqv_.arc
+archived log file name=/u03/app/oracle/fast_recovery_area/ORCL/archivelog/2018_01_12/o1_mf_1_131_f5jc0p8h_.arc thread=1 sequence=131
+archived log file name=/u03/app/oracle/fast_recovery_area/ORCL/archivelog/2018_01_12/o1_mf_1_132_f5jc1kws_.arc thread=1 sequence=132
+archived log file name=/u03/app/oracle/fast_recovery_area/ORCL/archivelog/2018_01_12/o1_mf_1_133_f5jcqlts_.arc thread=1 sequence=133
+archived log file name=/u03/app/oracle/fast_recovery_area/ORCL/archivelog/2018_01_12/o1_mf_1_134_f5jcs77t_.arc thread=1 sequence=134
+archived log file name=/u03/app/oracle/fast_recovery_area/ORCL/archivelog/2018_01_12/o1_mf_1_135_f5jcw1s9_.arc thread=1 sequence=135
+archived log file name=/u03/app/oracle/fast_recovery_area/ORCL/archivelog/2018_01_12/o1_mf_1_136_f5jcyg3p_.arc thread=1 sequence=136
+media recovery complete, elapsed time: 00:07:12
+Finished recover at 12-JAN-18

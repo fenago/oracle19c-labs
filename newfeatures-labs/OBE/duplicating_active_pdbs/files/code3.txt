@@ -1,0 +1,77 @@
+Starting Duplicate PDB at 15-JAN-18
+using target database control file instead of recovery catalog
+allocated channel: ORA_AUX_DISK_1
+channel ORA_AUX_DISK_1: SID=48 device type=DISK
+current log archived
+
+contents of Memory Script:
+{
+   set newname for datafile  34 to
+ "/u02/app/oracle/oradata/cdb1/pdb1/cdb1/627700669E6B5546E0532133960A5A21/datafile/o1_mf_system_f5fh5fcx_.dbf";
+   set newname for datafile  35 to
+ "/u02/app/oracle/oradata/cdb1/pdb1/cdb1/627700669E6B5546E0532133960A5A21/datafile/o1_mf_sysaux_f5fh5fcy_.dbf";
+   set newname for datafile  36 to
+ "/u02/app/oracle/oradata/cdb1/pdb1/cdb1/627700669E6B5546E0532133960A5A21/datafile/o1_mf_undotbs1_f5fh5fcy_.dbf";
+   restore
+   from  nonsparse   clone foreign pluggable database
+    "PDB1"
+   from service  'ORCL'   ;
+}
+executing Memory Script
+
+executing command: SET NEWNAME
+
+executing command: SET NEWNAME
+
+executing command: SET NEWNAME
+
+Starting restore at 15-JAN-18
+using channel ORA_AUX_DISK_1
+
+channel ORA_AUX_DISK_1: starting datafile backup set restore
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_AUX_DISK_1: restoring foreign file 34 to /u02/app/oracle/oradata/cdb1/pdb1/cdb1/627700669E6B5546E0532133960A5A21/datafile/o1_mf_system_f5fh5fcx_.dbf
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:07
+channel ORA_AUX_DISK_1: starting datafile backup set restore
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_AUX_DISK_1: restoring foreign file 35 to /u02/app/oracle/oradata/cdb1/pdb1/cdb1/627700669E6B5546E0532133960A5A21/datafile/o1_mf_sysaux_f5fh5fcy_.dbf
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:15
+channel ORA_AUX_DISK_1: starting datafile backup set restore
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_AUX_DISK_1: restoring foreign file 36 to /u02/app/oracle/oradata/cdb1/pdb1/cdb1/627700669E6B5546E0532133960A5A21/datafile/o1_mf_undotbs1_f5fh5fcy_.dbf
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:08
+Finished restore at 15-JAN-18
+current log archived
+
+contents of Memory Script:
+{
+   set archivelog destination to  '/home/oracle/labs';
+   restore clone force from service  'ORCL'
+           foreign archivelog from scn  5954223;
+}
+executing Memory Script
+
+executing command: SET ARCHIVELOG DESTINATION
+
+Starting restore at 15-JAN-18
+using channel ORA_AUX_DISK_1
+
+channel ORA_AUX_DISK_1: starting archived log restore to user-specified destination
+archived log destination=/home/oracle/labs
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: restoring archived log
+archived log thread=1 sequence=158
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:01
+channel ORA_AUX_DISK_1: starting archived log restore to user-specified destination
+archived log destination=/home/oracle/labs
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: restoring archived log
+archived log thread=1 sequence=159
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:01
+Finished restore at 15-JAN-18
+
+Performing import of metadata...
+Finished Duplicate PDB at 15-JAN-18

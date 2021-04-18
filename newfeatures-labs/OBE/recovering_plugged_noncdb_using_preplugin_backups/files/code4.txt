@@ -1,0 +1,31 @@
+RUN { 
+      RESTORE PLUGGABLE DATABASE pdb_noncdb FROM PREPLUGIN;
+      RECOVER PLUGGABLE DATABASE pdb_noncdb FROM PREPLUGIN;
+     }
+Starting restore at 12-JAN-18
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=271 device type=DISK
+switched to preplugin container PDB_NONCDB
+
+channel ORA_DISK_1: starting datafile backup set restore
+channel ORA_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_DISK_1: restoring datafile 00049 to /u02/app/oracle/oradata/ORCL/pdbNONCDB/ORCL/628CA83C14D73983E0532133960A6972/datafile/o1_mf_system_f5jbxwhq_.dbf
+channel ORA_DISK_1: restoring datafile 00050 to /u02/app/oracle/oradata/ORCL/pdbNONCDB/ORCL/628CA83C14D73983E0532133960A6972/datafile/o1_mf_sysaux_f5jbxwhx_.dbf
+channel ORA_DISK_1: restoring datafile 00051 to /u02/app/oracle/oradata/ORCL/pdbNONCDB/ORCL/628CA83C14D73983E0532133960A6972/datafile/o1_mf_undotbs1_f5jbxwhy_.dbf
+channel ORA_DISK_1: restoring datafile 00052 to /u02/app/oracle/oradata/ORCL/pdbNONCDB/ORCL/628CA83C14D73983E0532133960A6972/datafile/o1_mf_users_f5jbxwhz_.dbf
+channel ORA_DISK_1: reading from backup piece /u03/app/oracle/fast_recovery_area/NONCDB/backupset/2018_01_12/o1_mf_nnndf_TAG20180112T032551_f5jbp2nt_.bkp
+channel ORA_DISK_1: piece handle=/u03/app/oracle/fast_recovery_area/NONCDB/backupset/2018_01_12/o1_mf_nnndf_TAG20180112T032551_f5jbp2nt_.bkp tag=TAG20180112T032551
+channel ORA_DISK_1: restored backup piece 1
+channel ORA_DISK_1: restore complete, elapsed time: 00:01:05
+Finished restore at 12-JAN-18
+
+Starting recover at 12-JAN-18
+using channel ORA_DISK_1
+switched to preplugin container PDB_NONCDB
+
+starting media recovery
+
+archived log for thread 1 with sequence 2 is already on disk as file /u03/app/oracle/fast_recovery_area/NONCDB/archivelog/2018_01_12/o1_mf_1_2_f5jbq3px_.arc
+archived log for thread 1 with sequence 3 is already on disk as file /u03/app/oracle/fast_recovery_area/NONCDB/archivelog/2018_01_12/o1_mf_1_3_f5jbw1l9_.arc
+media recovery complete, elapsed time: 00:00:01
+Finished recover at 12-JAN-18

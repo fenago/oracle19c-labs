@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <!-- Part number: E92482-01 -->
+    <!-- Published date: December 2017 -->
+    <!-- See this link for directions on getting a part number: https://confluence.oraclecorp.com/confluence/display/DLPP/Archive+an+OBE -->
+    <!-- Template date: 10/18/17 -->
+    <title>Recovering Plugged non-CDBs Using Preplugin Backups</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <meta name="description" content="Learn how to restore and recover an unplugged non-CDB plugged into a container database (CDB), by using Preplugin backups.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/obe-lite.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="js/jquery.tocify.jd.js"></script>
+    <script src="js/leftnav.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="w1024" style="min-height:55px; display:block;"> <a href="https://docs.oracle.com"
+          class="oracle-logo"> <img src="./img/oracle_doc_logo.png" alt="Oracle Documentation"
+            style="max-width: none;" height="22" width="236"></a> </div>
+    </header>
+    <!--end header-->
+    <div id="content">
+      <h1><img src="./img/obe_tag.png" alt="Oracle by Example branding" align="middle">Recovering
+        Plugged non-CDBs Using Preplugin Backups</h1>
+      <div class="w1024" style="clear:both; position:relative; margin-top:40px;">
+        <div class="navbackwide border-right"><!-- --></div>
+        <div id="shownav" title="Show Navigation" tabindex="0"><span class="fa fa-list"></span></div>
+        <div id="sidebar"><!-- -->&nbsp;
+          <div class="left-nav-tut"><!-- -->
+            <div id="hidenavw" title="Hide Navigation" tabindex="0"><span class="fa fa-close"></span></div>
+            <div id="navbar" class="left-nav-w"><!-- -->
+              <div id="toc" class="tocify"><!-- --></div>
+            </div>
+          </div>
+        </div>
+        <div id="bookContainer">
+          <article>
+            <section>
+              <h2><img src="./img/32_begin.png" alt="section 0" class="num_circ"
+                  height="32" width="32"> Before You Begin</h2>
+              <p>This 15-minute tutorial shows the steps required to allow the
+                restore and recovery of an unplugged non- container database
+                (non-CDB) plugged into a container database (CDB), by using
+                preplugin backups. </p>
+              <p>Preplugin backups are all backups of a non-CDB taken before
+                unplugging/plugging operations, usable after plugging into a new
+                CDB.<br>
+              </p>
+              <h3>Background</h3>
+              <p>In Oracle Database 12c, backups taken for a non-CDB before
+                unplugging/plugging cannot be reused after plugging the non-CDB
+                into a CDB as a new PDB. </p>
+              <p>Oracle Database 18c makes the non-CDB backups usable in a CDB
+                after unplugging/plugging. This technique exports the backups of
+                the unplugged non-CDB and imports the backups when the non-CDB
+                is plugged into another CDB as a new PDB. The backups are
+                therefore usable to restore and recover the new PDB to a time
+                when it was unplugged.</p>
+              <h3>What Do You Need?</h3>
+              <ul>
+                <li>Familiarity with non-CDB unplugging and plugging operations</li>
+                <li>Oracle Database 18c installed</li>
+                <li>A CDB and a non-CDB</li>
+                <li><code>HR </code> schema installed in the non-CDB as an
+                  example of application tables, or any simple table created</li>
+              </ul>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_1" style="text-align: left;"><img src="./img/32_1.png"
+                  alt="section 1" class="num_circ" height="32" width="32">
+                Prepare the non-CDB and Preplugin Backups Before Unplugging</h2>
+              <ol>
+                <li>Log in to <code> NONCDB </code> as <code> SYSTEM. </code>
+                  <pre><code>export ORACLE_SID=NONCDB<br>sqlplus system<br>Enter password: <em>password</em></code></pre>
+                </li>
+                <li>Verify the salary of the employee 206 in <code> NONCDB. </code>
+                  You can also use any table containing data that you created
+                  for testing.
+                  <pre><code>SELECT salary FROM hr.employees WHERE employee_id=206;<br><br>    SALARY
+----------
+      8300</code></pre>
+                </li>
+                <li>Quit the session.<code> </code>
+                  <pre><code>EXIT<br></code></pre>
+                </li>
+                <li>Launch RMAN to create backups for <code> NONCDB </code>
+                  before unplugging. <br>
+                  <pre><code>rman target /</code></pre>
+                </li>
+                <li>It is recommended to backup all the archive log files before
+                  the unplug operation so that they can be restored from backup
+                  when preplugin backups are used in destination database. Back
+                  up all the archive log files.</li>
+                <pre><code>BACKUP DATABASE PLUS ARCHIVELOG;</code></pre>
+                <li>Quit the session.
+                  <pre><code>EXIT</code></pre>
+                </li>
+                <li>Launch SQL*Plus to export RMAN backup <code> NONCDB </code>
+                  information to its dictionary before unplugging so that
+                  preplugin backups can be used. <br>
+                  <pre><code>sqlplus / AS SYSDBA</code></pre>
+                </li>
+                <li>Export RMAN backup <code> NONCDB </code> information to
+                  its dictionary.
+                  <pre><code>EXEC dbms_pdb.exportrmanbackup()</code></pre>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_3" style="text-align: left;"><img src="./img/32_2.png"
+                  alt="section 2" class="num_circ" height="32" width="32">
+                Unplug the Non-CDB and Plug</h2>
+              <ol>
+                <li>Before unplugging, open the non-CDB in restrict read-write
+                  mode so as to ensure that the non-CDB is in a
+                  transactionally-consistent state.
+                  <pre><code>SHUTDOWN IMMEDIATE<br>STARTUP RESTRICT</code></pre>
+                </li>
+                <li>Unplug <code> NONCDB. </code>
+                  <pre><code>EXEC dbms_pdb.describe('/tmp/noncdb.xml')</code></pre>
+                </li>
+                <li>Archive the current redo log file so as to catalog it in the
+                  list of preplugin archivelog backups once the non-CDB will
+                  have been plugged into <code> ORCL. </code>This redo log
+                  file will be required in the situation of a potential
+                  recovery.
+                  <pre><code>ALTER SYSTEM ARCHIVE LOG CURRENT;</code></pre>
+                </li>
+                <li>Display the last redo log file archived that will be
+                  required in the situation of a potential recovery.
+                  <pre><code>SELECT name FROM v$archived_log;<br><br>NAME<br>---------------------------------------------------------------------------------------<br>/u03/app/oracle/fast_recovery_area/NONCDB/archivelog/2018_01_12/o1_mf_1_1_f5jbonxd_.arc
+/u03/app/oracle/fast_recovery_area/NONCDB/archivelog/2018_01_12/o1_mf_1_2_f5jbq3px_.arc
+/u03/app/oracle/fast_recovery_area/NONCDB/archivelog/2018_01_12/o1_mf_1_3_f5jbw1l9_.arc
+</code></pre></li>
+                <li>Quit the session.
+                  <pre><code>EXIT<br></code></pre>
+                </li>
+                <li>Create the directory for the new plugged PDB.<br>
+                  <pre><code>mkdir /u02/app/oracle/oradata/ORCL/pdbNONCDB</code></pre>
+                </li>
+                <li>Before plugging <code> NONCDB </code> into <code> ORCL </code>
+                  as <code> PDB_NONCDB, </code> set <code> ORACLE_SID </code>
+                  to <code> ORCL. </code>
+                  <pre><code>export ORACLE_SID=ORCL<br>sqlplus / AS SYSDBA</code></pre>
+                </li>
+                <li>Plug <code> NONCDB </code> into <code> ORCL </code> as <code>
+                    PDB_NONCDB. </code>
+                  <pre><code>CREATE PLUGGABLE DATABASE pdb_noncdb USING '/tmp/noncdb.xml'<br>CREATE_FILE_DEST='/u02/app/oracle/oradata/ORCL/pdbNONCDB' COPY;</code></pre>
+                </li>
+                <li>Execute the <code>
+                    $ORACLE_HOME/rdbms/admin/noncdb_to_pdb.sql </code> against
+                  <code> PDB_NONCDB. </code><br>
+                  <pre><code>ALTER SESSION SET CONTAINER = pdb_noncdb;</code></pre>
+                  <pre><code>@$ORACLE_HOME/rdbms/admin/noncdb_to_pdb.sql<br></code></pre>
+                </li>
+                <li>Open <code> PDB_NONCDB. </code>
+                  <pre><code>ALTER PLUGGABLE DATABASE OPEN;</code></pre>
+                  <pre><code>EXIT</code></pre>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_3" style="text-align: left;"><img src="./img/32_3.png"
+                  alt="section 3" class="num_circ" height="32" width="32"> Check
+                Cataloged Preplugin Backups </h2>
+              <ol>
+                <li>Launch RMAN.<br>
+                  <pre><code>rman target /</code></pre>
+                </li>
+                <li>Check that the preplugin backups are cataloged in <code>
+                    ORCL </code> for <code> PDB_NONCDB. </code> Set the
+                  container name for which you want the list of preplugin
+                  backups of, first.<br>
+                  <pre><code>SET PREPLUGIN CONTAINER=PDB_NONCDB;</code></pre>
+                </li>
+                <li>Read <a href="files/code1.txt" target="_blank">code1</a> to
+                  list the preplugin backups cataloged in <code> ORCL </code>
+                  for <code> PDB_NONCDB. </code> </li>
+                <li>Read <a href="files/code2.txt" target="_blank">code2</a> to
+                  list the preplugin archive log files cataloged in <code> ORCL
+                  </code> for <code> PDB_NONCDB. </code> </li>
+                <li>Verify that the cataloged preplugin archive log files are
+                  available on disk.
+                  <pre><code>CROSSCHECK PREPLUGIN ARCHIVELOG ALL;
+
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=283 device type=DISK
+validation succeeded for archived log
+archived log file name=/u03/app/oracle/fast_recovery_area/NONCDB/archivelog/2018_01_12/o1_mf_1_1_f5jbonxd_.arc RECID=1 STAMP=965186743
+validation succeeded for archived log
+archived log file name=/u03/app/oracle/fast_recovery_area/NONCDB/archivelog/2018_01_12/o1_mf_1_2_f5jbq3px_.arc RECID=2 STAMP=965186787
+Crosschecked 2 objects
+</code></pre> </li>
+                <li>Verify that the cataloged preplugin backups are available on
+                  disk with <a href="files/code3.txt" target="_blank">code3</a>.
+                </li>
+                <li>Catalog the redo log file of <code> NONCDB </code>
+                  archived at the time after the non-CDB was unplugged, in
+                  section 2 step 2.
+                  <pre><code>CATALOG PREPLUGIN ARCHIVELOG '</code><code>/u03/app/oracle/fast_recovery_area/NONCDB/archivelog/2018_01_12/o1_mf_1_3_f5jbw1l9_.arc';<br><br>cataloged archived log
+archived log file name=/u03/app/oracle/fast_recovery_area/NONCDB/archivelog/2018_01_12/o1_mf_1_3_f5jbw1l9_.arc RECID=3 STAMP=0
+<br></code></pre> </li>
+                <li>Quit the session.
+                  <pre><code>EXIT<br></code></pre>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_4" style="text-align: left;"><img src="./img/32_4.png"
+                  alt="section 4" class="num_circ" height="32" width="32">
+                Restore and Recover from Preplugin Backups</h2>
+              <p> Imagine that a datafile from <code> PDB_NONCDB </code> is
+                lost or damaged. You have to restore and recover the PDB.
+                Unfortunately you did not back up the PDB in <code>ORCL </code>
+                since it was plugged in. <br>
+              </p>
+              <ol>
+                <li>Log in to the PDB.<br>
+                  <pre><code>sqlplus / AS SYSDBA</code>
+</pre>
+                  <pre><code>ALTER SESSION SET CONTAINER = PDB_NONCDB;</code></pre>
+                </li>
+                <li>Find a datafile to remove.
+                  <pre><code>SELECT name FROM v$datafile;</code></pre>
+                </li>
+                <li> Quit the session.
+                  <pre><code>EXIT</code></pre>
+                </li>
+                <li>Remove the file.
+                  <pre><code>rm /u02/app/oracle/oradata/ORCL/pdbNONCDB/ORCL/628CA83C14D73983E0532133960A6972/datafile/o1_mf_users_f5jbxwhz_.dbf
+</code></pre> </li>
+                <li>Connect to <code> PDB_NONCDB. </code><br>
+                  <pre><code>sqlplus hr@PDB_NONCDB<br>Enter password: <em>password</em></code></pre>
+                </li>
+                <li>Try to access the <code> HR.DEPARTMENTS </code> table (or
+                  the table you created) stored in the lost datafile.<br>
+                  <pre><code>SELECT * FROM hr.departments;<br>SELECT * FROM hr.departments
+                 *
+ERROR at line 1:
+ORA-01116: error in opening database file 52
+ORA-01110: data file 52:
+'/u02/app/oracle/oradata/ORCL/pdbNONCDB/ORCL/628CA83C14D73983E0532133960A6972/datafile/o1_mf_users_f5jbxwhz_.dbf'
+ORA-27041: unable to open file
+Linux-x86_64 Error: 2: No such file or directory
+</code></pre> </li>
+                <li>Close the PDB.
+                  <pre><code>CONNECT / AS SYSDBA</code></pre>
+                  <pre><code>ALTER PLUGGABLE DATABASE pdb_noncdb CLOSE;</code></pre>
+                </li>
+                <li>Quit the session.<br>
+                  <pre><code>EXIT</code></pre>
+                </li>
+                <li>Launch RMAN.
+                  <pre><code>rman target /</code></pre>
+                </li>
+                <li>Perform a Point-In-Time recovery of <code> PDB_NONCDB </code>
+                  using preplugin backups and preplugin archive log files.
+                  <pre><code>RUN { 
+      RESTORE PLUGGABLE DATABASE pdb_noncdb FROM PREPLUGIN;
+      RECOVER PLUGGABLE DATABASE pdb_noncdb FROM PREPLUGIN;
+     }</code></pre>
+                </li>
+                <li>Read <a href="files/code4.txt" target="_blank">code4</a> to
+                  see the on-going recovery result.<br>
+                  <br>
+                  If any data files were added to <code> PDB_NONCDB </code>
+                  after it was plugged in to <code> ORCL, </code> then restore
+                  these data files by using the <code> RESTORE PLUGGABLE <em>pdb</em>
+                    SKIP PREPLUGIN</code> command.<br>
+                </li>
+                <li>Recover <code> PDB_NONCDB </code> using the CDB archivelog
+                  files.
+                  <pre><code>RECOVER PLUGGABLE DATABASE pdb_noncdb;</code></pre>
+                </li>
+                <li>Read <a href="files/code5.txt" target="_blank">code5</a> to
+                  see the on-going recovery result.</li>
+                <li>Open <code> PDB_NONCDB. </code><br>
+                  <pre><code>ALTER PLUGGABLE DATABASE pdb_noncdb OPEN;</code></pre>
+                </li>
+                <li>Quit the RMAN session.<br>
+                  <pre><code>EXIT;</code></pre>
+                </li>
+                <li>Log in to <code> PDB_NONCDB. </code>
+                  <pre><code>sqlplus hr@PDB_NONCDB<br>Enter password: <em>password</em></code></pre>
+                </li>
+                <li>Verify the salary of the employee 206 (or the data of your
+                  own table).
+                  <pre><code>SELECT salary FROM hr.employees WHERE employee_id=206;<br><br>    SALARY
+----------
+      8300</code></pre>
+                </li>
+                <li>Quit the session.<br>
+                  <pre><code>EXIT<br></code></pre>
+                </li>
+                <li>Launch RMAN to back up <code> PDB_NONCDB.</code>
+                  <pre><code>rman target /</code></pre>
+                </li>
+                <li>Back up <code> PDB_NONCDB.</code>
+                  <pre><code>BACKUP PLUGGABLE DATABASE pdb_noncdb;</code></pre>
+                </li>
+                <li>Quit the session.
+                  <pre><code>EXIT<br></code></pre>
+                </li>
+              </ol>
+            </section>
+          </article>
+          <code> </code></div>
+        <code> <br class="clearfloat">
+        </code></div>
+      <code> </code></div>
+    <code>
+      <!--close main-->
+      <!--end content-->
+      <div class="footer-container ">
+        <div style="max-width: 994px; padding:10px 0 0 17px;">
+          <footer class="footer-list">
+            <ul>
+              <li> <a href="https://www.oracle.com/corporate/index.html" target="_blank">About
+                  Oracle</a> </li>
+              <li> <a href="https://www.oracle.com/us/corporate/contact/index.html"
+                  target="_blank">Contact Us</a> </li>
+              <li> <a href="https://www.oracle.com/us/legal/index.html" target="_blank">Legal
+                  Notices</a> </li>
+              <li> <a href="https://www.oracle.com/us/legal/terms/index.html" target="_blank">Terms
+                  of Use</a> </li>
+              <li> <a href="https://www.oracle.com/us/legal/privacy/index.html"
+                  target="_blank">Your Privacy Rights</a> </li>
+              <li><a href="http://www.oracle.com/pls/topic/lookup?ctx=cpyr&amp;id=en">Copyright
+                  © 2017, 2018, Oracle and/or its affiliates. All rights
+                  reserved.</a></li>
+            </ul>
+          </footer>
+        </div>
+        <script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_docs.js"></script>
+      </div>
+    </code>
+  </body>
+</html>

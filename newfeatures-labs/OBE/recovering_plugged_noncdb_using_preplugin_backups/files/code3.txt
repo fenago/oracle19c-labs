@@ -1,0 +1,12 @@
+CROSSCHECK PREPLUGIN BACKUP;
+
+using channel ORA_DISK_1
+crosschecked backup piece: found to be 'AVAILABLE'
+backup piece handle=/u03/app/oracle/fast_recovery_area/NONCDB/backupset/2018_01_12/o1_mf_annnn_TAG20180112T032544_f5jborjd_.bkp RECID=1 STAMP=965186744
+crosschecked backup piece: found to be 'AVAILABLE'
+backup piece handle=/u03/app/oracle/fast_recovery_area/NONCDB/backupset/2018_01_12/o1_mf_nnndf_TAG20180112T032551_f5jbp2nt_.bkp RECID=2 STAMP=965186754
+crosschecked backup piece: found to be 'AVAILABLE'
+backup piece handle=/u03/app/oracle/fast_recovery_area/NONCDB/backupset/2018_01_12/o1_mf_annnn_TAG20180112T032628_f5jbq48m_.bkp RECID=3 STAMP=965186788
+crosschecked backup piece: found to be 'AVAILABLE'
+backup piece handle=/u03/app/oracle/fast_recovery_area/NONCDB/autobackup/2018_01_12/o1_mf_s_965186789_f5jbq6xy_.bkp RECID=4 STAMP=965186790
+Crosschecked 4 objects

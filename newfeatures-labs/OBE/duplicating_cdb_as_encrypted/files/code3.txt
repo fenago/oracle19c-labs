@@ -1,0 +1,384 @@
+Starting Duplicate Db at 10-JAN-18
+allocated channel: ORA_AUX_DISK_1
+channel ORA_AUX_DISK_1: SID=21 device type=DISK
+current log archived
+
+contents of Memory Script:
+{
+   sql clone "alter system set  db_name =
+ ''ORCL'' comment=
+ ''Modified by RMAN duplicate'' scope=spfile";
+   sql clone "alter system set  db_unique_name =
+ ''CDBENC'' comment=
+ ''Modified by RMAN duplicate'' scope=spfile";
+   shutdown clone immediate;
+   startup clone force nomount
+   restore clone from service  'ORCL' primary controlfile;
+   alter clone database mount;
+}
+executing Memory Script
+
+sql statement: alter system set  db_name =  ''ORCL'' comment= ''Modified by RMAN duplicate'' scope=spfile
+
+sql statement: alter system set  db_unique_name =  ''CDBENC'' comment= ''Modified by RMAN duplicate'' scope=spfile
+
+Oracle instance shut down
+
+Oracle instance started
+
+Total System Global Area    6442448392 bytes
+
+Fixed Size                     8910344 bytes
+Variable Size               1157627904 bytes
+Database Buffers            4731174912 bytes
+Redo Buffers                   7864320 bytes
+In-Memory Area               536870912 bytes
+
+Starting restore at 10-JAN-18
+decryption password set for AUXILIARY database
+allocated channel: ORA_AUX_DISK_1
+channel ORA_AUX_DISK_1: SID=19 device type=DISK
+
+channel ORA_AUX_DISK_1: starting datafile backup set restore
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: restoring control file
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:02
+output file name=/u02/app/oracle/oradata/CDBENC/control01.ctl
+output file name=/u03/app/oracle/fast_recovery_area/CDBENC/control02.ctl
+Finished restore at 10-JAN-18
+
+database mounted
+
+contents of Memory Script:
+{
+   set newname for datafile  1 to
+ "/u02/app/oracle/oradata/CDBENC/system01.dbf";
+   set newname for datafile  3 to
+ "/u02/app/oracle/oradata/CDBENC/sysaux01.dbf";
+   set newname for datafile  4 to
+ "/u02/app/oracle/oradata/CDBENC/undotbs01.dbf";
+   set newname for datafile  5 to
+ "/u02/app/oracle/oradata/CDBENC/pdbseed/system01.dbf";
+   set newname for datafile  6 to
+ "/u02/app/oracle/oradata/CDBENC/pdbseed/sysaux01.dbf";
+   set newname for datafile  7 to
+ "/u02/app/oracle/oradata/CDBENC/users01.dbf";
+   set newname for datafile  8 to
+ "/u02/app/oracle/oradata/CDBENC/pdbseed/undotbs01.dbf";
+   set newname for datafile  23 to
+ "/u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_system_f58t6jd3_.dbf";
+   set newname for datafile  24 to
+ "/u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_sysaux_f58t6jd7_.dbf";
+   set newname for datafile  25 to
+ "/u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_undotbs1_f58t6jd7_.dbf";
+   set newname for datafile  30 to
+ "/u02/app/oracle/oradata/CDBENC/pdb1/tbsenc01.dbf";
+   restore
+   from  nonsparse   from service
+ 'ORCL'   as encrypted
+   clone database
+   ;
+   sql 'alter system archive log current';
+}
+executing Memory Script
+
+executing command: SET NEWNAME
+
+executing command: SET NEWNAME
+
+executing command: SET NEWNAME
+
+executing command: SET NEWNAME
+
+executing command: SET NEWNAME
+
+executing command: SET NEWNAME
+
+executing command: SET NEWNAME
+
+executing command: SET NEWNAME
+
+executing command: SET NEWNAME
+
+executing command: SET NEWNAME
+
+executing command: SET NEWNAME
+
+Starting restore at 10-JAN-18
+using channel ORA_AUX_DISK_1
+
+channel ORA_AUX_DISK_1: starting datafile backup set restore
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_AUX_DISK_1: restoring datafile 00001 to /u02/app/oracle/oradata/CDBENC/system01.dbf
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:56
+channel ORA_AUX_DISK_1: starting datafile backup set restore
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_AUX_DISK_1: restoring datafile 00003 to /u02/app/oracle/oradata/CDBENC/sysaux01.dbf
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:01:25
+channel ORA_AUX_DISK_1: starting datafile backup set restore
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_AUX_DISK_1: restoring datafile 00004 to /u02/app/oracle/oradata/CDBENC/undotbs01.dbf
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:03
+channel ORA_AUX_DISK_1: starting datafile backup set restore
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_AUX_DISK_1: restoring datafile 00005 to /u02/app/oracle/oradata/CDBENC/pdbseed/system01.dbf
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:16
+channel ORA_AUX_DISK_1: starting datafile backup set restore
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_AUX_DISK_1: restoring datafile 00006 to /u02/app/oracle/oradata/CDBENC/pdbseed/sysaux01.dbf
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:35
+channel ORA_AUX_DISK_1: starting datafile backup set restore
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_AUX_DISK_1: restoring datafile 00007 to /u02/app/oracle/oradata/CDBENC/users01.dbf
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:01
+channel ORA_AUX_DISK_1: starting datafile backup set restore
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_AUX_DISK_1: restoring datafile 00008 to /u02/app/oracle/oradata/CDBENC/pdbseed/undotbs01.dbf
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:04
+channel ORA_AUX_DISK_1: starting datafile backup set restore
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_AUX_DISK_1: restoring datafile 00023 to /u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_system_f58t6jd3_.dbf
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:15
+channel ORA_AUX_DISK_1: starting datafile backup set restore
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_AUX_DISK_1: restoring datafile 00024 to /u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_sysaux_f58t6jd7_.dbf
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:25
+channel ORA_AUX_DISK_1: starting datafile backup set restore
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_AUX_DISK_1: restoring datafile 00025 to /u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_undotbs1_f58t6jd7_.dbf
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:04
+channel ORA_AUX_DISK_1: starting datafile backup set restore
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_AUX_DISK_1: restoring datafile 00030 to /u02/app/oracle/oradata/CDBENC/pdb1/tbsenc01.dbf
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:01
+Finished restore at 10-JAN-18
+
+sql statement: alter system archive log current
+current log archived
+
+contents of Memory Script:
+{
+   restore clone force from service  'ORCL'
+           archivelog from scn  4700609;
+   switch clone datafile all;
+}
+executing Memory Script
+
+Starting restore at 10-JAN-18
+using channel ORA_AUX_DISK_1
+
+channel ORA_AUX_DISK_1: starting archived log restore to default destination
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: restoring archived log
+archived log thread=1 sequence=98
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:01
+channel ORA_AUX_DISK_1: starting archived log restore to default destination
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: restoring archived log
+archived log thread=1 sequence=99
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:01
+Finished restore at 10-JAN-18
+
+datafile 1 switched to datafile copy
+input datafile copy RECID=15 STAMP=965011826 file name=/u02/app/oracle/oradata/CDBENC/system01.dbf
+datafile 3 switched to datafile copy
+input datafile copy RECID=16 STAMP=965011827 file name=/u02/app/oracle/oradata/CDBENC/sysaux01.dbf
+datafile 4 switched to datafile copy
+input datafile copy RECID=17 STAMP=965011827 file name=/u02/app/oracle/oradata/CDBENC/undotbs01.dbf
+datafile 5 switched to datafile copy
+input datafile copy RECID=18 STAMP=965011827 file name=/u02/app/oracle/oradata/CDBENC/pdbseed/system01.dbf
+datafile 6 switched to datafile copy
+input datafile copy RECID=19 STAMP=965011827 file name=/u02/app/oracle/oradata/CDBENC/pdbseed/sysaux01.dbf
+datafile 7 switched to datafile copy
+input datafile copy RECID=20 STAMP=965011827 file name=/u02/app/oracle/oradata/CDBENC/users01.dbf
+datafile 8 switched to datafile copy
+input datafile copy RECID=21 STAMP=965011827 file name=/u02/app/oracle/oradata/CDBENC/pdbseed/undotbs01.dbf
+datafile 23 switched to datafile copy
+input datafile copy RECID=22 STAMP=965011827 file name=/u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_system_f58t6jd3_.dbf
+datafile 24 switched to datafile copy
+input datafile copy RECID=23 STAMP=965011828 file name=/u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_sysaux_f58t6jd7_.dbf
+datafile 25 switched to datafile copy
+input datafile copy RECID=24 STAMP=965011828 file name=/u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_undotbs1_f58t6jd7_.dbf
+datafile 30 switched to datafile copy
+input datafile copy RECID=25 STAMP=965011828 file name=/u02/app/oracle/oradata/CDBENC/pdb1/tbsenc01.dbf
+
+contents of Memory Script:
+{
+   set until scn  4700941;
+   recover
+   clone database
+    delete archivelog
+   ;
+}
+executing Memory Script
+
+executing command: SET until clause
+
+Starting recover at 10-JAN-18
+using channel ORA_AUX_DISK_1
+
+starting media recovery
+
+archived log for thread 1 with sequence 98 is already on disk as file /u03/app/oracle/fast_recovery_area/CDBENC/archivelog/2018_01_10/o1_mf_1_98_f5bzvhy8_.arc
+archived log for thread 1 with sequence 99 is already on disk as file /u03/app/oracle/fast_recovery_area/CDBENC/archivelog/2018_01_10/o1_mf_1_99_f5bzvkfv_.arc
+archived log file name=/u03/app/oracle/fast_recovery_area/CDBENC/archivelog/2018_01_10/o1_mf_1_98_f5bzvhy8_.arc thread=1 sequence=98
+archived log file name=/u03/app/oracle/fast_recovery_area/CDBENC/archivelog/2018_01_10/o1_mf_1_99_f5bzvkfv_.arc thread=1 sequence=99
+media recovery complete, elapsed time: 00:00:02
+Finished recover at 10-JAN-18
+
+contents of Memory Script:
+{
+   delete clone force archivelog all;
+}
+executing Memory Script
+
+released channel: ORA_AUX_DISK_1
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=42 device type=DISK
+deleted archived log
+archived log file name=/u03/app/oracle/fast_recovery_area/CDBENC/archivelog/2018_01_10/o1_mf_1_98_f5bzvhy8_.arc RECID=1 STAMP=965011824
+deleted archived log
+archived log file name=/u03/app/oracle/fast_recovery_area/CDBENC/archivelog/2018_01_10/o1_mf_1_99_f5bzvkfv_.arc RECID=2 STAMP=965011825
+Deleted 2 objects
+
+Oracle instance started
+
+Total System Global Area    6442448392 bytes
+
+Fixed Size                     8910344 bytes
+Variable Size               1157627904 bytes
+Database Buffers            4731174912 bytes
+Redo Buffers                   7864320 bytes
+In-Memory Area               536870912 bytes
+
+contents of Memory Script:
+{
+   sql clone "alter system set  db_name =
+ ''CDBENC'' comment=
+ ''Reset to original value by RMAN'' scope=spfile";
+   sql clone "alter system reset  db_unique_name scope=spfile";
+}
+executing Memory Script
+
+sql statement: alter system set  db_name =  ''CDBENC'' comment= ''Reset to original value by RMAN'' scope=spfile
+
+sql statement: alter system reset  db_unique_name scope=spfile
+Oracle instance started
+
+Total System Global Area    6442448392 bytes
+
+Fixed Size                     8910344 bytes
+Variable Size               1157627904 bytes
+Database Buffers            4731174912 bytes
+Redo Buffers                   7864320 bytes
+In-Memory Area               536870912 bytes
+sql statement: CREATE CONTROLFILE REUSE SET DATABASE "CDBENC" RESETLOGS ARCHIVELOG
+  MAXLOGFILES     16
+  MAXLOGMEMBERS      3
+  MAXDATAFILES     1024
+  MAXINSTANCES     8
+  MAXLOGHISTORY      292
+ LOGFILE
+  GROUP   1 ( '/u02/app/oracle/oradata/CDBENC/redo01.log' ) SIZE 200 M  REUSE,
+  GROUP   2 ( '/u02/app/oracle/oradata/CDBENC/redo02.log' ) SIZE 200 M  REUSE,
+  GROUP   3 ( '/u02/app/oracle/oradata/CDBENC/redo03.log' ) SIZE 200 M  REUSE
+ DATAFILE
+  '/u02/app/oracle/oradata/CDBENC/system01.dbf',
+  '/u02/app/oracle/oradata/CDBENC/pdbseed/system01.dbf',
+  '/u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_system_f58t6jd3_.dbf'
+ CHARACTER SET AL32UTF8
+
+
+contents of Memory Script:
+{
+   set newname for tempfile  1 to
+ "/u02/app/oracle/oradata/CDBENC/temp01.dbf";
+   set newname for tempfile  2 to
+ "/u02/app/oracle/oradata/CDBENC/pdbseed/temp012017-12-20_01-51-59-808-AM.dbf";
+   set newname for tempfile  4 to
+ "/u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_temp_f58t6jd8_.dbf";
+   switch clone tempfile all;
+   catalog clone datafilecopy  "/u02/app/oracle/oradata/CDBENC/sysaux01.dbf",
+ "/u02/app/oracle/oradata/CDBENC/undotbs01.dbf",
+ "/u02/app/oracle/oradata/CDBENC/pdbseed/sysaux01.dbf",
+ "/u02/app/oracle/oradata/CDBENC/users01.dbf",
+ "/u02/app/oracle/oradata/CDBENC/pdbseed/undotbs01.dbf",
+ "/u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_sysaux_f58t6jd7_.dbf",
+ "/u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_undotbs1_f58t6jd7_.dbf",
+ "/u02/app/oracle/oradata/CDBENC/pdb1/tbsenc01.dbf";
+   switch clone datafile all;
+}
+executing Memory Script
+
+executing command: SET NEWNAME
+
+executing command: SET NEWNAME
+
+executing command: SET NEWNAME
+
+renamed tempfile 1 to /u02/app/oracle/oradata/CDBENC/temp01.dbf in control file
+renamed tempfile 2 to /u02/app/oracle/oradata/CDBENC/pdbseed/temp012017-12-20_01-51-59-808-AM.dbf in control file
+renamed tempfile 4 to /u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_temp_f58t6jd8_.dbf in control file
+
+cataloged datafile copy
+datafile copy file name=/u02/app/oracle/oradata/CDBENC/sysaux01.dbf RECID=1 STAMP=965011899
+cataloged datafile copy
+datafile copy file name=/u02/app/oracle/oradata/CDBENC/undotbs01.dbf RECID=2 STAMP=965011899
+cataloged datafile copy
+datafile copy file name=/u02/app/oracle/oradata/CDBENC/pdbseed/sysaux01.dbf RECID=3 STAMP=965011899
+cataloged datafile copy
+datafile copy file name=/u02/app/oracle/oradata/CDBENC/users01.dbf RECID=4 STAMP=965011899
+cataloged datafile copy
+datafile copy file name=/u02/app/oracle/oradata/CDBENC/pdbseed/undotbs01.dbf RECID=5 STAMP=965011900
+cataloged datafile copy
+datafile copy file name=/u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_sysaux_f58t6jd7_.dbf RECID=6 STAMP=965011900
+cataloged datafile copy
+datafile copy file name=/u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_undotbs1_f58t6jd7_.dbf RECID=7 STAMP=965011900
+cataloged datafile copy
+datafile copy file name=/u02/app/oracle/oradata/CDBENC/pdb1/tbsenc01.dbf RECID=8 STAMP=965011900
+
+datafile 3 switched to datafile copy
+input datafile copy RECID=1 STAMP=965011899 file name=/u02/app/oracle/oradata/CDBENC/sysaux01.dbf
+datafile 4 switched to datafile copy
+input datafile copy RECID=2 STAMP=965011899 file name=/u02/app/oracle/oradata/CDBENC/undotbs01.dbf
+datafile 6 switched to datafile copy
+input datafile copy RECID=3 STAMP=965011899 file name=/u02/app/oracle/oradata/CDBENC/pdbseed/sysaux01.dbf
+datafile 7 switched to datafile copy
+input datafile copy RECID=4 STAMP=965011899 file name=/u02/app/oracle/oradata/CDBENC/users01.dbf
+datafile 8 switched to datafile copy
+input datafile copy RECID=5 STAMP=965011900 file name=/u02/app/oracle/oradata/CDBENC/pdbseed/undotbs01.dbf
+datafile 24 switched to datafile copy
+input datafile copy RECID=6 STAMP=965011900 file name=/u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_sysaux_f58t6jd7_.dbf
+datafile 25 switched to datafile copy
+input datafile copy RECID=7 STAMP=965011900 file name=/u02/app/oracle/oradata/CDBENC/pdb1/CDBENC/62537C15991D564BE0532133960A1CC1/datafile/o1_mf_undotbs1_f58t6jd7_.dbf
+datafile 30 switched to datafile copy
+input datafile copy RECID=8 STAMP=965011900 file name=/u02/app/oracle/oradata/CDBENC/pdb1/tbsenc01.dbf
+decryption password set for AUXILIARY database
+
+contents of Memory Script:
+{
+   Alter clone database open resetlogs;
+}
+executing Memory Script
+
+database opened
+
+contents of Memory Script:
+{
+   sql clone "alter pluggable database all open";
+}
+executing Memory Script
+
+sql statement: alter pluggable database all open
+Finished Duplicate Db at 10-JAN-18
