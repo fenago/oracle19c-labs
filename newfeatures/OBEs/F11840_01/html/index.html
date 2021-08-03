@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <!-- Part number: F11840-01 -->
+    <!-- Published date: November 2018 -->
+    <!-- See this link for directions on getting a part number: https://confluence.oraclecorp.com/confluence/display/DLPP/Archive+an+OBE -->
+    <!-- Template date: October 15, 2018 -->
+    <title>Relocating PDBs Using DBCA in Silent Mode</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <meta name="description" content="Learn how to relocate PDBs using DBCA in silent mode.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/obe-lite.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="js/jquery.tocify.jd.js"></script>
+    <script src="js/leftnav.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="w1024" style="min-height:55px; display:block;"> <a href="https://docs.oracle.com"
+          class="oracle-logo"> <img src="./img/oracle_doc_logo.png" alt="Oracle Documentation"
+            style="max-width: none;" height="22" width="236"></a> </div>
+    </header>
+    <!--end header-->
+    <div id="content">
+      <h1><img src="./img/obe_tag.png" alt="Oracle by Example branding" align="middle">Relocating
+        PDBs Using DBCA in Silent Mode</h1>
+      <div class="w1024" style="clear:both; position:relative; margin-top:40px;">
+        <div class="navbackwide border-right"><!-- --></div>
+        <div id="shownav" title="Show Navigation" tabindex="0"><span class="fa fa-list"></span></div>
+        <div id="sidebar"><!-- -->
+          <div class="left-nav-tut"><!-- -->
+            <div id="hidenavw" title="Hide Navigation" tabindex="0"><span class="fa fa-close"></span></div>
+            <div id="navbar" class="left-nav-w"><!-- -->
+              <div id="toc" class="tocify"><!-- --></div>
+            </div>
+          </div>
+        </div>
+        <div id="bookContainer">
+          <article>
+            <section>
+              <h2><img src="./img/32_begin.png" alt="section 0" class="num_circ"
+                  height="32" width="32"> Before You Begin</h2>
+              <p>This 15-minute tutorial shows you how to use Database
+                Configuration Assistant (DBCA) to relocate a remote pluggable
+                database (PDB) into a container database (CDB). </p>
+              <h3>Background</h3>
+              <p>In Oracle Database 18c, relocating a remote PDB requires
+                several commands to be executed.</p>
+              <h3>What Do You Need?</h3>
+              <ul>
+                <li>Oracle Database 19c installed</li>
+                <li>Two&nbsp;CDBs: <code> ORCL </code>with <code> PDB1 </code>
+                  and <code> CDB19</code>, both in archivelog mode. You can use
+                  the <a href="files/dbca.sh" target="_blank">dbca.sh </a>
+                  shell script to create <code>CDB19</code>. Download the shell
+                  script to the labs directory created on your server <code>/home/oracle/labs</code>.
+                  Replace the password in the shell script by your own complex
+                  password. PDB relocation PDB and remote PDB clone operations
+                  with DBCA do not support Oracle Managed Files (OMF) enabled
+                  CDB. Verify that the PDB to be cloned does not use OMF.</li>
+                <li><code>HR </code> schema installed in <code> PDB1 </code>
+                  as an example of application tables. If you want to use the <code>
+                    HR.EMPLOYEES </code> table, use the <a href="files/hr.sql"
+                    target="_blank"> hr.sql. </a> Download the SQL script to
+                  the labs directory created on your server <code>
+                    /home/oracle/labs. </code> In the script, update the
+                  password of the user connected to the database.</li>
+              </ul>
+            </section>
+            <!-- ========================================================================================================================= -->
+            <section>
+              <hr>
+              <h2 id="section_1" style="text-align: left;"><img src="./img/32_1.png"
+                  alt="section 1" class="num_circ" height="32" width="32">Prepare
+the
+                PDB Before Relocation</h2>
+              <ol>
+                <li>Log in to <code> PDB1 </code> in <code> ORCL</code> as <code>
+                    SYSTEM</code>.
+                  <pre><code>sqlplus system@PDB1<br>Enter password: <em>password</em>
+</code></pre></li>
+                <li>Use the <a href="files/hr.sql" target="_blank"> hr.sql </a>
+                  script to create the <code>HR </code> user and <code>EMPLOYEES</code>
+                  table in <code>PDB1</code>.
+                  <pre><code><code>@/home/oracle/labs/hr.sql</code>
+</code></pre></li>
+                <li>Verify that <code>PDB1 </code> contains the <code>HR.EMPLOYEES
+                    </code>table.
+                  <pre><code>SELECT count(*) FROM hr.employees; <br><br>  COUNT(*)
+----------
+       107
+</code></pre></li>
+                <li>Connect to <code>ORCL</code> as <code>SYS</code>.
+                  <pre><code>CONNECT sys@ORCL AS SYSDBA
+Enter password: <em>password</em></code></pre>
+                </li>
+                <li>Create a common user in <code>ORCL</code>, used in the
+                  database link automatically created in <code>CDB19</code> to
+                  connect to <code>ORCL</code> during the relocation operation.
+                  <pre><code>CREATE USER c##remote_user IDENTIFIED BY <em>password</em> CONTAINER=ALL;</code></pre>
+                </li>
+                <li>Grant the privileges.
+                  <pre><code>GRANT create session, create pluggable database, sysoper TO c##remote_user CONTAINER=ALL;</code></pre>
+                </li>
+                <li>Quit the session.
+                  <pre><code>EXIT</code></pre>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_2" role="button" style="text-align: left;"><img src="./img/32_2.png"
+                  alt="section 2" class="num_circ" height="32" width="32">Use
+                DBCA to Relocate a Remote PDB</h2>
+              <p>In this section, you use DBCA in silent mode to relocate<code>
+                  PDB1</code> from <code>ORCL</code> as <code>PDB1_IN_CDB19</code>
+                in <code>CDB19</code>.</p>
+              <ol>
+                <li>If <code>CDB19</code> does not exist, launch the <code>/home/oracle/labs/dbca.sh</code>
+                  shell script. The script creates the CDB with no PDB. <code></code>
+                  In the script, update the password of the user connected to
+                  the database.
+                  <pre><code>/home/oracle/labs/dbca.sh</code></pre>
+                </li>
+                <li>Launch DBCA in silent mode to relocate <code>PDB1</code>
+                  from <code>ORCL</code> as <code>PDB1_IN_CDB19</code> in <code>CDB19</code>.
+                  <pre><code>dbca -silent -relocatePDB -remotePDBName PDB1 -remoteDBConnString ORCL -sysDBAUserName SYSTEM -sysDBAPassword <em>password </em> -remoteDBSYSDBAUserName SYS -remoteDBSYSDBAUserPassword <em>password </em> -dbLinkUsername c##remote_user -dbLinkUserPassword <em> password </em> -sourceDB CDB19 -pdbName PDB1_IN_CDB19</code></pre>
+                  <pre><code>Prepare for db operation 
+Prepare for db operation
+50% complete
+Create pluggable database using relocate PDB operation
+100% complete
+Pluggable database "PDB1_IN_CDB19" plugged successfully.
+Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/CDB19/PDB1_IN_CDB19/CDB19.log" for further details.
+</code></pre> </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_3" role="button" style="text-align: left;"><img src="./img/32_3.png"
+                  alt="section 3" class="num_circ" height="32" width="32">Check
+                that the PDB Is Relocated</h2>
+              <ol>
+                <li>Connect to <code>CDB19</code> as <code>SYS</code>. Check
+                  that <code>PDB1</code> is relocated in <code>CDB19</code>.
+                  <pre><code>sqlplus sys@CDB19 AS SYSDBA
+Enter password: <em>password</em></code></pre>
+                  <pre><code>SHOW PDBS<br><br>    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO
+         3 PDB1_IN_CDB19                  READ WRITE NO<br></code></pre>
+                </li>
+                <li>Check that <code>PDB1_IN_CDB19 </code> contains the <code>HR.EMPLOYEES
+                    </code> table as in <code>PDB1</code>.
+                  <pre><code>CONNECT hr@PDB1_IN_CDB19
+Enter password: <em>password</em></code></pre>
+                  <pre><code>SELECT count(*) FROM employees;<br>
+  COUNT(*)
+----------
+       107<br></code></pre>
+                </li>
+                <li>Connect to <code>ORCL</code> as <code>SYS</code>. Check
+                  that <code>PDB1</code> does not exist anymore in <code>ORCL</code>.
+                  <pre><code>CONNECT sys@ORCL AS SYSDBA
+Enter password: <em>password</em></code></pre>
+                  <pre><code>SHOW PDBS<br><br>    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO</code></pre>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_4" role="button" style="text-align: left;"><img src="./img/32_4.png"
+                  alt="section 4" class="num_circ" height="32" width="32">Clean
+                Up the PDB Relocated</h2>
+              <ol>
+                <li>Connect to <code>CDB19</code> as <code>SYS</code>.
+                  <pre><code>CONNECT sys@CDB19 AS SYSDBA
+Enter password: <em>password</em></code></pre>
+                </li>
+                <li>Close <code>PDB1_In_CDB19</code>.
+                  <pre><code>ALTER PLUGGABLE DATABASE pdb1_in_cdb19 CLOSE;
+</code></pre></li>
+                <li>Drop <code>PDB1_IN_CDB19</code>.
+                  <pre><code>DROP PLUGGABLE DATABASE pdb1_in_cdb19 INCLUDING DATAFILES;
+</code></pre></li>
+                <li>Quit the session.
+                  <pre><code>EXIT</code></pre>
+                </li>
+              </ol>
+            </section>
+          </article>
+          <code> <code> </code></code></div>
+        <code> <code> <code> <br class="clearfloat">
+            </code></code></code></div>
+      <code> <code> </code></code></div>
+    <code> <code> <code>
+          <!--close main-->
+          <!--end content-->
+          <div class="footer-container ">
+            <div style="max-width: 994px; padding:10px 0 0 17px;">
+              <footer class="footer-list">
+                <ul>
+                  <li> <a href="https://www.oracle.com/corporate/index.html" target="_blank">About
+                      Oracle</a> </li>
+                  <li> <a href="https://www.oracle.com/us/corporate/contact/index.html"
+                      target="_blank">Contact Us</a> </li>
+                  <li> <a href="https://www.oracle.com/us/legal/index.html" target="_blank">Legal
+                      Notices</a> </li>
+                  <li> <a href="https://www.oracle.com/us/legal/terms/index.html"
+                      target="_blank">Terms of Use</a> </li>
+                  <li> <a href="https://www.oracle.com/us/legal/privacy/index.html"
+                      target="_blank">Your Privacy Rights</a> </li>
+                  <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=cpyr&amp;id=en">Copyright
+                      © 2018, Oracle and/or its affiliates. All rights reserved.</a></li>
+                </ul>
+              </footer>
+            </div>
+            <script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_docs.js"></script>
+          </div>
+        </code> </code> </code>
+  </body>
+</html>

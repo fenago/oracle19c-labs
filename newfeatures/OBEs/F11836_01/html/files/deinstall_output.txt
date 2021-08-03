@@ -1,0 +1,126 @@
+Checking for required files and bootstrapping ...
+Please wait ...
+Location of logs /u01/app/oraInventory/logs/
+
+############ ORACLE DECONFIG TOOL START ############
+
+
+######################### DECONFIG CHECK OPERATION START #########################
+## [START] Install check configuration ##
+
+
+Checking for existence of the Oracle home location /u01/app/oracle/product/19.1.0/dbhome_2
+Oracle Home type selected for deinstall is: Oracle Single Instance Database
+Oracle Base selected for deinstall is: /u01/app/oracle
+Checking for existence of central inventory location /u01/app/oraInventory
+
+## [END] Install check configuration ##
+
+
+Network Configuration check config START
+
+Network de-configuration trace file location: /u01/app/oraInventory/logs/netdc_check2018-10-30_01-06-16PM.log
+
+Network Configuration check config END
+
+Database Check Configuration START
+
+Database de-configuration trace file location: /u01/app/oraInventory/logs/databasedc_check2018-10-30_01-06-16PM.log
+
+Use comma as separator when specifying list of values as input
+
+Specify the list of database names that are configured in this Oracle home []: 
+Database Check Configuration END
+
+######################### DECONFIG CHECK OPERATION END #########################
+
+
+####################### DECONFIG CHECK OPERATION SUMMARY #######################
+Oracle Home selected for deinstall is: /u01/app/oracle/product/19.1.0/dbhome_2
+Inventory Location where the Oracle home registered is: /u01/app/oraInventory
+Do you want to continue (y - yes, n - no)? [n]: y
+A log of this session will be written to: '/u01/app/oraInventory/logs/deinstall_deconfig2018-10-30_01-06-14-PM.out'
+Any error messages from this session will be written to: '/u01/app/oraInventory/logs/deinstall_deconfig2018-10-30_01-06-14-PM.err'
+
+######################## DECONFIG CLEAN OPERATION START ########################
+Database de-configuration trace file location: /u01/app/oraInventory/logs/databasedc_clean2018-10-30_01-06-16PM.log
+
+Network Configuration clean config START
+
+Network de-configuration trace file location: /u01/app/oraInventory/logs/netdc_clean2018-10-30_01-06-16PM.log
+
+De-configuring backup files...
+Backup files de-configured successfully.
+
+The network configuration has been cleaned up successfully.
+
+Network Configuration clean config END
+
+
+######################### DECONFIG CLEAN OPERATION END #########################
+
+
+####################### DECONFIG CLEAN OPERATION SUMMARY #######################
+#######################################################################
+
+
+############# ORACLE DECONFIG TOOL END #############
+
+Using properties file /tmp/deinstall2018-10-30_01-05-54PM/response/deinstall_2018-10-30_01-06-14-PM.rsp
+Location of logs /u01/app/oraInventory/logs/
+
+############ ORACLE DEINSTALL TOOL START ############
+
+
+
+
+
+####################### DEINSTALL CHECK OPERATION SUMMARY #######################
+A log of this session will be written to: '/u01/app/oraInventory/logs/deinstall_deconfig2018-10-30_01-06-14-PM.out'
+Any error messages from this session will be written to: '/u01/app/oraInventory/logs/deinstall_deconfig2018-10-30_01-06-14-PM.err'
+
+######################## DEINSTALL CLEAN OPERATION START ########################
+## [START] Preparing for Deinstall ##
+Setting LOCAL_NODE to edvmr1p0
+Setting CRS_HOME to false
+Setting oracle.installer.invPtrLoc to /tmp/deinstall2018-10-30_01-05-54PM/oraInst.loc
+Setting oracle.installer.local to false
+
+## [END] Preparing for Deinstall ##
+
+Setting the force flag to false
+Setting the force flag to cleanup the Oracle Base
+Oracle Universal Installer clean START
+
+Detach Oracle home '/u01/app/oracle/product/19.1.0/dbhome_2' from the central inventory on the local node : Done
+
+Delete directory '/u01/app/oracle/product/19.1.0/dbhome_2' on the local node : Done
+
+The Oracle Base directory '/u01/app/oracle' will not be removed on local node. The directory is in use by Oracle Home '/u01/app/oracle/product/19.1.0/dbhome_1'.
+
+Oracle Universal Installer cleanup was successful.
+
+Oracle Universal Installer clean END
+
+
+## [START] Oracle install clean ##
+
+
+## [END] Oracle install clean ##
+
+
+######################### DEINSTALL CLEAN OPERATION END #########################
+
+
+####################### DEINSTALL CLEAN OPERATION SUMMARY #######################
+Successfully detached Oracle home '/u01/app/oracle/product/19.1.0/dbhome_2' from the central inventory on the local node.
+Successfully deleted directory '/u01/app/oracle/product/19.1.0/dbhome_2' on the local node.
+Oracle Universal Installer cleanup was successful.
+
+Review the permissions and contents of '/u01/app/oracle' on nodes(s) 'edvmr1p0'.
+If there are no Oracle home(s) associated with '/u01/app/oracle', manually delete '/u01/app/oracle' and its contents.
+Oracle deinstall tool successfully cleaned up temporary directories.
+#######################################################################
+
+
+############# ORACLE DEINSTALL TOOL END #############

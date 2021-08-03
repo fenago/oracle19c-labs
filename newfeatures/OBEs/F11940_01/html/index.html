@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <!-- Part number: F11940-01 -->
+    <!-- Published date: November 2018 -->
+    <!-- See this link for directions on getting a part number: https://confluence.oraclecorp.com/confluence/display/DLPP/Archive+an+OBE -->
+    <!-- Template date: October 15, 2018 -->
+    <title>Handling Operations on Oracle-Managed and User-Managed Tablespaces
+      Encrypted</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <meta name="description" content="Learn how to handle operations on Oracle-managed and user-managed tablespaces encrypted when the keystore is closed.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/obe-lite.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="js/jquery.tocify.jd.js"></script>
+    <script src="js/leftnav.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="w1024" style="min-height:55px; display:block;"> <a href="https://docs.oracle.com"
+          class="oracle-logo"> <img src="./img/oracle_doc_logo.png" alt="Oracle Documentation"
+            style="max-width: none;" height="22" width="236"></a> </div>
+    </header>
+    <!--end header-->
+    <div id="content">
+      <h1>Handling Operations on Oracle-Managed and User-Managed Tablespaces
+        Encrypted</h1>
+      <div class="w1024" style="clear:both; position:relative; margin-top:40px;">
+        <div class="navbackwide border-right"><!-- --></div>
+        <div id="shownav" title="Show Navigation" tabindex="0"><span class="fa fa-list"></span></div>
+        <div id="sidebar"><!-- -->
+          <div class="left-nav-tut"><!-- -->
+            <div id="hidenavw" title="Hide Navigation" tabindex="0"><span class="fa fa-close"></span></div>
+            <div id="navbar" class="left-nav-w"><!-- -->
+              <div id="toc" class="tocify"><!-- --></div>
+            </div>
+          </div>
+        </div>
+        <div id="bookContainer">
+          <article>
+            <section>
+              <h2><img src="./img/32_begin.png" alt="section 0" class="num_circ"
+                  height="32" width="32"> Before You Begin</h2>
+              <p>This 15-minute tutorial shows you how to handle operations on
+                the metadata and data of Oracle-managed and user-managed
+                tablespaces when the Transparent Data Encryption (TDE) keystore
+                is closed. </p>
+              <h3>Background</h3>
+              <p>In Oracle Database 18c, you must close the TDE keystore to
+                disallow operations on encrypted tablespaces. The behavior when
+                the keystore is closed does not depend on the type of tablespace
+                being accessed. Operations on user-managed tablespaces or
+                Oracle-managed tablespaces like <code> SYSTEM, SYSAUX, UNDO,</code>
+                and <code>TEMP</code> tablespaces raise the <code>ORA-28365
+                  "wallet is not open"</code> error.</p>
+              <h3>What Do You Need?</h3>
+              <ul>
+                <li>Oracle Database 19c installed</li>
+                <li>A container database (CDB): <code> ORCL </code>with <code>
+                    PDB1</code></li>
+              </ul>
+            </section>
+            <!-- ========================================================================================================================= -->
+            <section>
+              <hr>
+              <h2 id="section_1" style="text-align: left;"><img src="./img/32_1.png"
+                  alt="section 1" class="num_circ" height="32" width="32">Prepare
+                the CDB to Use TDE</h2>
+              <ol>
+                <li>Log in to <code>ORCL</code> as <code> SYS</code> with the
+                  <code> SYSDBA</code> administrative privilege.
+                  <pre><code>sqlplus / AS SYSDBA
+</code></pre></li>
+                <li>Create the keystore for the CDB in <code>/u02/app/oracle/admin/ORCL/tde_wallet</code>.
+                  <pre><code>mkdir -p /u02/app/oracle/admin/ORCL/tde_wallet </code>
+</pre>
+                  <pre><code>ADMINISTER KEY MANAGEMENT CREATE KEYSTORE '/u02/app/oracle/admin/ORCL/tde_wallet/' IDENTIFIED BY <em>password</em></code>;
+</pre></li>
+                <li>Open the keystore.
+                  <pre><code>ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY <em>password</em> CONTAINER=ALL;
+</code></pre></li>
+                <li>Set the TDE master encryption key.
+                  <pre><code>ADMINISTER KEY MANAGEMENT SET KEY IDENTIFIED BY <em>password</em> WITH BACKUP CONTAINER=ALL;
+</code></pre> </li>
+                <li>Create a user-managed tablespace.
+                  <pre><code>CREATE TABLESPACE omtbs DATAFILE '/u02/app/oracle/oradata/ORCL/omts01.dbf' SIZE 10M;
+</code></pre> </li>
+                <li>Check that the tablespaces are not encrypted.
+                  <pre><code>SELECT tablespace_name, encrypted FROM dba_tablespaces;
+
+TABLESPACE_NAME   ENC
+----------------- ---
+SYSTEM            NO
+SYSAUX            NO
+UNDOTBS1          NO
+TEMP              NO
+USERS             NO
+OMTBS             NO</code></pre>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_2" role="button" style="text-align: left;"><img src="./img/32_2.png"
+                  alt="section 2" class="num_circ" height="32" width="32">Encrypt
+                Oracle-managed and User-managed Tablespaces</h2>
+              <p>In this section, you close the keystore and see which
+                operations on Oracle-managed tablespaces and user-managed
+                tablespaces can be handled on the metadata and data.</p>
+              <ol>
+                <li>Close the keystore.
+                  <pre><code>ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE IDENTIFIED BY <em>password</em> CONTAINER = ALL;
+</code></pre> </li>
+                <li>Switch one of the Oracle-managed tablespaces to encryption.
+                  <pre><code>ALTER TABLESPACE system ENCRYPTION USING 'AES192' ENCRYPT;
+ALTER TABLESPACE system ENCRYPTION USING 'AES192' ENCRYPT
+*
+ERROR at line 1:
+ORA-28365: wallet is not open
+</code></pre> </li>
+                <li>Switch one of the user-managed tablespaces to encryption.
+                  <pre><code>ALTER TABLESPACE omtbs ENCRYPTION USING 'AES192' ENCRYPT;
+ALTER TABLESPACE omtbs ENCRYPTION USING 'AES192' ENCRYPT
+*
+ERROR at line 1:
+ORA-28365: wallet is not open
+</code></pre> </li>
+                <li>Open the keystore.
+                  <pre><code>ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY <em>password</em> CONTAINER = ALL;
+</code></pre> </li>
+                <li>Switch one of the Oracle-managed tablespaces to encryption.
+                  <pre><code>ALTER TABLESPACE system ENCRYPTION USING 'AES192' ENCRYPT;
+</code></pre> </li>
+                <li>Switch one of the user-managed tablespaces to encryption.
+                  <pre><code>ALTER TABLESPACE omtbs ENCRYPTION USING 'AES192' ENCRYPT;
+</code></pre> </li>
+                <li>Check that the tablespaces are encrypted.
+                  <pre><code>SELECT tablespace_name, encrypted FROM dba_tablespaces;
+
+TABLESPACE_NAME   ENC
+----------------- ---
+SYSTEM            YES
+SYSAUX            NO
+UNDOTBS1          NO
+TEMP              NO
+USERS             NO
+OMTBS             YES</code></pre>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_3" role="button" style="text-align: left;"><img src="./img/32_3.png"
+                  alt="section 3" class="num_circ" height="32" width="32">Handle
+                Encrypted Data in Oracle-managed and User-managed Tablespaces
+                When Keystore is Closed</h2>
+              <ol>
+                <li>Close the keystore.
+                  <pre><code>ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE IDENTIFIED BY <em>password</em> CONTAINER = ALL;
+</code></pre> </li>
+                <li>Change the encryption algorithm in <code>SYSTEM</code>
+                  tablespace.
+                  <pre><code>ALTER TABLESPACE system ENCRYPTION USING 'AES128' ENCRYPT;
+ALTER TABLESPACE system ENCRYPTION USING 'AES128' ENCRYPT
+*
+ERROR at line 1:
+ORA-28365: wallet is not open
+</code></pre> </li>
+                <li>Change the encryption algorithm in <code>OMTBS</code>
+                  tablespace.
+                  <pre><code>ALTER TABLESPACE omtbs ENCRYPTION USING 'AES128' ENCRYPT;
+ALTER TABLESPACE omtbs ENCRYPTION USING 'AES128' ENCRYPT
+*
+ERROR at line 1:
+ORA-28365: wallet is not open
+</code></pre> </li>
+                The operation fails because the operation affects the metadata
+                of the Oracle-managed and user-managed tablespaces.
+                <li> Create a table and insert data in the tablespace <code>SYSTEM</code>.
+                  <pre><code>CREATE TABLE system.test (c NUMBER, C2 CHAR(4)) TABLESPACE system;</code></pre>
+                  <pre><code>INSERT INTO system.test VALUES (1,'Test');</code></pre>
+                  <pre><code>COMMIT;</code></pre>
+                </li>
+                The operation completes because the operation affects only the
+                data of the Oracle-managed tablespace and because the tablespace
+                is an Oracle-managed tablespace.
+                <li>Create a table and insert data in the tablespace <code>OMTBS</code>.
+                  <pre><code>CREATE TABLE system.test2 (c NUMBER, C2 CHAR(4)) TABLESPACE omtbs;
+CREATE TABLE system.test2
+*
+ERROR at line 1:
+ORA-28365: wallet is not open</code></pre>
+                </li>
+                Operations on user-managed tablespaces still raise the <code>ORA-28365
+                  "wallet is not open"</code> error when the CDB root keystore
+                is closed.<br>
+                The behavior is the same in pluggable databases (PDBs).
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_4" role="button" style="text-align: left;"><img src="./img/32_4.png"
+                  alt="section 4" class="num_circ" height="32" width="32">Clean
+                Up the Environment</h2>
+              <ol>
+                <li>Open the keystore.
+                  <pre><code>ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY <em>password</em> CONTAINER = ALL;
+</code></pre> </li>
+                <li>Drop the <code>SYSTEM.TEST</code> table.
+                  <pre><code>DROP TABLE system.test;</code></pre>
+                </li>
+                <li>Drop the user-managed tablespace.
+                  <pre><code>DROP TABLESPACE omtbs INCLUDING CONTENTS AND DATAFILES;</code></pre>
+                </li>
+                <li>Decrypt the Oracle-managed tablespaces.
+                  <pre><code>ALTER TABLESPACE system ENCRYPTION DECRYPT;
+</code></pre> </li>
+                <li>Quit the session.
+                  <pre><code>EXIT</code></pre>
+                </li>
+              </ol>
+            </section>
+          </article>
+          <code> <code> </code></code></div>
+        <code> <code> <code> <br class="clearfloat">
+            </code></code></code></div>
+      <code> <code> </code></code></div>
+    <code> <code> <code>
+          <!--close main-->
+          <!--end content-->
+          <div class="footer-container ">
+            <div style="max-width: 994px; padding:10px 0 0 17px;">
+              <footer class="footer-list">
+                <ul>
+                  <li> <a href="https://www.oracle.com/corporate/index.html" target="_blank">About
+                      Oracle</a> </li>
+                  <li> <a href="https://www.oracle.com/us/corporate/contact/index.html"
+                      target="_blank">Contact Us</a> </li>
+                  <li> <a href="https://www.oracle.com/us/legal/index.html" target="_blank">Legal
+                      Notices</a> </li>
+                  <li> <a href="https://www.oracle.com/us/legal/terms/index.html"
+                      target="_blank">Terms of Use</a> </li>
+                  <li> <a href="https://www.oracle.com/us/legal/privacy/index.html"
+                      target="_blank">Your Privacy Rights</a> </li>
+                  <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=cpyr&amp;id=en">Copyright
+                      © 2018, Oracle and/or its affiliates. All rights reserved.</a></li>
+                </ul>
+              </footer>
+            </div>
+            <script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_docs.js"></script>
+          </div>
+        </code> </code> </code>
+  </body>
+</html>

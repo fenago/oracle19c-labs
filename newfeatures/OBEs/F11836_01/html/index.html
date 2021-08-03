@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <!-- Part number: F11836-01 -->
+    <!-- Published date: November 2018 -->
+    <!-- See this link for directions on getting a part number: https://confluence.oraclecorp.com/confluence/display/DLPP/Archive+an+OBE -->
+    <!-- Template date: October 15, 2018 -->
+    <title>Installing Oracle Database 19c With Automatic root Scripts Execution</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <meta name="description" content="Learn how to install Oracle Database 19c with automated root scripts execution.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/obe-lite.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="js/jquery.tocify.jd.js"></script>
+    <script src="js/leftnav.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="w1024" style="min-height:55px; display:block;"> <a href="https://docs.oracle.com"
+          class="oracle-logo"> <img src="./img/oracle_doc_logo.png" alt="Oracle Documentation"
+            style="max-width: none;" height="22" width="236"></a> </div>
+    </header>
+    <!--end header-->
+    <div id="content">
+      <h1><img src="./img/obe_tag.png" alt="Oracle by Example branding" align="middle">Installing
+        Oracle Database 19c With Automatic root Scripts Execution</h1>
+      <div class="w1024" style="clear:both; position:relative; margin-top:40px;">
+        <div class="navbackwide border-right"><!-- --></div>
+        <div id="shownav" title="Show Navigation" tabindex="0"><span class="fa fa-list"></span></div>
+        <div id="sidebar"><!-- -->
+          <div class="left-nav-tut"><!-- -->
+            <div id="hidenavw" title="Hide Navigation" tabindex="0"><span class="fa fa-close"></span></div>
+            <div id="navbar" class="left-nav-w"><!-- -->
+              <div id="toc" class="tocify"><!-- --></div>
+            </div>
+          </div>
+        </div>
+        <div id="bookContainer">
+          <article>
+            <section>
+              <h2><img src="./img/32_begin.png" alt="section 0" class="num_circ"
+                  height="32" width="32"> Before You Begin</h2>
+              <p>This 15-minute tutorial shows you how to install the Oracle
+                Database 19c with automated <code> root </code> scripts
+                execution. </p>
+              <h3>Background</h3>
+              <p>In Oracle Database 18c, the installation of the Oracle Database
+                software requires <code> root </code> scripts to be executed
+                manually.</p>
+              <h3>What Do You Need?</h3>
+              <ul>
+                <li>Oracle Database 19c software appropriate for your platform
+                  that you store in a staging directory </li>
+              </ul>
+            </section>
+            <!-- ========================================================================================================================= -->
+            <section>
+              <hr>
+              <h2 id="section_1" style="text-align: left;"><img src="./img/32_1.png"
+                  alt="section 1" class="num_circ" height="32" width="32">Prepare
+                the Directory</h2>
+              <ol>
+                <li>Log in to your server as <code> root </code> and create
+                  the directory dedicated for the Oracle Database 19c software.
+                  <pre><code>mkdir -p /u01/app/oracle/product/19.0.0/dbhome_2
+</code></pre></li>
+                <li>Go to the directory.
+                  <pre><code>cd /u01/app/oracle/product/19.0.0/dbhome_2
+</code></pre></li>
+                <li>Unzip <code>db_home.zip</code> to the directory dedicated
+                  for the Oracle Database 19c installation.
+                  <pre><code>unzip /staging/db_home.zip 
+</code></pre></li>
+                <li>Change the group and owner ownership of the directories
+                  where the files are unzipped.
+                  <pre><code>cd /u01</code></pre>
+                  <pre><code>chown -R oracle * </code></pre>
+                  <pre><code>chgrp -R oinstall *</code></pre>
+                </li>
+                <li>Quit the <code> root </code> session.
+                  <pre><code>exit</code></pre>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_2" role="button" style="text-align: left;"><img src="./img/32_2.png"
+                  alt="section 2" class="num_circ" height="32" width="32">Install
+                Oracle Database 19c</h2>
+              <p>In this section, you install the Oracle Database 19c using the
+                Oracle Universal Installer and the automatic <code> root </code>
+                scripts execution.</p>
+              <ol>
+                <li>Log in to your server as <code> oracle </code> and go to
+                  the directory dedicated for the Oracle Database 19c software.
+                  <pre><code>cd /u01/app/oracle/product/19.0.0/dbhome_2</code></pre>
+                </li>
+                <li>Launch <code> runInstaller</code>.
+                  <pre><code>./runInstaller </code></pre>
+                </li>
+                <li>In the <code>Select Configuration Option </code> page,
+                  select <code> Set Up Software Only </code>.</li>
+                <li>In the <code> Select Database Installation Option</code>
+                  page, click Next.</li>
+                <li>In the <code> Select Database Edition </code> page, click
+                  Next.</li>
+                <li>In the <code> Specify Installation Location </code> page,
+                  click Next.</li>
+                <li>In the <code> Privileged Operating System Groups </code>
+                  page, click Next.</li>
+                <li>In the <code> Root script execution configuration </code>
+                  page, check <code> Automatically run configuration scripts</code>,
+                  and provide the password for the <code> root </code> user.
+                  Click Next.</li>
+                <li>In the <code> Perform Prerequisite Checks </code> page,
+                  check <code>Ignore All</code> and click Next. If there is a
+                  warning message, choose Yes.</li>
+                <li>In the <code> Summary </code> page, click the <code> Save
+                    Response File… </code>. This allows you to observe the way
+                  the <code> root </code> scripts automatic execution is
+                  recorded in the response file. Select the <code>/tmp</code>
+                  directory to save the <code>db.rsp </code> response file.
+                  Click Save and then Install. </li>
+                <li>In the <code> Install Product </code>page, the <code>
+                    Progress </code>displays the steps executed until the
+                  following message appears: <br>
+                  <figure><img src="./img/root.png" alt="Warning message" class="ScreenShot">
+                    <figcaption><a href="./files/root.txt">Description of the
+                        illustration [root.png]</a></figcaption> </figure>
+                  Click Yes. </li>
+                <li>In the <code> Finish </code> page, click Close. The
+                  installation is complete. </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_3" role="button" style="text-align: left;"><img src="./img/32_3.png"
+                  alt="section 3" class="num_circ" height="32" width="32">Read
+                the Response File</h2>
+              <ol>
+                <li>Go to the directory where the response file is created.
+                  <pre><code>cd /tmp</code></pre>
+                </li>
+                <li>Read the response file.
+                  <pre><code>cat db.rsp </code></pre>
+                  <p class="note"> Use the <a href="files/db.rsp" target="_blank">db.rsp
+                      </a> to view the resulting response file.</p>
+                </li>
+                <li>Read the information that is relevant for the feature.
+                  <pre><code>oracle.install.db.rootconfig.executeRootScript=<strong>true</strong>
+#--------------------------------------------------------------------------------------
+# Specify the configuration method to be used for automatic root script execution.
+#
+# Following are the possible choices:
+#   - ROOT
+#   - SUDO
+#--------------------------------------------------------------------------------------
+oracle.install.db.rootconfig.configMethod=<strong>ROOT</strong> </code></pre>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_4" role="button" style="text-align: left;"><img src="./img/32_4.png"
+                  alt="section 4" class="num_circ" height="32" width="32">Clean
+                Up the Software Installed</h2>
+              <ol>
+                <li>If the OBE was a test for an installation, and if you want
+                  to deinstall the installed software, go to the directory where
+                  the Oracle Database 19c sotfware is installed.
+                  <pre><code>cd </code><code><code>/u01/app/oracle/product/19.0.0/dbhome_2/deinstall</code></code></pre>
+                </li>
+                <li>Launch <code> deinstall</code>.<br>
+                  <pre><code>./deinstall
+</code></pre></li>
+                <li> Answer the first question during the deinstallation.</li>
+                <code>
+                  <pre>Specify the list of database names that are configured in this Oracle home []: 
+</pre></code> Enter return because you did not create any database after the
+                installation.
+                <li>Answer the second question during the deinstallation. <code>
+                    <pre>Oracle Home selected for deinstall is: /u01/app/oracle/product/19.0.0/dbhome_2
+Inventory Location where the Oracle home registered is: /u01/app/oraInventory
+Do you want to continue (y - yes, n - no)? [n]: <strong>y</strong></pre>
+                  </code> </li>
+                <li>Read the <a href="files/deinstall_output.txt" target="_blank">deinstall_output.txt
+                    </a> file to ensure that the deinstallation completed
+                  successfully.
+                  <pre><code>Oracle Universal Installer cleanup was successful.
+...
+Oracle deinstall tool successfully cleaned up temporary directories.
+############# ORACLE DEINSTALL TOOL END #############
+</code></pre> </li>
+                <li>Quit the session.
+                  <pre><code>EXIT</code></pre>
+                </li>
+              </ol>
+            </section>
+          </article>
+          <code> <code> </code></code></div>
+        <code> <code> <code> <br class="clearfloat">
+            </code></code></code></div>
+      <code> <code> </code></code></div>
+    <code> <code> <code>
+          <!--close main-->
+          <!--end content-->
+          <div class="footer-container ">
+            <div style="max-width: 994px; padding:10px 0 0 17px;">
+              <footer class="footer-list">
+                <ul>
+                  <li> <a href="https://www.oracle.com/corporate/index.html" target="_blank">About
+                      Oracle</a> </li>
+                  <li> <a href="https://www.oracle.com/us/corporate/contact/index.html"
+                      target="_blank">Contact Us</a> </li>
+                  <li> <a href="https://www.oracle.com/us/legal/index.html" target="_blank">Legal
+                      Notices</a> </li>
+                  <li> <a href="https://www.oracle.com/us/legal/terms/index.html"
+                      target="_blank">Terms of Use</a> </li>
+                  <li> <a href="https://www.oracle.com/us/legal/privacy/index.html"
+                      target="_blank">Your Privacy Rights</a> </li>
+                  <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=cpyr&amp;id=en">Copyright
+                      © 2018, Oracle and/or its affiliates. All rights reserved.</a></li>
+                </ul>
+              </footer>
+            </div>
+            <script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_docs.js"></script>
+          </div>
+        </code> </code> </code>
+  </body>
+</html>

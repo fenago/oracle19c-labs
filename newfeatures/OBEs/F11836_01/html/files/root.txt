@@ -1,0 +1,1 @@
+Warning message to inform that root scripts are automatically executed as root
