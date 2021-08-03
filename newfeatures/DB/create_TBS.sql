@@ -1,0 +1,9 @@
+set echo on
+ALTER PLUGGABLE DATABASE OPEN;
+DROP  TABLESPACE test INCLUDING CONTENTS AND DATAFILES;
+CREATE TABLESPACE test DATAFILE '/u02/app/oracle/oradata/ORCL/pdb1/test01.dbf' SIZE 10M reuse;
+CREATE TABLE hr.tabtest (label VARCHAR2(50)) tablespace test;
+INSERT INTO hr.tabtest VALUES ('DATA FROM system.tabtest ON TABLESPACE test');
+COMMIT;
+CREATE DIRECTORY dp_pdb1 AS '/tmp';
+EXIT
