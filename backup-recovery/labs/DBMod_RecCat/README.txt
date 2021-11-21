@@ -1,0 +1,1 @@
+There are no practice files for the Using the RMAN Recovery Catalog learning module.
