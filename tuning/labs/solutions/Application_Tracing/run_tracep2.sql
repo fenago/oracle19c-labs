@@ -1,6 +1,6 @@
 set echo on
 
-connect trace/trace@TRACESERV
+connect trace/trace@orclpdb
 
 alter session set tracefile_identifier='mytraceP2';
 
@@ -25,7 +25,7 @@ end;
 
 
 
-connect trace/trace@TRACESERV
+connect trace/trace@orclpdb
 
 alter session set tracefile_identifier='mytraceS2';
 

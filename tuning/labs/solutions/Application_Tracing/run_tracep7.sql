@@ -1,6 +1,6 @@
 set echo on
 
-connect trace/trace@TRACESERV
+connect trace/trace@orclpdb
 
 alter session set tracefile_identifier='mytraceP7';
 
@@ -21,7 +21,7 @@ begin
 end;
 /
 
-connect trace/trace
+connect trace/trace@orclpdb
 
 create index sales_cust_indx on sales(cust_id);
 

@@ -1,6 +1,6 @@
 set echo on
 
-connect trace/trace
+connect trace/trace@orclpdb
 
 update sales set amount_sold=amount_sold+1;
 

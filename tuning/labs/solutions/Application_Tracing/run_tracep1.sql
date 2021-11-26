@@ -1,6 +1,6 @@
 set echo on
 
-connect trace/trace@TRACESERV
+connect trace/trace@orclpdb
 
 alter session set workarea_size_policy=manual;
 
@@ -18,7 +18,7 @@ select /*+ ORDERED USE_HASH(s2) */ count(*) from sales s1, sales s2 where s1.cus
 
 
 
-connect trace/trace@TRACESERV
+connect trace/trace@orclpdb
 
 alter session set tracefile_identifier='mytraceS1';
 

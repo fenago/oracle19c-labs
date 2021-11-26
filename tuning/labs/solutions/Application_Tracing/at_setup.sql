@@ -14,13 +14,12 @@ drop tablespace tracetbs3 including contents and datafiles;
 create tablespace tracetbs 
 datafile '/u01/app/oracle/oradata/orcl/tracetbs.dbf' size 100m
 extent management local uniform size 40k;
-
 create tablespace tracetbs3
 datafile '/u01/app/oracle/oradata/orcl/tracetbs3.dbf' size 100m
 extent management local uniform size 10m;
 
 
-connect trace/trace
+connect trace/trace@orclpdb
 
 drop table sales purge;
 
