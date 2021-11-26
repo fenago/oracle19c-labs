@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/oracle/solutions/Query_Result_Cache
+cd /home/oracle/labs/solutions/Query_Result_Cache
 
 sqlplus / as sysdba <<FIN!
 

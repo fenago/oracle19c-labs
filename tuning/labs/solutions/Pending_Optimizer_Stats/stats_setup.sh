@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/oracle/solutions/Pending_Optimizer_Stats
+cd /home/oracle/labs/solutions/Pending_Optimizer_Stats
 
 sqlplus / as sysdba <<FIN!
 

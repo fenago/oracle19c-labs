@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/oracle/solutions/Star_Schema_Tuning
+cd /home/oracle/labs/solutions/Star_Schema_Tuning
 
 sqlplus / as sysdba <<FIN!
 

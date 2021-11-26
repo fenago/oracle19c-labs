@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/oracle/solutions/Trace_Event
+cd /home/oracle/labs/solutions/Trace_Event
 
 rm myoptimizer.trc
 

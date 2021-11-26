@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/oracle/solutions/Automatic_SQL_Tuning
+cd /home/oracle/labs/solutions/Automatic_SQL_Tuning
 
 date
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/oracle/solutions/SQL_Tuning_Advisor
+cd /home/oracle/labs/solutions/SQL_Tuning_Advisor
 
 
 #
@@ -64,9 +64,9 @@ spool off
 EOF
 
 
-cp /home/oracle/solutions/SQL_Access_Advisor/sh/* $ORACLE_HOME/demo/schema/sales_history
+cp /home/oracle/labs/solutions/SQL_Access_Advisor/sh/* $ORACLE_HOME/demo/schema/sales_history
 
-cd /home/oracle/solutions/SQL_Access_Advisor/sh
+cd /home/oracle/labs/solutions/SQL_Access_Advisor/sh
 
 sqlplus -s /NOLOG <<EOF
 

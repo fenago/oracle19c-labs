@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/oracle/solutions/Application_Tracing
+cd /home/oracle/labs/solutions/Application_Tracing
 
 rm /u01/app/oracle/diag/rdbms/orcl/orcl/trace/*mytrace*.*
 

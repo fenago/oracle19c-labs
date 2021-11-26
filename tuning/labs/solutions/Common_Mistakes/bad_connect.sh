@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/oracle/solutions/Common_Mistakes
+cd /home/oracle/labs/solutions/Common_Mistakes
 
 
 STREAM_NUM=0

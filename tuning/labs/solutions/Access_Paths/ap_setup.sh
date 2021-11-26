@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/oracle/solutions/Access_Paths
+cd /home/oracle/labs/solutions/Access_Paths
 
 sqlplus / as sysdba @ap_setup.sql
 

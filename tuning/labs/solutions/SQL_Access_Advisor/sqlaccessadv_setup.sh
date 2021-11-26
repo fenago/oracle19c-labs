@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/oracle/solutions/SQL_Access_Advisor
+cd /home/oracle/labs/solutions/SQL_Access_Advisor
 
 sqlplus / as sysdba <<FIN!
 

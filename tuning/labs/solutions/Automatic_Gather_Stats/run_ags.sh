@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/oracle/solutions/Automatic_Gather_Stats
+cd /home/oracle/labs/solutions/Automatic_Gather_Stats
 
 sqlplus / as sysdba @run_ags.sql
 

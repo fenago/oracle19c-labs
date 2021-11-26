@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/oracle/solutions/Database_Architecture
+cd /home/oracle/labs/solutions/Database_Architecture
 
 
 sqlplus / as sysdba @files.sql

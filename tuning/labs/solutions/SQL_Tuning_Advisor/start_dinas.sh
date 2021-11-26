@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/oracle/solutions/SQL_Tuning_Advisor
+cd /home/oracle/labs/solutions/SQL_Tuning_Advisor
 
 
 STREAM_NUM=0
