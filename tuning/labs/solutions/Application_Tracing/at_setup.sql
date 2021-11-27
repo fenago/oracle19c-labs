@@ -6,16 +6,18 @@ create user trace identified by trace default tablespace users temporary tablesp
 
 grant connect, resource, dba to trace;
 
+alter session set container = orclpdb;
 
 drop tablespace tracetbs including contents and datafiles;
 
 drop tablespace tracetbs3 including contents and datafiles;
 
 create tablespace tracetbs 
-datafile '/u01/app/oracle/oradata/orcl/tracetbs.dbf' size 100m
+datafile '/u01/app/oracle/oradata/ORCL/tracetbs.dbf' size 100m
 extent management local uniform size 40k;
+
 create tablespace tracetbs3
-datafile '/u01/app/oracle/oradata/orcl/tracetbs3.dbf' size 100m
+datafile '/u01/app/oracle/oradata/ORCL/tracetbs3.dbf' size 100m
 extent management local uniform size 10m;
 
 
