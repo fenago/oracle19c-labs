@@ -1,3 +1,3 @@
-select /*+ USE_MERGE(E D) */ ename, e.deptno, d.deptno, d.dname
-from emp e, dept d
-where e.deptno = d.deptno and ename like 'A%';
+select /*+ USE_MERGE(D L) */ department_name, d.location_id, l.location_id, l.street_address
+from departments d, locations l where d.location_id = l.location_id
+and department_name like 'S%';

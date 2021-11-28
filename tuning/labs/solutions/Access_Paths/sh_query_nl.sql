@@ -1,6 +1,4 @@
-SELECT /*+ USE_NL(c s) */ 
-c.cust_first_name, c.cust_last_name, c.cust_id, COUNT(s.prod_id)
-FROM sh.customers c, sh.sales s
-where c.cust_id = s.cust_id
-and c.cust_id < 100 
-GROUP BY c.cust_first_name, c.cust_last_name, c.cust_id;
+SELECT /*+ USE_NL(p s) */ p.prod_name, p.prod_id 
+FROM sh.products p, sh.sales s
+where p.prod_id = s.prod_id
+and s.prod_id < 100 ;

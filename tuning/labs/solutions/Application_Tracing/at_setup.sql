@@ -1,12 +1,12 @@
 set echo on
 
+alter session set container = orclpdb;
+
 drop user trace cascade;
 
 create user trace identified by trace default tablespace users temporary tablespace temp;
 
 grant connect, resource, dba to trace;
-
-alter session set container = orclpdb;
 
 drop tablespace tracetbs including contents and datafiles;
 

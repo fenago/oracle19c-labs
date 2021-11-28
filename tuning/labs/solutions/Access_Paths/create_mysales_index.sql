@@ -1,5 +1,6 @@
 set echo on
-
-create index mysales_prodid_idx on mysales(prod_id) 
-nologging compute statistics;
+alter session set container = orclpdb;
+drop index mysales_prodid_idx;
+create index mysales_prodid_idx on mysales(prod_id) nologging;
+exit;
 
