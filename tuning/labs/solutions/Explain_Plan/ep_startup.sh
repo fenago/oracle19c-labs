@@ -2,5 +2,5 @@
 
 cd /home/oracle/labs/solutions/Explain_Plan
 
-sqlplus ep/ep @ep_startup.sql
+sqlplus ep/ep@orclpdb @ep_startup.sql
 

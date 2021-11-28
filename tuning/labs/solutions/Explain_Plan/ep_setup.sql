@@ -6,7 +6,7 @@ create user ep identified by ep default tablespace users temporary tablespace te
 
 grant connect, resource, dba to ep;
 
-connect ep/ep
+connect ep/ep@orclpdb
 
 drop table test purge;
 

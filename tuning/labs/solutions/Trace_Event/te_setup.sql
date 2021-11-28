@@ -1,5 +1,7 @@
 set echo on
 
+ALTER SESSION SET container = 'orclpdb';
+
 ALTER SESSION SET TRACEFILE_IDENTIFIER = 'MYOPTIMIZER';
 
 alter session set events '10053 trace name context forever, level 1';
