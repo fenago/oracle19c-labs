@@ -1,4 +1,5 @@
 set echo on
+alter session set container = orclpdb;
 
 drop user ep cascade;
 
