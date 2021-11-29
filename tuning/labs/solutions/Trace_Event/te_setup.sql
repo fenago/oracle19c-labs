@@ -1,6 +1,6 @@
 set echo on
 
-ALTER SESSION SET container = 'orclpdb';
+ALTER SESSION SET container=orclpdb;
 
 ALTER SESSION SET TRACEFILE_IDENTIFIER = 'MYOPTIMIZER';
 
