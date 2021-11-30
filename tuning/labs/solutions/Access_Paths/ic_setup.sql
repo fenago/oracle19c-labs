@@ -1,6 +1,7 @@
 -- run with sqlplus /nolog
 
 connect / as sysdba
+alter session set container = orclpdb;
 
 DROP user IC cascade;
 
@@ -8,9 +9,9 @@ CREATE USER ic IDENTIFIED BY ic;
 
 GRANT DBA TO ic;
 GRANT SELECT_CATALOG_ROLE TO ic;
-GRANT SELET ANY DICTIONARY TO ic;
+GRANT SELECT ANY DICTIONARY TO ic;
 
-connect ic/ic
+connect ic/ic@orclpdb
 
 set echo on
 

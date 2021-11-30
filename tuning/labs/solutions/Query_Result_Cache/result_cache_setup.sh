@@ -5,6 +5,7 @@ cd /home/oracle/labs/solutions/Query_Result_Cache
 sqlplus / as sysdba <<FIN!
 
 set echo on
+alter session set container = orclpdb; 
 
 drop user qrc cascade;
 
@@ -14,7 +15,7 @@ temporary tablespace temp;
 
 grant connect, resource, dba to qrc;
 
-connect qrc/qrc
+connect qrc/qrc@orclpdb
 
 exec dbms_result_cache.flush;
 

@@ -1,5 +1,7 @@
 connect / as sysdba;
 
+alter session set container = orclpdb; 
+
 alter system flush shared_pool;
 
 alter system flush buffer_cache;

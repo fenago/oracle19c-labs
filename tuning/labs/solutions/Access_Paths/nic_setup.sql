@@ -1,5 +1,6 @@
 -- run with sqlplus /nolog
 connect / as sysdba
+alter session set container = orclpdb; 
 
 DROP user NIC cascade;
 
@@ -8,7 +9,7 @@ GRANT DBA to NIC;
 GRANT SELECT_CATALOG_ROLE to NIC;
 GRANT select any dictionary to NIC;
 
-connect nic/nic
+connect nic/nic@orclpdb
 
 set echo on
 

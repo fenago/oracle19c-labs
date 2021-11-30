@@ -1,5 +1,6 @@
 -- run with sqlplus /nolog @shc_setup.sql
 connect / as sysdba
+alter session set container = orclpdb;
 
 drop user shc cascade;
 
@@ -8,7 +9,7 @@ Grant DBA to SHC;
 GRANT select_catalog_role to SHC;
 GRANT select any dictionary to SHC;
 
-connect shc/shc
+connect shc/shc@orclpdb
 
 set echo on
 

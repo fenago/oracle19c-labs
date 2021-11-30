@@ -1,6 +1,7 @@
 set echo on
 
 connect / as sysdba;
+alter session set container = orclpdb; 
 
 drop user jfv cascade;
 
@@ -9,7 +10,7 @@ create user jfv identified by jfv default tablespace users temporary tablespace 
 grant connect, resource, dba to jfv;
 
 
-connect jfv/jfv
+connect jfv/jfv@orclpdb
 
 drop table t purge;
 

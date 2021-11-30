@@ -7,6 +7,7 @@ sqlplus -s /NOLOG <<EOF
 set echo on 
 
 connect / as sysdba
+alter session set container = orclpdb;
 
 exec DBMS_WORKLOAD_REPOSITORY.CREATE_SNAPSHOT();
 
@@ -29,7 +30,7 @@ exec dbms_advisor.set_default_task_parameter('ADDM','DB_ACTIVITY_MIN',30);
 alter user sh account unlock;
 alter user sh identified by sh;
 
-connect sh/sh
+connect sh/sh@orclpdb
 
 drop index sales_time_bix;
 drop index sales_time_idx;

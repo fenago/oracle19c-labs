@@ -1,12 +1,12 @@
 set echo on
-
+alter session set container = orclpdb; 
 drop user acs cascade;
 
 create user acs identified by acs default tablespace users temporary tablespace temp;
 
 grant dba, connect to acs;
 
-connect acs/acs
+connect acs/acs@orclpdb
 
 drop table emp purge;
 
