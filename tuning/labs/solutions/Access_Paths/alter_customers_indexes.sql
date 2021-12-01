@@ -3,7 +3,7 @@ store  set sqlplus_settings replace
 save   buffer.sql replace
 set    timing off heading off verify off autotrace off feedback off
 
-spool  alter_cust_idx.sql
+spool alter_cust_idx.sql
 
 SELECT 'ALTER index '||i.index_name||' INVISIBLE;'
 FROM   user_indexes i
@@ -15,7 +15,7 @@ AND    NOT EXISTS
        AND    c.table_name = i.table_name
        AND    c.status = 'ENABLED');
 
-spool  off
+spool off
 
 @alter_cust_idx.sql
 
