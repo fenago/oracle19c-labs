@@ -1,0 +1,1 @@
+SELECT COUNT(*) FROM sh.customers WHERE cust_state_province='CA';

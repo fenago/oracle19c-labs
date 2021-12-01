@@ -1,6 +1,6 @@
 -- run with sqlplus /nolog @shc_setup.sql
 connect / as sysdba
-alter session set container = orclpdb;
+alter session set container =orclpdb;
 
 drop user shc cascade;
 

@@ -1,0 +1,4 @@
+BEGIN
+DBMS_STATS.GATHER_TABLE_STATS( 'sh','customers', method_opt => 'FOR ALL COLUMNS SIZE SKEWONLY FOR
+COLUMNS(LOWER(cust_state_province)) SIZE SKEWONLY'); END;
+/

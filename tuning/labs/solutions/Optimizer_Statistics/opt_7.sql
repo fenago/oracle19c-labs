@@ -1,0 +1,2 @@
+CREATE INDEX CUSTOMERS3_LAST_NAME_IDX ON
+customers3(cust_last_name);

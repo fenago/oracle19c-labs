@@ -1,12 +1,12 @@
 set echo on
-
+alter session set container = orclpdb;
 drop user ags cascade;
 
 create user ags identified by ags;
 
 grant dba to ags;
 
-connect ags/ags
+connect ags/ags@orclpdb
 
 drop table emp purge;
 
