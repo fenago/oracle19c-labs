@@ -1,0 +1,21 @@
+SQL> ALTER SYSTEM SET OPTIMIZER_CAPTURE_SQL_PLAN_BASELINES=true;
+
+System altered.
+
+SQL> SELECT * FROM SQLLOG$;
+ 
+no rows selected
+ 
+SQL> SELECT job_title FROM hr.jobs WHERE job_id = 'AD_PRES';
+ 
+JOB_TITLE
+-----------------------------------
+President
+ 
+SQL> SELECT * FROM SQLLOG$;
+ 
+ SIGNATURE     BATCH#
+---------- ----------
+1.8096E+19          1
+
+After repeated commands you can check "dba_sql_plan_baselines".

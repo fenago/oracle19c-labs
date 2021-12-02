@@ -1,0 +1,6 @@
+Select SIZE_FOR_ESTIMATE "Cache Size (mb)", BUFFERS_FOR_ESTIMATE "buffers",
+ ESTD_PHYSICAL_READ_FACTOR "Read Factor",
+ ESTD_PHYSICAL_READS "Estimated Reads"
+From V$DB_CACHE_ADVICE
+ORDER by 2
+/
