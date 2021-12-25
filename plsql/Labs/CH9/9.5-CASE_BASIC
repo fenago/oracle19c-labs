@@ -1,0 +1,15 @@
+DECLARE
+  DAY 	VARCHAR2(50)  := 'TU';
+BEGIN
+  dbms_output.put_line(Day||' stands for :');
+  CASE DAY
+    WHEN 'SA' THEN dbms_output.put_line('Saturday');
+    WHEN 'SU' THEN dbms_output.put_line('Sunday');
+    WHEN 'MO' THEN dbms_output.put_line('Monday');
+    WHEN 'TU' THEN dbms_output.put_line('Tuesday');
+    WHEN 'WE' THEN dbms_output.put_line('Wednesday');
+    WHEN 'TH' THEN dbms_output.put_line('Thursday');
+    WHEN 'FR' THEN dbms_output.put_line('Friday');
+  END CASE; 
+END;
+/

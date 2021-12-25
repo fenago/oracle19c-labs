@@ -1,0 +1,26 @@
+DECLARE
+  v_emp_id    dbms_sql.number_table;
+  v_last_name dbms_sql.varchar2_table;
+  v_email     dbms_sql.varchar2_table;
+  v_hire_date dbms_sql.date_table;
+  v_job_id    dbms_sql.varchar2_table;
+  v_sql       VARCHAR2(500);
+  v_result    NUMBER;
+  v_curs      PLS_INTEGER;
+BEGIN
+ get_emps(100,105,v_emp_id,v_last_name,v_email,v_hire_date,v_job_id);
+ v_sql := 'INSERT INTO employees_1
+             (employee_id, last_name,email,hire_date,job_id)
+           VALUES (:eid,:lname,:email,:hdate,:jid)';
+ v_curs := dbms_sql.open_cursor;
+ dbms_sql.parse(v_curs, v_sql,dbms_sql.NATIVE);
+ dbms_sql.bind_array(v_curs,'eid',v_emp_id);
+ dbms_sql.bind_array(v_curs,'lname',v_last_name);
+ dbms_sql.bind_array(v_curs,'email',v_email);
+ dbms_sql.bind_array(v_curs,'hdate',v_hire_date);
+ dbms_sql.bind_array(v_curs,'jid',v_job_id);
+ v_result:= dbms_sql.execute(v_curs);
+ dbms_sql.close_cursor(v_curs);
+END;
+/
+

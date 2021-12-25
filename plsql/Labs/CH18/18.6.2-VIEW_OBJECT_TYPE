@@ -1,0 +1,2 @@
+SELECT type_name, attr_name FROM user_type_attrs
+WHERE  type_name = 'COMPANY'

@@ -1,0 +1,15 @@
+DECLARE 
+ TYPE emps_type IS TABLE OF emps%ROWTYPE;
+ v_emps emps_type := emps_type();
+BEGIN
+    UPDATE emps
+    SET salary = 2500
+    WHERE employee_id BETWEEN 300 AND 305
+    RETURNING employee_id, first_name, salary
+    BULK COLLECT INTO v_emps;
+    dbms_output.put_line('--- Employee No. ---');
+    FOR i IN v_emps.FIRST .. v_emps.LAST LOOP
+       dbms_output.put_line('('||i||')-'||v_emps(i).employee_id);
+    END LOOP;
+END;
+/

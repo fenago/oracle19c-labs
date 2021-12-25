@@ -1,0 +1,11 @@
+<<block>>
+DECLARE
+  i 	PLS_INTEGER := 5;
+BEGIN
+   FOR i IN 1..7 LOOP
+    dbms_output.put_line(i||'-'||TO_CHAR(TO_DATE(i,'DD'), 'DAY'));
+    EXIT WHEN block.i < i;
+   END LOOP;
+   dbms_output.put_line('block.i ='|| block.i ||', i='||i);
+END;
+/

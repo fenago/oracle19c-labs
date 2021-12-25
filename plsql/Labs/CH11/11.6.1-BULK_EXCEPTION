@@ -1,0 +1,23 @@
+DECLARE 
+  v_start          NUMBER :=  99998;
+  v_end            NUMBER := 100004;
+  TYPE             list IS VARRAY(7) OF NUMBER;
+  v_emps           list := list();
+  forall_errors    EXCEPTION;
+  PRAGMA EXCEPTION_INIT(forall_errors, -24381);
+BEGIN
+   FOR i IN v_start .. v_end LOOP
+     v_emps.EXTEND;
+     v_emps(v_emps.LAST) := i;
+   END LOOP;
+   FORALL i IN v_emps.FIRST .. v_emps.LAST SAVE EXCEPTIONS
+   INSERT INTO emps
+   VALUES (v_emps(i), 'Ernesto','');
+EXCEPTION
+   WHEN forall_errors THEN 
+    FOR i IN 1.. SQL%BULK_EXCEPTIONS.COUNT LOOP
+     dbms_output.put_line('('||SQL%BULK_EXCEPTIONS(i).ERROR_INDEX
+               ||')-'||SQLERRM(-(SQL%BULK_EXCEPTIONS(i).ERROR_CODE)));
+    END LOOP;
+END;  
+/

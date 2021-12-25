@@ -1,0 +1,32 @@
+CREATE OR REPLACE TRIGGER student_college_limit_trg
+  FOR INSERT OR 
+      UPDATE OF college_id
+  ON students
+  COMPOUND TRIGGER
+  ---- Declaration part ------
+  CURSOR cur IS
+    SELECT college_id, count(*) cnt
+    FROM students
+    GROUP BY college_id;
+  TYPE  college_list IS TABLE OF cur%ROWTYPE;
+  v_college_list	college_list;
+  TYPE  college_table  IS TABLE OF NUMBER INDEX BY PLS_INTEGER;
+  v_college_table	college_table;
+BEFORE STATEMENT IS BEGIN
+  OPEN cur;
+  FETCH cur BULK COLLECT INTO v_college_list;
+  CLOSE cur;
+  FOR i IN 1 .. v_college_list.COUNT LOOP
+   v_college_table(v_college_list(i).college_id) := v_college_list(i).cnt;
+  END LOOP;
+END BEFORE STATEMENT;
+AFTER EACH ROW IS BEGIN
+  IF v_college_table.EXISTS(:NEW.college_id) AND 
+     v_college_table(:NEW.college_id)+1 > 3 THEN
+     RAISE_APPLICATION_ERROR(-20000,
+           'Exceeding maximum student number');
+  END IF;
+END AFTER EACH ROW;
+END;
+/
+

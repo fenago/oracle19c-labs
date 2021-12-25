@@ -1,0 +1,12 @@
+SELECT * FROM emps WHERE employee_id=400;
+/
+DECLARE 
+ v_employee  employee := NEW employee(400,'Ernesto',5000,100);
+BEGIN
+ v_employee.add_emp();
+ COMMIT;
+END;
+/
+SELECT * FROM emps WHERE employee_id=400;
+/
+

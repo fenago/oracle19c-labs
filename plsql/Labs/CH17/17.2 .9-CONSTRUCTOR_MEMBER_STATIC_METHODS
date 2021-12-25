@@ -1,0 +1,8 @@
+DECLARE 
+ v_details    VARCHAR2(50):= 'code: 1111';
+BEGIN
+ car.print(v_details);
+DBMS_OUTPUT.new_line;
+END;
+/
+

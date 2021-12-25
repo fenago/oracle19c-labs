@@ -1,0 +1,6 @@
+BEGIN
+  dbms_output.put_line(clients.client_owner); 
+  clients.print_client;
+END;
+/
+

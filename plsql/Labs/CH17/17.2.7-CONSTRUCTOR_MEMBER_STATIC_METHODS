@@ -1,0 +1,8 @@
+DECLARE 
+ v_car        car;
+ v_details    VARCHAR2(50);
+BEGIN
+ v_details := v_car.details();
+ v_car.print(v_details);
+END;
+/

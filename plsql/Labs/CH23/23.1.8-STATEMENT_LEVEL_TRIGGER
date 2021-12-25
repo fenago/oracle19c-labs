@@ -1,0 +1,4 @@
+SELECT employee_id, first_name,salary, grade
+FROM   emps WHERE  employee_id BETWEEN 6 AND 10
+/
+

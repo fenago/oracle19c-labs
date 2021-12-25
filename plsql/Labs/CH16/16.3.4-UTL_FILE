@@ -1,0 +1,19 @@
+DECLARE 
+ v_file   UTL_FILE.FILE_TYPE;
+ v_row    VARCHAR2(250);
+BEGIN
+ v_file := UTL_FILE.FOPEN('FILE_STORE','EMPS.TXT','W');
+ UTL_FILE.PUT_LINE(v_file, 'Dept	EmpId	FName');
+ UTL_FILE.PUT_LINE(v_file, '--------------------------');
+ FOR r IN (SELECT * FROM employees
+           WHERE department_id in (10,20,30)
+           ORDER BY department_id,employee_id) 
+ LOOP
+   v_row := r.department_id||'	'||
+            r.employee_id||'	'||
+            r.first_name;
+   UTL_FILE.PUT_LINE(v_file, v_row);
+ END LOOP;
+ UTL_FILE.FCLOSE(v_file);
+END;
+/

@@ -1,0 +1,20 @@
+DECLARE
+ i		NUMBER := 6;
+ k		NUMBER := 4;
+BEGIN
+  dbms_output.put_line('-----  After Initialization ------');
+  dbms_output.put_line('i='||i);
+  dbms_output.put_line('k='||k);
+  k := 0;
+  i := i/k;
+  dbms_output.put_line('-----  After Assignments ------');
+  dbms_output.put_line('i='||i);
+  dbms_output.put_line('k='||k);
+EXCEPTION
+    WHEN ZERO_DIVIDE THEN
+       dbms_output.put_line(' :::: Exception handler :::: ');
+       dbms_output.put_line('i='||i);
+       dbms_output.put_line('k='||k);
+END;
+/
+

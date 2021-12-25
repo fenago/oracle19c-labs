@@ -1,0 +1,11 @@
+CREATE OR REPLACE FUNCTION get_emp_pipelined 
+RETURN emp_ids PIPELINED
+IS
+BEGIN
+  FOR r IN (SELECT employee_id FROM emps) LOOP
+   PIPE ROW (r.employee_id);
+  END LOOP;
+  RETURN;
+END;
+/
+

@@ -1,0 +1,26 @@
+CREATE OR REPLACE TYPE BODY vehicle AS 
+ MEMBER FUNCTION details RETURN VARCHAR2 IS
+ v_details  VARCHAR2(200);
+ BEGIN
+  v_details :=  '----- (( Vehicle )) -----'||chr(10)
+                ||'Code    	:'||code||chr(10)
+                ||'model   	:'||model||chr(10)
+                ||'color   	:'||color||chr(10)
+                ||'man_date   	:'||man_date||chr(10);
+  RETURN v_details;
+ END; 
+ MEMBER FUNCTION details(lines NUMBER) RETURN VARCHAR2 IS
+ v_details  VARCHAR2(200);
+ BEGIN
+  v_details :=  '----- (( Vehicle )) -----'||chr(10)
+                ||'Code    	:'||code||chr(10)
+                ||'model   	:'||model||chr(10)
+                ||'color   	:'||color||chr(10)
+                ||'man_date   	:'||man_date||chr(10);
+  FOR i IN 1 .. lines LOOP
+   v_details := v_details||'----------------------'||chr(10);
+  END LOOP;
+  RETURN v_details;
+ END; 
+END;
+/

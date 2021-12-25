@@ -1,0 +1,24 @@
+DECLARE 
+  v_mark       VARCHAR2(50);
+  v_time_1     NUMBER;
+  v_time_2     NUMBER;                
+  v_time_3     NUMBER;                                
+BEGIN
+  v_time_1 := DBMS_UTILITY.get_time;
+  FOR i IN (SELECT e.*
+            FROM   emps e
+            WHERE mark(e.grade) = 'A')  LOOP
+    null;
+  END LOOP;
+  v_time_2 := DBMS_UTILITY.get_time;
+  FOR i IN (SELECT e.*
+            FROM   emps e
+            WHERE mark_d(e.grade) = 'A')  LOOP
+    null;
+  END LOOP;
+  v_time_3 := DBMS_UTILITY.get_time;
+  dbms_output.put_line('----- Time Difference (sec) ------');
+  dbms_output.put_line('mark	:'||((v_time_2-v_time_1)/100));
+  dbms_output.put_line('mark_d	:'||((v_time_3-v_time_2)/100));
+END;
+/

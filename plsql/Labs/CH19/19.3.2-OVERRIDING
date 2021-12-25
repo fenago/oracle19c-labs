@@ -1,0 +1,19 @@
+CREATE OR REPLACE TYPE BODY motorcycle AS
+ CONSTRUCTOR FUNCTION motorcycle RETURN SELF AS RESULT IS
+ BEGIN
+   SELF := NEW motorcycle(9999,'MODEL','COLOR','01-JAN-50',2);
+   RETURN;
+ END;
+ OVERRIDING MEMBER FUNCTION details RETURN VARCHAR2 IS
+ v_details  VARCHAR2(200);
+ BEGIN
+  v_details :=  '----- (( Motorcycle )) -----'||chr(10)
+                ||'Code    	:'||code||chr(10)
+                ||'model   	:'||model||chr(10)
+                ||'color   	:'||color||chr(10)
+                ||'man_date   	:'||man_date||chr(10)
+                ||'wheel_cnt   	:'||wheel_cnt||chr(10);
+  RETURN v_details;
+ END; 
+END;
+/

@@ -1,0 +1,17 @@
+CREATE FUNCTION bubble_sort(v_uslist   list) RETURN list IS
+    v_list  list := v_uslist;
+BEGIN
+ IF v_list.EXISTS(v_list.FIRST) THEN
+  FOR i IN REVERSE v_list.FIRST .. v_list.LAST-1 LOOP
+   FOR j IN v_list.FIRST .. i LOOP
+     IF v_list(j+1) > v_list(j) THEN
+       v_temp      := v_list(j);
+       v_list(j)   := v_list(j+1);
+       v_list(j+1) := v_temp;
+     END IF;
+   END LOOP;
+  END LOOP;
+ END IF;
+ RETURN v_list;
+END;
+

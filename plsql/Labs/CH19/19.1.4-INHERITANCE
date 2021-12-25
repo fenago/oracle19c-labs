@@ -1,0 +1,7 @@
+CREATE OR REPLACE TYPE motorcycle UNDER vehicle
+(wheel_cnt	  NUMBER ,
+ CONSTRUCTOR FUNCTION motorcycle RETURN SELF AS RESULT
+) 
+FINAL;
+/
+

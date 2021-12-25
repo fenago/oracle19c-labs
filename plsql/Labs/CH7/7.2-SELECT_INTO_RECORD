@@ -1,0 +1,19 @@
+DECLARE
+ TYPE emp     IS RECORD(id      	PLS_INTEGER, 
+                        name     	VARCHAR2(50));
+ c_emp		emp;
+ v_emp		employees%ROWTYPE;	
+BEGIN
+  SELECT employee_id, first_name INTO c_emp 
+  FROM employees 
+  WHERE employee_id=150;
+  dbms_output.put_line('Full employee Record ('||c_emp.id||
+                                          '): '||c_emp.name);
+  --------------------------------------------------------
+  SELECT * INTO v_emp 
+  FROM employees 
+  WHERE employee_id=160;
+  dbms_output.put_line('Partial employee Record ('||v_emp.employee_id||
+                                             '): '||v_emp.first_name);
+END;
+/

@@ -1,0 +1,11 @@
+BEGIN
+   DBMS_NETWORK_ACL_ADMIN.ASSIGN_ACL (
+    acl          => 'mail_acl.xml',
+    host         => '*',
+    lower_port   => 1,
+    upper_port   => 9999
+    );
+   COMMIT;
+END;
+/
+

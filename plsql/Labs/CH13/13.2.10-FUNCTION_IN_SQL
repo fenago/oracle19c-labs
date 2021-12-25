@@ -1,0 +1,12 @@
+DECLARE 
+  v_emp     emps.employee_id%TYPE;
+BEGIN
+  SELECT add_emp() INTO v_emp FROM DUAL;
+  UPDATE emps
+  SET employee_id = add_emp(),
+      first_name  = 'Lee',
+      salary      = 5500
+  WHERE employee_id = add_emp()-1;
+  dbms_output.put_line('New employee('||v_emp||')');
+END;
+/

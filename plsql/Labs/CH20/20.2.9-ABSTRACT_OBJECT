@@ -1,0 +1,7 @@
+DECLARE
+ v_triangle  triangle := NEW triangle(sides_list(3,4,5));
+BEGIN
+ dbms_output.put_line('Triangle perimeter	:'||v_triangle.perimeter());
+ dbms_output.put_line('Triangle area     	:'||v_triangle.area());
+END;
+/

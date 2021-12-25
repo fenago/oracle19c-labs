@@ -1,0 +1,7 @@
+DROP TRIGGER database_ddl_trg
+/
+DROP TRIGGER hr_ddl_trg
+/
+DROP TRIGGER hr2_ddl_trg
+/
+

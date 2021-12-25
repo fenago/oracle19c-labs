@@ -1,0 +1,11 @@
+DECLARE 
+ v_dept 	departments%ROWTYPE;
+BEGIN
+    SELECT * INTO v_dept FROM departments
+    WHERE department_id = 301;
+    dbms_output.put_line('department = '||v_dept.department_name);
+    SELECT * INTO v_dept FROM departments
+    WHERE department_id = 302;
+    dbms_output.put_line('department = '||v_dept.department_name);
+END;
+

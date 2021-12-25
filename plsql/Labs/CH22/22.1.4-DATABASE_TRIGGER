@@ -1,0 +1,19 @@
+CREATE OR REPLACE TRIGGER Shutdown_Alert_trg 
+BEFORE SHUTDOWN
+ON DATABASE
+BEGIN
+ INSERT INTO system_alerts
+ VALUES (sys.database_name,sys.sysevent, sysdate, sys.login_user,'Shutdown_Alert');
+ COMMIT;
+ UTL_MAIL.SEND 
+    (sender     => 'elee@ConsultantNetwork.com',
+     recipients => 'elee@ConsultantNetwork.com',
+     subject    => sys.database_name||' is shuting down!!',
+     message    => 'Dear Admin,, 
+                    please be informed that your database "'||sys.database_name||
+                '" is shutting down on '||SYSDATE||' due to ('||sys.sysevent||'). ',
+     mime_type  => 'text/plain; charset=us-ascii'
+     );
+END;
+/
+

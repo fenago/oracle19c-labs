@@ -1,0 +1,11 @@
+CREATE OR REPLACE PROCEDURE conditional_compiler
+AS
+BEGIN
+ $IF $$PLSQL_UNIT_OWNER IS NOT NULL $THEN
+   dbms_output.put_line('owner  	:'||$$PLSQL_UNIT_OWNER);
+   dbms_output.put_line('Line No	:'||$$PLSQL_LINE);
+ $ELSE
+   dbms_output.put_line('Block type	:'||$$PLSQL_UNIT_TYPE);
+ $END
+END;
+/

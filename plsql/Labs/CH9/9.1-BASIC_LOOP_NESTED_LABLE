@@ -1,0 +1,23 @@
+DECLARE
+ i   	PLS_INTEGER;
+ j   	PLS_INTEGER;
+ lower	PLS_INTEGER := 1;
+ upper	PLS_INTEGER := 5;
+ out	VARCHAR2(50);
+BEGIN
+   i := lower;
+   <<outer>> LOOP
+     EXIT WHEN i > upper;
+     j := upper;
+     out:='(i,j)=';
+     <<inner>> LOOP 
+        EXIT inner WHEN j < i;
+        EXIT outer WHEN i = j;
+        out := out||'('||i||','||j||'),';
+        dbms_output.put_line(out);
+        j := j-1;
+     END LOOP inner;
+     i := i + 1;
+   END LOOP outer;
+END;
+/

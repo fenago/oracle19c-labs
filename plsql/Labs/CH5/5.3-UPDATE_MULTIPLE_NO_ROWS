@@ -1,0 +1,13 @@
+DECLARE
+   p_department	departments%ROWTYPE;
+BEGIN
+   UPDATE departments
+   SET manager_id = 150
+   WHERE department_id >190; 
+   IF SQL%ISOPEN   THEN dbms_output.put_line('SQL%ISOPEN 	=TRUE'); END IF;
+   IF SQL%FOUND    THEN dbms_output.put_line('SQL%FOUND 	=TRUE'); END IF;
+   IF SQL%NOTFOUND THEN dbms_output.put_line('SQL%NOTFOUND	=TRUE'); END IF;
+   dbms_output.put_line('SQL%ROWCOUNT 	=' ||SQL%ROWCOUNT);
+END;
+/
+

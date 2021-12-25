@@ -1,0 +1,6 @@
+BEGIN
+   FOR i IN 1..7 LOOP
+    dbms_output.put_line(i||'-'||TO_CHAR(TO_DATE(i,'DD'), 'DAY'));
+   END LOOP;
+END;
+/

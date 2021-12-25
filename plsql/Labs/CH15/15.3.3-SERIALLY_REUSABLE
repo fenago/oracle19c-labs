@@ -1,0 +1,17 @@
+DECLARE
+  v_client     clients.machine;
+  v_client1    ser_clients.machine;
+  v_client_cnt NUMBER;
+BEGIN
+  v_client.machine_name := 'CLIENT';
+  v_client.ips          := clients.ip_list('198.168.0.5',
+                                          '198.168.0.6');
+  v_client1.machine_name := 'CLIENT';
+  v_client1.ips          := ser_clients.ip_list('198.168.0.5',
+                                                '198.168.0.6');
+  v_client_cnt := clients.add_client(v_client);
+  dbms_output.put_line('add client number:'||v_client_cnt);
+  v_client_cnt := ser_clients.add_client(v_client1);
+  dbms_output.put_line('add ser. client number:'||v_client_cnt);
+END;
+/

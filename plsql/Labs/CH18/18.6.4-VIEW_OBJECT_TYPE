@@ -1,0 +1,5 @@
+COLUMN text FORMAT A50;
+SELECT text FROM all_source 
+WHERE name = 'COMPANY' AND
+      type = 'TYPE BODY'
+ORDER BY line

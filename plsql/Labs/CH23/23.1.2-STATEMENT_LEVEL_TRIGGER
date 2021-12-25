@@ -1,0 +1,14 @@
+CREATE SEQUENCE emp_DML_seq
+/
+CREATE TABLE emp_DML_logs
+(log_id      NUMBER DEFAULT emp_DML_seq.NEXTVAL,
+ table_name  VARCHAR2(50) NOT NULL,
+ user_name   VARCHAR2(50) NOT NULL,
+ operation   VARCHAR2(2),
+ curr_date   DATE,
+ curr_emp_no NUMBER,
+ new_emp_no  NUMBER,
+ max_emp_no  NUMBER,
+ CONSTRAINT emp_DML_logs_PK primary key(log_id)
+)
+/

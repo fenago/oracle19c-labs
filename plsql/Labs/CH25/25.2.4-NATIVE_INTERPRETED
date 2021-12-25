@@ -1,0 +1,9 @@
+SELECT name,type,
+       plsql_ccflags cflags, 
+       plsql_optimize_level op_l,
+       plsql_code_type c_type,
+       plsql_debug debug,
+       plsql_warnings warnings
+FROM USER_PLSQL_OBJECT_SETTINGS
+WHERE name IN ('MARK','COMPILATION_TYPE')
+/

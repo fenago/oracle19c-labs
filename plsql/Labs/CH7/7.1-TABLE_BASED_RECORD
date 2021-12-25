@@ -1,0 +1,14 @@
+DECLARE
+ v_emp		employees%ROWTYPE;
+ v_dept		departments%ROWTYPE;	
+BEGIN
+  v_emp.employee_id      := 1;
+  v_emp.first_name       := 'Ernesto';
+  dbms_output.put_line('Employee Record ('||v_emp.employee_id||
+                                         '): '||v_emp.first_name);
+  v_dept.department_id   := 1;
+  v_dept.department_name := 'CONSULTANT NETWORK -DC'; 
+  dbms_output.put_line('Department Record ('||v_dept.department_id||
+                                           '): '||v_dept.department_name);
+END;
+/

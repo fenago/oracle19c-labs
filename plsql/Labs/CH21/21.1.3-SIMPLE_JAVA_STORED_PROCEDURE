@@ -1,0 +1,5 @@
+COLUMN v FORMAT A30;
+VARIABLE v VARCHAR2(100)
+CALL saySomething(4) INTO :v;
+PRINT v;
+

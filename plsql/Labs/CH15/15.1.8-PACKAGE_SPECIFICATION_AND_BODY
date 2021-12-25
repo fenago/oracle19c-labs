@@ -1,0 +1,22 @@
+CREATE OR REPLACE PACKAGE BODY clients IS
+  client_owner  VARCHAR2(50) := USER;
+  PROCEDURE print_client IS
+  BEGIN
+    dbms_output.put_line(client.machine_name);
+  END;
+  FUNCTION add_client(v_client machine) RETURN client_cnt%TYPE IS
+  BEGIN
+    IF client_cnt+1 > max_clients THEN
+       RAISE max_clients_exceeded;
+    END IF;
+    client     := v_client;
+    client_cnt := client_cnt +1;
+    RETURN client_cnt;
+  EXCEPTION
+    WHEN max_clients_exceeded THEN
+      dbms_output.put_line('Exception: can''t add more clients. 
+                   Max client count is ('||client_cnt||').');
+      RAISE;
+  END;
+END clients;
+/

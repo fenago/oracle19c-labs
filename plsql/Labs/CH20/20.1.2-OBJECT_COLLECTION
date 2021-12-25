@@ -1,0 +1,11 @@
+DECLARE 
+ TYPE comp_list IS TABLE OF companies%ROWTYPE;
+ v_comps    comp_list;
+BEGIN
+ SELECT VALUE(c) BULK COLLECT INTO v_comps FROM companies c;
+ dbms_output.put_line('------- Companies -----------');
+ FOR i IN v_comps.FIRST..v_comps.LAST LOOP
+   dbms_output.put_line(v_comps(i).get_name());
+ END LOOP;
+END;
+

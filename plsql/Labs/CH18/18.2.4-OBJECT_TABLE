@@ -1,0 +1,6 @@
+COLUMN VALUE(C) FORMAT A30;
+SELECT * FROM companies;
+SELECT id FROM companies;
+SELECT VALUE(c) FROM companies c;
+SELECT VALUE(c).id FROM companies c;
+

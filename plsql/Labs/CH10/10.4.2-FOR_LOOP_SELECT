@@ -1,0 +1,14 @@
+DECLARE 
+ v_dept 	departments%ROWTYPE;
+ i      	PLS_INTEGER := 200;
+ step   	PLS_INTEGER := 10;
+BEGIN
+   LOOP
+    SELECT * INTO v_dept FROM departments
+    WHERE department_id = i;
+    dbms_output.put_line(v_dept.department_id||':'||v_dept.department_name);
+    i := i + step;
+    EXIT WHEN i > 240;
+   END LOOP;
+END;
+/

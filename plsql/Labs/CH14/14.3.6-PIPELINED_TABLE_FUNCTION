@@ -1,0 +1,17 @@
+CREATE OR REPLACE FUNCTION get_emp_pipelined 
+RETURN emp_ids PIPELINED
+IS
+  i    NUMBER := 1;
+BEGIN
+  FOR r IN (SELECT employee_id FROM emps) LOOP
+   dbms_output.put_line('('||i||')-'||r.employee_id);
+   i := i+1;
+   PIPE ROW (r.employee_id);
+  END LOOP;
+  RETURN;
+EXCEPTION
+  WHEN NO_DATA_NEEDED THEN 
+   dbms_output.put_line('--- Termination ---');
+   dbms_output.put_line('i ='||i);
+END;
+/

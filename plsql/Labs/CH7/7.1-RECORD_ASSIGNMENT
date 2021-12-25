@@ -1,0 +1,18 @@
+DECLARE
+  TYPE company IS RECORD(id      	PLS_INTEGER  := 1,
+                         name     	VARCHAR2(50) := 'CONSULTANT NETWORK',
+                         mobile   	INTEGER);
+  TYPE corporation IS RECORD(id	 	PLS_INTEGER  := 2,
+                             name	VARCHAR2(50) := 'ORACLE CO.',
+                             mobile   	INTEGER);
+  v_comp		company;
+  v_corp		corporation;	
+BEGIN
+ dbms_output.put_line('Company Record ('||v_comp.id||'): '||v_comp.name);
+ dbms_output.put_line('Company Record ('||v_corp.id||'): '||v_corp.name);
+ v_comp := NULL;
+ dbms_output.put_line('Company Record ('||v_comp.id||'): '||v_comp.name);
+ -- Try assign different records --
+ --  v_comp := v_corp;
+END;
+/

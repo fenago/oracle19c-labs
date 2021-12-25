@@ -1,0 +1,3 @@
+ALTER TRIGGER database_ddl_trg ENABLE
+/
+

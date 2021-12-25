@@ -1,0 +1,17 @@
+CREATE OR REPLACE FUNCTION get_result
+              (v_table_name  VARCHAR2, 
+               v_column_list VARCHAR2 DEFAULT '*') 
+RETURN SYS_REFCURSOR IS
+  c_curs   SYS_REFCURSOR;
+  v_sql    VARCHAR2(500);
+BEGIN
+ IF v_table_name IS NOT NULL THEN 
+   v_sql := 'SELECT '||v_column_list||
+            ' FROM  '||v_table_name||
+            ' WHERE ROWNUM <=5';
+   OPEN c_curs FOR v_sql;
+ END IF;
+ RETURN c_curs;
+END;
+/
+

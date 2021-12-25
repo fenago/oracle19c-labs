@@ -1,0 +1,15 @@
+DECLARE 
+ v_car       car := NEW car('','','','');
+ v_details   VARCHAR2(100);
+BEGIN
+ v_car.code     := 22554;
+ v_car.model    :='FORD';
+ v_car.color    :='White';
+ v_car.man_date :='01-Feb-99';
+ ------ Use function ------
+ v_details := v_car.details();
+ DBMS_OUTPUT.put(v_details);
+ v_car.print();
+ DBMS_OUTPUT.new_line;
+END;
+/

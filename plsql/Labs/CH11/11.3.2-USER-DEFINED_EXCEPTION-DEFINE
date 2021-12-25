@@ -1,0 +1,23 @@
+DECLARE 
+ low_salary        EXCEPTION;
+ high_salary       EXCEPTION;
+ v_salary          NUMBER := 5;
+BEGIN
+   CASE 
+   WHEN v_salary < 1500 THEN -- Min salary
+      RAISE low_salary;
+   WHEN v_salary > 9000 THEN -- Max salary
+      RAISE high_salary;
+   ELSE
+      NULL;
+   END CASE;
+   UPDATE emps
+   SET    first_name='Ernesto', salary = v_salary
+   WHERE  employee_id = 1;
+EXCEPTION
+   WHEN low_salary THEN 
+     dbms_output.put_line('Too low salary');
+   WHEN high_salary THEN
+     dbms_output.put_line('Too high salary');
+END;  
+/

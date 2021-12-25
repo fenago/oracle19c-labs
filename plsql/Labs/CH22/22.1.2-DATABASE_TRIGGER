@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER worktime_trg 
+AFTER LOGON
+ON DATABASE
+BEGIN
+  IF USER <> 'SYS' AND 
+     TO_CHAR(SYSDATE,'HH24MI') BETWEEN '1305' AND '1310' 
+  THEN
+    RAISE_APPLICATION_ERROR(-20000,'Login denied! 
+                You are not allowed to login now!');
+  END IF;
+END;
+/
+

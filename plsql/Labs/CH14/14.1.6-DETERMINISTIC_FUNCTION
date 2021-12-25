@@ -1,0 +1,9 @@
+BEGIN
+  FOR r IN (SELECT * FROM emps) LOOP
+   UPDATE emps
+   SET    grade = DBMS_RANDOM.value(1,100)
+   WHERE  employee_id = r.employee_id;
+  END LOOP;
+  COMMIT;
+END;
+/

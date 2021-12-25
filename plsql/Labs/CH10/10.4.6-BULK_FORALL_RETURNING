@@ -1,0 +1,20 @@
+DECLARE
+   TYPE	 emps_type IS TABLE OF emps%ROWTYPE;
+   v_emps	 emps_type := emps_type();
+   TYPE	 salaries IS TABLE OF emps.salary%TYPE;
+   v_salaries salaries := salaries(1000,2000,3000,4000,5000);
+BEGIN
+	 FORALL i IN v_salaries.FIRST .. v_salaries.LAST
+	 UPDATE emps
+	 SET salary = 2500
+	 WHERE salary
+	       BETWEEN v_salaries(i) AND
+		      DBMS_RANDOM.value(v_salaries(i),v_salaries(i)+1000)
+	 RETURNING employee_id, first_name, salary
+	 BULK COLLECT INTO v_emps;
+	 dbms_output.put_line('--- Total '||SQL%ROWCOUNT||' records updated ---');
+	 FOR i IN  v_salaries.FIRST .. v_salaries.LAST LOOP
+	    dbms_output.put_line('('||i||')-'||SQL%BULK_ROWCOUNT(i));
+	 END LOOP;
+END;
+/

@@ -1,0 +1,16 @@
+CREATE OR REPLACE TYPE company AS OBJECT
+(id           NUMBER,
+ name         VARCHAR2(50),
+ manager_id   NUMBER,
+ MEMBER FUNCTION get_name RETURN VARCHAR2
+);
+/
+CREATE OR REPLACE TYPE BODY company AS
+ MEMBER FUNCTION get_name RETURN VARCHAR2
+ IS
+ BEGIN
+   RETURN SELF.name;
+ END;
+END;
+/
+

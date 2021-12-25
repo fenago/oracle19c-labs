@@ -1,0 +1,19 @@
+CREATE OR REPLACE FUNCTION MANAGERS(v_emp_id NUMBER) RETURN list
+IS 
+  v_managers     list := list();
+  v_manager	 NUMBER;
+BEGIN
+  SELECT manager_id INTO v_manager 
+  FROM   employees
+  WHERE  employee_id = v_emp_id;
+  IF v_manager IS NOT NULL THEN 
+     v_managers.EXTEND;
+     v_managers(v_managers.LAST) := v_manager;
+     v_managers := v_managers MULTISET UNION DISTINCT 
+                   managers(v_manager); 
+  END IF;
+  v_managers.EXTEND;
+  v_managers(v_managers.LAST) := v_emp_id;
+  RETURN v_managers;
+END;
+/

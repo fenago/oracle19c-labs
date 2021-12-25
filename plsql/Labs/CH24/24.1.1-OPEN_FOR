@@ -1,0 +1,18 @@
+CREATE OR REPLACE FUNCTION get_result(v_flag  NUMBER) 
+RETURN SYS_REFCURSOR IS
+  c_curs   SYS_REFCURSOR;
+BEGIN
+  IF v_flag = 1 THEN 
+    OPEN c_curs FOR
+        SELECT employee_id, first_name,last_name, email 
+        FROM employees 
+        WHERE ROWNUM <=5;
+  ELSIF v_flag = 2 THEN 
+    OPEN c_curs FOR
+        SELECT * FROM departments
+        WHERE ROWNUM <=5;
+  END IF;
+  RETURN c_curs;
+END;
+/
+

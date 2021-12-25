@@ -1,0 +1,13 @@
+CREATE OR REPLACE TYPE car AS OBJECT
+(code     NUMBER,
+ model    VARCHAR2(50),
+ color    VARCHAR2(50),
+ man_date DATE,
+ CONSTRUCTOR FUNCTION car RETURN SELF AS RESULT,
+ CONSTRUCTOR FUNCTION car(code NUMBER) RETURN SELF AS RESULT,
+ CONSTRUCTOR FUNCTION car(code     NUMBER,
+                          model    VARCHAR2,
+                          man_date DATE) RETURN SELF AS RESULT
+);
+/
+

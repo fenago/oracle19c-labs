@@ -1,0 +1,12 @@
+<<outer>>
+DECLARE
+ i     INTEGER := 1;
+BEGIN
+  <<inner>>
+  DECLARE
+     i   INTEGER := 2;
+  BEGIN
+    dbms_output.put_line('i='||i||', outer(i)='||outer.i );
+  END;
+END;
+/

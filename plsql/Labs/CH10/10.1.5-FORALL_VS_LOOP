@@ -1,0 +1,26 @@
+DECLARE 
+ TYPE emps_type IS TABLE OF emps%ROWTYPE;
+ v_emps emps_type := emps_type();
+ p1   PLS_INTEGER; p2   PLS_INTEGER; p3   PLS_INTEGER;
+BEGIN
+    -------- Fill in v_emps Nested Table -------
+    FOR r IN (SELECT * FROM emps) LOOP
+      v_emps.EXTEND;
+      v_emps(v_emps.LAST) := r;
+    END LOOP;
+    p1 := DBMS_UTILITY.get_time;
+    FOR i in v_emps.FIRST .. v_emps.LAST LOOP
+      UPDATE emps
+      SET salary = salary + 1000
+      WHERE employee_id = v_emps(i).employee_id;
+    END LOOP;
+    p2 := DBMS_UTILITY.get_time;
+    FORALL i in v_emps.FIRST .. v_emps.LAST
+    UPDATE emps
+    SET salary = salary + 1000
+    WHERE employee_id = v_emps(i).employee_id;
+    p3 := DBMS_UTILITY.get_time;
+    dbms_output.put_line('-------- Time difference (sec)-------');
+    dbms_output.put_line('FOR LOOP:'||(p2-p1)/100||', FORALL:'||(p3-p2)/100);
+END;
+/

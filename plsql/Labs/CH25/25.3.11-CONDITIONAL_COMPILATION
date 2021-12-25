@@ -1,0 +1,3 @@
+ALTER PROCEDURE conditional_compiler COMPILE
+/
+

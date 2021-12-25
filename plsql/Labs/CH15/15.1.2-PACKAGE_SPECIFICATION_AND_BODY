@@ -1,0 +1,18 @@
+DECLARE
+  v_client     clients.machine;
+BEGIN
+  v_client.machine_name := 'CLIENT';
+  v_client.ips          := clients.ip_list('198.168.0.5',
+                                          '198.168.0.6');
+  clients.client    := v_client;
+  clients.client_cnt := clients.client_cnt +1;
+  IF clients.client_cnt > clients.max_clients THEN
+     RAISE clients.max_clients_exceeded;
+  END IF;
+  dbms_output.put_line('Add client count:'||clients.client_cnt);
+EXCEPTION
+  WHEN clients.max_clients_exceeded THEN
+   dbms_output.put_line('Exception client count:'||clients.client_cnt);
+END;
+/
+

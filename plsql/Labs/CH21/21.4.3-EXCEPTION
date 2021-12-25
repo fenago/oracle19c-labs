@@ -1,0 +1,2 @@
+COLUMN divide(4,0) FORMAT A30;
+SELECT divide(4,0) FROM DUAL;

@@ -1,0 +1,11 @@
+BEGIN
+ DBMS_OUTPUT.put('put something.');
+ DBMS_OUTPUT.put('put something.');
+ -------------
+ DBMS_OUTPUT.put_line('put line.');
+ DBMS_OUTPUT.put_line('put line.');
+ ------------
+ DBMS_OUTPUT.new_line;
+ DBMS_OUTPUT.new_line;
+END;
+/

@@ -1,0 +1,11 @@
+CREATE VIEW student_college_view AS
+SELECT s.student_id, s.student_name,c.college_id,c.college_name
+FROM   students s, colleges c
+WHERE  s.college_id = c.college_id
+/
+
+COLUMN student_name FORMAT A15;
+COLUMN college_name FORMAT A20;
+
+SELECT * FROM student_college_view
+/

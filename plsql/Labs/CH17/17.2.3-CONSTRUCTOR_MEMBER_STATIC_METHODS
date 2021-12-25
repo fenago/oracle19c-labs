@@ -1,0 +1,11 @@
+DECLARE 
+ v_car   car := NEW car();
+BEGIN
+ DBMS_OUTPUT.put_line(v_car.code);
+ v_car := NEW car(1111);
+ DBMS_OUTPUT.put_line(v_car.code);
+ v_car := NEW car(8888,'FORD','14-DEC-2015');
+ DBMS_OUTPUT.put_line(v_car.code);
+ v_car := NEW car(9999,'FORD','Red','14-DEC-2015');
+ DBMS_OUTPUT.put_line(v_car.code);
+END;

@@ -1,0 +1,7 @@
+COLUMN object_name FORMAT A20;
+COLUMN status      FORMAT A10;
+
+SELECT object_name,status FROM user_objects 
+WHERE object_name='DATABASE_DDL_TRG'
+/
+

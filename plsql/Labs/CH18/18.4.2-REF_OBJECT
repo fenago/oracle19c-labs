@@ -1,0 +1,16 @@
+DECLARE
+ v_com       company;
+ v_partner   REF company;
+BEGIN
+ SELECT VALUE(c) INTO v_com
+ FROM   companies c
+ WHERE  c.id = 1;
+ SELECT REF(c) INTO v_partner
+ FROM   companies c
+ WHERE  c.id = 2; 
+ v_com.partner := v_partner;
+ UPDATE companies c
+ SET    VALUE(c) = v_com
+ WHERE  c.id = v_com.id;
+END;
+/

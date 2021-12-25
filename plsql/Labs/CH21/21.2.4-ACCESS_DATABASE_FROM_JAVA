@@ -1,0 +1,5 @@
+BEGIN
+ salaryTotal(150);
+END;
+/
+

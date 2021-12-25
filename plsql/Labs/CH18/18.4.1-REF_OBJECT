@@ -1,0 +1,3 @@
+ALTER TYPE company
+ADD ATTRIBUTE (partner     REF company)
+CASCADE NOT INCLUDING TABLE DATA;

@@ -1,0 +1,3 @@
+ALTER SESSION SET PLSQL_CCFLAGS = 'show_Line:FALSE, cnt:3'
+/
+

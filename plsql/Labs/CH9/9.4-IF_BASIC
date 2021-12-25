@@ -1,0 +1,13 @@
+DECLARE
+  name 	VARCHAR2(30) := 'Consultant';
+  l 	PLS_INTEGER  := LENGTH(name);
+BEGIN
+   IF l <= 10 THEN
+      dbms_output.put_line(name||' <= 10 character(s)');
+   ELSIF l <= 20  THEN
+      dbms_output.put_line(name||' <= 20 character(s)');
+   ELSE
+      dbms_output.put_line(name||' > 20  character(s)');
+   END IF;
+END;
+/

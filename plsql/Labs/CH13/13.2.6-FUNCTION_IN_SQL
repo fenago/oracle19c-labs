@@ -1,0 +1,8 @@
+DECLARE 
+  v_emp     emps.employee_id%TYPE;
+BEGIN
+  --v_emp := add_emp('Ernesto',5500);
+  SELECT add_emp('Ernesto',5500) INTO v_emp FROM DUAL;
+  dbms_output.put_line('New employee('||v_emp||')');
+END;
+/

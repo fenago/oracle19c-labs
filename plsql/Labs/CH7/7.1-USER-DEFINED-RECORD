@@ -1,0 +1,15 @@
+DECLARE
+ TYPE company IS RECORD(id      	PLS_INTEGER :=1, 
+			name     	VARCHAR2(50) := 'ORACLE CO.',
+			mobile   	INTEGER);
+ v_comp1		company;
+ v_comp2		company;	
+BEGIN
+  dbms_output.put_line('1. Company Record ('||v_comp1.id||'): '||v_comp1.name);
+  v_comp1.id 	:= 2;
+  v_comp1.name 	:= 'CONSULTANT NETWORK - CN';
+  dbms_output.put_line('2. Company Record ('||v_comp1.id||'): '||v_comp1.name);
+  v_comp1 := v_comp2;
+  dbms_output.put_line('3. Company Record ('||v_comp1.id||'): '||v_comp1.name);
+END;
+/

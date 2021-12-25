@@ -1,0 +1,10 @@
+BEGIN
+    INSERT INTO departments
+    VALUES (301,'CONSULTANT NETWORK-CH9','','');
+    SAVEPOINT a;
+    INSERT INTO departments
+    VALUES (302,'CONSULTANT NETWORK-CH8','','');
+    ROLLBACK TO a;
+    COMMIT;
+END;
+

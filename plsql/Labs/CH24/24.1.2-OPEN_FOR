@@ -1,0 +1,8 @@
+VAR cur REFCURSOR;
+EXEC :cur := get_result(1);
+PRINT cur;
+
+
+EXEC :cur := get_result(2);
+PRINT cur;
+

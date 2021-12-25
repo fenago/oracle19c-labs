@@ -1,0 +1,13 @@
+DECLARE
+ i_code		INTEGER := 1;
+ i_base		INTEGER := 2;
+ i_power   	INTEGER := 4;
+ c_hire_date	DATE	     := '01-FEB-08';
+ c_work_exper	PLS_INTEGER;
+BEGIN
+ i_code := -i_base**i_power;
+ c_work_exper := (SYSDATE - c_hire_date)/356; 
+ dbms_output.put_line('i_code	='||i_code);
+ dbms_output.put_line('Experience ='||c_work_exper);
+END;
+/

@@ -1,0 +1,14 @@
+DECLARE
+  c_chr  	CHAR(15 CHAR)	:= 'CONSULTANT';
+  c_chr1  	CHAR(15 BYTE); 
+  c_chr2	CHAR(15)	:= 'CONSULTANT';
+  v_chr  	VARCHAR2(15 CHAR):= 'CONSULTANT';
+  v_chr1	VARCHAR2(15); 
+BEGIN
+ dbms_output.put_line('c_chr 		= '||c_chr);
+ dbms_output.put_line('c_chr1 		= '||c_chr1);
+ dbms_output.put_line('c_chr2 		= '||c_chr2);
+ dbms_output.put_line('v_chr 		= '||v_chr);
+ dbms_output.put_line('v_chr1 		= '||v_chr1);
+END;
+/

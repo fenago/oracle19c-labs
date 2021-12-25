@@ -1,0 +1,16 @@
+DECLARE
+ v_vehicle  vehicle;
+BEGIN
+ SELECT VALUE(c) INTO v_vehicle FROM vehicles c
+ WHERE  VALUE(c) IS OF (motorcycle);
+ dbms_output.put_line(v_vehicle.details());
+ ----------------
+ SELECT VALUE(c) INTO v_vehicle FROM vehicles c
+ WHERE  VALUE(c) IS OF (car);
+ dbms_output.put_line(v_vehicle.details());
+ ----------------
+ SELECT VALUE(c) INTO v_vehicle FROM vehicles c
+ WHERE  VALUE(c) IS OF (vehicle);
+ dbms_output.put_line(v_vehicle.details());
+END;
+/

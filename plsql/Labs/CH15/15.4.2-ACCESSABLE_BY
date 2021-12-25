@@ -1,0 +1,7 @@
+CREATE OR REPLACE PACKAGE BODY private_pkg IS
+  PROCEDURE print_seperator IS
+  BEGIN
+    dbms_output.put_line('----********----');
+  END;
+END;
+/

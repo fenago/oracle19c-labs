@@ -1,0 +1,12 @@
+CREATE OR REPLACE PACKAGE clients IS
+  TYPE ip_list IS VARRAY(5) OF VARCHAR2(16);
+  TYPE machine IS RECORD 
+        (machine_name VARCHAR2(50),
+         ips         ip_list);
+  max_clients           CONSTANT  NUMBER := 5;
+  client                machine; 
+  client_cnt            NUMBER := 0;
+  max_clients_exceeded  EXCEPTION;
+  PRAGMA EXCEPTION_INIT(max_clients_exceeded,-20998);
+END;
+/

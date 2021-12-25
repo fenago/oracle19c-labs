@@ -1,0 +1,9 @@
+CREATE TABLE system_alerts
+(database_name      VARCHAR2(50),
+ event_type         VARCHAR2(50),
+ event_time         DATE,
+ user_name          VARCHAR2(50),
+ source             VARCHAR2(50)
+)
+/
+

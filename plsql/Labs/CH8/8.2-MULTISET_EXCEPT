@@ -1,0 +1,16 @@
+DECLARE
+ prime   	primes := primes(2,3,5,7,11,13,17,5,2,71,73,79,71);
+ prime1   	primes := primes(17,5,2,71,73);
+ i      	PLS_INTEGER := 1;
+ out    	VARCHAR2(300);
+BEGIN
+   prime := prime MULTISET EXCEPT prime1;
+   i := prime.FIRST;
+   LOOP
+     out := out ||','||prime(i);
+     EXIT WHEN i = prime.LAST;
+     i := prime.NEXT(i);
+   END LOOP;
+   dbms_output.put_line('Prime ='||SUBSTR(out,2));
+END;
+/

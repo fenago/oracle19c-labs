@@ -1,0 +1,13 @@
+CREATE OR REPLACE FUNCTION get_emp RETURN emp_ids
+IS
+  v_emp      emp_ids := emp_ids();
+BEGIN
+  FOR r IN (SELECT employee_id FROM emps) LOOP
+   v_emp.EXTEND;
+   v_emp(v_emp.LAST) := r.employee_id;
+  END LOOP;
+  RETURN v_emp;
+END;
+/
+
+

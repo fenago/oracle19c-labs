@@ -1,0 +1,6 @@
+DECLARE 
+ triangle  shape := new shape(side_list(5,4,3));
+BEGIN
+ dbms_output.put_line
+ ('Triangle perimeter	:'||triangle.perimeter());
+END;

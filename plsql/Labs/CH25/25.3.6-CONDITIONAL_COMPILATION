@@ -1,0 +1,4 @@
+COLUMN text FORMAT A60;
+SELECT text FROM all_source WHERE name='CONDITIONAL_COMPILER'
+/
+

@@ -1,0 +1,7 @@
+COLUMN column_name FORMAT A30;
+COLUMN data_type FORMAT A30;
+
+SELECT column_name,data_type FROM user_tab_cols
+WHERE table_name='EMPS'
+/
+

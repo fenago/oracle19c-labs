@@ -1,0 +1,10 @@
+DECLARE
+CURSOR	c_depts (p_dept  INTEGER) IS
+  SELECT d.department_id id, d.department_name name
+  FROM departments d WHERE d.department_id = p_dept;
+BEGIN
+  FOR dept IN c_depts(50) LOOP
+    dbms_output.put_line('Dept('||dept.id||'):'||dept.name);
+ END LOOP;
+END;
+/

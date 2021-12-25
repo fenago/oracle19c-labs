@@ -1,0 +1,16 @@
+CREATE OR REPLACE TYPE employee AS OBJECT
+( employee_id    NUMBER,
+  first_name     VARCHAR2(50),
+  salary         NUMBER,
+  grade          NUMBER,
+  MEMBER PROCEDURE add_emp
+  AS LANGUAGE JAVA
+  NAME 'Emps.add()',
+  MEMBER PROCEDURE modify_emp
+  AS LANGUAGE JAVA
+  NAME 'Emps.modify()',
+  MEMBER PROCEDURE remove_emp
+  AS LANGUAGE JAVA
+  NAME 'Emps.remove()'
+);
+/

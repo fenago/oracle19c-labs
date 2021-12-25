@@ -1,0 +1,6 @@
+CREATE PROCEDURE print_list IS
+BEGIN
+  FOR i IN v_list.FIRST .. v_list.LAST LOOP
+   dbms_output.put_line(i||'-'||v_list(i));
+  END LOOP;
+END;

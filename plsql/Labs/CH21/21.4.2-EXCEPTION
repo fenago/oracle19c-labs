@@ -1,0 +1,3 @@
+CREATE OR REPLACE FUNCTION divide(x NUMBER,y NUMBER) RETURN NUMBER
+AS LANGUAGE JAVA
+NAME 'BadMath.divide(int,int) return String';

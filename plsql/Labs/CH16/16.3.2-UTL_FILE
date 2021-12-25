@@ -1,0 +1,7 @@
+DECLARE 
+ v_file   UTL_FILE.FILE_TYPE;
+BEGIN
+ v_file := UTL_FILE.FOPEN('FILE_STORE','EMPS.TXT','R');
+ UTL_FILE.FCLOSE(v_file);
+END;
+/

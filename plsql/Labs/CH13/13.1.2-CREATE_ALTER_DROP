@@ -1,0 +1,31 @@
+DECLARE
+  v_mylist  list := list(5,3,1,8,7,9,1,6,2);
+  v_temp    PLS_INTEGER; 
+  FUNCTION bubble_sort(v_uslist   list) RETURN list IS
+    v_list  list := v_uslist;
+  BEGIN
+   IF v_list.EXISTS(v_list.FIRST) THEN
+     FOR i IN REVERSE v_list.FIRST .. v_list.LAST-1 LOOP
+         FOR j IN v_list.FIRST .. i LOOP
+           IF v_list(j+1) > v_list(j) THEN
+             v_temp      := v_list(j);
+             v_list(j)   := v_list(j+1);
+             v_list(j+1) := v_temp;
+           END IF;
+         END LOOP;
+     END LOOP;
+   END IF;
+   RETURN v_list;
+  END;
+BEGIN
+   FOR i IN v_mylist.FIRST .. v_mylist.LAST LOOP
+     dbms_output.put_line(i||'-'||v_mylist(i));
+   END LOOP;
+   -------- Bubble Sort ---------
+   v_mylist := bubble_sort(v_mylist);
+   dbms_output.put_line('-------- Stored List ------');  
+   FOR i IN v_mylist.FIRST .. v_mylist.LAST LOOP
+      dbms_output.put_line(i||'-'||v_mylist(i));   
+   END LOOP;
+END;  
+/

@@ -1,0 +1,20 @@
+DECLARE
+ TYPE vector IS TABLE OF PLS_INTEGER;
+ TYPE matrix IS TABLE OF vector;
+ m    matrix := matrix(vector(2,1), vector(6,0));
+ a    vector := vector(3,5);
+ r    vector := vector('','');
+BEGIN
+   r(1) := m(1)(1)*a(1) + m(2)(1)*a(2);
+   r(2) := m(1)(2)*a(1) + m(2)(2)*a(2); 
+   dbms_output.put_line('-------   Multiply m*a -------');
+   dbms_output.put_line('m =	|'||m(1)(1)||'	'||m(2)(1)||'|');
+   dbms_output.put_line('   	|'||m(1)(2)||'	'||m(2)(2)||'|');
+   dbms_output.put_line('--------------');
+   dbms_output.put_line('a =	|'||a(1)||'|');
+   dbms_output.put_line('   	|'||a(2)||'|');
+   dbms_output.put_line('--------------');
+   dbms_output.put_line('r= mXa=|'||r(1)||'|');
+   dbms_output.put_line('	|'||r(2)||'|');
+END;
+/

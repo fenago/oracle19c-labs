@@ -1,0 +1,10 @@
+DECLARE
+ v_com       company;
+BEGIN
+ SELECT DEREF(c.partner) INTO v_com
+ FROM   companies c
+ WHERE  c.id = 1; 
+ dbms_output.put_line('partner('||v_com.id||'):'||
+                                v_com.get_name());
+END;
+/

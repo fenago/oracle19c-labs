@@ -1,0 +1,18 @@
+DECLARE
+ i		INTEGER := 3;
+BEGIN
+  i := i/0;     
+EXCEPTION
+ WHEN ZERO_DIVIDE THEN
+  dbms_output.put_line('::: Exception Handler  :::');
+  dbms_output.put_line('i='||i);
+  ------------  NESTED BLOCK  -----------
+  DECLARE 
+	k 	INTEGER := 50;
+  BEGIN
+	dbms_output.put_line('i='||i);
+  	dbms_output.put_line('k='||k); 
+  END;	
+  ---------------------------------------
+END;
+/

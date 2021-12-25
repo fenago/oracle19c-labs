@@ -1,0 +1,12 @@
+CREATE TABLE user_credentials 
+(user_name     VARCHAR2(50) PRIMARY KEY,
+ password      VARCHAR2(50)
+)
+/
+
+INSERT INTO user_credentials VALUES ('ERNESTO','LEE')
+/
+INSERT INTO user_credentials VALUES ('RAY','XRAY')
+/
+COMMIT;
+

@@ -1,0 +1,2 @@
+COLUMN saySomething(4) FORMAT A30;
+SELECT saySomething(4) FROM DUAL;

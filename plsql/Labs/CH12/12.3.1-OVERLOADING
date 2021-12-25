@@ -1,0 +1,19 @@
+DECLARE
+  PROCEDURE plus(n_1 NUMBER, n_2 NUMBER) IS
+  BEGIN
+    dbms_output.put_line('result:'||(n_1+n_2));
+  END;
+  PROCEDURE plus(n_1 VARCHAR2, n_2 VARCHAR2) IS
+  BEGIN
+    dbms_output.put_line('result:'||n_1||' '||n_2);
+  END;
+  PROCEDURE plus(n_1 VARCHAR2, n_2 NUMBER) IS
+  BEGIN
+    dbms_output.put_line('result:'||n_1||' '||n_2);
+  END;
+BEGIN
+ plus(5,2);
+ plus('Ernesto','Lee');
+ plus('Ernesto',4);
+END;  
+/

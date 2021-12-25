@@ -1,0 +1,11 @@
+CREATE OR REPLACE TRIGGER before_delete_from_emp_TRG
+  BEFORE
+    DELETE 
+  ON emps
+  FOR EACH ROW
+BEGIN
+  INSERT INTO emp_DML_logs
+     (table_name,user_name,operation,curr_date,curr_emp_no,new_emp_no)
+  VALUES('EMPS',USER,'I',SYSDATE,:OLD.employee_id,:NEW.employee_id);
+END;
+/

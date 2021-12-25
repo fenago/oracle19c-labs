@@ -1,0 +1,13 @@
+DECLARE
+ v_id           NUMBER;
+ v_name         VARCHAR2(50); 
+BEGIN
+  SELECT employee_id, first_name 
+  INTO   v_id , v_name
+  FROM   employees
+  WHERE  employee_id = 150;
+EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+    DBMS_OUTPUT.put_line('No data Found... ');
+END;
+/

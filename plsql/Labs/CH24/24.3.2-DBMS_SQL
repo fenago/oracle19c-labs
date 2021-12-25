@@ -1,0 +1,28 @@
+SELECT employee_id,last_name,email,hire_date FROM employees_1
+/
+DECLARE 
+  v_sql       VARCHAR2(500);
+  v_result    NUMBER;
+  v_curs      PLS_INTEGER;
+BEGIN
+ v_sql := 'INSERT INTO employees_1
+           (employee_id,last_name,email,hire_date,job_id) 
+           VALUES (:emp_id,:lname,:email,:hdate, :job_id)';
+ ------ (1) OPEN CURSOR    ---------
+ v_curs := dbms_sql.open_cursor;
+ ------ (2) PARSE SQL TEXT ---------
+ dbms_sql.parse(v_curs, v_sql,dbms_sql.NATIVE);
+ ------ (3) BIND VARIABLES ---------
+ dbms_sql.bind_variable(v_curs, 'emp_id', 1);
+ dbms_sql.bind_variable(v_curs, 'lname', 'Lee');
+ dbms_sql.bind_variable(v_curs, 'email', 'eLee@CN.com');
+ dbms_sql.bind_variable(v_curs, 'hdate',  SYSDATE);
+ dbms_sql.bind_variable(v_curs, 'job_id', 1);
+ ------ (4) EXECUTE CURSOR  --------
+ v_result:= dbms_sql.execute(v_curs);
+ ------ (5) CLOSE CURSOR    --------
+ dbms_sql.close_cursor(v_curs);
+END;
+/
+SELECT employee_id,last_name,email,hire_date FROM employees_1
+/

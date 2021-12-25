@@ -1,0 +1,6 @@
+CREATE OR REPLACE TYPE car AS OBJECT
+(code     NUMBER,
+ model    VARCHAR2(50),
+ color    VARCHAR2(50),
+ man_date DATE
+);

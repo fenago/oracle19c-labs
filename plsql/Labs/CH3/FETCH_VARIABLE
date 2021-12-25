@@ -1,0 +1,13 @@
+DECLARE
+ p_employee	SIMPLE_INTEGER := 100;
+ p_first_name  	VARCHAR2(25);
+ p_hire_date  	DATE;
+BEGIN
+ SELECT 99 INTO p_employee FROM DUAL;
+ SELECT UPPER('Consultant Network') INTO p_first_name FROM DUAL;
+ SELECT LAST_DAY(SYSDATE) INTO p_hire_date FROM DUAL;
+ dbms_output.put_line('p_employee	='||p_employee);
+ dbms_output.put_line('p_first_name   	='||p_first_name);
+ dbms_output.put_line('p_hire_date	='||p_hire_date);
+END;
+/

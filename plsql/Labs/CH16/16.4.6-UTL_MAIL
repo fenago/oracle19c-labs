@@ -1,0 +1,11 @@
+BEGIN
+   UTL_MAIL.SEND (sender          => 'elee@ConsultantNetwork.com',
+                  recipients      => 'elee@ConsultantNetwork.com',
+                  subject         => 'PL/SQL course',
+                  message         => 'Hi,, 
+                                      This is to explain how to 
+                                      send email using UTL_MAIL',
+                  mime_type       => 'text/plain; charset=us-ascii'
+                 );
+END;
+/

@@ -1,0 +1,16 @@
+DECLARE
+  p_employee_id		employees.employee_id%TYPE;
+  p_first_name		employees.first_name%TYPE;
+  p_last_name		employees.last_name%TYPE;
+  p_salary         	employees.salary%TYPE;
+BEGIN
+  SELECT employee_id, first_name, last_name,salary INTO 
+         p_employee_id, p_first_name,p_last_name, p_salary
+  FROM employees
+  WHERE employee_id=200;
+  dbms_output.put_line('Employee record ('||p_employee_id||'): '||
+                                            p_first_name||' '||
+                                            p_last_name||' has a salary '||
+                                            p_salary);
+END;
+/

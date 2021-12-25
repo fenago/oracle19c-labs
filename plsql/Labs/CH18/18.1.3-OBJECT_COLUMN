@@ -1,0 +1,10 @@
+DECLARE
+ v_add   address := NEW address('','','','','');
+BEGIN
+ v_add.home      := 29;   
+ v_add.street    := 'Payynkatu';
+ v_add.zip_code  := 33700; 
+ v_add.city      := 'Tampere';
+ v_add.country   := 'Finland'; 
+ dbms_output.put(v_add.get_address);
+END;

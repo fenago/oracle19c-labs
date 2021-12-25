@@ -1,0 +1,3 @@
+SELECT * FROM emps WHERE employee_id=600085
+/
+

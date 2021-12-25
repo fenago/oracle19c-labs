@@ -1,0 +1,9 @@
+DECLARE 
+ v_car   car ;
+BEGIN
+ v_car := NEW car(8888,'FORD','14-DEC-2015');
+ DBMS_OUTPUT.put_line(v_car.code);
+ DBMS_OUTPUT.put_line(v_car.model);
+ DBMS_OUTPUT.put_line(v_car.man_date);
+END;
+/

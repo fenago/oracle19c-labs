@@ -1,0 +1,16 @@
+DECLARE 
+ v_salary          NUMBER := 5;
+ invalid_salary    EXCEPTION;
+ PRAGMA EXCEPTION_INIT(invalid_salary,-20999);
+BEGIN
+   IF v_salary NOT BETWEEN 1500 AND 9000 THEN 
+      RAISE_APPLICATION_ERROR(-20999,'Salary is out of range');
+   END IF;
+   UPDATE emps
+   SET    first_name='Ernesto', salary = v_salary
+   WHERE  employee_id = 1;
+EXCEPTION
+   WHEN invalid_salary THEN 
+     dbms_output.put_line('Invalid salary');
+END;  
+/

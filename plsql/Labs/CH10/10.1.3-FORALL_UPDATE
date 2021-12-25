@@ -1,0 +1,15 @@
+DECLARE 
+ TYPE emps_type IS TABLE OF emps%ROWTYPE;
+ v_emps emps_type := emps_type();
+BEGIN
+    -------- Fill in v_emps Nested Table -------
+    FOR r IN (SELECT * FROM emps) LOOP
+      v_emps.EXTEND;
+      v_emps(v_emps.LAST) := r;
+    END LOOP;
+    FORALL i IN v_emps.FIRST .. v_emps.LAST
+    UPDATE emps
+    SET salary = salary + 1000
+    WHERE employee_id = v_emps(i).employee_id;
+END;
+/

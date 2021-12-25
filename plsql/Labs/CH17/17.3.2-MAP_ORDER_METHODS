@@ -1,0 +1,28 @@
+CREATE OR REPLACE TYPE car AS OBJECT
+(code     NUMBER,
+ model    VARCHAR2(50),
+ color    VARCHAR2(50),
+ man_date DATE,
+ ORDER MEMBER FUNCTION compareTo(v_car car) RETURN NUMBER
+);
+/
+
+CREATE OR REPLACE TYPE BODY car AS 
+ ORDER MEMBER FUNCTION compareTo(v_car car) RETURN NUMBER
+ IS
+   invalid_comparison  EXCEPTION;
+ BEGIN
+  IF model = v_car.model THEN 
+   IF TO_CHAR(man_date,'yyyy') = TO_CHAR(v_car.man_date,'yyyy') THEN 
+     RETURN 0;
+   ELSIF TO_CHAR(man_date,'yyyy') > TO_CHAR(v_car.man_date,'yyyy') THEN
+     RETURN 1;
+   ELSE
+     RETURN -1;
+   END IF;
+  ELSE
+   RAISE invalid_comparison;
+  END IF;
+ END;
+END;
+/

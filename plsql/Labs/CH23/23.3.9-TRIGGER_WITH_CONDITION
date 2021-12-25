@@ -1,0 +1,22 @@
+DELETE FROM emp_DML_logs
+/
+DECLARE 
+ v_last_emp    NUMBER;
+BEGIN
+ SELECT MAX(employee_id) INTO v_last_emp FROM emps;
+ ------------
+ UPDATE emps
+ SET salary = salary+1000 
+ WHERE employee_id = v_last_emp;
+ ------------
+ UPDATE emps
+ SET employee_id= v_last_emp+1 
+ WHERE employee_id = v_last_emp;
+ -----------
+ UPDATE emps
+ SET grade = 50 
+ WHERE employee_id = v_last_emp+1;
+END;
+/
+SELECT * FROM emp_DML_logs
+/

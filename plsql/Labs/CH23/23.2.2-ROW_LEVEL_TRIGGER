@@ -1,0 +1,14 @@
+SELECT * FROM emp_DML_logs
+/
+DECLARE 
+ v_last_emp    NUMBER;
+BEGIN
+ SELECT MAX(employee_id) INTO v_last_emp FROM emps;
+ ------------
+ INSERT INTO emps(employee_id,first_name,salary, grade)
+ SELECT employee_id+v_last_emp, first_name,salary, grade
+ FROM   emps  WHERE  employee_id BETWEEN 6 AND 10;
+END;
+/
+SELECT * FROM emp_DML_logs
+/

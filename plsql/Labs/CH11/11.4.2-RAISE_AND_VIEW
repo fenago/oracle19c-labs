@@ -1,0 +1,14 @@
+DECLARE 
+ v_salary          NUMBER := 5;
+BEGIN
+   IF v_salary NOT BETWEEN 1500 AND 9000 THEN 
+      RAISE INVALID_NUMBER;
+   END IF;
+   UPDATE emps
+   SET    first_name='Ernesto', salary = v_salary
+   WHERE  employee_id = 1;
+EXCEPTION
+   WHEN INVALID_NUMBER THEN 
+     dbms_output.put_line('Invalid salary');
+END;  
+/

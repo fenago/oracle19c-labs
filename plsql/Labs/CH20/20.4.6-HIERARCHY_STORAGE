@@ -1,0 +1,4 @@
+
+SELECT column_name, data_type FROM USER_TAB_COLS
+WHERE table_name='VEHICLES'
+/

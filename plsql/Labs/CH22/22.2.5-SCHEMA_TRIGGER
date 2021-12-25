@@ -1,0 +1,10 @@
+CREATE OR REPLACE TRIGGER database_ddl_trg 
+AFTER DDL
+ON DATABASE
+BEGIN
+ INSERT INTO system_alerts
+ VALUES (sys.database_name,sys.sysevent, 
+         sysdate, sys.login_user,'DATABASE');
+END;
+/
+

@@ -1,0 +1,8 @@
+BEGIN
+  FOR i IN (SELECT e.*
+            FROM   TABLE(get_emp()) e
+            WHERE  ROWNUM <=10)  LOOP
+    dbms_output.put_line(i.COLUMN_VALUE);
+  END LOOP;
+END;
+/

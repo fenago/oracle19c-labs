@@ -1,0 +1,21 @@
+DECLARE
+  TYPE emps_list IS TABLE OF employees%ROWTYPE;
+  v_emps     emps_list;
+  v_sId      NUMBER := 100;
+  v_eid      NUMBER := 105;
+  i          PLS_INTEGER;
+BEGIN
+  EXECUTE IMMEDIATE 'SELECT * FROM employees 
+                     WHERE employee_id BETWEEN :Sid AND :Eid'
+          BULK COLLECT INTO v_emps
+          USING v_sid, v_eid;
+  DBMS_OUTPUT.put_line('SELECTED EMP CNT:'||v_emps.COUNT);
+  i := v_emps.FIRST;
+  WHILE i IS NOT NULL LOOP
+   dbms_output.put_line(i||')-'||v_emps(i).employee_id ||' '||
+                                 v_emps(i).first_name);
+   i := v_emps.NEXT(i);
+  END LOOP;
+END;
+/
+

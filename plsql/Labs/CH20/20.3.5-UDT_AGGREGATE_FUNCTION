@@ -1,0 +1,15 @@
+DECLARE
+ CURSOR c IS
+ SELECT s.student_id,GPA(s.mark) gpa
+           FROM students_marks s
+           GROUP BY s.student_id;
+ v_cur  c%ROWTYPE;
+BEGIN
+  OPEN c;
+  LOOP
+   FETCH c INTO v_cur;
+   EXIT WHEN c%NOTFOUND;
+   dbms_output.put_line('Student('||v_cur.student_id||') = '||v_cur.gpa);
+  END LOOP;
+END;
+/

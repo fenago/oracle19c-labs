@@ -1,0 +1,10 @@
+CREATE OR REPLACE TRIGGER before_insert_on_emp_TRG
+  BEFORE
+    INSERT 
+  ON emps
+BEGIN
+  INSERT INTO emp_DML_logs
+        (table_name,user_name,operation,curr_date)
+  VALUES('EMPS',USER,'I',SYSDATE);
+END;
+/

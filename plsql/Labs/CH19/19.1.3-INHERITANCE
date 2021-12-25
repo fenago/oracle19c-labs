@@ -1,0 +1,8 @@
+DECLARE
+ v_vehicle   vehicle := NEW vehicle(3366,'FORD','RED','01-FEB-99');
+ v_details   VARCHAR2(250);
+BEGIN
+ v_details := v_vehicle.details();
+ dbms_output.put_line(v_details);
+END;
+/

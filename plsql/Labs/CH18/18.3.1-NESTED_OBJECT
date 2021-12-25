@@ -1,0 +1,9 @@
+CREATE OR REPLACE TYPE company AS OBJECT
+(id           NUMBER,
+ name         VARCHAR2(50),
+ manager_id   NUMBER,
+ location     address,
+ MEMBER FUNCTION get_name RETURN VARCHAR2
+);
+/
+

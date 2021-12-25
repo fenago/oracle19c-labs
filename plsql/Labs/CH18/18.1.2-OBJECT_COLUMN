@@ -1,0 +1,14 @@
+CREATE OR REPLACE TYPE BODY address AS
+ MEMBER FUNCTION get_address RETURN VARCHAR2
+ IS
+   v_result VARCHAR2(250);
+ BEGIN
+   v_result := street ||' '||home||chr(10)||
+               city   ||' '||zip_code||chr(10)||
+               country||' '||chr(10);
+   RETURN v_result;
+ END;
+END;
+/
+
+

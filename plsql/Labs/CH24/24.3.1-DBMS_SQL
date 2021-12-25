@@ -1,0 +1,22 @@
+SELECT tname FROM tab WHERE tname = 'EMPLOYEES_1'
+/
+DECLARE 
+  v_ddl       VARCHAR2(500);
+  v_result    NUMBER;
+  v_curs      PLS_INTEGER;
+BEGIN
+ v_ddl := 'CREATE TABLE employees_1 AS
+           SELECT * FROM employees 
+           WHERE 1=2';
+ ------ (1) OPEN CURSOR    ---------
+ v_curs := dbms_sql.open_cursor;
+ ------ (2) PARSE SQL TEXT ---------
+ dbms_sql.parse(v_curs, v_ddl,dbms_sql.NATIVE);
+ ------ (3) EXECUTE CURSOR  --------
+ v_result:= dbms_sql.execute(v_curs);
+ ------ (4) CLOSE CURSOR    --------
+ dbms_sql.close_cursor(v_curs);
+END;
+/
+SELECT tname FROM tab WHERE tname = 'EMPLOYEES_1'
+/

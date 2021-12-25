@@ -1,0 +1,8 @@
+DECLARE 
+ v_result VARCHAR2(200);
+BEGIN
+ v_result := saySomething(4);
+ dbms_output.put_line(v_result);
+END;
+/
+

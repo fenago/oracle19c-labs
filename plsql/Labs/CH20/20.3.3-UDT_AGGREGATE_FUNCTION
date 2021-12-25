@@ -1,0 +1,39 @@
+CREATE OR REPLACE TYPE BODY GPA_methods AS
+ STATIC FUNCTION ODCIAggregateInitialize(sctx  IN OUT GPA_methods) 
+ RETURN NUMBER IS
+ BEGIN
+   sctx := NEW GPA_methods(0,0);
+   RETURN ODCIConst.Success;
+ END;
+ -------------
+ MEMBER FUNCTION ODCIAggregateIterate(SELF IN OUT GPA_methods, value VARCHAR2) 
+ RETURN NUMBER IS
+ BEGIN
+   IF value ='P' OR value IS NULL THEN
+      NULL;
+   ELSIF value <= 50 THEN 
+      SELF.count:= SELF.count +1; 
+      SELF.sumMark := SELF.sumMark +50;
+   ELSE
+      SELF.count   := SELF.count +1; 
+      SELF.sumMark := SELF.sumMark + TO_NUMBER(value);
+   END IF;
+   RETURN ODCIConst.Success;
+ END;
+ -------------
+ MEMBER FUNCTION ODCIAggregateMerge(self IN OUT GPA_methods, ctx2 IN GPA_methods) 
+ RETURN NUMBER IS
+ BEGIN
+  SELF.count  := SELF.count + ctx2.count;
+  SELF.sumMark:= SELF.sumMark+ctx2.sumMark;
+  RETURN ODCIConst.Success;
+ END;
+ -------------
+ MEMBER FUNCTION ODCIAggregateTerminate(returnvalue OUT VARCHAR2, flags IN NUMBER)
+ RETURN NUMBER IS
+ BEGIN
+  returnvalue := ROUND(SELF.sumMark/SELF.count,3);
+  RETURN ODCIConst.Success;
+ END;
+END;
+/

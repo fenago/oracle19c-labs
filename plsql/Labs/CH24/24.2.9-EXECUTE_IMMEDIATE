@@ -1,0 +1,11 @@
+DECLARE
+ v_mark      VARCHAR2(5);
+ v_grade     NUMBER := 80;
+BEGIN
+ EXECUTE IMMEDIATE 'BEGIN
+                      :result := mark(:g);
+                    END;'
+         USING OUT v_mark, v_grade;
+ dbms_output.put_line('MARK('||v_grade||'):'||v_mark);
+END;
+/

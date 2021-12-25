@@ -1,0 +1,13 @@
+DECLARE
+  v_emp_rec   employees%ROWTYPE;
+  id          NUMBER := 100;
+BEGIN
+  EXECUTE IMMEDIATE 'SELECT * FROM employees 
+                     WHERE employee_id = :id'
+          INTO v_emp_rec
+          USING id;
+  dbms_output.put_line('emp id	:'||v_emp_rec.employee_id);
+  dbms_output.put_line('name 	:'||v_emp_rec.first_name);
+  dbms_output.put_line('salary	:'||v_emp_rec.salary);
+END;
+/

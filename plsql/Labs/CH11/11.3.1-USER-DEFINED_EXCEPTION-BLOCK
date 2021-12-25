@@ -1,0 +1,6 @@
+BEGIN
+ UPDATE emps
+ SET    first_name='Ernesto', salary = 5
+ WHERE  employee_id = 1;
+END; 
+/

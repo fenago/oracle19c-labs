@@ -1,0 +1,18 @@
+DECLARE
+ TYPE address IS RECORD 
+    (street        VARCHAR2(60),
+     city          VARCHAR2(30),
+     country       VARCHAR2(50),
+     ZIP_code      PLS_INTEGER);
+ v_add		address;
+BEGIN
+   v_add.street := 'Pyykk 3 C 29';
+   v_add.city   := 'Tampere';
+   v_add.country:= 'Finland';
+   v_add.ZIP_code:= 37810;
+   dbms_output.put_line('-------   Address -------');
+   dbms_output.put_line('Line		:'||v_add.street);
+   dbms_output.put_line('ZIP, City 	:'||v_add.ZIP_code||'  '||v_add.city);
+   dbms_output.put_line('Country   	:'||v_add.country);
+END;
+/

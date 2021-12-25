@@ -1,0 +1,11 @@
+CREATE OR REPLACE FUNCTION get_emp_bulk RETURN emp_ids
+IS
+  v_emp      emp_ids;
+BEGIN
+  SELECT employee_id BULK COLLECT INTO v_emp 
+  FROM   emps;
+  RETURN v_emp;
+END;
+/
+
+

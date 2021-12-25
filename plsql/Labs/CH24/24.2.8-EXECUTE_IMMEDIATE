@@ -1,0 +1,6 @@
+COLUMN object_name FORMAT A20;
+COLUMN text FORMAT A50;
+SELECT object_name FROM user_objects WHERE object_type='FUNCTION'
+/
+SELECT text FROM all_source WHERE name='MARK'
+/

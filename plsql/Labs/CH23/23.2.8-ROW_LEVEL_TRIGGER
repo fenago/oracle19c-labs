@@ -1,0 +1,13 @@
+DELETE FROM emp_DML_logs
+/
+DECLARE 
+ v_last_emp    NUMBER;
+BEGIN
+ SELECT MAX(employee_id) INTO v_last_emp FROM emps;
+ ------------
+ DELETE FROM emps
+ WHERE employee_id >= v_last_emp-5;
+END;
+/
+SELECT * FROM emp_DML_logs
+/

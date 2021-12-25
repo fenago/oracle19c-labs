@@ -1,0 +1,9 @@
+DECLARE
+ p_employee	HR.EMPLOYEES.EMPLOYEE_ID%TYPE := 100;
+ p_salary 	HR.EMPLOYEES.SALARY%TYPE := 1000.50;
+ p_hire_date	HR.EMPLOYEES.HIRE_DATE%TYPE := SYSDATE;
+BEGIN
+ dbms_output.put_line('p_employee	='||p_employee);
+ dbms_output.put_line('p_salary		='||p_salary);
+ dbms_output.put_line('p_hire_date	='||p_hire_date);
+END;

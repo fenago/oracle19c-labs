@@ -1,0 +1,21 @@
+DECLARE 
+ v_infile   UTL_FILE.FILE_TYPE;
+ v_outfile  UTL_FILE.FILE_TYPE;
+ v_row      VARCHAR2(250);
+BEGIN
+ v_infile := UTL_FILE.FOPEN('FILE_STORE','EMPS.TXT','R');
+ v_outfile:= UTL_FILE.FOPEN('FILE_STORE','EMPS1.TXT','W');
+ LOOP
+   BEGIN
+     UTL_FILE.get_line(v_infile,v_row); 
+     v_row := REPLACE(v_row,'	',',');
+     UTL_FILE.PUT_LINE(v_outfile, v_row);  
+   EXCEPTION
+     WHEN NO_DATA_FOUND THEN 
+       EXIT;
+   END; 
+ END LOOP;
+ UTL_FILE.FCLOSE(v_infile);
+ UTL_FILE.FCLOSE(v_outfile);
+END;
+/

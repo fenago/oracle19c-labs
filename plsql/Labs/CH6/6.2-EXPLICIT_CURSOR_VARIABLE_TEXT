@@ -1,0 +1,17 @@
+DECLARE
+ c_refcur	SYS_REFCURSOR;
+ c_id     	PLS_INTEGER;
+ c_name   	VARCHAR2(50);
+ v_sql  	VARCHAR2(400);
+BEGIN 
+ v_sql := 'SELECT d.department_id, d.department_name
+           FROM departments d WHERE d.department_id =50';
+ OPEN c_refcur FOR v_sql;
+ LOOP
+    FETCH c_refcur INTO c_id, c_name;
+    EXIT WHEN c_refcur%NOTFOUND;
+    dbms_output.put_line('Dept('||c_id||'):'||c_name);
+ END LOOP;
+ CLOSE c_refcur;
+END;
+/

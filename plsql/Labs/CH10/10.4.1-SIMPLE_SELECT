@@ -1,0 +1,20 @@
+DECLARE 
+ v_dept 	departments%ROWTYPE;
+BEGIN
+    SELECT * INTO v_dept FROM departments
+    WHERE department_id = 200;
+    dbms_output.put_line(v_dept.department_id||':'||v_dept.department_name);
+    SELECT * INTO v_dept FROM departments
+    WHERE department_id = 210;
+    dbms_output.put_line(v_dept.department_id||':'||v_dept.department_name);
+    SELECT * INTO v_dept FROM departments
+    WHERE department_id = 220;
+    dbms_output.put_line(v_dept.department_id||':'||v_dept.department_name);
+    SELECT * INTO v_dept FROM departments
+    WHERE department_id = 230;
+    dbms_output.put_line(v_dept.department_id||':'||v_dept.department_name);
+    SELECT * INTO v_dept FROM departments
+    WHERE department_id = 240;
+    dbms_output.put_line(v_dept.department_id||':'||v_dept.department_name);
+END;
+/

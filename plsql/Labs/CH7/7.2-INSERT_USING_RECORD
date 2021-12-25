@@ -1,0 +1,22 @@
+DECLARE
+   TYPE dept     IS RECORD(id      	NUMBER,
+                           name     	VARCHAR2(50),
+                           manager_id	NUMBER,
+                           location_id	NUMBER);
+   c_dept		dept;
+   v_dept		departments%ROWTYPE;	
+BEGIN
+   v_dept.department_id  	:= 280;
+   v_dept.department_name	:= 'CONSULTANT NETWORK-DC';
+   v_dept.manager_id     	:= 150;
+   INSERT INTO departments VALUES v_dept;
+   --------------------------------------------------------
+   c_dept.id 	:= 290;
+   c_dept.name	:= 'CONSULTANT NETWORK-YK';
+   INSERT INTO departments VALUES c_dept;
+   ---------------------------------------------------------
+   INSERT INTO departments (department_id, department_name) 
+   VALUES (300, 'CONSULTANT NETWORK-BS')
+   RETURNING department_id, department_name, manager_id,location_id INTO c_dept;
+END;
+/

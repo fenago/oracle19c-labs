@@ -1,0 +1,30 @@
+CREATE OR REPLACE TYPE BODY car AS 
+ CONSTRUCTOR FUNCTION car RETURN SELF AS RESULT IS
+ BEGIN
+  DBMS_OUTPUT.put_line('--- car() ---');
+  code := 9999;
+  model:= 'Enter model name';
+  color:= 'Enter color';
+  man_date:= SYSDATE;
+  RETURN;
+ END;
+ CONSTRUCTOR FUNCTION car(code NUMBER) 
+ RETURN SELF AS RESULT IS
+ BEGIN
+  DBMS_OUTPUT.put_line('--- car(code) ---');
+  SELF.code := code;
+  RETURN;
+ END;
+ CONSTRUCTOR FUNCTION car(code     NUMBER,
+                          model    VARCHAR2,
+                          man_date DATE) 
+ RETURN SELF AS RESULT IS
+ BEGIN
+  DBMS_OUTPUT.put_line('--- car(code,model,man_date) ---');
+  SELF.code := code;
+  SELF.model:= model;
+  SELF.man_date:= man_date;
+  RETURN;
+ END;
+END;
+/

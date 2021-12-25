@@ -1,0 +1,8 @@
+BEGIN
+  DBMS_PREPROCESSOR.print_post_processed_source (
+    object_type => 'PROCEDURE',
+    schema_name => 'HR',
+    object_name => 'CONDITIONAL_COMPILER');
+END;
+/
+

@@ -1,0 +1,17 @@
+DECLARE 
+ CURSOR c_depts IS
+	SELECT d.department_id, d.department_name, COUNT(*) cnt
+	FROM departments d, employees e  
+	WHERE d.department_id = e.department_id AND
+	      d.department_id = 50
+	GROUP BY d.department_id, d.department_name
+	ORDER BY d.department_id;
+ c_rec	c_depts%ROWTYPE;
+BEGIN
+ OPEN c_depts;
+ FETCH c_depts INTO c_rec;
+ dbms_output.put_line('Dept('||c_rec.department_id||'):'
+                             ||c_rec.department_name||' has '
+                             ||c_rec.cnt||' employees');
+ CLOSE c_depts;
+END;

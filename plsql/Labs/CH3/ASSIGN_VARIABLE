@@ -1,0 +1,13 @@
+DECLARE
+ p_employee	SIMPLE_INTEGER := 100;
+ p_first_name  	VARCHAR2(25);
+ p_hire_date  	DATE;
+BEGIN
+ p_employee := 99;
+ p_first_name := UPPER('Consultant Network');
+ p_hire_date  := LAST_DAY(SYSDATE);
+ dbms_output.put_line('p_employee	='||p_employee);
+ dbms_output.put_line('p_first_name   	='||p_first_name);
+ dbms_output.put_line('p_hire_date	='||p_hire_date);
+END;
+/

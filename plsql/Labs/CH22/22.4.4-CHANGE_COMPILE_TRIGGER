@@ -1,0 +1,7 @@
+ALTER TRIGGER database_ddl_trg COMPILE
+/
+
+SELECT object_name,status FROM user_objects 
+WHERE object_name='DATABASE_DDL_TRG'
+/
+

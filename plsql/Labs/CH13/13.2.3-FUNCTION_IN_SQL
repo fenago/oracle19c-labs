@@ -1,0 +1,7 @@
+DECLARE 
+  v_emp     emps.employee_id%TYPE;
+BEGIN
+  v_emp := add_emp('Ernesto',5500);
+  dbms_output.put_line('New employee('||v_emp||')');
+END;
+/

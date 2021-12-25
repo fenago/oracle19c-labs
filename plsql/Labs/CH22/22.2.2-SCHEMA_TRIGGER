@@ -1,0 +1,7 @@
+CREATE USER hr2 IDENTIFIED BY oracle DEFAULT TABLESPACE USERS
+/
+GRANT connect, resource,unlimited tablespace TO hr2
+/
+GRANT select,insert ON sys.system_alerts TO hr, hr2
+/
+

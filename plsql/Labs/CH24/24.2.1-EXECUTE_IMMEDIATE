@@ -1,0 +1,13 @@
+DECLARE
+  v_date    VARCHAR2(50);
+BEGIN
+  EXECUTE IMMEDIATE 'ALTER SESSION 
+                     SET NLS_DATE_FORMAT = ''HH24:MI:SS''';
+  SELECT SYSDATE INTO v_date FROM DUAL;
+  dbms_output.put_line(v_date);
+  EXECUTE IMMEDIATE 'ALTER SESSION 
+                     SET NLS_DATE_FORMAT = ''YYYY MM DD''';
+  SELECT SYSDATE INTO v_date FROM DUAL;
+  dbms_output.put_line(v_date);
+END;
+/

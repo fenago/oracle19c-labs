@@ -1,0 +1,15 @@
+COLUMN owner FORMAT A10;
+COLUMN object_type FORMAT A10;
+COLUMN object_name FORMAT A30;
+SELECT DISTINCT owner, object_Type, object_Name 
+FROM dba_objects_ae
+     WHERE owner IN (
+       'SYS', 'OUTLN', 'SYSTEM', 'CTXSYS', 'DBSNMP',
+       'LOGSTDBY_ADMINISTRATOR', 'ORDSYS',
+       'ORDPLUGINS', 'OEM_MONITOR', 'MDSYS', 'LBACSYS', 
+       'DMSYS', 'WMSYS', 'OLAPDBA', 'OLAPSVR', 'OLAP_USER',
+       'OLAPSYS', 'EXFSYS', 'SYSMAN', 'MDDATA',
+       'SI_INFORMTN_SCHEMA', 'XDB', 'ODM')
+     AND object_type IN ('PACKAGE', 'TYPE')
+ORDER BY owner, object_type, object_name
+/

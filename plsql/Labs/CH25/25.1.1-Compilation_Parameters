@@ -1,0 +1,20 @@
+DESC ALL_PLSQL_OBJECT_SETTINGS
+
+COLUMN name FORMAT A20;
+COLUMN type FORMAT A12;
+COLUMN op_l FORMAT 99;
+COLUMN c_type FORMAT A12;
+COLUMN cflags FORMAT A6;
+COLUMN warnings FORMAT A11;
+COLUMN debug FORMAT A7;
+
+SELECT name,type,
+       plsql_ccflags cflags, 
+       plsql_optimize_level op_l,
+       plsql_code_type c_type,
+       plsql_debug debug,
+       plsql_warnings warnings
+FROM USER_PLSQL_OBJECT_SETTINGS
+/
+
+

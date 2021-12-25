@@ -1,0 +1,15 @@
+CREATE OR REPLACE TYPE BODY shape AS
+ MEMBER FUNCTION perimeter RETURN NUMBER IS
+   v_perimeter NUMBER := 0;
+ BEGIN
+   FOR i IN sides.FIRST..sides.LAST LOOP
+    v_perimeter := v_perimeter + sides(i);
+   END LOOP;
+   RETURN v_perimeter;
+ END;
+ MEMBER FUNCTION area RETURN NUMBER IS
+ BEGIN
+   RETURN NULL;
+ END;
+END; 
+/

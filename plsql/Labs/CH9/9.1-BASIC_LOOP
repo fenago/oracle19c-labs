@@ -1,0 +1,13 @@
+DECLARE
+ i   	PLS_INTEGER;
+ lower	PLS_INTEGER := 1;
+ upper	PLS_INTEGER := 5;
+BEGIN
+   i := lower;
+   LOOP
+     dbms_output.put_line('i = '||i);
+     i := i + 1;
+     EXIT WHEN i > upper;
+   END LOOP;
+END;
+/

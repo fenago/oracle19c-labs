@@ -1,0 +1,11 @@
+DECLARE
+  v_managers     list := list();
+  v_indent       VARCHAR2(100) := '--';
+BEGIN
+  v_managers := managers(205);
+  FOR i IN v_managers.FIRST .. v_managers.LAST LOOP
+    dbms_output.put_line(v_indent||v_managers(i));
+    v_indent := v_indent ||'--';
+  END LOOP;
+END;
+/

@@ -1,0 +1,13 @@
+DECLARE
+  v_name      VARCHAR2(50):= 'Ernesto';
+  v_salary    NUMBER := 5000;
+  v_grade     NUMBER := 100;
+  v_emp       NUMBER;
+BEGIN
+  SELECT MAX(employee_id)+1 INTO v_emp FROM emps;
+  EXECUTE IMMEDIATE 'INSERT INTO emps 
+                     VALUES(:id,:name,:salary,:grade)'
+          USING v_emp, v_name, v_salary, v_grade;
+  dbms_output.put_line('Inserted emp id:'||v_emp);
+END;
+/

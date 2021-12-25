@@ -1,0 +1,16 @@
+BEGIN
+  FOR dept in (	SELECT * 
+		FROM departments 
+		WHERE department_id between 10 and 40) 
+  LOOP
+	FOR emp in (SELECT COUNT(*) CNT 
+        	    FROM employees 
+		    WHERE department_id = dept.department_id) 
+	LOOP
+	   dbms_output.put_line('Department ('||dept.department_id||'-'
+					      ||dept.department_name||')	:emp.CNT ='
+					      ||emp.CNT);
+	END LOOP;
+  END LOOP;
+END;
+/

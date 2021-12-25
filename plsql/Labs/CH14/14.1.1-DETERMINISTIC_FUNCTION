@@ -1,0 +1,24 @@
+CREATE OR REPLACE FUNCTION mark(p_grade  NUMBER) 
+RETURN VARCHAR2
+IS
+  v_result       VARCHAR2(50);                
+BEGIN
+  CASE
+  WHEN p_grade <=40 THEN
+    v_result := 'Absence';
+  WHEN p_grade <=60 THEN
+    v_result := 'F';
+  WHEN p_grade <=70 THEN
+    v_result := 'D';
+  WHEN p_grade <=80 THEN
+    v_result := 'C';
+  WHEN p_grade <=90 THEN
+    v_result := 'B';
+  WHEN p_grade <=100 THEN
+    v_result := 'A';
+  ELSE
+    v_result := 'Undefined Mark';
+  END CASE;
+  RETURN v_result;
+END;
+/

@@ -1,0 +1,15 @@
+DECLARE  
+ v_emp_ids   emp_ids;
+ i           PLS_INTEGER;
+BEGIN
+ EXECUTE IMMEDIATE 'BEGIN 
+                      :result := get_emp;
+                    END;'
+         USING OUT v_emp_ids;
+ i := v_emp_ids.FIRST;
+ WHILE i IS NOT NULL AND i<=5 LOOP
+  dbms_output.put_line(i||' - Emp id :'||v_emp_ids(i));
+  i:= v_emp_ids.NEXT(i);
+ END LOOP;
+END;
+/

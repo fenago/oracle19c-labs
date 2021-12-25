@@ -1,0 +1,20 @@
+DECLARE
+ TYPE primes IS TABLE OF NUMBER;
+ prime   	primes := primes(2,3,5,9,11,13,17,19,23,29,31,37,41,43);
+ i      	PLS_INTEGER := 1;
+ out     	VARCHAR2(300);
+BEGIN
+   --------- Update the fourth item -------
+   prime(4):= 7;
+   --------- Print Nested Table content -----
+   i := prime.FIRST;
+   LOOP
+     out := out ||','||prime(i);
+     i := prime.NEXT(i);
+     EXIT WHEN i IS NULL;
+   END LOOP;
+   dbms_output.put_line('Prime ='||SUBSTR(out,2));
+   --------- Assign new Value of Nested Table ---
+   prime := primes(2,3,5,9,11,13,17,19,23,29,31,37,41,43,53,59,61,67,71);
+END;
+/

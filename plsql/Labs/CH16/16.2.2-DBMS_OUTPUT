@@ -1,0 +1,7 @@
+SELECT DISTINCT owner, object_type, object_Name 
+FROM dba_objects_ae
+     WHERE owner IN ('SYS',  'SYSTEM')
+     AND object_type IN ('PACKAGE')
+     AND object_name like '%OUTPUT%'
+ORDER BY owner, object_type, object_name
+/

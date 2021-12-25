@@ -1,0 +1,7 @@
+BEGIN
+ IF XOR(TRUE,FALSE) THEN
+  DBMS_OUTPUT.put_line('enter ...');
+ END IF;
+ DBMS_OUTPUT.put_line('out ...');
+END;
+/

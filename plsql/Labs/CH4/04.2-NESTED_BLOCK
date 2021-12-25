@@ -1,0 +1,16 @@
+DECLARE
+ i		NUMBER := 6;
+BEGIN
+  dbms_output.put_line('OUTER i='||i);
+          ------------ NESTED BLOCK  --------------
+	  DECLARE
+	    k	NUMBER := 4;
+	  BEGIN
+	    dbms_output.put_line('k='||k);
+	    i := 10;
+	    dbms_output.put_line('INNER i='||i);
+	  END;
+          -------------------------------------
+  dbms_output.put_line('OUTER i='||i);
+END;
+/

@@ -1,0 +1,12 @@
+SELECT * FROM emps WHERE employee_id=400;
+/
+DECLARE 
+ v_employee  employee := NEW employee('','','','');
+BEGIN
+ v_employee.employee_id := 400;
+ v_employee.remove_emp();
+ COMMIT;
+END;
+/
+SELECT * FROM emps WHERE employee_id=400;
+

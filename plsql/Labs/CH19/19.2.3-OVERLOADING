@@ -1,0 +1,13 @@
+DECLARE
+ v_mcycle   motorcycle := NEW motorcycle();
+ v_car      car := NEW car(3366,'FORD','RED','01-FEB-99','4x4');
+ v_vehicle  vehicle;
+BEGIN
+ v_vehicle := v_mcycle;
+ dbms_output.put_line(v_vehicle.details());
+ ----------------
+ v_vehicle := v_car;
+ dbms_output.put_line(v_vehicle.details(2));
+ ----------------
+END;
+/

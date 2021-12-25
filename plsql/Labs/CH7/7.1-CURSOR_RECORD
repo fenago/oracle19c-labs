@@ -1,0 +1,15 @@
+DECLARE
+  CURSOR emp_curs IS 
+		SELECT 	e.employee_id, e.first_name, d.department_name, d.manager_id 
+		FROM 	employees e, departments d
+		WHERE 	e.department_id = d.department_id AND
+			e.employee_id=150;
+  employee    emp_curs%ROWTYPE;
+BEGIN
+ OPEN emp_curs;
+ FETCH emp_curs INTO employee;
+   dbms_output.put_line('Employee Record ('||employee.employee_id||'): '||employee.first_name||
+                        ' is working at '||employee.department_name||' department.');
+ CLOSE emp_curs;
+END;
+/

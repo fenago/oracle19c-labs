@@ -1,0 +1,18 @@
+CREATE OR REPLACE FUNCTION check_login (v_user_name   VARCHAR2,
+                                        v_password    VARCHAR2)
+RETURN user_credentials%ROWTYPE IS
+ v_rec    user_credentials%ROWTYPE;
+ v_sql    VARCHAR2(500);
+BEGIN
+ v_sql := 'SELECT * FROM user_credentials 
+           WHERE  user_name  ='''||v_user_name||''' AND 
+                  password   ='''||v_password||'''';
+ EXECUTE IMMEDIATE v_sql INTO v_rec;
+ RETURN v_rec;
+EXCEPTION
+ WHEN NO_DATA_FOUND THEN
+  dbms_output.put_line('Invalid username or password');
+  RAISE;
+END;
+/
+

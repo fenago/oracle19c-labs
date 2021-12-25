@@ -1,0 +1,15 @@
+CREATE OR REPLACE PROCEDURE conditional_compiler
+AS
+ $IF $$show_line $THEN 
+   v_cnt   NUMBER := $$cnt;
+ $END
+BEGIN
+ $IF $$show_line $THEN
+  FOR i IN 1.. v_cnt LOOP
+     dbms_output.put_line('Line No	:'||$$PLSQL_LINE);
+  END LOOP;
+ $ELSE
+   dbms_output.put_line('cnt    	:'||$$cnt);
+ $END
+END;
+/

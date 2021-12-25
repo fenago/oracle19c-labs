@@ -1,0 +1,4 @@
+SELECT text FROM all_source WHERE name='GET_EMP'
+/
+DESC emp_ids
+

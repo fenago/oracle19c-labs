@@ -1,0 +1,11 @@
+SELECT emp_DML_seq.CURRVAL, l.* FROM emp_DML_logs l
+/
+DECLARE 
+ v_emp_id    NUMBER := 100;
+BEGIN
+ INSERT INTO emps(employee_id,first_name,salary, grade)
+ VALUES (v_emp_id,'Ernesto',5000,100);
+END;
+/
+SELECT emp_DML_seq.CURRVAL, l.* FROM emp_DML_logs l
+/

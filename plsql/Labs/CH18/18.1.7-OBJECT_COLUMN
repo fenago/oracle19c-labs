@@ -1,0 +1,3 @@
+SELECT c.home_address.zip_code FROM contacts c
+/
+

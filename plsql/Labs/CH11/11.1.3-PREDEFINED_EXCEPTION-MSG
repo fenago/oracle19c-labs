@@ -1,0 +1,29 @@
+DECLARE
+ v_employee_id   	                 NUMBER;
+ v_employee_name	VARCHAR2(50);
+ v_manager_id    	                  NUMBER;
+ v_manager_name  	VARCHAR2(50);
+ v_msg                                        VARCHAR2(50);
+BEGIN
+  v_msg := 'employee';
+  SELECT employee_id, first_name||' '||last_name
+  employee_name, manager_id
+  INTO   v_employee_id, v_employee_name, v_manager_id
+  FROM   employees
+  WHERE  employee_id = 100;
+  v_msg := 'manager'; 
+  SELECT first_name||' '||last_name manager_name
+  INTO   v_manager_name
+  FROM   employees
+  WHERE  employee_id = v_manager_id;
+  ----- Print  --------
+  dbms_output.put_line('Employee('||v_employee_id||'):'||
+                        v_employee_name);
+  dbms_output.put_line('Manager('||v_manager_id||')	:'||
+                        v_manager_name);
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN 
+           dbms_output.put_line('no such '||msg||'.');
+END;
+/
+

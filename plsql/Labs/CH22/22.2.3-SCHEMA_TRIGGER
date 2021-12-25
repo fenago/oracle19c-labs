@@ -1,0 +1,10 @@
+CREATE OR REPLACE TRIGGER hr_ddl_trg 
+AFTER DDL
+ON hr.SCHEMA
+BEGIN
+ INSERT INTO system_alerts
+ VALUES (sys.database_name,sys.sysevent, 
+         sysdate, sys.login_user,'hr.SCHEMA');
+END;
+/
+

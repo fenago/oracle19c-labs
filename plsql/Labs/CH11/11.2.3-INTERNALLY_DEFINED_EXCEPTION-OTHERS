@@ -1,0 +1,16 @@
+DECLARE
+ v_employee_id   NUMBER; 
+ v_email         VARCHAR2(50);
+BEGIN
+   SELECT employee_id, email INTO v_employee_id,v_email
+   FROM   employees
+   WHERE  employee_id = 150 
+   FOR UPDATE NOWAIT;
+EXCEPTION 
+   WHEN OTHERS THEN
+     dbms_output.put_line('Employee record (150) is '||
+                          'locked for upadate by another user.');
+     dbms_output.put_line('Please wait or ask your '||
+                     'coleauge to commit or rollback his action');
+END;
+/

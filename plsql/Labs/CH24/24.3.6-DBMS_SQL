@@ -1,0 +1,39 @@
+CREATE OR REPLACE PROCEDURE get_emps(v_fid       IN NUMBER,
+                                     v_lid       IN NUMBER,
+                                     v_emp_id    OUT dbms_sql.number_table,
+                                     v_last_name OUT dbms_sql.varchar2_table,
+                                     v_email     OUT dbms_sql.varchar2_table,
+                                     v_hire_date OUT dbms_sql.date_table,
+                                     v_job_id    OUT dbms_sql.varchar2_table)
+IS
+  v_sql       VARCHAR2(500);
+  v_result    NUMBER;
+  v_curs      PLS_INTEGER;
+BEGIN
+ v_sql := 'SELECT employee_id, last_name,email,hire_date,job_id 
+           FROM employees
+           WHERE  employee_id BETWEEN :fid AND :lid';
+ v_curs := dbms_sql.open_cursor;
+ dbms_sql.parse(v_curs, v_sql,dbms_sql.NATIVE);
+ dbms_sql.define_array(v_curs, 1, v_emp_id,6,1);
+ dbms_sql.define_array(v_curs, 2, v_last_name,6,1);
+ dbms_sql.define_array(v_curs, 3, v_email,6,1);
+ dbms_sql.define_array(v_curs, 4, v_hire_date,6,1);
+ dbms_sql.define_array(v_curs, 5, v_job_id,6,1);
+ dbms_sql.bind_variable(v_curs,'fid',v_fid);
+ dbms_sql.bind_variable(v_curs,'lid',v_lid);
+ v_result:= dbms_sql.execute(v_curs);
+ ------ (5) FETCH CURSOR ROWS ------
+ LOOP
+   v_result := dbms_sql.fetch_rows(v_curs);
+   dbms_sql.column_value(v_curs, 1, v_emp_id);
+   dbms_sql.column_value(v_curs, 2, v_last_name);
+   dbms_sql.column_value(v_curs, 3, v_email);
+   dbms_sql.column_value(v_curs, 4, v_hire_date);
+   dbms_sql.column_value(v_curs, 5, v_job_id);
+   EXIT WHEN v_result != 6;
+ END LOOP;
+ ------ (6) CLOSE CURSOR    --------
+ dbms_sql.close_cursor(v_curs);
+END;
+/

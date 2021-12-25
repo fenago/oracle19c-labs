@@ -1,0 +1,21 @@
+CREATE OR REPLACE TRIGGER student_college_limit_trg
+ AFTER
+   INSERT OR
+   UPDATE OF college_id 
+ ON students
+ FOR EACH ROW
+ WHEN (NVL(NEW.college_id,0) != NVL(OLD.college_id,0))
+DECLARE
+ v_max_std     CONSTANT NUMBER := 3;
+ v_std_cnt     NUMBER;
+BEGIN
+  SELECT count(*) INTO v_std_cnt
+  FROM students 
+  WHERE college_id = :NEW.college_id;
+  IF v_std_cnt > v_max_std THEN 
+    RAISE_APPLICATION_ERROR(-20000,
+          'Exceeding maximum student number');
+  END IF;
+END;
+/
+

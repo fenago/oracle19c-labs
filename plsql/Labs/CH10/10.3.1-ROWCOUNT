@@ -1,0 +1,20 @@
+DECLARE 
+ TYPE emps_type IS TABLE OF emps%ROWTYPE;
+ v_emps emps_type := emps_type();
+ p1   PLS_INTEGER; 
+ p2   PLS_INTEGER; 
+ p3   PLS_INTEGER;
+BEGIN
+    -------- Fill in v_emps Nested Table -------
+    FOR r IN (SELECT * FROM emps) LOOP
+      v_emps.EXTEND;
+      v_emps(v_emps.LAST) := r;
+    END LOOP;
+    v_emps.DELETE(50);
+    FORALL i IN INDICES OF v_emps
+    UPDATE emps
+    SET salary = salary + 1000
+    WHERE employee_id = v_emps(i).employee_id;
+    dbms_output.put_line('ROWCOUNT ='||SQL%ROWCOUNT);
+END;
+/

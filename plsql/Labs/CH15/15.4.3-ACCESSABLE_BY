@@ -1,0 +1,4 @@
+BEGIN
+  private_pkg.print_seperator;
+END;
+/

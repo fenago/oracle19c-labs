@@ -1,0 +1,3 @@
+SELECT SYS_TYPEID(VALUE(c)) type, code FROM vehicles c
+/
+

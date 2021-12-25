@@ -1,0 +1,5 @@
+CONNECT hr2/oracle
+CREATE TABLE employees_bk AS SELECT * FROM hr.employees
+/
+
+

@@ -1,0 +1,5 @@
+COLUMN text FORMAT A80;
+SELECT text FROM all_source WHERE name='DATABASE_DDL_TRG' 
+/
+
+

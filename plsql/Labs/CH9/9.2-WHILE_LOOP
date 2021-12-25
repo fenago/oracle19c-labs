@@ -1,0 +1,9 @@
+DECLARE
+ i   	PLS_INTEGER :=1;
+BEGIN
+   WHILE i <> 5 LOOP
+    dbms_output.put_line('i = '||i);
+    i := DBMS_RANDOM.value(1,5);
+   END LOOP;
+END;
+/

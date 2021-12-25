@@ -1,0 +1,4 @@
+SELECT text FROM user_source 
+WHERE name ='PRINT_LIST' 
+ORDER BY line
+/

@@ -1,0 +1,2 @@
+CREATE TABLE vehicles OF vehicle (PRIMARY KEY (code))
+/

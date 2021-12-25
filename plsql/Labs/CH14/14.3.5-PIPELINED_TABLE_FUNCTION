@@ -1,0 +1,30 @@
+DECLARE
+  CURSOR cur IS
+  SELECT ms.value
+  FROM   v$mystat ms,
+         v$statname sn
+  WHERE  ms.statistic# = sn.statistic#
+  AND    sn.name = 'session pga memory';
+  v_memory    NUMBER;
+BEGIN
+  dbms_output.put_line('----- Memory Difference  ------');
+  FOR i IN (SELECT e.*
+            FROM   TABLE(get_emp_pipelined()) e
+            WHERE  ROWNUM <=5)  LOOP
+    null;
+  END LOOP;
+  OPEN cur;
+  FETCH cur INTO v_memory;
+  CLOSE cur;
+  dbms_output.put_line('get_emp_pipelined      	:'||v_memory);
+  FOR i IN (SELECT e.*
+            FROM   TABLE(get_emp()) e
+            WHERE  ROWNUM <=5)  LOOP
+    null;
+  END LOOP;
+  OPEN cur;
+  FETCH cur INTO v_memory;
+  CLOSE cur;
+  dbms_output.put_line('get_emp         	:'||v_memory);
+END;
+/

@@ -1,0 +1,28 @@
+DECLARE
+  v_sql       VARCHAR2(500);
+  v_result    NUMBER;
+  v_curs      PLS_INTEGER;
+  v_emp_id    dbms_sql.number_table;
+  v_last_name dbms_sql.varchar2_table;
+BEGIN
+ v_sql := 'SELECT employee_id, last_name FROM employees  
+           WHERE  employee_id BETWEEN 100 AND 105';
+ v_curs := dbms_sql.open_cursor;
+ dbms_sql.parse(v_curs, v_sql,dbms_sql.NATIVE);
+ dbms_sql.define_array(v_curs, 1, v_emp_id,6,1);
+ dbms_sql.define_array(v_curs, 2, v_last_name,6,1);
+ v_result:= dbms_sql.execute(v_curs);
+ ------ (5) FETCH CURSOR ROWS ------
+ LOOP
+   v_result := dbms_sql.fetch_rows(v_curs);
+   dbms_sql.column_value(v_curs, 1, v_emp_id);
+   dbms_sql.column_value(v_curs, 2, v_last_name);
+   EXIT WHEN v_result != 6;
+ END LOOP;
+ ------ (6) CLOSE CURSOR    --------
+ dbms_sql.close_cursor(v_curs);
+ FOR i IN v_emp_id.FIRST..v_emp_id.LAST LOOP
+  dbms_output.put_line('Emp('||v_emp_id(i)||')-'||v_last_name(i));
+ END LOOP;
+END;
+/

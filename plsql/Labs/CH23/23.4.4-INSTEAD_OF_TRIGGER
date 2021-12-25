@@ -1,0 +1,7 @@
+UPDATE student_college_view 
+SET  student_name = 'Lee',
+     college_name = 'CN'
+WHERE student_id = 10
+/
+SELECT * FROM student_college_view
+/

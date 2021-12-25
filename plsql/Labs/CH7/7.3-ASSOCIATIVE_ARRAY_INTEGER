@@ -1,0 +1,25 @@
+DECLARE
+   TYPE words IS TABLE OF VARCHAR2(50) INDEX BY PLS_INTEGER;
+   word    	words;
+   i       	PLS_INTEGER :=1;
+   v_num	PLS_INTEGER := 32100;
+   out		VARCHAR2(100):='';
+BEGIN
+   ------   Insert elements --------
+   word(0)  	:= 'Zero';
+   word(1)  	:= 'One';
+   word(2) 	:= 'Tow';
+   word(3) 	:= 'Three';
+   ----    Update Tow element ------
+   word(2)  	:= 'Two';
+   ---- LOOP through Associative Array ----
+   dbms_output.put_line(LENGTH(v_num));
+   LOOP
+      out := out ||','||word(SUBSTR(v_num,i,1));
+      i   := i +1;
+      EXIT WHEN i > LENGTH(v_num);
+   END LOOP;
+   dbms_output.put_line('A number '||v_num||
+                        ' is '||SUBSTR(out,2));
+END;
+/

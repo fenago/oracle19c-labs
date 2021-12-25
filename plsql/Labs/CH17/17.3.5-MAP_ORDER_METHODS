@@ -1,0 +1,13 @@
+DECLARE 
+ v_car1 car:= NEW car('8888','FORD','RED','01-DEC-2015');
+ v_car2 car:= NEW car('9999','FORD','BLACK','01-DEC-2015');
+BEGIN
+ IF v_car1 = v_car2 THEN
+   DBMS_OUTPUT.put_line('Equeal.');
+ ELSIF v_car1 > v_car2 THEN
+   DBMS_OUTPUT.put_line('Car 1 older.');
+ ELSE
+   DBMS_OUTPUT.put_line('Car 1 newer.');
+ END IF;
+END;
+/

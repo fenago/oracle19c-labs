@@ -1,0 +1,6 @@
+CREATE OR REPLACE PACKAGE private_pkg 
+ACCESSIBLE BY (clients) IS
+  PROCEDURE print_seperator;
+END;
+/
+

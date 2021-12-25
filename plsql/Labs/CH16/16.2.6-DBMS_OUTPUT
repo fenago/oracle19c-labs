@@ -1,0 +1,20 @@
+DECLARE 
+ v_lines     DBMSOUTPUT_LINESARRAY;
+ v_cnt       NUMBER := 5;
+BEGIN
+ DBMS_OUTPUT.put('put something.');
+ DBMS_OUTPUT.put('put something.');
+ -------------
+ DBMS_OUTPUT.put_line('put line.');
+ DBMS_OUTPUT.put_line('put line.');
+ ------------
+ DBMS_OUTPUT.new_line;
+ DBMS_OUTPUT.new_line;
+ ------------
+ DBMS_OUTPUT.get_lines(v_lines,v_cnt);
+ FOR i IN v_lines.FIRST .. v_lines.LAST LOOP
+   DBMS_OUTPUT.put_line(i||'-'||v_lines(i));
+ END LOOP;
+ DBMS_OUTPUT.put_line('There are :'||v_cnt||' lines');
+END;
+/

@@ -1,0 +1,10 @@
+DECLARE
+ i     INTEGER := 1;
+BEGIN
+  DECLARE
+     i   INTEGER := 2;
+  BEGIN
+    dbms_output.put_line('i='||i);
+  END;
+END;
+/

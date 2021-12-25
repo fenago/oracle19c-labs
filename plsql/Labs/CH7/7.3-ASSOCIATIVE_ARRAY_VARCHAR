@@ -1,0 +1,21 @@
+DECLARE
+   TYPE capitals IS TABLE OF VARCHAR2(50) INDEX BY VARCHAR2(50);
+   capital	capitals;
+   v_indx	VARCHAR2(50);
+BEGIN
+   ------   Insert elements --------
+   capital('Palestine')  	:= 'Jerusalem';
+   capital('Portugal')  	:= 'Lisben';
+   capital('Finland')     	:= 'Helsinki';
+   capital('USA') 		:= 'Washington';
+   ----    Update Portugal Capital element ------
+   capital('Portugal')  	:= 'Lisbon';
+   ---- LOOP through Associative Array ----
+   v_indx := capital.FIRST;
+   LOOP
+      dbms_output.put_line('The capital of '||v_indx||' is '||capital(v_indx)||'.');
+      v_indx := capital.NEXT(v_indx);
+      EXIT WHEN v_indx IS NULL;
+   END LOOP;
+END;
+/

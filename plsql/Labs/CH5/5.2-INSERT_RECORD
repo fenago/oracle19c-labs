@@ -1,0 +1,11 @@
+DECLARE
+   p_department		departments%ROWTYPE;
+BEGIN
+ INSERT INTO departments(department_id, department_name)
+ VALUES(1999, 'Consultant Network')
+ RETURNING  department_id, department_name 
+ INTO p_department.department_id, p_department.department_name;
+ dbms_output.put_line('Department record ('||p_department.department_id||'): '||
+                                             p_department.department_name);
+END;
+/

@@ -1,0 +1,8 @@
+DECLARE
+ v_mcycle   motorcycle := NEW motorcycle();
+ v_details  VARCHAR2(250);
+BEGIN
+ v_details := v_mcycle.details();
+ dbms_output.put_line(v_details);
+END;
+/

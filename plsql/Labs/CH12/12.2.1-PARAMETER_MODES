@@ -1,0 +1,23 @@
+DECLARE 
+  PROCEDURE check_email (v_email   VARCHAR2) IS
+    invalid_email    EXCEPTION;
+    PRAGMA EXCEPTION_INIT(invalid_email,-20999);
+  BEGIN
+    CASE 
+    WHEN INSTR(v_email,'@') = 0 THEN
+      RAISE_APPLICATION_ERROR(-20999,'Invalid email: the email should containt @.');
+    WHEN INSTR(v_email,'.') = 0 THEN
+      RAISE_APPLICATION_ERROR(-20999,'Invalid email: the email should containt "."');
+    WHEN INSTR(v_email,'@') > INSTR(v_email,'.') THEN
+      RAISE_APPLICATION_ERROR(-20999,'Invalid email: the "." should appear after @');
+    ELSE
+      dbms_output.put_line('Valid email.');
+    END CASE;
+  END;
+BEGIN
+  check_email('Lee@consultantNetwork.com');
+EXCEPTION
+  WHEN OTHERS THEN 
+    dbms_output.put_line(SQLERRM);
+END;  
+/

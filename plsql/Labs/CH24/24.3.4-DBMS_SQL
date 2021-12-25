@@ -1,0 +1,27 @@
+DECLARE
+  v_sql       VARCHAR2(500);
+  v_result    NUMBER;
+  v_curs      PLS_INTEGER;
+  v_emp_id    NUMBER;
+  v_last_name VARCHAR2(50);
+BEGIN
+ v_sql := 'SELECT employee_id, last_name FROM employees  
+           WHERE  employee_id =100';
+ ------ (1) OPEN CURSOR    ---------
+ v_curs := dbms_sql.open_cursor;
+ ------ (2) PARSE SQL TEXT ---------
+ dbms_sql.parse(v_curs, v_sql,dbms_sql.NATIVE);
+ ------ (3) DEFINE COLUMN   --------
+ dbms_sql.define_column(v_curs, 1, v_emp_id);
+ dbms_sql.define_column(v_curs, 2, v_last_name,50);
+ ------ (4) EXECUTE CURSOR  --------
+ v_result:= dbms_sql.execute(v_curs);
+ ------ (5) FETCH CURSOR ROWS ------
+ v_result := dbms_sql.fetch_rows(v_curs);
+ dbms_sql.column_value(v_curs, 1, v_emp_id);
+ dbms_sql.column_value(v_curs, 2, v_last_name);
+ dbms_output.put_line('Emp('||v_emp_id||')-'||v_last_name);
+ ------ (6) CLOSE CURSOR    --------
+ dbms_sql.close_cursor(v_curs);
+END;
+/

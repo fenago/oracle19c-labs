@@ -1,0 +1,28 @@
+CREATE OR REPLACE TYPE car AS OBJECT
+(code     NUMBER,
+ model    VARCHAR2(50),
+ color    VARCHAR2(50),
+ man_date DATE,
+ MEMBER FUNCTION details RETURN VARCHAR2,
+ MEMBER PROCEDURE print(v_details VARCHAR2)
+);
+/
+
+CREATE OR REPLACE TYPE BODY car AS 
+ MEMBER FUNCTION details RETURN VARCHAR2
+ IS
+  v_details  VARCHAR2(200);
+ BEGIN
+  v_details := 'Code    	:'||code||chr(10);
+  v_details := v_details||'model   	:'||model||chr(10);
+  v_details := v_details||'color   	:'||color||chr(10);
+  v_details := v_details||'man_date   	:'||man_date||chr(10);
+  RETURN v_details;
+ END;
+ MEMBER PROCEDURE print(v_details VARCHAR2) IS
+ BEGIN
+   DBMS_OUTPUT.put_line('---- Print -----');
+   DBMS_OUTPUT.put(v_details);
+ END;
+END;
+/

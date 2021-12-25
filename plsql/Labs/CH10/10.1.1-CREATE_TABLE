@@ -1,0 +1,16 @@
+DROP TABLE EMPS;
+CREATE TABLE EMPS 
+(employee_id	NUMBER PRIMARY KEY,
+ first_name 	VARCHAR2(50),
+ salary    	NUMBER);
+BEGIN
+ FOR i IN 1 .. 100000 LOOP
+  INSERT INTO EMPS (employee_id, first_name, salary)
+  VALUES (i, TO_CHAR(i), i);
+ END LOOP;
+END;
+/
+COMMIT;
+/
+
+

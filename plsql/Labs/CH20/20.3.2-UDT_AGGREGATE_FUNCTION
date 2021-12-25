@@ -1,0 +1,20 @@
+CREATE OR REPLACE TYPE GPA_methods AS OBJECT 
+(  count     NUMBER,
+   sumMark   NUMBER,
+   STATIC FUNCTION ODCIAggregateInitialize
+                   (sctx  IN OUT GPA_methods) 
+                   RETURN NUMBER,
+   MEMBER FUNCTION ODCIAggregateIterate
+                   (SELF IN OUT GPA_methods, 
+                    value VARCHAR2) 
+                   RETURN NUMBER,
+   MEMBER FUNCTION ODCIAggregateMerge
+                  (self IN OUT GPA_methods, 
+                   ctx2 IN GPA_methods) 
+                   RETURN NUMBER,
+   MEMBER FUNCTION ODCIAggregateTerminate
+                  (returnvalue OUT VARCHAR2, 
+                   flags IN NUMBER) 
+                   RETURN NUMBER
+);
+/

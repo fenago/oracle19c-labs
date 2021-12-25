@@ -1,0 +1,12 @@
+DECLARE 
+ TYPE   dept  IS VARRAY(5) OF departments%ROWTYPE;   
+ v_dept 	dept;
+BEGIN
+   SELECT * BULK COLLECT INTO v_dept 
+   FROM departments 
+   WHERE department_id in (200,210,220,230,240);
+   FOR i IN v_dept.FIRST .. v_dept.LAST LOOP
+     dbms_output.put_line(v_dept(i).department_id||':'||v_dept(i).department_name);
+   END LOOP;
+END;
+/

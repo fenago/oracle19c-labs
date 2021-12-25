@@ -1,0 +1,3 @@
+cd $ORACLE_HOME/rdbms/admin
+pwd
+gedit ./stdspec.sql

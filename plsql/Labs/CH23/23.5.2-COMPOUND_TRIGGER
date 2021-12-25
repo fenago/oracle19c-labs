@@ -1,0 +1,6 @@
+INSERT INTO students VALUES (11, 'Ray', 1)
+/
+INSERT INTO students VALUES (12, 'Ray', 1)
+/
+INSERT INTO students VALUES (13, 'Ray', 1)
+/

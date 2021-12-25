@@ -1,0 +1,5 @@
+BEGIN
+    INSERT INTO departments
+    VALUES (301,'CONSULTANT NETWORK-CH9','','');
+END;
+

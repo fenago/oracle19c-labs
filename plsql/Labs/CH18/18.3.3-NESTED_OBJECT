@@ -1,0 +1,14 @@
+DECLARE
+ v_com   company;
+ v_loc   address := NEW address(36,'Peace',36210,'New York','USA');
+BEGIN
+ UPDATE companies c
+ SET    c.location = v_loc
+ WHERE  c.id = 1;
+ COMMIT;
+ SELECT VALUE(c) INTO v_com 
+ FROM   companies c
+ WHERE  VALUE(c).id = 1;
+ dbms_output.put_line(v_com.location.get_address());
+END;
+/

@@ -1,0 +1,6 @@
+BEGIN
+  FOR emp in (SELECT * FROM employees WHERE employee_id >=199) LOOP
+	dbms_output.put_line('Employee record ('||emp.employee_id||'): '||emp.first_name);
+  END LOOP;
+END;
+/

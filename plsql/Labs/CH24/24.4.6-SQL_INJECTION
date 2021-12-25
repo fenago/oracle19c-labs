@@ -1,0 +1,15 @@
+DECLARE 
+ v_my_record   user_credentials%ROWTYPE;
+ v_user        VARCHAR2(500);
+ v_pass        VARCHAR2(500);
+BEGIN
+ v_user := 'RAY'' AND ( 1=1 OR ''x''=''x';
+ v_pass := 'whatever'' ) --'; 
+ v_my_record := check_login(v_user,v_pass);
+ dbms_output.put_line('username	:'||v_my_record.user_name);
+ dbms_output.put_line('password	:'||v_my_record.password);
+EXCEPTION
+ WHEN NO_DATA_FOUND THEN
+  dbms_output.put_line('failed...');
+END;
+/

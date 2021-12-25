@@ -1,0 +1,23 @@
+DECLARE
+ i		INTEGER := 3;
+ k		INTEGER := 5;
+BEGIN
+	DECLARE
+	  i		INTEGER := 0;
+	  k		INTEGER := 10;
+	BEGIN
+          dbms_output.put_line('------- Inner Block (1) --------');
+	  dbms_output.put_line('i='||i);
+	  dbms_output.put_line('k='||k);   
+	END; 
+	BEGIN
+          dbms_output.put_line('------- Inner Block (2) --------');
+	  dbms_output.put_line('i='||i);
+	  dbms_output.put_line('k='||k);   
+	END;       
+  dbms_output.put_line('-------   Outer Block    ---------');
+  dbms_output.put_line('i='||i);
+  dbms_output.put_line('k='||k);
+
+END;
+/

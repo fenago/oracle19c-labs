@@ -1,0 +1,6 @@
+CREATE TABLE contacts
+( id             NUMBER PRIMARY KEY,
+  name           VARCHAR2(50),
+  home_address   address,
+  work_address   address
+)

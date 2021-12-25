@@ -1,0 +1,24 @@
+CREATE OR REPLACE TRIGGER emp_logging_TRG
+  BEFORE
+   INSERT OR 
+   DELETE OR
+   UPDATE 
+  ON emps
+  FOR EACH ROW
+DECLARE 
+ v_op   VARCHAR2(2);
+BEGIN
+ IF INSERTING THEN
+   v_op := 'I';
+ ELSIF DELETING THEN 
+   v_op := 'D';
+ ELSIF UPDATING('salary') THEN 
+   v_op := 'U';
+ ELSIF UPDATING('employee_id') THEN 
+   v_op := 'Ux';
+ END IF;  
+  INSERT INTO emp_DML_logs
+     (table_name,user_name,operation,curr_date,curr_emp_no,new_emp_no)
+  VALUES('EMPS',USER,v_op,SYSDATE,:OLD.employee_id,:NEW.employee_id);
+END;
+/

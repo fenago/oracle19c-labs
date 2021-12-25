@@ -1,0 +1,1 @@
+loadjava -u hr@localhost:1521:DB12c -v -r -t '/home/oracle/Desktop/CODES/CH21/Emps.java'

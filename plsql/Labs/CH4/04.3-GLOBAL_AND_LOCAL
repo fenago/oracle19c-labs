@@ -1,0 +1,25 @@
+DECLARE
+ i     INTEGER := 1;
+BEGIN
+  dbms_output.put_line('i='||i);
+  DECLARE
+     k   INTEGER := 2;
+  BEGIN
+    dbms_output.put_line('k='||k);
+    dbms_output.put_line('i='||i);	
+    DECLARE
+       h   NUMBER(3) := 5;  
+    BEGIN
+       dbms_output.put_line('h='||h);
+       dbms_output.put_line('i='||i);
+       dbms_output.put_line('k='||k);
+    END;    
+  END;
+  DECLARE
+      j		INTEGER := 2;	
+  BEGIN
+    dbms_output.put_line('j='||j);
+    dbms_output.put_line('i='||i);
+  END;    
+END;
+/

@@ -1,0 +1,8 @@
+BEGIN
+  FOR j IN (SELECT e.*
+            FROM   TABLE(get_emp_pipelined()) e
+            WHERE  ROWNUM <5)  LOOP
+    dbms_output.put_line('-'||j.COLUMN_VALUE);
+  END LOOP;
+END;
+/

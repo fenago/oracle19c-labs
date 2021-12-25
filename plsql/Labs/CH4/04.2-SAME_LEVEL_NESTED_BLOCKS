@@ -1,0 +1,16 @@
+DECLARE
+ i		INTEGER := 1;
+BEGIN
+	dbms_output.put_line('>-- Outer Block ('||i||') ---------');	
+	DECLARE
+	  k		INTEGER := 2;
+	BEGIN
+	  dbms_output.put_line('.  >-- Inner Block ('||K||') --------');      
+	END;
+	DECLARE
+	  j		INTEGER := 2;	
+	BEGIN
+	  dbms_output.put_line('.  >-- Inner Block ('||j||') --------');   
+	END;    
+END;
+/

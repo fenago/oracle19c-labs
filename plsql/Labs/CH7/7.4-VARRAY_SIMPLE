@@ -1,0 +1,19 @@
+DECLARE
+ TYPE days IS VARRAY(7) OF VARCHAR2(2);
+ v_day   	DAYS := DAYS('','','','','','','');
+ i      	PLS_INTEGER := 1;
+BEGIN
+   v_day(1) := 'SA';
+   v_day(2) := 'SU';
+   v_day(3) := 'MO';
+   v_day(4) := 'TU';
+   v_day(5) := 'WE';
+   v_day(6) := 'TH';
+   v_day(7) := 'FR';
+   LOOP
+     dbms_output.put_line('v_day('||i||') ='||v_day(i));
+     i := i+1;
+     EXIT WHEN i>7;
+   END LOOP;
+END;
+/

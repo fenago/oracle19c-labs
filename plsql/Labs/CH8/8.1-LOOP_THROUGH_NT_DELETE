@@ -1,0 +1,15 @@
+DECLARE
+ prime   	primes := primes(2,3,5,7,9,11,13,17);
+ i      	PLS_INTEGER := 1;
+ out     	VARCHAR2(300);
+BEGIN
+   ---- 9 is not prime  ---
+   prime.DELETE(5); -- Delete 5th element
+   LOOP
+     out := out ||','||prime(i);
+     i := i + 1;
+     EXIT WHEN i > prime.COUNT;
+   END LOOP;
+   dbms_output.put_line('Prime ='||SUBSTR(out,2));
+END;
+/

@@ -1,0 +1,10 @@
+DECLARE
+  i_int		INTEGER		:= 5;
+  d_curr_date	DATE		:= SYSDATE; 
+  b_bln		BOOLEAN NOT NULL:= TRUE;
+BEGIN
+  dbms_output.put_line('i_int 		= '||i_int);
+  dbms_output.put_line('d_curr_date 	= '||d_curr_date);
+  dbms_output.put_line('b_bln 		= '||b_bln);
+END;
+/

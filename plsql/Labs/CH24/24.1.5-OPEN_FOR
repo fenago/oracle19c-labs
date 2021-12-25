@@ -1,0 +1,24 @@
+CREATE OR REPLACE PROCEDURE get_locations(v_slocation NUMBER, 
+                                          v_elocation NUMBER) IS
+  c_curs   SYS_REFCURSOR;
+  v_loc    locations%ROWTYPE;
+  v_sql    VARCHAR2(500);
+BEGIN
+  v_sql := 'SELECT *  FROM   locations  
+            WHERE location_id BETWEEN :s AND :e';
+  OPEN c_curs FOR v_sql USING v_slocation, v_elocation;
+  
+  dbms_output.put_line('-');
+  dbms_output.put_line('LOC_ID	STREET_ADDRESS');
+  dbms_output.put_line('-------------------------------');
+  LOOP
+    FETCH c_curs INTO v_loc;
+    EXIT WHEN c_curs%NOTFOUND;
+    dbms_output.put_line(v_loc.location_id||'	'||v_loc.street_address);
+  END LOOP;
+  dbms_output.put_line('-------------------------------');
+  dbms_output.put_line(c_curs%ROWCOUNT||' rows selected.');
+  CLOSE c_curs;
+END;
+/
+

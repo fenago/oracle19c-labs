@@ -1,0 +1,5 @@
+EXEC :cur := get_result('departments');
+PRINT cur;
+EXEC :cur := get_result('employees','employee_id, first_name, manager_id');
+PRINT cur;
+

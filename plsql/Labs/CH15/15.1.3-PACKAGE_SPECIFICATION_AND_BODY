@@ -1,0 +1,16 @@
+CREATE OR REPLACE FUNCTION add_client(v_client clients.machine) 
+RETURN clients.client_cnt%TYPE IS
+BEGIN
+  IF clients.client_cnt+1 > clients.max_clients THEN
+     RAISE clients.max_clients_exceeded;
+  END IF;
+  clients.client     := v_client;
+  clients.client_cnt := clients.client_cnt +1;
+  RETURN clients.client_cnt;
+EXCEPTION
+  WHEN clients.max_clients_exceeded THEN
+   dbms_output.put_line('Exception: cannot add more clients. 
+          Max client count is ('||clients.client_cnt||').');
+   RAISE;
+END;
+/

@@ -1,0 +1,15 @@
+DECLARE
+  v_emp_rec   emps%ROWTYPE;
+BEGIN
+  v_emp_rec.first_name   := 'Ray';
+  v_emp_rec.salary       :=  5001;
+  v_emp_rec.grade        :=  98;
+  SELECT MAX(employee_id)+1 INTO v_emp_rec.employee_id 
+  FROM emps;
+  EXECUTE IMMEDIATE 'INSERT INTO emps 
+                     VALUES :rec'
+          USING v_emp_rec;
+  dbms_output.put_line('Inserted emp id:'||
+                               v_emp_rec.employee_id);
+END;
+/

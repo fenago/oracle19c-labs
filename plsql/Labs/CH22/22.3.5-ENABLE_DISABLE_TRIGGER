@@ -1,0 +1,6 @@
+SELECT * FROM system_alerts ORDER BY event_time
+/
+GRANT select ON hr2.employees_bk TO hr
+/
+SELECT * FROM system_alerts ORDER BY event_time
+/

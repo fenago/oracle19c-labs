@@ -1,0 +1,3 @@
+CALL dbms_java.set_output(2000);
+EXECUTE  salaryTotal(200);
+CALL salaryTotal(150);

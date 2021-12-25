@@ -1,0 +1,2 @@
+SELECT count(*) FROM departments WHERE department_id > 199;
+/

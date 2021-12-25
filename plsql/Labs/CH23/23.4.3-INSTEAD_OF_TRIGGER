@@ -1,0 +1,16 @@
+CREATE OR REPLACE TRIGGER update_student_college_view
+INSTEAD OF UPDATE ON student_college_view
+DECLARE
+BEGIN
+  UPDATE students
+  SET student_id   = :NEW.student_id,
+      student_name = :NEW.student_name,
+      college_id   = :NEW.college_id
+  WHERE student_id = :OLD.student_id;
+  UPDATE colleges
+  SET college_id   = :NEW.college_id,
+      college_name = :NEW.college_name
+  WHERE college_id = :OLD.college_id;
+END;
+/
+

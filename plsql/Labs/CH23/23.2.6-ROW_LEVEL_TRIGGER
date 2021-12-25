@@ -1,0 +1,14 @@
+DELETE FROM emp_DML_logs
+/
+DECLARE 
+ v_last_emp    NUMBER;
+BEGIN
+ SELECT MAX(employee_id) INTO v_last_emp FROM emps;
+ ------------
+ UPDATE emps
+ SET employee_id = v_last_emp+employee_id
+ WHERE employee_id BETWEEN 6 AND 10;
+END;
+/
+SELECT * FROM emp_DML_logs
+/

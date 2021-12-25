@@ -1,0 +1,26 @@
+DECLARE
+ TYPE address IS RECORD 
+    (street        VARCHAR2(60),
+     city          VARCHAR2(30),
+     country       VARCHAR2(50),
+     ZIP_code      PLS_INTEGER);
+ TYPE phone IS VARRAY(5) OF PLS_INTEGER;
+ TYPE person IS RECORD
+    (f_name        VARCHAR2(30),
+     l_name        VARCHAR2(30),
+     home_addr     address,
+     work_addr     address,
+     tel           phone);
+ v_person	person;
+BEGIN
+   v_person.f_name:= 'Ernesto';
+   v_person.l_name:= 'Lee';
+   v_person.tel  := phone('','','','','');
+   v_person.tel(1) := 8881542;
+   v_person.tel(2) := 9995415;
+   dbms_output.put_line('-------   Tel List -------');
+   dbms_output.put_line('Tel 1:'||v_person.tel(1));
+   dbms_output.put_line('Tel 2:'||v_person.tel(2));
+   dbms_output.put_line('Tel 3:'||v_person.tel(3));
+END;
+/

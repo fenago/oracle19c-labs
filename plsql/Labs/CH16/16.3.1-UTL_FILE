@@ -1,0 +1,7 @@
+CREATE DIRECTORY file_store AS '/home/oracle/Desktop'
+/
+GRANT READ ON DIRECTORY file_store TO PUBLIC
+/
+GRANT WRITE ON DIRECTORY file_store TO PUBLIC
+/
+

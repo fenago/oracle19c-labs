@@ -1,0 +1,9 @@
+DECLARE
+ v_com   company;
+BEGIN
+ SELECT VALUE(c) INTO v_com 
+ FROM companies c
+ WHERE VALUE(c).id = 1;
+ dbms_output.put_line(v_com.get_name());
+END;
+/

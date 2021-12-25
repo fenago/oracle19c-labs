@@ -1,0 +1,26 @@
+DECLARE
+ TYPE address IS RECORD 
+    (street        VARCHAR2(60),
+     city          VARCHAR2(30),
+     country       VARCHAR2(50),
+     ZIP_code      PLS_INTEGER);
+ TYPE person IS RECORD
+    (f_name        VARCHAR2(30),
+     l_name        VARCHAR2(30),
+     home_addr     address,
+     work_addr     address);
+ v_person	person;
+BEGIN
+   v_person.f_name 	:= 'Ernesto';
+   v_person.l_name	:= 'Lee';
+   v_person.home_addr.street 	:= 'Pyykk 3 C 29';
+   v_person.home_addr.city  	:= 'Tampere';
+   v_person.home_addr.ZIP_code  :=  37810;
+   v_person.work_addr.street    := 'Rua Dos Peoes, 19 4B';
+   v_person.work_addr.city      := 'Braga'; 
+   v_person.work_addr.ZIP_code  :=  4710;
+   dbms_output.put_line('-------   Work Address -------');
+   dbms_output.put_line('Line		:'||v_person.work_addr.street);
+   dbms_output.put_line('ZIP, City 	:'||v_person.work_addr.ZIP_code||'  '||v_person.work_addr.city);
+END;
+/

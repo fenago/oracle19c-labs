@@ -1,0 +1,3 @@
+CREATE OR REPLACE FUNCTION saySomething(n NUMBER) RETURN VARCHAR2
+AS LANGUAGE JAVA
+NAME 'Hello.sayHello(int) return String';

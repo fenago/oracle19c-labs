@@ -1,0 +1,11 @@
+DECLARE
+   p_department		departments%ROWTYPE;
+BEGIN
+ DELETE FROM departments
+ WHERE department_id in (1999,1998)
+ RETURNING  department_id, department_name 
+ INTO p_department.department_id, p_department.department_name;
+ dbms_output.put_line('Department record ('||p_department.department_id||'): '||
+                                             p_department.department_name);
+END;
+/

@@ -1,0 +1,11 @@
+DECLARE 
+	cs_int	CONSTANT INTEGER := 1;
+	cs_chr	CONSTANT CHAR(5) := 'C';
+  	cs_date	CONSTANT DATE	 := SYSDATE;
+BEGIN
+	dbms_output.put_line('cs_int 	='||cs_int);
+	dbms_output.put_line('cs_chr 	='||cs_chr);
+	dbms_output.put_line('cs_date 	='||cs_date);
+ 	cs_int := 5;
+END;
+/

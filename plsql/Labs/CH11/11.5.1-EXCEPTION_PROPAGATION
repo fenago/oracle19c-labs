@@ -1,0 +1,21 @@
+DECLARE 
+  v_step          NUMBER := 0;
+BEGIN
+   v_step := 1;
+	   DECLARE 
+	     i     NUMBER := 0;
+	   BEGIN
+             v_step := 2; 
+             v_step := 3;
+	   EXCEPTION
+	      WHEN VALUE_ERROR THEN 
+                dbms_output.put_line('step='||v_step);
+                v_step := 4;
+	   END;
+   v_step := 5;
+   dbms_output.put_line('step='||v_step);
+EXCEPTION
+   WHEN VALUE_ERROR THEN 
+     dbms_output.put_line('step='||v_step);
+END;  
+/

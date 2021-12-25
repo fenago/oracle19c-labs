@@ -1,0 +1,4 @@
+CONNECT sys/oracle AS SYSDBA
+SELECT * FROM sys.system_alerts ORDER BY event_time
+/
+

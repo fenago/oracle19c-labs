@@ -1,0 +1,8 @@
+DECLARE
+ n_promotion	NUMBER := 3;
+ n_salary    	NUMBER := 2500;
+BEGIN
+ n_salary := (n_salary * n_promotion/100) + n_salary;
+ dbms_output.put_line('i_code	='||n_salary);
+END;
+/

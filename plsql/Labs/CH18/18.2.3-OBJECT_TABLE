@@ -1,0 +1,11 @@
+DECLARE
+ v_com     company := NEW company(1,'Consultant Network','');
+BEGIN
+ INSERT INTO companies 
+ VALUES (v_com);
+ INSERT INTO companies
+ VALUES (company(2,'CN',''));
+ COMMIT;
+END;
+
+

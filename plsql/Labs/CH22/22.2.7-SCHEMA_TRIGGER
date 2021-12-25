@@ -1,0 +1,5 @@
+CONNECT hr/oracle
+
+GRANT select ON hr.employees TO hr2
+/
+

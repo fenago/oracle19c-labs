@@ -1,0 +1,21 @@
+CREATE TABLE colleges
+(college_id   NUMBER,
+ college_name VARCHAR2(50),
+ CONSTRAINT college_pk PRIMARY KEY(college_id)
+)
+/
+
+CREATE TABLE students
+(student_id   NUMBER,
+ student_name VARCHAR2(50),
+ college_id   NUMBER,
+ CONSTRAINT student_pk PRIMARY KEY(student_id),
+ CONSTRAINT student_college_fk FOREIGN KEY(college_id)
+            REFERENCES colleges (college_id)
+)
+/
+
+INSERT INTO colleges VALUES (1,'Consultants Network');
+INSERT INTO students VALUES (10, 'Ray', 1);
+COMMIT;
+

@@ -1,0 +1,22 @@
+DECLARE 
+  v_emp     emps.employee_id%TYPE;
+  FUNCTION add_emp 
+            (v_first_name VARCHAR2 := 'Lee',
+             v_salary     NUMBER   := 5000) 
+  RETURN emps.employee_id%TYPE
+  IS
+    v_last_id    NUMBER;
+    n_rec	 emps.employee_id%TYPE;
+  BEGIN
+    SELECT MAX(employee_id) INTO v_last_id 
+    FROM emps;
+    INSERT INTO emps
+    VALUES(v_last_id+1, v_first_name, v_salary)
+    RETURNING employee_id   INTO n_rec;
+    RETURN n_rec;
+  END;
+BEGIN
+  v_emp := add_emp('Ernesto',5500);
+  dbms_output.put_line('New employee('||v_emp||')');
+END;
+/

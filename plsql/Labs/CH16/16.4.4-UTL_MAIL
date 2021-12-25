@@ -1,0 +1,10 @@
+BEGIN
+   DBMS_NETWORK_ACL_ADMIN.CREATE_ACL (
+    acl          => 'mail_acl.xml',
+    description  => 'access e-mail server.',
+    principal    => 'PUBLIC',
+    is_grant     => TRUE,
+    privilege    => 'connect');
+   COMMIT;
+END;
+

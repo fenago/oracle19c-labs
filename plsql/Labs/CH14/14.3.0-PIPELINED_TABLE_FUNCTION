@@ -1,0 +1,12 @@
+DECLARE 
+  v_max     NUMBER;                             
+BEGIN
+  SELECT MAX(employee_id) INTO v_max
+  FROM   emps;
+  FOR r IN v_max+1 .. v_max+500000 LOOP
+   INSERT INTO emps(employee_id, first_name,salary)
+   VALUES (r, TO_CHAR(r),4000);
+  END LOOP;
+  COMMIT;
+END;
+/

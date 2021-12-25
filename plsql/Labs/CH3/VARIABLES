@@ -1,0 +1,28 @@
+DECLARE
+  p_int		PLS_INTEGER;
+  p_int1  	PLS_INTEGER 	:= -1;
+  n_num		NUMBER(6,2)	:= 3.32;
+  n_num1  	NUMBER(6) 	:= 3.32;
+  c_chr  	CHAR(15 CHAR)	:= 'CONSULTANT';
+  c_chr1  	CHAR(15 BYTE); 
+  c_chr2	CHAR(15)	:= 'CONSULTANT';
+  v_chr		VARCHAR2(15);
+  v_chr1  	VARCHAR2(15 CHAR):= 'CONSULTANT';
+  i_int		INTEGER		:= 5;
+  d_curr_date	DATE		:= SYSDATE; 
+  b_bln		BOOLEAN NOT NULL:= TRUE;
+BEGIN
+ dbms_output.put_line('p_int 		= '||p_int);
+ dbms_output.put_line('p_int1 		= '||p_int1);
+ dbms_output.put_line('n_num 		= '||n_num);
+ dbms_output.put_line('n_num1 		= '||n_num1);
+ dbms_output.put_line('c_chr 		= '||c_chr);
+ dbms_output.put_line('c_chr1 		= '||c_chr1);
+ dbms_output.put_line('c_chr2 		= '||c_chr2);
+ dbms_output.put_line('v_chr 		= '||v_chr);
+ dbms_output.put_line('v_chr1 		= '||v_chr1);
+ dbms_output.put_line('i_int 		= '||i_int);
+ --dbms_output.put_line('b_bln 		= '||b_bln);
+ dbms_output.put_line('d_curr_date 	= '||d_curr_date);
+END;
+/

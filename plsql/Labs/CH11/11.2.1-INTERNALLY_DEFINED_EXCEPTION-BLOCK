@@ -1,0 +1,9 @@
+DECLARE
+ v_employee_id   NUMBER; 
+ v_email         VARCHAR2(50);
+BEGIN
+   UPDATE employees
+   SET    email = email
+   WHERE  employee_id = 150;
+END;
+/

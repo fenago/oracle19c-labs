@@ -1,0 +1,12 @@
+DECLARE
+  p_int		PLS_INTEGER;
+  p_int1    	PLS_INTEGER 	:= -1;
+  n_num		NUMBER(5,2)	:= 3.32;
+  n_num1    	NUMBER(6) 	:= 3.32;
+BEGIN
+ dbms_output.put_line('p_int 		= '||p_int);
+ dbms_output.put_line('p_int1 		= '||p_int1);
+ dbms_output.put_line('n_num 		= '||n_num);
+ dbms_output.put_line('n_num1 		= '||n_num1);
+END;
+/
