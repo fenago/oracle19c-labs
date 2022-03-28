@@ -1,0 +1,49 @@
+<results md5_sum="3e96788f276d6aafb21c030d392d99bc">
+  <generated_date in_epoch_ms="1452298510000">2016-01-09 00:15:10</generated_date>
+  <patch has_prereqs="n" has_postreqs="n" is_system_patch="n"> 
+    <bug> 
+      <number>6880880</number>
+      <abstract><![CDATA[OPatch patch of version 12.1.0.1.10 for Oracle software releases 12.1.0.x (NOV 2015)]]></abstract>
+    </bug> 
+    <name>6880880</name>
+    <type>Patch</type>
+    <status>Available</status>
+    <access id="m">Open access</access> 
+    <url> 
+      <patch_readme host="https://updates.oracle.com"><![CDATA[/Orion/Services/download?type=readme&aru=19569007]]></patch_readme> 
+      <patch_details><![CDATA[/download/6880880.html]]></patch_details>
+    </url> 
+    <request_id>19569007</request_id>
+    <urm_components> 
+      <qparts ctype_id="201"> 
+        <qpart cid="39412" version="Q662"><![CDATA[Oracle Universal Installer]]></qpart> 
+      </qparts> 
+      <urm_releases ctype_id="5"> 
+        <urm_release cid="76453" version="12.1.0.1.0"><![CDATA[Oracle Database]]></urm_release> 
+      </urm_releases> 
+    </urm_components> 
+    <product id="10060" bugdb_id="662"><![CDATA[Universal Installer]]></product> 
+    <release id="80121010" name="12.1.0.1.0" platform_patch_not_required="N" cc="Y"><![CDATA[Oracle 12.1.0.1.0]]></release> 
+    <platform id="226" bugdb_id="226"><![CDATA[Linux x86-64]]></platform> 
+    <language id="0" iso_code="EN"><![CDATA[American English]]></language> 
+    <translations_available>No</translations_available> 
+    <classification id="174">General</classification> 
+    <patch_classification id="174">General</patch_classification> 
+    <support_level id="G">General Support</support_level> 
+    <entitlements> 
+      <entitlement code="SW"/> 
+    </entitlements> 
+    <size>52774823</size>
+    <files> 
+      <file> 
+        <name>p6880880_121010_Linux-x86-64.zip</name>
+        <size>52774823</size>
+        <download_url host="https://updates.oracle.com"><![CDATA[/Orion/Services/download/p6880880_121010_Linux-x86-64.zip?aru=19569007&patch_file=p6880880_121010_Linux-x86-64.zip]]></download_url> 
+        <digest type="SHA-1">690FC5F8E09C5EA00790AD1BBAD772632065E74B</digest> 
+        <digest type="MD5">0A7608E01B311BBF69AC5610F9DFBF50</digest> 
+      </file> 
+    </files> 
+    <updated_date in_epoch_ms="1447794784000">2015-11-17 21:13:04</updated_date> 
+    <released_date in_epoch_ms="1372251496000">2013-06-26 12:58:16</released_date> 
+  </patch> 
+</results>

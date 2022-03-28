@@ -1,0 +1,93 @@
+<results md5_sum="a9b20c3e8b752c3c7fdb181898d18082">
+  <generated_date in_epoch_ms="1452298315000">2016-01-09 00:11:55</generated_date>
+  <patch has_prereqs="n" has_postreqs="n" is_system_patch="n"> 
+    <bug> 
+      <number>21370953</number>
+      <abstract><![CDATA[WLS PATCH SET UPDATE 12.1.3.0.5]]></abstract>
+    </bug> 
+    <name>21370953</name>
+    <type>Patch</type>
+    <psu_bundle>Oracle WebLogic Server 12.1.3.0.5</psu_bundle>
+    <status>Available</status>
+    <access id="m">Open access</access> 
+    <url> 
+      <patch_readme host="https://updates.oracle.com"><![CDATA[/Orion/Services/download?type=readme&aru=19198495]]></patch_readme> 
+      <patch_details><![CDATA[/download/21370953.html]]></patch_details>
+    </url> 
+    <request_id>19198495</request_id>
+    <urm_components> 
+      <qparts ctype_id="201"> 
+        <qpart cid="36377" version="Q5242"><![CDATA[Oracle WebLogic Server]]></qpart> 
+      </qparts> 
+      <urm_releases ctype_id="5"> 
+        <urm_release cid="75322" version="12.1.3.0.0"><![CDATA[Oracle Fusion Middleware]]></urm_release> 
+      </urm_releases> 
+    </urm_components> 
+    <product id="15991" bugdb_id="5242"><![CDATA[Oracle WebLogic Server]]></product> 
+    <release id="600000000007877" name="12.1.3.0.0" platform_patch_not_required="Y" cc="Y"><![CDATA[FMW 12.1.3.0.0]]></release> 
+    <platform id="2000" bugdb_id="289"><![CDATA[Generic Platform]]></platform> 
+    <language id="0" iso_code="EN"><![CDATA[American English]]></language> 
+    <translations_available>No</translations_available> 
+    <classification id="185">Security</classification> 
+    <patch_classification id="185">Security</patch_classification> 
+    <life_cycle id="175">Recommended</life_cycle> 
+    <support_level id="G">General Support</support_level> 
+    <entitlements> 
+      <entitlement code="SW"/> 
+    </entitlements> 
+    <fixes_bugs truncated="yes"> 
+      <bug> 
+        <number>16562029</number>
+        <abstract><![CDATA[WEBLOGIC.APPMERGE DOES NOT MERGE DEPLOYMENT PLAN INTO PERSISTENCE.XML]]></abstract>
+      </bug> 
+      <bug> 
+        <number>17012341</number>
+        <abstract><![CDATA[PSR:PERF:WLS 12.1.2 JDBC BENCHMARK DIDN'T WORK WITH DRCP ]]></abstract>
+      </bug> 
+      <bug> 
+        <number>17394051</number>
+        <abstract><![CDATA[WEBLOGIC SERVER HAS MEMORY LEAK ON REDEPLOY]]></abstract>
+      </bug> 
+      <bug> 
+        <number>17721032</number>
+        <abstract><![CDATA[JAVA.LANG.INDEXOUTOFBOUNDSEXCEPTION: INDEX: 0, SIZE: 0]]></abstract>
+      </bug> 
+      <bug> 
+        <number>18082758</number>
+        <abstract><![CDATA[NOT POSSIBLE TO CONFIGURE WS-POLICY IN WLS 12.1.2]]></abstract>
+      </bug> 
+      <bug> 
+        <number>18276961</number>
+        <abstract><![CDATA[DEFAULT ERROR-PAGE FROM SERVLET 3.0 SPEC NOT WORKING]]></abstract>
+      </bug> 
+      <bug> 
+        <number>18289179</number>
+        <abstract><![CDATA[SETTING MAX-OPEN-SOCK-COUNT REQUIRES ENTITY REBOOT]]></abstract>
+      </bug> 
+      <bug> 
+        <number>18305935</number>
+        <abstract><![CDATA[SOA SERVER GOING TO SHUTDOWN STATE UPON FA DB OUTAGE]]></abstract>
+      </bug> 
+      <bug> 
+        <number>18376812</number>
+        <abstract><![CDATA[COOKIE-CONFIG IN WEB.XML NOT BEING HONORED]]></abstract>
+      </bug> 
+      <bug> 
+        <number>18432174</number>
+        <abstract><![CDATA[LIFECYCLESHUTDOWNSEQUENCETLOG IN DATABASE]]></abstract>
+      </bug> 
+    </fixes_bugs> 
+    <size>28206709</size>
+    <files> 
+      <file> 
+        <name>p21370953_121300_Generic.zip</name>
+        <size>28206709</size>
+        <download_url host="https://updates.oracle.com"><![CDATA[/Orion/Services/download/p21370953_121300_Generic.zip?aru=19198495&patch_file=p21370953_121300_Generic.zip]]></download_url> 
+        <digest type="SHA-1">0E7DA5347424CDBB979F56D313C33831C436FCC9</digest> 
+        <digest type="MD5">A43A336DCBCC55895D053D8342E4C557</digest> 
+      </file> 
+    </files> 
+    <updated_date in_epoch_ms="1445332194000">2015-10-20 09:09:54</updated_date> 
+    <released_date in_epoch_ms="1442428382000">2015-09-16 18:33:02</released_date> 
+  </patch> 
+</results>
