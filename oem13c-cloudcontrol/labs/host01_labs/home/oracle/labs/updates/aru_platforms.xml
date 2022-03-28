@@ -1,0 +1,87 @@
+<results md5_sum="081974ead65ff8e4cc5b4dc593225d75">
+  <generated_date in_epoch_ms="1452287842000">2016-01-08 21:17:22</generated_date>
+  <platform id="1" bugdb_id="1"><![CDATA[HP OpenVMS VAX]]></platform> 
+  <platform id="23" bugdb_id="23"><![CDATA[Oracle Solaris on SPARC (64-bit)]]></platform> 
+  <platform id="26" bugdb_id="26"><![CDATA[Symbian EPOC]]></platform> 
+  <platform id="28" bugdb_id="510"><![CDATA[SCO UNIX]]></platform> 
+  <platform id="30" bugdb_id="30"><![CDATA[IBM z/OS on System z]]></platform> 
+  <platform id="43" bugdb_id="43"><![CDATA[IBM i on POWER Systems]]></platform> 
+  <platform id="46" bugdb_id="46"><![CDATA[Linux x86]]></platform> 
+  <platform id="47" bugdb_id="280"><![CDATA[x86 32 bit]]></platform> 
+  <platform id="48" bugdb_id="282"><![CDATA[x86 64 bit]]></platform> 
+  <platform id="59" bugdb_id="59"><![CDATA[HP-UX PA-RISC (64-bit)]]></platform> 
+  <platform id="87" bugdb_id="87"><![CDATA[HP Tru64 UNIX]]></platform> 
+  <platform id="89" bugdb_id="89"><![CDATA[HP OpenVMS Alpha]]></platform> 
+  <platform id="173" bugdb_id="173"><![CDATA[Oracle Solaris on x86 (32-bit)]]></platform> 
+  <platform id="197" bugdb_id="197"><![CDATA[HP-UX Itanium]]></platform> 
+  <platform id="208" bugdb_id="208"><![CDATA[Microsoft Windows Itanium (64-bit)]]></platform> 
+  <platform id="209" bugdb_id="209"><![CDATA[IBM: Linux on System z]]></platform> 
+  <platform id="211" bugdb_id="211"><![CDATA[IBM S/390 Based Linux (31-bit)]]></platform> 
+  <platform id="212" bugdb_id="212"><![CDATA[IBM AIX on POWER Systems (64-bit)]]></platform> 
+  <platform id="214" bugdb_id="214"><![CDATA[Linux Itanium]]></platform> 
+  <platform id="226" bugdb_id="226"><![CDATA[Linux x86-64]]></platform> 
+  <platform id="227" bugdb_id="227"><![CDATA[IBM: Linux on POWER Big Endian Systems]]></platform> 
+  <platform id="228" bugdb_id="228"><![CDATA[FreeBSD - x86]]></platform> 
+  <platform id="233" bugdb_id="233"><![CDATA[Microsoft Windows x64 (64-bit)]]></platform> 
+  <platform id="243" bugdb_id="243"><![CDATA[HP OpenVMS Itanium]]></platform> 
+  <platform id="267" bugdb_id="267"><![CDATA[Oracle Solaris on x86-64 (64-bit)]]></platform> 
+  <platform id="276" bugdb_id="276"><![CDATA[Monta Vista x86]]></platform> 
+  <platform id="277" bugdb_id="277"><![CDATA[Monta Vista x86-64]]></platform> 
+  <platform id="278" bugdb_id="278"><![CDATA[HP-UX Itanium (32-bit)]]></platform> 
+  <platform id="280" bugdb_id="280"><![CDATA[x86 32 bit]]></platform> 
+  <platform id="282" bugdb_id="282"><![CDATA[x86 64 bit]]></platform> 
+  <platform id="285" bugdb_id="285"><![CDATA[Fujitsu BS2000/OSD (SX series)]]></platform> 
+  <platform id="293" bugdb_id="293"><![CDATA[Apple Mac OS X (Intel) (32-bit)]]></platform> 
+  <platform id="297" bugdb_id="297"><![CDATA[iTron]]></platform> 
+  <platform id="299" bugdb_id="299"><![CDATA[ia64]]></platform> 
+  <platform id="303" bugdb_id="303"><![CDATA[HP NonStop S-series (Guardian)]]></platform> 
+  <platform id="304" bugdb_id="304"><![CDATA[HP NonStop Itanium (Guardian)]]></platform> 
+  <platform id="308" bugdb_id="308"><![CDATA[HP NonStop Itanium (OSS)]]></platform> 
+  <platform id="309" bugdb_id="309"><![CDATA[Oracle JRockit Virtual Edition x86 (32-bit)]]></platform> 
+  <platform id="311" bugdb_id="311"><![CDATA[Oracle JRockit Virtual Edition x86-64 (64-bit)]]></platform> 
+  <platform id="312" bugdb_id="312"><![CDATA[Fujitsu BS2000/OSD (SQ series)]]></platform> 
+  <platform id="313" bugdb_id="313"><![CDATA[OpenSolaris]]></platform> 
+  <platform id="314" bugdb_id="314"><![CDATA[IBM z/VM on System z]]></platform> 
+  <platform id="316" bugdb_id="316"><![CDATA[Unisys OS 2200]]></platform> 
+  <platform id="319" bugdb_id="319"><![CDATA[IBM AIX on POWER Systems (32-bit)]]></platform> 
+  <platform id="361" bugdb_id="361"><![CDATA[Fujitsu BS2000/OSD (S series)]]></platform> 
+  <platform id="421" bugdb_id="421"><![CDATA[Apple Mac OS X (PowerPC)]]></platform> 
+  <platform id="453" bugdb_id="453"><![CDATA[Oracle Solaris on SPARC (32-bit)]]></platform> 
+  <platform id="504" bugdb_id="504"><![CDATA[Fujitsu MSP-EX]]></platform> 
+  <platform id="505" bugdb_id="505"><![CDATA[SPARC]]></platform> 
+  <platform id="506" bugdb_id="506"><![CDATA[Oracle Solaris Express]]></platform> 
+  <platform id="511" bugdb_id="511"><![CDATA[QNX UNIX]]></platform> 
+  <platform id="512" bugdb_id="512"><![CDATA[Apple iOS]]></platform> 
+  <platform id="513" bugdb_id="513"><![CDATA[Google Android]]></platform> 
+  <platform id="515" bugdb_id="515"><![CDATA[Embedded Linux x86]]></platform> 
+  <platform id="516" bugdb_id="516"><![CDATA[Embedded Linux ARM]]></platform> 
+  <platform id="517" bugdb_id="517"><![CDATA[Embedded Linux on POWER Systems]]></platform> 
+  <platform id="519" bugdb_id="519"><![CDATA[Embedded Linux on POWER e500v2]]></platform> 
+  <platform id="520" bugdb_id="520"><![CDATA[VxWorks]]></platform> 
+  <platform id="521" bugdb_id="521"><![CDATA[Embedded Linux on cnMIPS]]></platform> 
+  <platform id="522" bugdb_id="522"><![CDATA[Apple Mac OS X (Intel) (64-bit)]]></platform> 
+  <platform id="523" bugdb_id="523"><![CDATA[Linux ARM 32-bit VFP SoftFP ABI]]></platform> 
+  <platform id="527" bugdb_id="527"><![CDATA[Acme Packet OS]]></platform> 
+  <platform id="528" bugdb_id="528"><![CDATA[Linux ARM 32-bit VFP HardFP ABI]]></platform> 
+  <platform id="529" bugdb_id="529"><![CDATA[Acme Packet 3820]]></platform> 
+  <platform id="530" bugdb_id="530"><![CDATA[Acme Packet 4500]]></platform> 
+  <platform id="531" bugdb_id="531"><![CDATA[Acme Packet 6300]]></platform> 
+  <platform id="532" bugdb_id="532"><![CDATA[Tekelec]]></platform> 
+  <platform id="533" bugdb_id="533"><![CDATA[Net-Net 9200]]></platform> 
+  <platform id="534" bugdb_id="534"><![CDATA[Acme Packet 6100]]></platform> 
+  <platform id="535" bugdb_id="535"><![CDATA[Netra X3-2 for Acme Packet]]></platform> 
+  <platform id="536" bugdb_id="536"><![CDATA[Net-Net 4250]]></platform> 
+  <platform id="537" bugdb_id="537"><![CDATA[Acme Packet 1100]]></platform> 
+  <platform id="538" bugdb_id="538"><![CDATA[Acme Packet 4600]]></platform> 
+  <platform id="539" bugdb_id="539"><![CDATA[Microsoft Windows Phone]]></platform> 
+  <platform id="541" bugdb_id="541"><![CDATA[Linux ARM 64-bit]]></platform> 
+  <platform id="542" bugdb_id="542"><![CDATA[IBM: Linux on POWER Little Endian Systems]]></platform> 
+  <platform id="547" bugdb_id="547"><![CDATA[Netra Server X5-2 for Communications]]></platform> 
+  <platform id="619" bugdb_id="619"><![CDATA[Stratus PA-RISC VOS]]></platform> 
+  <platform id="912" bugdb_id="912"><![CDATA[Microsoft Windows (32-bit)]]></platform> 
+  <platform id="999" bugdb_id="2"><![CDATA[HP-UX PA-RISC (32-bit)]]></platform> 
+  <platform id="1234" bugdb_id="1234"><![CDATA[NLS Generic Platform]]></platform> 
+  <platform id="2000" bugdb_id="289"><![CDATA[Generic Platform]]></platform> 
+  <platform id="2234" bugdb_id="2234"><![CDATA[NLS Merged Translations]]></platform> 
+  <platform id="3234" bugdb_id="3234"><![CDATA[NLS Pseudo Translation]]></platform> 
+</results>

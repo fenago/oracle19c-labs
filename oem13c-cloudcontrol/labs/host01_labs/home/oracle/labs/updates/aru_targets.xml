@@ -1,0 +1,128 @@
+<results md5_sum="aa2c37ab1cfba40388e7f0a0e6c3cb73">
+  <generated_date in_epoch_ms="1452287705000">2016-01-08 21:15:05</generated_date>
+  <aru_target id="1"  name="Real Application Clusters"><![CDATA[Real Application Clusters]]></aru_target> 
+  <aru_target id="2"  name="Data Guard"><![CDATA[Data Guard]]></aru_target> 
+  <aru_target id="21"  name="EBusiness Suite 11i Certification"><![CDATA[Database patches required for release certification with the 11i EBusiness Suite.]]></aru_target> 
+  <aru_target id="22"  name="EBusiness Suite R12 Certification"><![CDATA[Database patches required for release certification with the R12 EBusiness Suite.]]></aru_target> 
+  <aru_target id="41"  name="Exadata"><![CDATA[Patches required for Exadata]]></aru_target> 
+  <aru_target id="61"  name="All Database"><![CDATA[Patches recommended for all Database configurations and installations.]]></aru_target> 
+  <aru_target id="81"  name="All FMW"><![CDATA[FMW (Fusion MiddleWare) Recommended Patches]]></aru_target> 
+  <aru_target id="82"  name="IM (OID, CoreID, OAM, OIM)"><![CDATA[Recommended patches for Identity Manager install option of FMW. Includes products OID, OAM,OIM, CoreID.]]></aru_target> 
+  <aru_target id="83"  name="SOA (BPEL, ESB, OSB, B2B, BAM)"><![CDATA[SOA Recommended Patches. e.g. the products like BPEL, ESB, OSB, B2B, BAM etc.]]></aru_target> 
+  <aru_target id="84"  name="Webcenter"><![CDATA[Webcenter Recommended Patches]]></aru_target> 
+  <aru_target id="85"  name="Classic (Forms, Reports, Portal, Discoverer)"><![CDATA[Recommended patches for Classic Option of install for FMW. Includes products Forms, Reports,Portal,Discoverer]]></aru_target> 
+  <aru_target id="86"  name="Webtier (OHS, Webcache, OPMN, OC4J/WLS)"><![CDATA[Recommended patches for Webtier install type for FMW. Includes products OHS, Webcache, OPMN, and OC4J/WLS.]]></aru_target> 
+  <aru_target id="101"  name="EMServer"><![CDATA[Patches for the Enterprise Manager OMS]]></aru_target> 
+  <aru_target id="102"  name="EMAgent"><![CDATA[Patches for the Enterprise Manager Agent]]></aru_target> 
+  <aru_target id="121"  name="FMW_CORE"><![CDATA[FMW Recommended patches for oracle_ias EM Target Type.]]></aru_target> 
+  <aru_target id="122"  name="FMW_OC4J"><![CDATA[FMW Recommended Patches for oc4j EM Target Type.]]></aru_target> 
+  <aru_target id="123"  name="FMW_OHS"><![CDATA[FMW Recommended Patches for oracle_apache EM Target Type.]]></aru_target> 
+  <aru_target id="124"  name="FMW_WEBCACHE"><![CDATA[FMW Recommended Patches for oracle_webcache EM Target Type.]]></aru_target> 
+  <aru_target id="125"  name="FMW_LDAP"><![CDATA[FMW Recommended Patches for oracle_ldap EM Target Type.]]></aru_target> 
+  <aru_target id="141"  name="Exadata Database"><![CDATA[Database Patches recommended for all Exadata configurations and installations.]]></aru_target> 
+  <aru_target id="161"  name="Exadata Cell"><![CDATA[Cell patch for Exadata Configuration.]]></aru_target> 
+  <aru_target id="181"  name="FA_CRM"><![CDATA[Fusion CRM]]></aru_target> 
+  <aru_target id="182"  name="FA_FIN"><![CDATA[Fusion Financials]]></aru_target> 
+  <aru_target id="183"  name="FA_PRC"><![CDATA[Fusion Procurement]]></aru_target> 
+  <aru_target id="184"  name="FA_PRJ"><![CDATA[Fusion Projects]]></aru_target> 
+  <aru_target id="185"  name="FA_SCM"><![CDATA[Fusion SCM]]></aru_target> 
+  <aru_target id="186"  name="FA_ATF_ATK"><![CDATA[Fusion Application Toolkit]]></aru_target> 
+  <aru_target id="187"  name="FA_COMMON_FND"><![CDATA[Oracle Middleware Extensions for Applications]]></aru_target> 
+  <aru_target id="188"  name="FA_CRM_EWM"><![CDATA[Fusion E-Mail and Web Marketing]]></aru_target> 
+  <aru_target id="189"  name="FA_CRM_HZ"><![CDATA[Fusion Trading Community Model]]></aru_target> 
+  <aru_target id="190"  name="FA_CRM_MKL"><![CDATA[Fusion Lead Management]]></aru_target> 
+  <aru_target id="191"  name="FA_CRM_MKS"><![CDATA[Fusion Segmentation]]></aru_target> 
+  <aru_target id="192"  name="FA_CRM_MKT"><![CDATA[Fusion Marketing]]></aru_target> 
+  <aru_target id="193"  name="FA_CRM_MOO"><![CDATA[Fusion Opportunity Management]]></aru_target> 
+  <aru_target id="194"  name="FA_CRM_MOP"><![CDATA[Fusion Promotions and Deal Management]]></aru_target> 
+  <aru_target id="195"  name="FA_CRM_MOT"><![CDATA[Fusion Territory Management]]></aru_target> 
+  <aru_target id="196"  name="FA_CRM_MOW"><![CDATA[Fusion Work Management]]></aru_target> 
+  <aru_target id="197"  name="FA_CRM_OKC"><![CDATA[Fusion Enterprise Contracts]]></aru_target> 
+  <aru_target id="198"  name="FA_CRM_QSC"><![CDATA[Fusion Sales Catalog]]></aru_target> 
+  <aru_target id="199"  name="FA_CRM_ZBS"><![CDATA[Fusion Sales]]></aru_target> 
+  <aru_target id="200"  name="FA_CRM_ZCA"><![CDATA[Fusion Common CRM]]></aru_target> 
+  <aru_target id="201"  name="FA_CRM_ZCC"><![CDATA[Fusion Contact Center Application]]></aru_target> 
+  <aru_target id="202"  name="FA_CRM_ZCH"><![CDATA[Fusion Trading Community Hub]]></aru_target> 
+  <aru_target id="203"  name="FA_CRM_ZCM"><![CDATA[Fusion Customer Center]]></aru_target> 
+  <aru_target id="204"  name="FA_CRM_ZCP"><![CDATA[Fusion Trading Community Policies]]></aru_target> 
+  <aru_target id="205"  name="FA_CRM_ZCX"><![CDATA[Fusion CRM Application Composer]]></aru_target> 
+  <aru_target id="206"  name="FA_CRM_ZMM"><![CDATA[Fusion Applications Common Components]]></aru_target> 
+  <aru_target id="207"  name="FA_CRM_ZMS"><![CDATA[Fusion Mobile Sales]]></aru_target> 
+  <aru_target id="208"  name="FA_CRM_ZOC"><![CDATA[Fusion Order Capture Common Components]]></aru_target> 
+  <aru_target id="209"  name="FA_CRM_ZOE"><![CDATA[Fusion CRM Outlook Edition]]></aru_target> 
+  <aru_target id="210"  name="FA_CRM_ZSF"><![CDATA[Fusion Sales Forecasting]]></aru_target> 
+  <aru_target id="211"  name="FA_CRM_ZSP"><![CDATA[Fusion Sales Prediction Engine]]></aru_target> 
+  <aru_target id="212"  name="FA_FINANCIALS_AP"><![CDATA[Fusion Payables]]></aru_target> 
+  <aru_target id="213"  name="FA_FINANCIALS_AR"><![CDATA[Fusion Receivables]]></aru_target> 
+  <aru_target id="214"  name="FA_FINANCIALS_CE"><![CDATA[Fusion Cash Management]]></aru_target> 
+  <aru_target id="215"  name="FA_FINANCIALS_EXM"><![CDATA[Fusion Expenses]]></aru_target> 
+  <aru_target id="216"  name="FA_FINANCIALS_FA"><![CDATA[Fusion Assets]]></aru_target> 
+  <aru_target id="217"  name="FA_FINANCIALS_FUN"><![CDATA[Fusion Financials Common Module]]></aru_target> 
+  <aru_target id="218"  name="FA_FINANCIALS_GL"><![CDATA[Fusion General Ledger]]></aru_target> 
+  <aru_target id="219"  name="FA_FINANCIALS_IBY"><![CDATA[Fusion Payments]]></aru_target> 
+  <aru_target id="220"  name="FA_FINANCIALS_IEX"><![CDATA[Fusion Advanced Collections]]></aru_target> 
+  <aru_target id="221"  name="FA_FINANCIALS_JE"><![CDATA[Fusion Financials for EMEA]]></aru_target> 
+  <aru_target id="222"  name="FA_FINANCIALS_XCC"><![CDATA[Fusion Commitment Control]]></aru_target> 
+  <aru_target id="223"  name="FA_FINANCIALS_XLA"><![CDATA[Fusion Subledger Accounting]]></aru_target> 
+  <aru_target id="224"  name="FA_FINANCIALS_XLE"><![CDATA[Fusion Legal Entity Configurator]]></aru_target> 
+  <aru_target id="225"  name="FA_FINANCIALS_XLH"><![CDATA[Fusion Accounting Hub]]></aru_target> 
+  <aru_target id="226"  name="FA_FINANCIALS_ZX"><![CDATA[Fusion Tax]]></aru_target> 
+  <aru_target id="227"  name="FA_HCM_BEN"><![CDATA[Fusion Benefits]]></aru_target> 
+  <aru_target id="228"  name="FA_HCM_CMP"><![CDATA[Fusion Compensation]]></aru_target> 
+  <aru_target id="229"  name="FA_HCM_CMS"><![CDATA[Fusion Total Compensation Statement]]></aru_target> 
+  <aru_target id="230"  name="FA_HCM_FF"><![CDATA[Fusion Fast Formula]]></aru_target> 
+  <aru_target id="231"  name="FA_HCM_HRA"><![CDATA[Fusion Performance Management]]></aru_target> 
+  <aru_target id="232"  name="FA_HCM_HRC"><![CDATA[Fusion HCM Common Architecture]]></aru_target> 
+  <aru_target id="233"  name="FA_HCM_HRG"><![CDATA[Fusion Goal Management]]></aru_target> 
+  <aru_target id="234"  name="FA_HCM_HRS"><![CDATA[Fusion Social Connection]]></aru_target> 
+  <aru_target id="235"  name="FA_HCM_HRT"><![CDATA[Fusion Profile Management]]></aru_target> 
+  <aru_target id="236"  name="FA_HCM_HRW"><![CDATA[Fusion HCM Configuration Workbench]]></aru_target> 
+  <aru_target id="237"  name="FA_HCM_HRX"><![CDATA[Fusion HCM Country and Vertical Extensions]]></aru_target> 
+  <aru_target id="238"  name="FA_HCM_PAY"><![CDATA[Fusion Global Payroll]]></aru_target> 
+  <aru_target id="239"  name="FA_HCM_PER"><![CDATA[Fusion Global Human Resources]]></aru_target> 
+  <aru_target id="240"  name="FA_HCM_PYT"><![CDATA[Fusion Payroll Test Harness]]></aru_target> 
+  <aru_target id="241"  name="FA_HCM_WLM"><![CDATA[Fusion Workforce Lifecycle Manager]]></aru_target> 
+  <aru_target id="242"  name="FA_IC_CN"><![CDATA[Fusion Incentive Compensation]]></aru_target> 
+  <aru_target id="243"  name="FA_LCM_AD"><![CDATA[Application Install]]></aru_target> 
+  <aru_target id="244"  name="FA_LCM_ADM"><![CDATA[Fusion Applications Administration]]></aru_target> 
+  <aru_target id="245"  name="FA_LCM_AU"><![CDATA[Fusion Applications Utilities]]></aru_target> 
+  <aru_target id="246"  name="FA_LCM_FUF"><![CDATA[Fusion Upgrade Framework]]></aru_target> 
+  <aru_target id="247"  name="FA_PROCUREMENT_PO"><![CDATA[Fusion Purchasing]]></aru_target> 
+  <aru_target id="248"  name="FA_PROCUREMENT_PON"><![CDATA[Fusion Sourcing]]></aru_target> 
+  <aru_target id="249"  name="FA_PROCUREMENT_POR"><![CDATA[Fusion Self Service Procurement]]></aru_target> 
+  <aru_target id="250"  name="FA_PROCUREMENT_POS"><![CDATA[Fusion Supplier Portal]]></aru_target> 
+  <aru_target id="251"  name="FA_PROJECTS_PJB"><![CDATA[Fusion Project Billing]]></aru_target> 
+  <aru_target id="252"  name="FA_PROJECTS_PJC"><![CDATA[Fusion Project Costing]]></aru_target> 
+  <aru_target id="253"  name="FA_PROJECTS_PJF"><![CDATA[Fusion Project Foundation]]></aru_target> 
+  <aru_target id="254"  name="FA_PROJECTS_PJO"><![CDATA[Fusion Project Control]]></aru_target> 
+  <aru_target id="255"  name="FA_PROJECTS_PJS"><![CDATA[Fusion Project Performance Reporting]]></aru_target> 
+  <aru_target id="256"  name="FA_SCM_CMR"><![CDATA[Fusion Receipt Accounting]]></aru_target> 
+  <aru_target id="257"  name="FA_SCM_CSE"><![CDATA[Fusion Asset Tracking]]></aru_target> 
+  <aru_target id="258"  name="FA_SCM_CSI"><![CDATA[Fusion Installed Base]]></aru_target> 
+  <aru_target id="259"  name="FA_SCM_CST"><![CDATA[Fusion Cost Management]]></aru_target> 
+  <aru_target id="260"  name="FA_SCM_DOO"><![CDATA[Fusion Distributed Order Orchestration]]></aru_target> 
+  <aru_target id="261"  name="FA_SCM_EGI"><![CDATA[Fusion Product Hub]]></aru_target> 
+  <aru_target id="262"  name="FA_SCM_EGO"><![CDATA[Fusion Product and Catalog Management]]></aru_target> 
+  <aru_target id="263"  name="FA_SCM_EGP"><![CDATA[Fusion Product Model]]></aru_target> 
+  <aru_target id="264"  name="FA_SCM_GBL"><![CDATA[Fusion Supply Chain Globalization]]></aru_target> 
+  <aru_target id="265"  name="FA_SCM_INV"><![CDATA[Fusion Inventory Management]]></aru_target> 
+  <aru_target id="266"  name="FA_SCM_JMF"><![CDATA[Fusion Supply Chain Localizations]]></aru_target> 
+  <aru_target id="267"  name="FA_SCM_MSC"><![CDATA[Fusion Advanced Supply Chain Planning]]></aru_target> 
+  <aru_target id="268"  name="FA_SCM_MSP"><![CDATA[Fusion Global Order Promising]]></aru_target> 
+  <aru_target id="269"  name="FA_SCM_QP"><![CDATA[Fusion Pricing]]></aru_target> 
+  <aru_target id="270"  name="FA_SCM_RCV"><![CDATA[Fusion Receiving]]></aru_target> 
+  <aru_target id="271"  name="FA_SCM_WSH"><![CDATA[Fusion Shipping]]></aru_target> 
+  <aru_target id="272"  name="FA_SETUP_ASK"><![CDATA[Fusion Applications Functional Core]]></aru_target> 
+  <aru_target id="273"  name="FA_SETUP_ASM"><![CDATA[Fusion Functional Setup Manager]]></aru_target> 
+  <aru_target id="274"  name="FA_ATF"><![CDATA[Fusion Applications Technology]]></aru_target> 
+  <aru_target id="275"  name="FA_SETUP"><![CDATA[Fusion Setup]]></aru_target> 
+  <aru_target id="276"  name="FA_IC"><![CDATA[Fusion Incentive Compensation]]></aru_target> 
+  <aru_target id="277"  name="FA_HCM"><![CDATA[Fusion Human Capital Management]]></aru_target> 
+  <aru_target id="278"  name="FA_SETUP_ATM"><![CDATA[Fusion Functional Topology Manager]]></aru_target> 
+  <aru_target id="279"  name="FA_PROJECTS_PJG"><![CDATA[Fusion Project Performance Reporting]]></aru_target> 
+  <aru_target id="280"  name="FA_PROCUREMENT_POZ"><![CDATA[Fusion Supplier Model]]></aru_target> 
+  <aru_target id="281"  name="FA_SCM_RCS"><![CDATA[Fusion Supply Chain Management Common Components]]></aru_target> 
+  <aru_target id="282"  name="FA_HCM_HRL"><![CDATA[Fusion Workforce Directory Management]]></aru_target> 
+  <aru_target id="283"  name="FA_HCM_HWP"><![CDATA[Fusion Workforce Predictions]]></aru_target> 
+  <aru_target id="284"  name="FA_HCM_HRR"><![CDATA[Fusion Talent Review]]></aru_target> 
+</results>

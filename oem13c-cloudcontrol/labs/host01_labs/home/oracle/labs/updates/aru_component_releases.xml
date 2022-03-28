@@ -1,0 +1,4049 @@
+<?xml version = '1.0'?>
+<ROWSET timestamp="2013/04/15 02:30:00">
+<ROW num = "0">
+<component_release>1</component_release>
+<component_name>oracle.apache.isqlplus</component_name>
+<component>1</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "1">
+<component_release>2</component_release>
+<component_name>oracle.assistants.acf</component_name>
+<component>2</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "2">
+<component_release>3</component_release>
+<component_name>oracle.cartridges.context</component_name>
+<component>3</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "3">
+<component_release>4</component_release>
+<component_name>oracle.cartridges.locator</component_name>
+<component>4</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "4">
+<component_release>5</component_release>
+<component_name>oracle.cartridges.spatial</component_name>
+<component>5</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "5">
+<component_release>6</component_release>
+<component_name>oracle.install.instcommon</component_name>
+<component>6</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "6">
+<component_release>7</component_release>
+<component_name>oracle.isearch.client</component_name>
+<component>7</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "7">
+<component_release>8</component_release>
+<component_name>oracle.isearch.is_common</component_name>
+<component>8</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "8">
+<component_release>9</component_release>
+<component_name>oracle.isearch.server</component_name>
+<component>9</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "9">
+<component_release>10</component_release>
+<component_name>oracle.java.j2ee.core</component_name>
+<component>10</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "10">
+<component_release>11</component_release>
+<component_name>oracle.java.javavm</component_name>
+<component>11</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "11">
+<component_release>12</component_release>
+<component_name>oracle.java.javavm.javatools</component_name>
+<component>12</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "12">
+<component_release>13</component_release>
+<component_name>oracle.java.jdbc.jdbc_dev</component_name>
+<component>13</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "13">
+<component_release>14</component_release>
+<component_name>oracle.java.jdbc.oci_common</component_name>
+<component>14</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "14">
+<component_release>15</component_release>
+<component_name>oracle.java.jdbc.thin11</component_name>
+<component>15</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "15">
+<component_release>16</component_release>
+<component_name>oracle.java.jdbc.thin12</component_name>
+<component>16</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "16">
+<component_release>17</component_release>
+<component_name>oracle.java.jdbc.thin14</component_name>
+<component>17</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "17">
+<component_release>18</component_release>
+<component_name>oracle.java.sqlj.sqljruntime</component_name>
+<component>18</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "18">
+<component_release>19</component_release>
+<component_name>oracle.networking.cman</component_name>
+<component>19</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "19">
+<component_release>20</component_release>
+<component_name>oracle.networking.names</component_name>
+<component>20</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "20">
+<component_release>21</component_release>
+<component_name>oracle.networking.netclt</component_name>
+<component>21</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "21">
+<component_release>22</component_release>
+<component_name>oracle.networking.netmgr</component_name>
+<component>22</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "22">
+<component_release>23</component_release>
+<component_name>oracle.networking.netsrv</component_name>
+<component>23</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "23">
+<component_release>24</component_release>
+<component_name>oracle.oid.client</component_name>
+<component>24</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "24">
+<component_release>25</component_release>
+<component_name>oracle.oid.client_common</component_name>
+<component>25</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "25">
+<component_release>26</component_release>
+<component_name>oracle.oid.oidca</component_name>
+<component>26</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "26">
+<component_release>27</component_release>
+<component_name>oracle.oid.server</component_name>
+<component>27</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "27">
+<component_release>28</component_release>
+<component_name>oracle.options.ano.dce</component_name>
+<component>28</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "28">
+<component_release>29</component_release>
+<component_name>oracle.options.ano.nis</component_name>
+<component>29</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "29">
+<component_release>30</component_release>
+<component_name>oracle.options.ano.sns</component_name>
+<component>30</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "30">
+<component_release>31</component_release>
+<component_name>oracle.options.ano.ssl</component_name>
+<component>31</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "31">
+<component_release>32</component_release>
+<component_name>oracle.options.ano.ssl.owm</component_name>
+<component>32</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "32">
+<component_release>33</component_release>
+<component_name>oracle.options.intermedia.imclient.imclicompat</component_name>
+<component>33</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "33">
+<component_release>34</component_release>
+<component_name>oracle.options.intermedia.imclient.imclisamples</component_name>
+<component>34</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "34">
+<component_release>35</component_release>
+<component_name>oracle.options.intermedia.imcom</component_name>
+<component>35</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "35">
+<component_release>36</component_release>
+<component_name>oracle.options.intermedia.jai</component_name>
+<component>36</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "36">
+<component_release>37</component_release>
+<component_name>oracle.options.olap</component_name>
+<component>37</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "37">
+<component_release>38</component_release>
+<component_name>oracle.options.olap.api</component_name>
+<component>38</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "38">
+<component_release>39</component_release>
+<component_name>oracle.options.olap.cwmlite</component_name>
+<component>39</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "39">
+<component_release>40</component_release>
+<component_name>oracle.options.ops</component_name>
+<component>40</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "40">
+<component_release>41</component_release>
+<component_name>oracle.options.ops.pfs</component_name>
+<component>41</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "41">
+<component_release>42</component_release>
+<component_name>oracle.options.partitioning</component_name>
+<component>42</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "42">
+<component_release>43</component_release>
+<component_name>oracle.p2k.modada</component_name>
+<component>43</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "43">
+<component_release>44</component_release>
+<component_name>oracle.p2k.ott</component_name>
+<component>44</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "44">
+<component_release>45</component_release>
+<component_name>oracle.p2k.precomp_common</component_name>
+<component>45</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "45">
+<component_release>46</component_release>
+<component_name>oracle.p2k.proc</component_name>
+<component>46</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "46">
+<component_release>47</component_release>
+<component_name>oracle.p2k.procob</component_name>
+<component>47</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "47">
+<component_release>48</component_release>
+<component_name>oracle.p2k.procob18</component_name>
+<component>48</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "48">
+<component_release>49</component_release>
+<component_name>oracle.p2k.profor</component_name>
+<component>49</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "49">
+<component_release>50</component_release>
+<component_name>oracle.p2k.sqlmod</component_name>
+<component>50</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "50">
+<component_release>51</component_release>
+<component_name>oracle.p2k.xmldevkit</component_name>
+<component>51</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "51">
+<component_release>52</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "52">
+<component_release>53</component_release>
+<component_name>oracle.rdbms.aqapi</component_name>
+<component>53</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "53">
+<component_release>54</component_release>
+<component_name>oracle.rdbms.common_schema</component_name>
+<component>54</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "54">
+<component_release>55</component_release>
+<component_name>oracle.rdbms.dbscripts</component_name>
+<component>55</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "55">
+<component_release>56</component_release>
+<component_name>oracle.rdbms.dbv</component_name>
+<component>56</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "56">
+<component_release>57</component_release>
+<component_name>oracle.rdbms.demo</component_name>
+<component>57</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "57">
+<component_release>58</component_release>
+<component_name>oracle.rdbms.expimp</component_name>
+<component>58</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "58">
+<component_release>59</component_release>
+<component_name>oracle.rdbms.hs_common</component_name>
+<component>59</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "59">
+<component_release>60</component_release>
+<component_name>oracle.rdbms.hs_odbc</component_name>
+<component>60</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "60">
+<component_release>61</component_release>
+<component_name>oracle.rdbms.lbac</component_name>
+<component>61</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "61">
+<component_release>62</component_release>
+<component_name>oracle.rdbms.mig</component_name>
+<component>62</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "62">
+<component_release>63</component_release>
+<component_name>oracle.rdbms.nid</component_name>
+<component>63</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "63">
+<component_release>64</component_release>
+<component_name>oracle.rdbms.occi</component_name>
+<component>64</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "64">
+<component_release>65</component_release>
+<component_name>oracle.rdbms.oci</component_name>
+<component>65</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "65">
+<component_release>66</component_release>
+<component_name>oracle.rdbms.otrace</component_name>
+<component>66</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "66">
+<component_release>67</component_release>
+<component_name>oracle.rdbms.plsql</component_name>
+<component>67</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "67">
+<component_release>68</component_release>
+<component_name>oracle.rdbms.rman</component_name>
+<component>68</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "68">
+<component_release>69</component_release>
+<component_name>oracle.rdbms.sqlldr</component_name>
+<component>69</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "69">
+<component_release>70</component_release>
+<component_name>oracle.rdbms.sqlplus</component_name>
+<component>70</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "70">
+<component_release>71</component_release>
+<component_name>oracle.rdbms.xml</component_name>
+<component>71</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "71">
+<component_release>72</component_release>
+<component_name>oracle.rdbms.xml.xsu</component_name>
+<component>72</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "72">
+<component_release>73</component_release>
+<component_name>oracle.rsf.agent_rsf</component_name>
+<component>73</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "73">
+<component_release>74</component_release>
+<component_name>oracle.rsf.clntsh_rsf</component_name>
+<component>74</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "74">
+<component_release>75</component_release>
+<component_name>oracle.rsf.dbjava_rsf</component_name>
+<component>75</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "75">
+<component_release>76</component_release>
+<component_name>oracle.rsf.ldap_rsf</component_name>
+<component>76</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "76">
+<component_release>77</component_release>
+<component_name>oracle.rsf.net_rsf</component_name>
+<component>77</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "77">
+<component_release>78</component_release>
+<component_name>oracle.rsf.nlsrtl_rsf</component_name>
+<component>78</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "78">
+<component_release>79</component_release>
+<component_name>oracle.rsf.oracore_rsf</component_name>
+<component>79</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "79">
+<component_release>80</component_release>
+<component_name>oracle.rsf.otrace_rsf</component_name>
+<component>80</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "80">
+<component_release>81</component_release>
+<component_name>oracle.rsf.plsql_rsf</component_name>
+<component>81</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "81">
+<component_release>82</component_release>
+<component_name>oracle.rsf.precomp_rsf</component_name>
+<component>82</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "82">
+<component_release>83</component_release>
+<component_name>oracle.rsf.rdbms_rsf</component_name>
+<component>83</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "83">
+<component_release>84</component_release>
+<component_name>oracle.rsf.sqlplus_rsf</component_name>
+<component>84</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "84">
+<component_release>85</component_release>
+<component_name>oracle.rsf.ssl_rsf</component_name>
+<component>85</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "85">
+<component_release>86</component_release>
+<component_name>oracle.rsf.xdk_rsf</component_name>
+<component>86</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "86">
+<component_release>87</component_release>
+<component_name>oracle.tg.tg4ifmx</component_name>
+<component>87</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "87">
+<component_release>88</component_release>
+<component_name>oracle.tg.tg4ingr</component_name>
+<component>88</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "88">
+<component_release>89</component_release>
+<component_name>oracle.tg.tg4sybs</component_name>
+<component>89</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "89">
+<component_release>90</component_release>
+<component_name>oracle.tg.tg4tera</component_name>
+<component>90</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "90">
+<component_release>91</component_release>
+<component_name>oracle.utilities.util</component_name>
+<component>91</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "91">
+<component_release>92</component_release>
+<component_name>oracle.utilities.util_common</component_name>
+<component>92</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "92">
+<component_release>93</component_release>
+<component_name>oracle.xml.parser.c</component_name>
+<component>93</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "93">
+<component_release>94</component_release>
+<component_name>oracle.xml.parser.cplus</component_name>
+<component>94</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "94">
+<component_release>95</component_release>
+<component_name>oracle.xml.parser.java</component_name>
+<component>95</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "95">
+<component_release>96</component_release>
+<component_name>oracle.xml.parser.plsql</component_name>
+<component>96</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "96">
+<component_release>97</component_release>
+<component_name>oracle.xml.xml_ncomp</component_name>
+<component>97</component>
+<release_name>9.2.0.2.0</release_name>
+<release>90092020</release>
+</ROW>
+<ROW num = "97">
+<component_release>98</component_release>
+<component_name>oracle.apache.isqlplus</component_name>
+<component>1</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "98">
+<component_release>99</component_release>
+<component_name>oracle.assistants.acf</component_name>
+<component>2</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "99">
+<component_release>100</component_release>
+<component_name>oracle.cartridges.context</component_name>
+<component>3</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "100">
+<component_release>101</component_release>
+<component_name>oracle.cartridges.locator</component_name>
+<component>4</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "101">
+<component_release>102</component_release>
+<component_name>oracle.cartridges.ordcom</component_name>
+<component>98</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "102">
+<component_release>103</component_release>
+<component_name>oracle.cartridges.spatial</component_name>
+<component>5</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "103">
+<component_release>104</component_release>
+<component_name>oracle.emprod.agent_ext.emd_agentext</component_name>
+<component>99</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "104">
+<component_release>105</component_release>
+<component_name>oracle.emprod.agent_ext.oapps_agentext</component_name>
+<component>100</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "105">
+<component_release>106</component_release>
+<component_name>oracle.emprod.oemagent.base_oemagent</component_name>
+<component>101</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "106">
+<component_release>107</component_release>
+<component_name>oracle.install.instcommon</component_name>
+<component>6</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "107">
+<component_release>108</component_release>
+<component_name>oracle.isearch.client</component_name>
+<component>7</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "108">
+<component_release>109</component_release>
+<component_name>oracle.isearch.is_common</component_name>
+<component>8</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "109">
+<component_release>110</component_release>
+<component_name>oracle.isearch.server</component_name>
+<component>9</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "110">
+<component_release>111</component_release>
+<component_name>oracle.java.j2ee.core</component_name>
+<component>10</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "111">
+<component_release>112</component_release>
+<component_name>oracle.java.javavm</component_name>
+<component>11</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "112">
+<component_release>113</component_release>
+<component_name>oracle.java.javavm.javatools</component_name>
+<component>12</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "113">
+<component_release>114</component_release>
+<component_name>oracle.java.jdbc.jdbc_dev</component_name>
+<component>13</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "114">
+<component_release>115</component_release>
+<component_name>oracle.java.jdbc.oci_common</component_name>
+<component>14</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "115">
+<component_release>116</component_release>
+<component_name>oracle.java.jdbc.thin11</component_name>
+<component>15</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "116">
+<component_release>117</component_release>
+<component_name>oracle.java.jdbc.thin12</component_name>
+<component>16</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "117">
+<component_release>118</component_release>
+<component_name>oracle.java.jdbc.thin14</component_name>
+<component>17</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "118">
+<component_release>119</component_release>
+<component_name>oracle.java.sqlj.sqljruntime</component_name>
+<component>18</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "119">
+<component_release>120</component_release>
+<component_name>oracle.networking.cman</component_name>
+<component>19</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "120">
+<component_release>121</component_release>
+<component_name>oracle.networking.names</component_name>
+<component>20</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "121">
+<component_release>122</component_release>
+<component_name>oracle.networking.netclt</component_name>
+<component>21</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "122">
+<component_release>123</component_release>
+<component_name>oracle.networking.netmgr</component_name>
+<component>22</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "123">
+<component_release>124</component_release>
+<component_name>oracle.networking.netsrv</component_name>
+<component>23</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "124">
+<component_release>125</component_release>
+<component_name>oracle.oid.client</component_name>
+<component>24</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "125">
+<component_release>126</component_release>
+<component_name>oracle.oid.client_common</component_name>
+<component>25</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "126">
+<component_release>127</component_release>
+<component_name>oracle.oid.oidca</component_name>
+<component>26</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "127">
+<component_release>128</component_release>
+<component_name>oracle.oid.server</component_name>
+<component>27</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "128">
+<component_release>129</component_release>
+<component_name>oracle.options.ano.dce</component_name>
+<component>28</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "129">
+<component_release>130</component_release>
+<component_name>oracle.options.ano.nis</component_name>
+<component>29</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "130">
+<component_release>131</component_release>
+<component_name>oracle.options.ano.sns</component_name>
+<component>30</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "131">
+<component_release>132</component_release>
+<component_name>oracle.options.ano.ssl</component_name>
+<component>31</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "132">
+<component_release>133</component_release>
+<component_name>oracle.options.ano.ssl.owm</component_name>
+<component>32</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "133">
+<component_release>134</component_release>
+<component_name>oracle.options.intermedia.imclient.imclicompat</component_name>
+<component>33</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "134">
+<component_release>135</component_release>
+<component_name>oracle.options.intermedia.imclient.imclisamples</component_name>
+<component>34</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "135">
+<component_release>136</component_release>
+<component_name>oracle.options.intermedia.imcom</component_name>
+<component>35</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "136">
+<component_release>137</component_release>
+<component_name>oracle.options.intermedia.jai</component_name>
+<component>36</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "137">
+<component_release>138</component_release>
+<component_name>oracle.options.olap</component_name>
+<component>37</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "138">
+<component_release>139</component_release>
+<component_name>oracle.options.olap.api</component_name>
+<component>38</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "139">
+<component_release>140</component_release>
+<component_name>oracle.options.olap.cwmlite</component_name>
+<component>39</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "140">
+<component_release>141</component_release>
+<component_name>oracle.options.ops</component_name>
+<component>40</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "141">
+<component_release>142</component_release>
+<component_name>oracle.options.ops.pfs</component_name>
+<component>41</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "142">
+<component_release>143</component_release>
+<component_name>oracle.options.partitioning</component_name>
+<component>42</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "143">
+<component_release>144</component_release>
+<component_name>oracle.p2k.modada</component_name>
+<component>43</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "144">
+<component_release>145</component_release>
+<component_name>oracle.p2k.ott</component_name>
+<component>44</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "145">
+<component_release>146</component_release>
+<component_name>oracle.p2k.precomp_common</component_name>
+<component>45</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "146">
+<component_release>147</component_release>
+<component_name>oracle.p2k.proc</component_name>
+<component>46</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "147">
+<component_release>148</component_release>
+<component_name>oracle.p2k.procob</component_name>
+<component>47</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "148">
+<component_release>149</component_release>
+<component_name>oracle.p2k.procob18</component_name>
+<component>48</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "149">
+<component_release>150</component_release>
+<component_name>oracle.p2k.profor</component_name>
+<component>49</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "150">
+<component_release>151</component_release>
+<component_name>oracle.p2k.sqlmod</component_name>
+<component>50</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "151">
+<component_release>152</component_release>
+<component_name>oracle.p2k.xmldevkit</component_name>
+<component>51</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "152">
+<component_release>153</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "153">
+<component_release>154</component_release>
+<component_name>oracle.rdbms.aqapi</component_name>
+<component>53</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "154">
+<component_release>155</component_release>
+<component_name>oracle.rdbms.common_schema</component_name>
+<component>54</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "155">
+<component_release>156</component_release>
+<component_name>oracle.rdbms.dbscripts</component_name>
+<component>55</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "156">
+<component_release>157</component_release>
+<component_name>oracle.rdbms.dbv</component_name>
+<component>56</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "157">
+<component_release>158</component_release>
+<component_name>oracle.rdbms.demo</component_name>
+<component>57</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "158">
+<component_release>159</component_release>
+<component_name>oracle.rdbms.expimp</component_name>
+<component>58</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "159">
+<component_release>160</component_release>
+<component_name>oracle.rdbms.hs_common</component_name>
+<component>59</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "160">
+<component_release>161</component_release>
+<component_name>oracle.rdbms.hs_odbc</component_name>
+<component>60</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "161">
+<component_release>162</component_release>
+<component_name>oracle.rdbms.lbac</component_name>
+<component>61</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "162">
+<component_release>163</component_release>
+<component_name>oracle.rdbms.mig</component_name>
+<component>62</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "163">
+<component_release>164</component_release>
+<component_name>oracle.rdbms.nid</component_name>
+<component>63</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "164">
+<component_release>165</component_release>
+<component_name>oracle.rdbms.occi</component_name>
+<component>64</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "165">
+<component_release>166</component_release>
+<component_name>oracle.rdbms.oci</component_name>
+<component>65</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "166">
+<component_release>167</component_release>
+<component_name>oracle.rdbms.otrace</component_name>
+<component>66</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "167">
+<component_release>168</component_release>
+<component_name>oracle.rdbms.plsql</component_name>
+<component>67</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "168">
+<component_release>169</component_release>
+<component_name>oracle.rdbms.rman</component_name>
+<component>68</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "169">
+<component_release>170</component_release>
+<component_name>oracle.rdbms.sqlldr</component_name>
+<component>69</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "170">
+<component_release>171</component_release>
+<component_name>oracle.rdbms.sqlplus</component_name>
+<component>70</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "171">
+<component_release>172</component_release>
+<component_name>oracle.rdbms.xml</component_name>
+<component>71</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "172">
+<component_release>173</component_release>
+<component_name>oracle.rdbms.xml.xsu</component_name>
+<component>72</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "173">
+<component_release>174</component_release>
+<component_name>oracle.rsf.agent_rsf</component_name>
+<component>73</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "174">
+<component_release>175</component_release>
+<component_name>oracle.rsf.clntsh_rsf</component_name>
+<component>74</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "175">
+<component_release>176</component_release>
+<component_name>oracle.rsf.dbjava_rsf</component_name>
+<component>75</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "176">
+<component_release>177</component_release>
+<component_name>oracle.rsf.ldap_rsf</component_name>
+<component>76</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "177">
+<component_release>178</component_release>
+<component_name>oracle.rsf.net_rsf</component_name>
+<component>77</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "178">
+<component_release>179</component_release>
+<component_name>oracle.rsf.nlsrtl_rsf</component_name>
+<component>78</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "179">
+<component_release>180</component_release>
+<component_name>oracle.rsf.oracore_rsf</component_name>
+<component>79</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "180">
+<component_release>181</component_release>
+<component_name>oracle.rsf.otrace_rsf</component_name>
+<component>80</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "181">
+<component_release>182</component_release>
+<component_name>oracle.rsf.plsql_rsf</component_name>
+<component>81</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "182">
+<component_release>183</component_release>
+<component_name>oracle.rsf.precomp_rsf</component_name>
+<component>82</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "183">
+<component_release>184</component_release>
+<component_name>oracle.rsf.rdbms_rsf</component_name>
+<component>83</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "184">
+<component_release>185</component_release>
+<component_name>oracle.rsf.sqlplus_rsf</component_name>
+<component>84</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "185">
+<component_release>186</component_release>
+<component_name>oracle.rsf.ssl_rsf</component_name>
+<component>85</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "186">
+<component_release>187</component_release>
+<component_name>oracle.rsf.xdk_rsf</component_name>
+<component>86</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "187">
+<component_release>188</component_release>
+<component_name>oracle.tg.tg4ifmx</component_name>
+<component>87</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "188">
+<component_release>189</component_release>
+<component_name>oracle.tg.tg4ingr</component_name>
+<component>88</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "189">
+<component_release>190</component_release>
+<component_name>oracle.tg.tg4sybs</component_name>
+<component>89</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "190">
+<component_release>191</component_release>
+<component_name>oracle.tg.tg4tera</component_name>
+<component>90</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "191">
+<component_release>192</component_release>
+<component_name>oracle.utilities.util</component_name>
+<component>91</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "192">
+<component_release>193</component_release>
+<component_name>oracle.utilities.util_common</component_name>
+<component>92</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "193">
+<component_release>194</component_release>
+<component_name>oracle.xml.parser.c</component_name>
+<component>93</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "194">
+<component_release>195</component_release>
+<component_name>oracle.xml.parser.cplus</component_name>
+<component>94</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "195">
+<component_release>196</component_release>
+<component_name>oracle.xml.parser.java</component_name>
+<component>95</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "196">
+<component_release>197</component_release>
+<component_name>oracle.xml.parser.plsql</component_name>
+<component>96</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "197">
+<component_release>198</component_release>
+<component_name>oracle.xml.xml_ncomp</component_name>
+<component>97</component>
+<release_name>9.2.0.3.0</release_name>
+<release>90092030</release>
+</ROW>
+<ROW num = "198">
+<component_release>199</component_release>
+<component_name>oracle.apache.isqlplus</component_name>
+<component>1</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "199">
+<component_release>200</component_release>
+<component_name>oracle.assistants.acf</component_name>
+<component>2</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "200">
+<component_release>201</component_release>
+<component_name>oracle.cartridges.context</component_name>
+<component>3</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "201">
+<component_release>202</component_release>
+<component_name>oracle.cartridges.locator</component_name>
+<component>4</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "202">
+<component_release>203</component_release>
+<component_name>oracle.cartridges.ordaudio</component_name>
+<component>102</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "203">
+<component_release>204</component_release>
+<component_name>oracle.cartridges.ordcom</component_name>
+<component>98</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "204">
+<component_release>205</component_release>
+<component_name>oracle.cartridges.ordimg</component_name>
+<component>103</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "205">
+<component_release>206</component_release>
+<component_name>oracle.cartridges.ordsmv</component_name>
+<component>104</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "206">
+<component_release>207</component_release>
+<component_name>oracle.cartridges.spatial</component_name>
+<component>5</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "207">
+<component_release>208</component_release>
+<component_name>oracle.emprod.agent_ext.emd_agentext</component_name>
+<component>99</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "208">
+<component_release>209</component_release>
+<component_name>oracle.emprod.agent_ext.oapps_agentext</component_name>
+<component>100</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "209">
+<component_release>210</component_release>
+<component_name>oracle.emprod.agent_ext.oecm_agentext</component_name>
+<component>105</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "210">
+<component_release>211</component_release>
+<component_name>oracle.emprod.oemagent.base_oemagent</component_name>
+<component>101</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "211">
+<component_release>212</component_release>
+<component_name>oracle.install.instcommon</component_name>
+<component>6</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "212">
+<component_release>213</component_release>
+<component_name>oracle.isearch.client</component_name>
+<component>7</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "213">
+<component_release>214</component_release>
+<component_name>oracle.isearch.is_common</component_name>
+<component>8</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "214">
+<component_release>215</component_release>
+<component_name>oracle.isearch.server</component_name>
+<component>9</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "215">
+<component_release>216</component_release>
+<component_name>oracle.java.j2ee.core</component_name>
+<component>10</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "216">
+<component_release>217</component_release>
+<component_name>oracle.java.javavm</component_name>
+<component>11</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "217">
+<component_release>218</component_release>
+<component_name>oracle.java.javavm.javatools</component_name>
+<component>12</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "218">
+<component_release>219</component_release>
+<component_name>oracle.java.jdbc.jdbc_common</component_name>
+<component>106</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "219">
+<component_release>220</component_release>
+<component_name>oracle.java.jdbc.jdbc_dev</component_name>
+<component>13</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "220">
+<component_release>221</component_release>
+<component_name>oracle.java.jdbc.oci_common</component_name>
+<component>14</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "221">
+<component_release>222</component_release>
+<component_name>oracle.java.jdbc.thin11</component_name>
+<component>15</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "222">
+<component_release>223</component_release>
+<component_name>oracle.java.jdbc.thin12</component_name>
+<component>16</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "223">
+<component_release>224</component_release>
+<component_name>oracle.java.jdbc.thin14</component_name>
+<component>17</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "224">
+<component_release>225</component_release>
+<component_name>oracle.java.sqlj</component_name>
+<component>107</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "225">
+<component_release>226</component_release>
+<component_name>oracle.java.sqlj.sqljruntime</component_name>
+<component>18</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "226">
+<component_release>227</component_release>
+<component_name>oracle.networking.cman</component_name>
+<component>19</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "227">
+<component_release>228</component_release>
+<component_name>oracle.networking.names</component_name>
+<component>20</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "228">
+<component_release>229</component_release>
+<component_name>oracle.networking.netca</component_name>
+<component>108</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "229">
+<component_release>230</component_release>
+<component_name>oracle.networking.netclt</component_name>
+<component>21</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "230">
+<component_release>231</component_release>
+<component_name>oracle.networking.netmgr</component_name>
+<component>22</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "231">
+<component_release>232</component_release>
+<component_name>oracle.networking.netsrv</component_name>
+<component>23</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "232">
+<component_release>233</component_release>
+<component_name>oracle.oid.client</component_name>
+<component>24</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "233">
+<component_release>234</component_release>
+<component_name>oracle.oid.client_common</component_name>
+<component>25</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "234">
+<component_release>235</component_release>
+<component_name>oracle.oid.oidca</component_name>
+<component>26</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "235">
+<component_release>236</component_release>
+<component_name>oracle.oid.server</component_name>
+<component>27</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "236">
+<component_release>237</component_release>
+<component_name>oracle.options.ano.dce</component_name>
+<component>28</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "237">
+<component_release>238</component_release>
+<component_name>oracle.options.ano.nis</component_name>
+<component>29</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "238">
+<component_release>239</component_release>
+<component_name>oracle.options.ano.sns</component_name>
+<component>30</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "239">
+<component_release>240</component_release>
+<component_name>oracle.options.ano.ssl</component_name>
+<component>31</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "240">
+<component_release>241</component_release>
+<component_name>oracle.options.ano.ssl.owm</component_name>
+<component>32</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "241">
+<component_release>242</component_release>
+<component_name>oracle.options.intermedia.imclient.imclicompat</component_name>
+<component>33</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "242">
+<component_release>243</component_release>
+<component_name>oracle.options.intermedia.imclient.imclisamples</component_name>
+<component>34</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "243">
+<component_release>244</component_release>
+<component_name>oracle.options.intermedia.imcom</component_name>
+<component>35</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "244">
+<component_release>245</component_release>
+<component_name>oracle.options.intermedia.jai</component_name>
+<component>36</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "245">
+<component_release>246</component_release>
+<component_name>oracle.options.odm</component_name>
+<component>109</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "246">
+<component_release>247</component_release>
+<component_name>oracle.options.olap</component_name>
+<component>37</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "247">
+<component_release>248</component_release>
+<component_name>oracle.options.olap.api</component_name>
+<component>38</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "248">
+<component_release>249</component_release>
+<component_name>oracle.options.olap.cwmlite</component_name>
+<component>39</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "249">
+<component_release>250</component_release>
+<component_name>oracle.options.ops</component_name>
+<component>40</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "250">
+<component_release>251</component_release>
+<component_name>oracle.options.ops.pfs</component_name>
+<component>41</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "251">
+<component_release>252</component_release>
+<component_name>oracle.options.partitioning</component_name>
+<component>42</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "252">
+<component_release>253</component_release>
+<component_name>oracle.p2k.modada</component_name>
+<component>43</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "253">
+<component_release>254</component_release>
+<component_name>oracle.p2k.ott</component_name>
+<component>44</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "254">
+<component_release>255</component_release>
+<component_name>oracle.p2k.precomp_common</component_name>
+<component>45</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "255">
+<component_release>256</component_release>
+<component_name>oracle.p2k.proc</component_name>
+<component>46</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "256">
+<component_release>257</component_release>
+<component_name>oracle.p2k.procob</component_name>
+<component>47</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "257">
+<component_release>258</component_release>
+<component_name>oracle.p2k.sqlmod</component_name>
+<component>50</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "258">
+<component_release>259</component_release>
+<component_name>oracle.p2k.xmldevkit</component_name>
+<component>51</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "259">
+<component_release>260</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "260">
+<component_release>261</component_release>
+<component_name>oracle.rdbms.advrep</component_name>
+<component>110</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "261">
+<component_release>262</component_release>
+<component_name>oracle.rdbms.aqapi</component_name>
+<component>53</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "262">
+<component_release>263</component_release>
+<component_name>oracle.rdbms.common_schema</component_name>
+<component>54</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "263">
+<component_release>264</component_release>
+<component_name>oracle.rdbms.csmig</component_name>
+<component>111</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "264">
+<component_release>265</component_release>
+<component_name>oracle.rdbms.dbscripts</component_name>
+<component>55</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "265">
+<component_release>266</component_release>
+<component_name>oracle.rdbms.dbv</component_name>
+<component>56</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "266">
+<component_release>267</component_release>
+<component_name>oracle.rdbms.demo</component_name>
+<component>57</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "267">
+<component_release>268</component_release>
+<component_name>oracle.rdbms.expimp</component_name>
+<component>58</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "268">
+<component_release>269</component_release>
+<component_name>oracle.rdbms.hs_common</component_name>
+<component>59</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "269">
+<component_release>270</component_release>
+<component_name>oracle.rdbms.hs_odbc</component_name>
+<component>60</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "270">
+<component_release>271</component_release>
+<component_name>oracle.rdbms.lbac</component_name>
+<component>61</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "271">
+<component_release>272</component_release>
+<component_name>oracle.rdbms.mig</component_name>
+<component>62</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "272">
+<component_release>273</component_release>
+<component_name>oracle.rdbms.nid</component_name>
+<component>63</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "273">
+<component_release>274</component_release>
+<component_name>oracle.rdbms.occi</component_name>
+<component>64</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "274">
+<component_release>275</component_release>
+<component_name>oracle.rdbms.oci</component_name>
+<component>65</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "275">
+<component_release>276</component_release>
+<component_name>oracle.rdbms.otrace</component_name>
+<component>66</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "276">
+<component_release>277</component_release>
+<component_name>oracle.rdbms.plsql</component_name>
+<component>67</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "277">
+<component_release>278</component_release>
+<component_name>oracle.rdbms.rman</component_name>
+<component>68</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "278">
+<component_release>279</component_release>
+<component_name>oracle.rdbms.sqlldr</component_name>
+<component>69</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "279">
+<component_release>280</component_release>
+<component_name>oracle.rdbms.sqlplus</component_name>
+<component>70</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "280">
+<component_release>281</component_release>
+<component_name>oracle.rdbms.xml</component_name>
+<component>71</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "281">
+<component_release>282</component_release>
+<component_name>oracle.rdbms.xml.xsu</component_name>
+<component>72</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "282">
+<component_release>283</component_release>
+<component_name>oracle.rsf.agent_rsf</component_name>
+<component>73</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "283">
+<component_release>284</component_release>
+<component_name>oracle.rsf.clntsh_rsf</component_name>
+<component>74</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "284">
+<component_release>285</component_release>
+<component_name>oracle.rsf.dbjava_rsf</component_name>
+<component>75</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "285">
+<component_release>286</component_release>
+<component_name>oracle.rsf.ldap_rsf</component_name>
+<component>76</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "286">
+<component_release>287</component_release>
+<component_name>oracle.rsf.net_rsf</component_name>
+<component>77</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "287">
+<component_release>288</component_release>
+<component_name>oracle.rsf.nlsrtl_rsf</component_name>
+<component>78</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "288">
+<component_release>289</component_release>
+<component_name>oracle.rsf.oracore_rsf</component_name>
+<component>79</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "289">
+<component_release>290</component_release>
+<component_name>oracle.rsf.otrace_rsf</component_name>
+<component>80</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "290">
+<component_release>291</component_release>
+<component_name>oracle.rsf.plsql_rsf</component_name>
+<component>81</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "291">
+<component_release>292</component_release>
+<component_name>oracle.rsf.precomp_rsf</component_name>
+<component>82</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "292">
+<component_release>293</component_release>
+<component_name>oracle.rsf.rdbms_rsf</component_name>
+<component>83</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "293">
+<component_release>294</component_release>
+<component_name>oracle.rsf.sqlplus_rsf</component_name>
+<component>84</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "294">
+<component_release>295</component_release>
+<component_name>oracle.rsf.ssl_rsf</component_name>
+<component>85</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "295">
+<component_release>296</component_release>
+<component_name>oracle.rsf.xdk_rsf</component_name>
+<component>86</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "296">
+<component_release>297</component_release>
+<component_name>oracle.tg.pg4appc</component_name>
+<component>112</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "297">
+<component_release>298</component_release>
+<component_name>oracle.tg.pg4mq</component_name>
+<component>113</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "298">
+<component_release>299</component_release>
+<component_name>oracle.tg.tg4drda</component_name>
+<component>114</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "299">
+<component_release>300</component_release>
+<component_name>oracle.tg.tg4ifmx</component_name>
+<component>87</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "300">
+<component_release>301</component_release>
+<component_name>oracle.tg.tg4ingr</component_name>
+<component>88</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "301">
+<component_release>302</component_release>
+<component_name>oracle.tg.tg4sybs</component_name>
+<component>89</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "302">
+<component_release>303</component_release>
+<component_name>oracle.tg.tg4tera</component_name>
+<component>90</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "303">
+<component_release>304</component_release>
+<component_name>oracle.utilities.util</component_name>
+<component>91</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "304">
+<component_release>305</component_release>
+<component_name>oracle.utilities.util_common</component_name>
+<component>92</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "305">
+<component_release>306</component_release>
+<component_name>oracle.xml.classgen.cplus</component_name>
+<component>115</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "306">
+<component_release>307</component_release>
+<component_name>oracle.xml.classgen.java</component_name>
+<component>116</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "307">
+<component_release>308</component_release>
+<component_name>oracle.xml.parser.c</component_name>
+<component>93</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "308">
+<component_release>309</component_release>
+<component_name>oracle.xml.parser.cplus</component_name>
+<component>94</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "309">
+<component_release>310</component_release>
+<component_name>oracle.xml.parser.java</component_name>
+<component>95</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "310">
+<component_release>311</component_release>
+<component_name>oracle.xml.parser.plsql</component_name>
+<component>96</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "311">
+<component_release>312</component_release>
+<component_name>oracle.xml.transview</component_name>
+<component>117</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "312">
+<component_release>313</component_release>
+<component_name>oracle.xml.transx</component_name>
+<component>118</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "313">
+<component_release>314</component_release>
+<component_name>oracle.xml.xml_ncomp</component_name>
+<component>97</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "314">
+<component_release>315</component_release>
+<component_name>oracle.xml.xsql</component_name>
+<component>119</component>
+<release_name>9.2.0.4.0</release_name>
+<release>90092040</release>
+</ROW>
+<ROW num = "315">
+<component_release>316</component_release>
+<component_name>oracle.cartridges.context</component_name>
+<component>3</component>
+<release_name>9.2.0.1.0</release_name>
+<release>90092010</release>
+</ROW>
+<ROW num = "316">
+<component_release>317</component_release>
+<component_name>oracle.rdbms.sqlplus</component_name>
+<component>70</component>
+<release_name>9.2.0.1.0</release_name>
+<release>90092010</release>
+</ROW>
+<ROW num = "317">
+<component_release>318</component_release>
+<component_name>oracle.rsf.net_rsf</component_name>
+<component>77</component>
+<release_name>9.2.0.1.0</release_name>
+<release>90092010</release>
+</ROW>
+<ROW num = "318">
+<component_release>319</component_release>
+<component_name>oracle.rsf.net_rsf</component_name>
+<component>77</component>
+<release_name>9.2.0.5.0</release_name>
+<release>90092050</release>
+</ROW>
+<ROW num = "319">
+<component_release>320</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>9.2.0.1.0</release_name>
+<release>90092010</release>
+</ROW>
+<ROW num = "320">
+<component_release>321</component_release>
+<component_name>oracle.rsf.oracore_rsf</component_name>
+<component>79</component>
+<release_name>9.2.0.1.0</release_name>
+<release>90092010</release>
+</ROW>
+<ROW num = "321">
+<component_release>322</component_release>
+<component_name>oracle.rsf.oracore_rsf</component_name>
+<component>79</component>
+<release_name>9.2.0.5.0</release_name>
+<release>90092050</release>
+</ROW>
+<ROW num = "322">
+<component_release>323</component_release>
+<component_name>oracle.apache</component_name>
+<component>120</component>
+<release_name>9.2.0.1.0</release_name>
+<release>90092010</release>
+</ROW>
+<ROW num = "323">
+<component_release>324</component_release>
+<component_name>oracle.rsf.xdk_rsf</component_name>
+<component>86</component>
+<release_name>9.2.0.1.0</release_name>
+<release>90092010</release>
+</ROW>
+<ROW num = "324">
+<component_release>325</component_release>
+<component_name>oracle.cartridges.context</component_name>
+<component>3</component>
+<release_name>9.2.0.5.0</release_name>
+<release>90092050</release>
+</ROW>
+<ROW num = "325">
+<component_release>326</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>9.2.0.5.0</release_name>
+<release>90092050</release>
+</ROW>
+<ROW num = "326">
+<component_release>327</component_release>
+<component_name>oracle.cartridges.context</component_name>
+<component>3</component>
+<release_name>10.1.0.2.0</release_name>
+<release>90101020</release>
+</ROW>
+<ROW num = "327">
+<component_release>328</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>10.1.0.2.0</release_name>
+<release>90101020</release>
+</ROW>
+<ROW num = "328">
+<component_release>329</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>10.1.0.3.0</release_name>
+<release>900101030</release>
+</ROW>
+<ROW num = "329">
+<component_release>330</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>9.2.0.6.0</release_name>
+<release>90092060</release>
+</ROW>
+<ROW num = "330">
+<component_release>331</component_release>
+<component_name>oracle.apache</component_name>
+<component>120</component>
+<release_name>9.0.4.1.0</release_name>
+<release>90090410</release>
+</ROW>
+<ROW num = "331">
+<component_release>332</component_release>
+<component_name>oracle.sysman.top.agent</component_name>
+<component>121</component>
+<release_name>10.1.0.2.0</release_name>
+<release>90101020</release>
+</ROW>
+<ROW num = "332">
+<component_release>333</component_release>
+<component_name>oracle.sysman.top.agent</component_name>
+<component>121</component>
+<release_name>10.1.0.3.0</release_name>
+<release>900101030</release>
+</ROW>
+<ROW num = "333">
+<component_release>334</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>10.1.0.4.0</release_name>
+<release>900101040</release>
+</ROW>
+<ROW num = "334">
+<component_release>335</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>10.1.0.4.2</release_name>
+<release>80101042</release>
+</ROW>
+<ROW num = "335">
+<component_release>336</component_release>
+<component_name>oracle.sysman.top.agent</component_name>
+<component>121</component>
+<release_name>10.1.0.4.0</release_name>
+<release>900101040</release>
+</ROW>
+<ROW num = "336">
+<component_release>337</component_release>
+<component_name>oracle.apache</component_name>
+<component>120</component>
+<release_name>9.0.4.2.0</release_name>
+<release>90090420</release>
+</ROW>
+<ROW num = "337">
+<component_release>338</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>9.2.0.7.0</release_name>
+<release>90092070</release>
+</ROW>
+<ROW num = "338">
+<component_release>339</component_release>
+<component_name>oracle.sysman.top.agent</component_name>
+<component>121</component>
+<release_name>10.1.0.4.1</release_name>
+<release>85101041</release>
+</ROW>
+<ROW num = "339">
+<component_release>340</component_release>
+<component_name>oracle.doesnotexist</component_name>
+<component>122</component>
+<release_name>10.1.0.2.0</release_name>
+<release>90101020</release>
+</ROW>
+<ROW num = "340">
+<component_release>341</component_release>
+<component_name>oracle.doesnotexist</component_name>
+<component>122</component>
+<release_name>9.2.0.1.0</release_name>
+<release>90092010</release>
+</ROW>
+<ROW num = "341">
+<component_release>342</component_release>
+<component_name>oracle.doesnotexist</component_name>
+<component>122</component>
+<release_name>9.0.4.1.0</release_name>
+<release>90090410</release>
+</ROW>
+<ROW num = "342">
+<component_release>343</component_release>
+<component_name>oracle.doesnotexist</component_name>
+<component>122</component>
+<release_name>10.1.0.3.0</release_name>
+<release>900101030</release>
+</ROW>
+<ROW num = "343">
+<component_release>344</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>10.2.0.1.0</release_name>
+<release>900102010</release>
+</ROW>
+<ROW num = "344">
+<component_release>345</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>10.1.0.5.0</release_name>
+<release>900101050</release>
+</ROW>
+<ROW num = "345">
+<component_release>346</component_release>
+<component_name>oracle.doesnotexist</component_name>
+<component>122</component>
+<release_name>9.9.9.9.9</release_name>
+<release>90099999</release>
+</ROW>
+<ROW num = "346">
+<component_release>347</component_release>
+<component_name>oracle.apache</component_name>
+<component>120</component>
+<release_name>10.1.2.0.0</release_name>
+<release>900101200</release>
+</ROW>
+<ROW num = "347">
+<component_release>348</component_release>
+<component_name>oracle.apache</component_name>
+<component>120</component>
+<release_name>10.1.2.0.2</release_name>
+<release>26101202</release>
+</ROW>
+<ROW num = "348">
+<component_release>349</component_release>
+<component_name>oracle.java.j2ee.containers</component_name>
+<component>123</component>
+<release_name>9.0.4.1.0</release_name>
+<release>90090410</release>
+</ROW>
+<ROW num = "349">
+<component_release>350</component_release>
+<component_name>oracle.java.j2ee.containers</component_name>
+<component>123</component>
+<release_name>9.0.4.2.0</release_name>
+<release>90090420</release>
+</ROW>
+<ROW num = "350">
+<component_release>351</component_release>
+<component_name>oracle.java.j2ee.containers</component_name>
+<component>123</component>
+<release_name>10.1.2.0.0</release_name>
+<release>900101200</release>
+</ROW>
+<ROW num = "351">
+<component_release>352</component_release>
+<component_name>oracle.java.j2ee.containers</component_name>
+<component>123</component>
+<release_name>10.1.2.0.2</release_name>
+<release>26101202</release>
+</ROW>
+<ROW num = "352">
+<component_release>353</component_release>
+<component_name>oracle.java.j2ee.containers</component_name>
+<component>123</component>
+<release_name>10.1.2.1.0</release_name>
+<release>26101210</release>
+</ROW>
+<ROW num = "353">
+<component_release>354</component_release>
+<component_name>oracle.j2ee</component_name>
+<component>124</component>
+<release_name>10.1.2.0.0</release_name>
+<release>900101200</release>
+</ROW>
+<ROW num = "354">
+<component_release>355</component_release>
+<component_name>oracle.j2ee</component_name>
+<component>124</component>
+<release_name>10.1.2.1.0</release_name>
+<release>26101210</release>
+</ROW>
+<ROW num = "355">
+<component_release>356</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>10.2.0.2.0</release_name>
+<release>81102020</release>
+</ROW>
+<ROW num = "356">
+<component_release>357</component_release>
+<component_name>oracle.sysman.common</component_name>
+<component>125</component>
+<release_name>10.1.0.3.0</release_name>
+<release>900101030</release>
+</ROW>
+<ROW num = "357">
+<component_release>358</component_release>
+<component_name>oracle.sysman.common</component_name>
+<component>125</component>
+<release_name>10.1.0.4.0</release_name>
+<release>900101040</release>
+</ROW>
+<ROW num = "358">
+<component_release>359</component_release>
+<component_name>oracle.sysman.common</component_name>
+<component>125</component>
+<release_name>10.1.0.5.0</release_name>
+<release>900101050</release>
+</ROW>
+<ROW num = "359">
+<component_release>360</component_release>
+<component_name>oracle.sysman.common</component_name>
+<component>125</component>
+<release_name>10.2.0.1.0</release_name>
+<release>900102010</release>
+</ROW>
+<ROW num = "360">
+<component_release>361</component_release>
+<component_name>oracle.java.j2ee.containers</component_name>
+<component>123</component>
+<release_name>9.0.4.3.0</release_name>
+<release>90090430</release>
+</ROW>
+<ROW num = "361">
+<component_release>362</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>9.2.0.8.0</release_name>
+<release>90092080</release>
+</ROW>
+<ROW num = "362">
+<component_release>363</component_release>
+<component_name>oracle.sysman.agent</component_name>
+<component>126</component>
+<release_name>10.1.0.4.1</release_name>
+<release>85101041</release>
+</ROW>
+<ROW num = "363">
+<component_release>364</component_release>
+<component_name>oracle.sysman.console.oms</component_name>
+<component>127</component>
+<release_name>10.1.0.3.0</release_name>
+<release>900101030</release>
+</ROW>
+<ROW num = "364">
+<component_release>365</component_release>
+<component_name>oracle.iappserver.iapptop</component_name>
+<component>128</component>
+<release_name>10.1.3.0.0</release_name>
+<release>900101300</release>
+</ROW>
+<ROW num = "365">
+<component_release>366</component_release>
+<component_name>oracle.sysman.agent</component_name>
+<component>126</component>
+<release_name>10.1.0.3.0</release_name>
+<release>900101030</release>
+</ROW>
+<ROW num = "366">
+<component_release>367</component_release>
+<component_name>oracle.sysman.agent</component_name>
+<component>126</component>
+<release_name>10.1.0.2.0</release_name>
+<release>90101020</release>
+</ROW>
+<ROW num = "367">
+<component_release>368</component_release>
+<component_name>oracle.sysman.console.oms</component_name>
+<component>127</component>
+<release_name>10.1.0.4.1</release_name>
+<release>85101041</release>
+</ROW>
+<ROW num = "368">
+<component_release>369</component_release>
+<component_name>oracle.sysman.console.oms</component_name>
+<component>127</component>
+<release_name>10.1.0.5.0</release_name>
+<release>900101050</release>
+</ROW>
+<ROW num = "369">
+<component_release>370</component_release>
+<component_name>oracle.sysman.console.oms</component_name>
+<component>127</component>
+<release_name>10.2.0.1.0</release_name>
+<release>900102010</release>
+</ROW>
+<ROW num = "370">
+<component_release>371</component_release>
+<component_name>oracle.iappserver.console.oms</component_name>
+<component>129</component>
+<release_name>10.1.0.4.1</release_name>
+<release>85101041</release>
+</ROW>
+<ROW num = "371">
+<component_release>372</component_release>
+<component_name>oracle.iappserver.iapptop</component_name>
+<component>128</component>
+<release_name>10.1.2.0.0</release_name>
+<release>900101200</release>
+</ROW>
+<ROW num = "372">
+<component_release>373</component_release>
+<component_name>oracle.iappserver.iapptop</component_name>
+<component>128</component>
+<release_name>10.1.2.0.2</release_name>
+<release>26101202</release>
+</ROW>
+<ROW num = "373">
+<component_release>374</component_release>
+<component_name>oracle.iappserver.iapptop</component_name>
+<component>128</component>
+<release_name>10.1.2.1.0</release_name>
+<release>26101210</release>
+</ROW>
+<ROW num = "374">
+<component_release>375</component_release>
+<component_name>oracle.iappserver.st_midtier</component_name>
+<component>130</component>
+<release_name>10.1.2.1.1</release_name>
+<release>900101211</release>
+</ROW>
+<ROW num = "375">
+<component_release>376</component_release>
+<component_name>oracle.as.j2ee.top</component_name>
+<component>131</component>
+<release_name>10.1.3.0.0</release_name>
+<release>900101300</release>
+</ROW>
+<ROW num = "376">
+<component_release>377</component_release>
+<component_name>oracle.iappserver.st_infrastructure</component_name>
+<component>132</component>
+<release_name>9.0.4.1.0</release_name>
+<release>90090410</release>
+</ROW>
+<ROW num = "377">
+<component_release>378</component_release>
+<component_name>oracle.iappserver.st_midtier</component_name>
+<component>130</component>
+<release_name>9.0.4.3.0</release_name>
+<release>90090430</release>
+</ROW>
+<ROW num = "378">
+<component_release>379</component_release>
+<component_name>oracle.iappserver.st_midtier</component_name>
+<component>130</component>
+<release_name>9.0.4.2.0</release_name>
+<release>90090420</release>
+</ROW>
+<ROW num = "379">
+<component_release>380</component_release>
+<component_name>oracle.iappserver.st_midtier</component_name>
+<component>130</component>
+<release_name>9.0.4.1.0</release_name>
+<release>90090410</release>
+</ROW>
+<ROW num = "380">
+<component_release>381</component_release>
+<component_name>oracle.iappserver.st_infrastructure</component_name>
+<component>132</component>
+<release_name>9.0.4.3.0</release_name>
+<release>90090430</release>
+</ROW>
+<ROW num = "381">
+<component_release>382</component_release>
+<component_name>oracle.iappserver.st_infrastructure</component_name>
+<component>132</component>
+<release_name>9.0.4.2.0</release_name>
+<release>90090420</release>
+</ROW>
+<ROW num = "382">
+<component_release>383</component_release>
+<component_name>oracle.iappserver.iapptop</component_name>
+<component>128</component>
+<release_name>10.1.2.2.0</release_name>
+<release>28101220</release>
+</ROW>
+<ROW num = "383">
+<component_release>384</component_release>
+<component_name>oracle.as.j2ee.top</component_name>
+<component>131</component>
+<release_name>10.1.3.1.0</release_name>
+<release>17101310</release>
+</ROW>
+<ROW num = "384">
+<component_release>385</component_release>
+<component_name>oracle.sysman.console.oms</component_name>
+<component>127</component>
+<release_name>10.1.0.2.0</release_name>
+<release>90101020</release>
+</ROW>
+<ROW num = "385">
+<component_release>386</component_release>
+<component_name>oracle.sysman.agent</component_name>
+<component>126</component>
+<release_name>10.2.0.1.0</release_name>
+<release>900102010</release>
+</ROW>
+<ROW num = "386">
+<component_release>387</component_release>
+<component_name>oracle.sysman.agent</component_name>
+<component>126</component>
+<release_name>10.1.0.5.0</release_name>
+<release>900101050</release>
+</ROW>
+<ROW num = "387">
+<component_release>388</component_release>
+<component_name>oracle.iappserver.st_infrastructure</component_name>
+<component>132</component>
+<release_name>10.1.2.2.0</release_name>
+<release>28101220</release>
+</ROW>
+<ROW num = "388">
+<component_release>389</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>10.2.0.3.0</release_name>
+<release>900102030</release>
+</ROW>
+<ROW num = "389">
+<component_release>390</component_release>
+<component_name>oracle.sysman.top.agent</component_name>
+<component>121</component>
+<release_name>10.1.0.5.0</release_name>
+<release>90101050</release>
+</ROW>
+<ROW num = "390">
+<component_release>391</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>9.2.0.8.1</release_name>
+<release>90092081</release>
+</ROW>
+<ROW num = "391">
+<component_release>392</component_release>
+<component_name>oracle.iappserver.st_midtier</component_name>
+<component>130</component>
+<release_name>10.1.2.0.2</release_name>
+<release>900101202</release>
+</ROW>
+<ROW num = "392">
+<component_release>393</component_release>
+<component_name>oracle.iappserver.st_midtier</component_name>
+<component>130</component>
+<release_name>10.1.2.2.0</release_name>
+<release>900101220</release>
+</ROW>
+<ROW num = "393">
+<component_release>394</component_release>
+<component_name>oracle.iappserver.st_midtier</component_name>
+<component>130</component>
+<release_name>10.1.2.1.0</release_name>
+<release>900101210</release>
+</ROW>
+<ROW num = "394">
+<component_release>395</component_release>
+<component_name>oracle.sysman.agent.db</component_name>
+<component>133</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "395">
+<component_release>396</component_release>
+<component_name>oracle.sysman.agent.db</component_name>
+<component>133</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "396">
+<component_release>397</component_release>
+<component_name>oracle.sysman.repository.db</component_name>
+<component>134</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "397">
+<component_release>398</component_release>
+<component_name>oracle.sysman.repository.db</component_name>
+<component>134</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "398">
+<component_release>399</component_release>
+<component_name>oracle.sysman.console.db</component_name>
+<component>135</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "399">
+<component_release>400</component_release>
+<component_name>oracle.sysman.console.db</component_name>
+<component>135</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "400">
+<component_release>401</component_release>
+<component_name>oracle.rdbms.dv</component_name>
+<component>136</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "401">
+<component_release>402</component_release>
+<component_name>oracle.isearch.server</component_name>
+<component>9</component>
+<release_name>10.2.0.1.0</release_name>
+<release>900102010</release>
+</ROW>
+<ROW num = "402">
+<component_release>403</component_release>
+<component_name>oracle.isearch.server</component_name>
+<component>9</component>
+<release_name>10.2.0.3.0</release_name>
+<release>900102030</release>
+</ROW>
+<ROW num = "403">
+<component_release>404</component_release>
+<component_name>oracle.as.j2ee.top</component_name>
+<component>131</component>
+<release_name>10.1.3.3.0</release_name>
+<release>17101330</release>
+</ROW>
+<ROW num = "404">
+<component_release>405</component_release>
+<component_name>oracle.network.aso</component_name>
+<component>137</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "405">
+<component_release>406</component_release>
+<component_name>oracle.network.aso</component_name>
+<component>137</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "406">
+<component_release>407</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>11.1.0.6.0</release_name>
+<release>80111060</release>
+</ROW>
+<ROW num = "407">
+<component_release>408</component_release>
+<component_name>oracle.sdo.locator</component_name>
+<component>138</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "408">
+<component_release>409</component_release>
+<component_name>oracle.sdo.locator</component_name>
+<component>138</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "409">
+<component_release>410</component_release>
+<component_name>oracle.sdo.locator</component_name>
+<component>138</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "410">
+<component_release>411</component_release>
+<component_name>oracle.sdo.locator</component_name>
+<component>138</component>
+<release_name>11.1.0.6.0</release_name>
+<release>80111060</release>
+</ROW>
+<ROW num = "411">
+<component_release>412</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "412">
+<component_release>413</component_release>
+<component_name>oracle.sysman.repository.db</component_name>
+<component>134</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "413">
+<component_release>414</component_release>
+<component_name>oracle.sysman.repository.db</component_name>
+<component>134</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "414">
+<component_release>415</component_release>
+<component_name>oracle.sysman.console.db</component_name>
+<component>135</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "415">
+<component_release>416</component_release>
+<component_name>oracle.sysman.console.db</component_name>
+<component>135</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "416">
+<component_release>417</component_release>
+<component_name>oracle.rdbms.dv</component_name>
+<component>136</component>
+<release_name>11.1.0.6.0</release_name>
+<release>80111060</release>
+</ROW>
+<ROW num = "417">
+<component_release>418</component_release>
+<component_name>oracle.sysman.plugin.db.main.oms</component_name>
+<component>139</component>
+<release_name>11.1.0.5.0</release_name>
+<release>80111050</release>
+</ROW>
+<ROW num = "418">
+<component_release>419</component_release>
+<component_name>oracle.iappserver.st_infrastructure</component_name>
+<component>132</component>
+<release_name>10.1.2.3.0</release_name>
+<release>28101230</release>
+</ROW>
+<ROW num = "419">
+<component_release>420</component_release>
+<component_name>oracle.iappserver.st_infrastructure</component_name>
+<component>132</component>
+<release_name>10.1.2.1.0</release_name>
+<release>28101210</release>
+</ROW>
+<ROW num = "420">
+<component_release>421</component_release>
+<component_name>oracle.iappserver.st_infrastructure</component_name>
+<component>132</component>
+<release_name>10.1.2.0.2</release_name>
+<release>28101202</release>
+</ROW>
+<ROW num = "421">
+<component_release>422</component_release>
+<component_name>oracle.sysman.console.oms</component_name>
+<component>127</component>
+<release_name>10.1.0.6.0</release_name>
+<release>85101060</release>
+</ROW>
+<ROW num = "422">
+<component_release>423</component_release>
+<component_name>oracle.iappserver.st_midtier</component_name>
+<component>130</component>
+<release_name>10.1.2.3.0</release_name>
+<release>900101230</release>
+</ROW>
+<ROW num = "423">
+<component_release>424</component_release>
+<component_name>oracle.ovm</component_name>
+<component>140</component>
+<release_name>11.1.0.6.0</release_name>
+<release>80111060</release>
+</ROW>
+<ROW num = "424">
+<component_release>425</component_release>
+<component_name>oracle.as.j2ee.top</component_name>
+<component>131</component>
+<release_name>10.1.3.4.0</release_name>
+<release>17101340</release>
+</ROW>
+<ROW num = "425">
+<component_release>426</component_release>
+<component_name>oracle.oraolap</component_name>
+<component>141</component>
+<release_name>10.2.0.3.0</release_name>
+<release>900102030</release>
+</ROW>
+<ROW num = "426">
+<component_release>427</component_release>
+<component_name>oracle.sysman.top.oms</component_name>
+<component>142</component>
+<release_name>10.2.0.1.0</release_name>
+<release>85102010</release>
+</ROW>
+<ROW num = "427">
+<component_release>428</component_release>
+<component_name>oracle.sysman.top.oms</component_name>
+<component>142</component>
+<release_name>10.2.0.4.0</release_name>
+<release>85102040</release>
+</ROW>
+<ROW num = "428">
+<component_release>429</component_release>
+<component_name>oracle.network.listener</component_name>
+<component>143</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "429">
+<component_release>430</component_release>
+<component_name>oracle.network.listener</component_name>
+<component>143</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "430">
+<component_release>431</component_release>
+<component_name>oracle.network.listener</component_name>
+<component>143</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "431">
+<component_release>432</component_release>
+<component_name>oracle.network.listener</component_name>
+<component>143</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "432">
+<component_release>433</component_release>
+<component_name>oracle.network.rsf</component_name>
+<component>144</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "433">
+<component_release>434</component_release>
+<component_name>oracle.network.rsf</component_name>
+<component>144</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "434">
+<component_release>435</component_release>
+<component_name>oracle.network.rsf</component_name>
+<component>144</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "435">
+<component_release>436</component_release>
+<component_name>oracle.network.rsf</component_name>
+<component>144</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "436">
+<component_release>437</component_release>
+<component_name>oracle.ovm</component_name>
+<component>140</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "437">
+<component_release>438</component_release>
+<component_name>oracle.ovm</component_name>
+<component>140</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "438">
+<component_release>439</component_release>
+<component_name>oracle.ovm</component_name>
+<component>140</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "439">
+<component_release>440</component_release>
+<component_name>oracle.ovm</component_name>
+<component>140</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "440">
+<component_release>441</component_release>
+<component_name>oracle.network.listener</component_name>
+<component>143</component>
+<release_name>11.1.0.6.0</release_name>
+<release>80111060</release>
+</ROW>
+<ROW num = "441">
+<component_release>442</component_release>
+<component_name>oracle.network.rsf</component_name>
+<component>144</component>
+<release_name>11.1.0.6.0</release_name>
+<release>80111060</release>
+</ROW>
+<ROW num = "442">
+<component_release>443</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "443">
+<component_release>444</component_release>
+<component_name>oracle.network.listener</component_name>
+<component>143</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "444">
+<component_release>445</component_release>
+<component_name>oracle.sysman.console.db</component_name>
+<component>135</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "445">
+<component_release>446</component_release>
+<component_name>oracle.ctx</component_name>
+<component>145</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "446">
+<component_release>447</component_release>
+<component_name>oracle.ctx</component_name>
+<component>145</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "447">
+<component_release>448</component_release>
+<component_name>oracle.ctx</component_name>
+<component>145</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "448">
+<component_release>449</component_release>
+<component_name>oracle.ctx</component_name>
+<component>145</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "449">
+<component_release>450</component_release>
+<component_name>oracle.sdo.locator</component_name>
+<component>138</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "450">
+<component_release>451</component_release>
+<component_name>oracle.sdo.locator</component_name>
+<component>138</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "451">
+<component_release>452</component_release>
+<component_name>oracle.sqlplus</component_name>
+<component>146</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "452">
+<component_release>453</component_release>
+<component_name>oracle.sqlplus</component_name>
+<component>146</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "453">
+<component_release>454</component_release>
+<component_name>oracle.sqlplus</component_name>
+<component>146</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "454">
+<component_release>455</component_release>
+<component_name>oracle.sqlplus</component_name>
+<component>146</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "455">
+<component_release>456</component_release>
+<component_name>oracle.sqlplus</component_name>
+<component>146</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "456">
+<component_release>457</component_release>
+<component_name>oracle.network.rsf</component_name>
+<component>144</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "457">
+<component_release>458</component_release>
+<component_name>oracle.as.j2ee.top</component_name>
+<component>131</component>
+<release_name>10.1.3.5.0</release_name>
+<release>900101350</release>
+</ROW>
+<ROW num = "458">
+<component_release>459</component_release>
+<component_name>oracle.javavm.server</component_name>
+<component>147</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "459">
+<component_release>460</component_release>
+<component_name>oracle.javavm.server</component_name>
+<component>147</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "460">
+<component_release>461</component_release>
+<component_name>oracle.javavm.server</component_name>
+<component>147</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "461">
+<component_release>462</component_release>
+<component_name>oracle.javavm.server</component_name>
+<component>147</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "462">
+<component_release>463</component_release>
+<component_name>oracle.javavm.server</component_name>
+<component>147</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "463">
+<component_release>464</component_release>
+<component_name>oracle.oraolap</component_name>
+<component>141</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "464">
+<component_release>465</component_release>
+<component_name>oracle.javavm.server</component_name>
+<component>147</component>
+<release_name>11.2.0.1.0</release_name>
+<release>80112010</release>
+</ROW>
+<ROW num = "465">
+<component_release>466</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>11.2.0.1.0</release_name>
+<release>80112010</release>
+</ROW>
+<ROW num = "466">
+<component_release>467</component_release>
+<component_name>oracle.oraolap</component_name>
+<component>141</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "467">
+<component_release>468</component_release>
+<component_name>oracle.oraolap</component_name>
+<component>141</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "468">
+<component_release>469</component_release>
+<component_name>oracle.oraolap</component_name>
+<component>141</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "469">
+<component_release>470</component_release>
+<component_name>oracle.network.rsf</component_name>
+<component>144</component>
+<release_name>11.2.0.1.0</release_name>
+<release>80112010</release>
+</ROW>
+<ROW num = "470">
+<component_release>471</component_release>
+<component_name>oracle.network.listener</component_name>
+<component>143</component>
+<release_name>11.2.0.1.0</release_name>
+<release>80112010</release>
+</ROW>
+<ROW num = "471">
+<component_release>472</component_release>
+<component_name>oracle.xdk.parser.java</component_name>
+<component>148</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "472">
+<component_release>473</component_release>
+<component_name>oracle.xdk.parser.java</component_name>
+<component>148</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "473">
+<component_release>474</component_release>
+<component_name>oracle.xdk.parser.java</component_name>
+<component>148</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "474">
+<component_release>475</component_release>
+<component_name>oracle.xdk.parser.java</component_name>
+<component>148</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "475">
+<component_release>476</component_release>
+<component_name>oracle.xdk</component_name>
+<component>149</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "476">
+<component_release>477</component_release>
+<component_name>oracle.xdk</component_name>
+<component>149</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "477">
+<component_release>478</component_release>
+<component_name>oracle.xdk</component_name>
+<component>149</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "478">
+<component_release>479</component_release>
+<component_name>oracle.xdk</component_name>
+<component>149</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "479">
+<component_release>480</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>10.2.0.5.0</release_name>
+<release>80102050</release>
+</ROW>
+<ROW num = "480">
+<component_release>481</component_release>
+<component_name>oracle.xdk.parser.java</component_name>
+<component>148</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "481">
+<component_release>482</component_release>
+<component_name>oracle.rdbms.dv.oc4j</component_name>
+<component>150</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "482">
+<component_release>483</component_release>
+<component_name>oracle.rdbms.dv.oc4j</component_name>
+<component>150</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "483">
+<component_release>484</component_release>
+<component_name>oracle.rdbms.dv.oc4j</component_name>
+<component>150</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "484">
+<component_release>485</component_release>
+<component_name>oracle.rdbms.dv.oc4j</component_name>
+<component>150</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "485">
+<component_release>486</component_release>
+<component_name>oracle.rdbms.dv.oc4j</component_name>
+<component>150</component>
+<release_name>10.2.0.5.0</release_name>
+<release>80102050</release>
+</ROW>
+<ROW num = "486">
+<component_release>487</component_release>
+<component_name>oracle.rdbms.dv.oc4j</component_name>
+<component>150</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "487">
+<component_release>488</component_release>
+<component_name>oracle.rdbms.dv.oc4j</component_name>
+<component>150</component>
+<release_name>11.2.0.1.0</release_name>
+<release>80112010</release>
+</ROW>
+<ROW num = "488">
+<component_release>489</component_release>
+<component_name>oracle.sysman.oms.core</component_name>
+<component>151</component>
+<release_name>10.2.0.4.1</release_name>
+<release>90102041</release>
+</ROW>
+<ROW num = "489">
+<component_release>490</component_release>
+<component_name>oracle.sysman.oms.core</component_name>
+<component>151</component>
+<release_name>10.2.0.4.2</release_name>
+<release>90102042</release>
+</ROW>
+<ROW num = "490">
+<component_release>491</component_release>
+<component_name>oracle.sysman.repository.core</component_name>
+<component>152</component>
+<release_name>10.2.0.4.1</release_name>
+<release>90102041</release>
+</ROW>
+<ROW num = "491">
+<component_release>492</component_release>
+<component_name>oracle.sdo.locator</component_name>
+<component>138</component>
+<release_name>11.2.0.1.0</release_name>
+<release>80112010</release>
+</ROW>
+<ROW num = "492">
+<component_release>493</component_release>
+<component_name>oracle.sysman.console.db</component_name>
+<component>135</component>
+<release_name>11.2.0.1.0</release_name>
+<release>80112010</release>
+</ROW>
+<ROW num = "493">
+<component_release>494</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>11.2.0.2.0</release_name>
+<release>80112020</release>
+</ROW>
+<ROW num = "494">
+<component_release>495</component_release>
+<component_name>oracle.xdk.rsf</component_name>
+<component>153</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "495">
+<component_release>496</component_release>
+<component_name>oracle.xdk.rsf</component_name>
+<component>153</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "496">
+<component_release>497</component_release>
+<component_name>oracle.xdk.rsf</component_name>
+<component>153</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "497">
+<component_release>498</component_release>
+<component_name>oracle.xdk.rsf</component_name>
+<component>153</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "498">
+<component_release>499</component_release>
+<component_name>oracle.xdk.rsf</component_name>
+<component>153</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "499">
+<component_release>500</component_release>
+<component_name>oracle.xdk.rsf</component_name>
+<component>153</component>
+<release_name>11.2.0.1.0</release_name>
+<release>80112010</release>
+</ROW>
+<ROW num = "500">
+<component_release>501</component_release>
+<component_name>oracle.rdbms.rsf</component_name>
+<component>154</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "501">
+<component_release>502</component_release>
+<component_name>oracle.rdbms.rsf</component_name>
+<component>154</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "502">
+<component_release>503</component_release>
+<component_name>oracle.rdbms.rsf</component_name>
+<component>154</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "503">
+<component_release>504</component_release>
+<component_name>oracle.rdbms.rsf</component_name>
+<component>154</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "504">
+<component_release>505</component_release>
+<component_name>oracle.rdbms.rsf.ic</component_name>
+<component>155</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "505">
+<component_release>506</component_release>
+<component_name>oracle.rdbms.rsf.ic</component_name>
+<component>155</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "506">
+<component_release>507</component_release>
+<component_name>oracle.rdbms.rsf.ic</component_name>
+<component>155</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "507">
+<component_release>508</component_release>
+<component_name>oracle.rdbms.rsf.ic</component_name>
+<component>155</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "508">
+<component_release>509</component_release>
+<component_name>oracle.ldap.rsf</component_name>
+<component>156</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "509">
+<component_release>510</component_release>
+<component_name>oracle.ldap.rsf</component_name>
+<component>156</component>
+<release_name>11.2.0.2.0</release_name>
+<release>80112020</release>
+</ROW>
+<ROW num = "510">
+<component_release>511</component_release>
+<component_name>oracle.ldap.rsf.ic</component_name>
+<component>157</component>
+<release_name>11.2.0.1.0</release_name>
+<release>80112010</release>
+</ROW>
+<ROW num = "511">
+<component_release>512</component_release>
+<component_name>oracle.ldap.rsf.ic</component_name>
+<component>157</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "512">
+<component_release>513</component_release>
+<component_name>oracle.ldap.rsf</component_name>
+<component>156</component>
+<release_name>11.2.0.1.0</release_name>
+<release>80112010</release>
+</ROW>
+<ROW num = "513">
+<component_release>514</component_release>
+<component_name>oracle.rdbms.dv</component_name>
+<component>136</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "514">
+<component_release>515</component_release>
+<component_name>oracle.rdbms.dv</component_name>
+<component>136</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "515">
+<component_release>516</component_release>
+<component_name>oracle.rdbms.dv</component_name>
+<component>136</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "516">
+<component_release>517</component_release>
+<component_name>oracle.rdbms.dv</component_name>
+<component>136</component>
+<release_name>10.2.0.5.0</release_name>
+<release>80102050</release>
+</ROW>
+<ROW num = "517">
+<component_release>518</component_release>
+<component_name>oracle.rdbms.dv</component_name>
+<component>136</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "518">
+<component_release>519</component_release>
+<component_name>oracle.rdbms.dv</component_name>
+<component>136</component>
+<release_name>11.2.0.1.0</release_name>
+<release>80112010</release>
+</ROW>
+<ROW num = "519">
+<component_release>520</component_release>
+<component_name>oracle.rdbms.dv</component_name>
+<component>136</component>
+<release_name>11.2.0.2.0</release_name>
+<release>80112020</release>
+</ROW>
+<ROW num = "520">
+<component_release>521</component_release>
+<component_name>oracle.sysman.repository.core</component_name>
+<component>152</component>
+<release_name>10.2.0.4.0a</release_name>
+<release>90102040a</release>
+</ROW>
+<ROW num = "521">
+<component_release>522</component_release>
+<component_name>oracle.sysman.oms.core</component_name>
+<component>151</component>
+<release_name>10.2.0.4.3</release_name>
+<release>90102043</release>
+</ROW>
+<ROW num = "522">
+<component_release>523</component_release>
+<component_name>oracle.network.rsf</component_name>
+<component>144</component>
+<release_name>10.2.0.5.0</release_name>
+<release>80102050</release>
+</ROW>
+<ROW num = "523">
+<component_release>524</component_release>
+<component_name>oracle.rdbms.dbscripts</component_name>
+<component>55</component>
+<release_name>10.2.0.5.0</release_name>
+<release>80102050</release>
+</ROW>
+<ROW num = "524">
+<component_release>525</component_release>
+<component_name>oracle.sysman.console.db</component_name>
+<component>135</component>
+<release_name>11.2.0.2.0</release_name>
+<release>80112020</release>
+</ROW>
+<ROW num = "525">
+<component_release>526</component_release>
+<component_name>oracle.sysman.bsln</component_name>
+<component>158</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "526">
+<component_release>527</component_release>
+<component_name>oracle.sysman.bsln</component_name>
+<component>158</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "527">
+<component_release>528</component_release>
+<component_name>oracle.sysman.bsln</component_name>
+<component>158</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "528">
+<component_release>529</component_release>
+<component_name>oracle.sysman.bsln</component_name>
+<component>158</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "529">
+<component_release>530</component_release>
+<component_name>oracle.sysman.bsln</component_name>
+<component>158</component>
+<release_name>10.2.0.5.0</release_name>
+<release>80102050</release>
+</ROW>
+<ROW num = "530">
+<component_release>531</component_release>
+<component_name>oracle.sysman.repository.core</component_name>
+<component>152</component>
+<release_name>10.2.0.1.0</release_name>
+<release>90102010</release>
+</ROW>
+<ROW num = "531">
+<component_release>532</component_release>
+<component_name>oracle.sysman.repository.core</component_name>
+<component>152</component>
+<release_name>10.2.0.5.0a</release_name>
+<release>90102050a</release>
+</ROW>
+<ROW num = "532">
+<component_release>533</component_release>
+<component_name>oracle.sysman.console.db</component_name>
+<component>135</component>
+<release_name>10.2.0.5.0</release_name>
+<release>80102050</release>
+</ROW>
+<ROW num = "533">
+<component_release>534</component_release>
+<component_name>oracle.xdk.rsf</component_name>
+<component>153</component>
+<release_name>10.2.0.5.0</release_name>
+<release>80102050</release>
+</ROW>
+<ROW num = "534">
+<component_release>535</component_release>
+<component_name>oracle.xdk.rsf</component_name>
+<component>153</component>
+<release_name>11.2.0.2.0</release_name>
+<release>80112020</release>
+</ROW>
+<ROW num = "535">
+<component_release>536</component_release>
+<component_name>oracle.rdbms.rsf</component_name>
+<component>154</component>
+<release_name>10.2.0.5.0</release_name>
+<release>80102050</release>
+</ROW>
+<ROW num = "536">
+<component_release>537</component_release>
+<component_name>oracle.rdbms.rsf</component_name>
+<component>154</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "537">
+<component_release>538</component_release>
+<component_name>oracle.rdbms.rsf</component_name>
+<component>154</component>
+<release_name>11.2.0.1.0</release_name>
+<release>80112010</release>
+</ROW>
+<ROW num = "538">
+<component_release>539</component_release>
+<component_name>oracle.rdbms.rsf</component_name>
+<component>154</component>
+<release_name>11.2.0.2.0</release_name>
+<release>80112020</release>
+</ROW>
+<ROW num = "539">
+<component_release>540</component_release>
+<component_name>oracle.sysman.plugin.db.main.repository</component_name>
+<component>159</component>
+<release_name>11.2.0.2.0</release_name>
+<release>90112020</release>
+</ROW>
+<ROW num = "540">
+<component_release>541</component_release>
+<component_name>oracle.sysman.plugin.db.main.repository</component_name>
+<component>159</component>
+<release_name>11.2.0.1.0</release_name>
+<release>90112010</release>
+</ROW>
+<ROW num = "541">
+<component_release>542</component_release>
+<component_name>oracle.client</component_name>
+<component>160</component>
+<release_name>11.2.0.1.0</release_name>
+<release>80112010</release>
+</ROW>
+<ROW num = "542">
+<component_release>543</component_release>
+<component_name>oracle.rdbms.dbscripts</component_name>
+<component>55</component>
+<release_name>11.2.0.1.0</release_name>
+<release>80112010</release>
+</ROW>
+<ROW num = "543">
+<component_release>544</component_release>
+<component_name>oracle.rdbms.dbscripts</component_name>
+<component>55</component>
+<release_name>11.2.0.2.0</release_name>
+<release>80112020</release>
+</ROW>
+<ROW num = "544">
+<component_release>545</component_release>
+<component_name>oracle.sdo.locator</component_name>
+<component>138</component>
+<release_name>10.2.0.5.0</release_name>
+<release>80102050</release>
+</ROW>
+<ROW num = "545">
+<component_release>546</component_release>
+<component_name>oracle.cartridges.context</component_name>
+<component>3</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "546">
+<component_release>547</component_release>
+<component_name>oracle.sdo.locator</component_name>
+<component>138</component>
+<release_name>11.2.0.2.0</release_name>
+<release>80112020</release>
+</ROW>
+<ROW num = "547">
+<component_release>548</component_release>
+<component_name>oracle.network.rsf</component_name>
+<component>144</component>
+<release_name>11.2.0.2.0</release_name>
+<release>80112020</release>
+</ROW>
+<ROW num = "548">
+<component_release>549</component_release>
+<component_name>oracle.rdbms</component_name>
+<component>52</component>
+<release_name>11.2.0.3.0</release_name>
+<release>80112030</release>
+</ROW>
+<ROW num = "549">
+<component_release>550</component_release>
+<component_name>oracle.sdo.locator</component_name>
+<component>138</component>
+<release_name>11.2.0.3.0</release_name>
+<release>80112030</release>
+</ROW>
+<ROW num = "550">
+<component_release>551</component_release>
+<component_name>oracle.sysman.console.db</component_name>
+<component>135</component>
+<release_name>11.2.0.3.0</release_name>
+<release>80112030</release>
+</ROW>
+<ROW num = "551">
+<component_release>552</component_release>
+<component_name>oracle.sysman.oms.core</component_name>
+<component>151</component>
+<release_name>10.2.0.4.4</release_name>
+<release>90102044</release>
+</ROW>
+<ROW num = "552">
+<component_release>553</component_release>
+<component_name>oracle.network.listener</component_name>
+<component>143</component>
+<release_name>11.2.0.2.0</release_name>
+<release>80112020</release>
+</ROW>
+<ROW num = "553">
+<component_release>554</component_release>
+<component_name>oracle.network.listener</component_name>
+<component>143</component>
+<release_name>11.2.0.3.0</release_name>
+<release>80112030</release>
+</ROW>
+<ROW num = "554">
+<component_release>555</component_release>
+<component_name>oracle.network.rsf</component_name>
+<component>144</component>
+<release_name>11.2.0.2.0</release_name>
+<release>80112020</release>
+</ROW>
+<ROW num = "555">
+<component_release>556</component_release>
+<component_name>oracle.network.rsf</component_name>
+<component>144</component>
+<release_name>11.2.0.3.0</release_name>
+<release>80112030</release>
+</ROW>
+<ROW num = "556">
+<component_release>557</component_release>
+<component_name>oracle.network.client</component_name>
+<component>161</component>
+<release_name>10.2.0.1.0</release_name>
+<release>80102010</release>
+</ROW>
+<ROW num = "557">
+<component_release>558</component_release>
+<component_name>oracle.network.client</component_name>
+<component>161</component>
+<release_name>10.2.0.2.0</release_name>
+<release>80102020</release>
+</ROW>
+<ROW num = "558">
+<component_release>559</component_release>
+<component_name>oracle.network.client</component_name>
+<component>161</component>
+<release_name>10.2.0.3.0</release_name>
+<release>80102030</release>
+</ROW>
+<ROW num = "559">
+<component_release>560</component_release>
+<component_name>oracle.network.client</component_name>
+<component>161</component>
+<release_name>10.2.0.4.0</release_name>
+<release>80102040</release>
+</ROW>
+<ROW num = "560">
+<component_release>561</component_release>
+<component_name>oracle.network.client</component_name>
+<component>161</component>
+<release_name>10.2.0.5.0</release_name>
+<release>80102050</release>
+</ROW>
+<ROW num = "561">
+<component_release>562</component_release>
+<component_name>oracle.dbjava.ic</component_name>
+<component>162</component>
+<release_name>11.1.0.6.0</release_name>
+<release>80111060</release>
+</ROW>
+<ROW num = "562">
+<component_release>563</component_release>
+<component_name>oracle.dbjava.ic</component_name>
+<component>162</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "563">
+<component_release>564</component_release>
+<component_name>oracle.dbjava.jdbc</component_name>
+<component>163</component>
+<release_name>11.1.0.6.0</release_name>
+<release>80111060</release>
+</ROW>
+<ROW num = "564">
+<component_release>565</component_release>
+<component_name>oracle.dbjava.jdbc</component_name>
+<component>163</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "565">
+<component_release>566</component_release>
+<component_name>oracle.dbjava.jdbc</component_name>
+<component>163</component>
+<release_name>11.2.0.2.0</release_name>
+<release>80112020</release>
+</ROW>
+<ROW num = "566">
+<component_release>567</component_release>
+<component_name>oracle.dbjava.ic</component_name>
+<component>162</component>
+<release_name>11.2.0.2.0</release_name>
+<release>80112020</release>
+</ROW>
+<ROW num = "567">
+<component_release>568</component_release>
+<component_name>oracle.rdbms.rman</component_name>
+<component>68</component>
+<release_name>11.2.0.3.0</release_name>
+<release>80112030</release>
+</ROW>
+<ROW num = "568">
+<component_release>569</component_release>
+<component_name>oracle.rdbms.rman</component_name>
+<component>68</component>
+<release_name>11.2.0.1.0</release_name>
+<release>80112010</release>
+</ROW>
+<ROW num = "569">
+<component_release>570</component_release>
+<component_name>oracle.network.client</component_name>
+<component>161</component>
+<release_name>11.1.0.7.0</release_name>
+<release>80111070</release>
+</ROW>
+<ROW num = "570">
+<component_release>571</component_release>
+<component_name>oracle.network.client</component_name>
+<component>161</component>
+<release_name>11.2.0.2.0</release_name>
+<release>80112020</release>
+</ROW>
+<ROW num = "571">
+<component_release>572</component_release>
+<component_name>oracle.network.client</component_name>
+<component>161</component>
+<release_name>11.2.0.3.0</release_name>
+<release>80112030</release>
+</ROW>
+<ROW num = "572">
+<component_release>573</component_release>
+<component_name>oracle.network.client</component_name>
+<component>161</component>
+<release_name>11.2.0.1.0</release_name>
+<release>80112010</release>
+</ROW>
+<ROW num = "573">
+<component_release>574</component_release>
+<component_name>oracle.ovm</component_name>
+<component>140</component>
+<release_name>10.2.0.5.0</release_name>
+<release>80102050</release>
+</ROW>
+<ROW num = "574">
+<component_release>575</component_release>
+<component_name>oracle.ovm</component_name>
+<component>140</component>
+<release_name>11.2.0.1.0</release_name>
+<release>80112010</release>
+</ROW>
+<ROW num = "575">
+<component_release>576</component_release>
+<component_name>oracle.ovm</component_name>
+<component>140</component>
+<release_name>11.2.0.2.0</release_name>
+<release>80112020</release>
+</ROW>
+<ROW num = "576">
+<component_release>577</component_release>
+<component_name>oracle.ovm</component_name>
+<component>140</component>
+<release_name>11.2.0.3.0</release_name>
+<release>80112030</release>
+</ROW>
+<ROW num = "577">
+<component_release>578</component_release>
+<component_name>oracle.network.listener</component_name>
+<component>143</component>
+<release_name>10.2.0.5.0</release_name>
+<release>80102050</release>
+</ROW>
+</ROWSET>
