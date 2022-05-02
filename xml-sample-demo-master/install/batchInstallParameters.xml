@@ -1,0 +1,14 @@
+<InstallList>
+	<Demo name="XFILES"           user="XFILES" password="oracle"/>
+ 	<Demo name="ImageMetadata"    user="XDBEXT" password="oracle"/>
+	<Demo name="XMLSchemaWizard"  user="XFILES" password="oracle"/>
+	<Demo name="EVOLUTION"        user="SCOTT"  password="oracle"/>
+	<Demo name="FULLTEXT-LITE"    user="SCOTT"  password="oracle"/>
+	<Demo name="GENERATION"       user="SCOTT"  password="oracle"/>
+	<Demo name="INTRODUCTION"     user="SCOTT"  password="oracle"/>
+	<Demo name="NVPAIR"           user="SCOTT"  password="oracle"/> 
+	<Demo name="PARTITIONING"     user="SCOTT"  password="oracle"/>
+	<Demo name="REPOSITORY"       user="SCOTT"  password="oracle"/>
+	<Demo name="XMLDB-HOL"        user="SCOTT"  password="oracle"/>
+	<Demo name="XQUERY"           user="SCOTT"  password="oracle"/>
+</InstallList>		

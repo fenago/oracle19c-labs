@@ -1,0 +1,1 @@
+%ORACLEHOME%/bin/sqlldr.exe userid=%USER%/%PASSWORD%@%TNSALIAS% control=%DEMODIRECTORY%/%USER%/sqlldr/%TABLE_NAME%.ctl log=%DEMODIRECTORY%/%USER%/sqlldr/%TABLE_NAME%.log
