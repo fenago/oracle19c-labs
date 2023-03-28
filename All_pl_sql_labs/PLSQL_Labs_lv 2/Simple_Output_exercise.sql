@@ -1,0 +1,1 @@
+Lab Simple Ouptut1) Creata PL/SQL program which identifies an employees bonus  DECLARE  	incentive   NUMBER(8,2);     BEGIN  		SELECT salary * 0.12 INTO incentive  		FROM employees  		WHERE employee_id = 110;     DBMS_OUTPUT.PUT_LINE('Incentive  = ' || TO_CHAR(incentive));     END;     /

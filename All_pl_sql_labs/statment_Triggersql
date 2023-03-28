@@ -1,0 +1,19 @@
+drop table statmemnt_trigger;
+create table statment_trigger
+(statment varchar2(20),
+create_date timestamp);
+
+create or replace TRIGGER statment_trigger after
+update on HR.employees
+ begin
+  insert into statment_trigger
+  values ('Update',sysdate);
+  end;
+/
+
+select * from employees;
+
+select * From statment_trigger;
+
+update hr.employees
+set last_name = 'Smith';
