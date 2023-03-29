@@ -1,0 +1,7 @@
+userid=system/password1
+directory=dump_dir
+dumpfile=hr_employees_scram.dmp
+logfile=hr_employees_scram.log
+tables=hr.employees_scramble
+table_exists_action=truncate
+remap_data=hr.employees_scramble.salary:system.char_scramble_pkg.number_scramble,hr.employees_scramble.last_name:system.char_scramble_pkg.char_scramble,hr.employees_scramble.first_name:system.char_scramble_pkg.char_scramble,hr.employees_scramble.hire_date:char_scramble_pkg.date_scramble

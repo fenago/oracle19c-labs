@@ -1,0 +1,4 @@
+userid=system/password1
+directory=dump_dir
+dumpfile=hr_full.dmp
+schemas=hr
