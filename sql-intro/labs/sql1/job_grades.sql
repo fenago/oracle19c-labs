@@ -1,11 +1,11 @@
 CREATE TABLE job_grades (
-grade 		CHAR(1),
+grade_level 		CHAR(1),
 lowest_sal 	NUMBER(8,2) NOT NULL,
 highest_sal	NUMBER(8,2) NOT NULL
 );
 
 ALTER TABLE job_grades
-ADD CONSTRAINT jobgrades_grade_pk PRIMARY KEY (grade);
+ADD CONSTRAINT jobgrades_grade_pk PRIMARY KEY (grade_level);
 
 INSERT INTO job_grades VALUES ('A', 1000, 2999);
 INSERT INTO job_grades VALUES ('B', 3000, 5999);
