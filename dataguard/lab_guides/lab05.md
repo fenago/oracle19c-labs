@@ -10,7 +10,11 @@ In these practices, you will test the primary database changes that do not requi
 
 #### Tasks:
 
-1. **Connect to the Primary Database**:
+1. **Sync the passwords**:
+    - cd /u01/app/oracle/product/19.3/dbhome_1/dbs/
+    - mv ./orapworcldg /tmp
+    - cp orapworclcdb orapworcldg
+2. **Connect to the Primary Database**:
     - Open a terminal window and connect to `localhost` as the `oracle` OS user.
     - Use the `oraenv` utility to set the environment variables for the `orcldg` instance.
     ```bash
@@ -22,7 +26,7 @@ In these practices, you will test the primary database changes that do not requi
     sqlplus / as sysdba
     ```
 
-2. **List Users in the Password File**:
+3. **List Users in the Password File**:
     - In SQL*Plus, run the following:
     ```sql
     SELECT USERNAME, SYSDBA, SYSDG FROM V$PWFILE_USERS;
@@ -34,7 +38,7 @@ In these practices, you will test the primary database changes that do not requi
     SYS           TRUE       FALSE
     ```
 
-3. **Connect to the Standby Database**:
+4. **Connect to the Standby Database**:
     - Open a new terminal window.
     - Connect to `stndby` as the `oracle` OS user:
     ```bash
@@ -43,7 +47,7 @@ In these practices, you will test the primary database changes that do not requi
     - Use the `oraenv` utility to set the environment variables for the `orcldg` instance.
     - Invoke SQL*Plus and connect as `SYSDBA` to your standby database.
 
-4. **Check Standby's Password File**:
+5. **Check Standby's Password File**:
     - In SQL*Plus, run:
     ```sql
     SELECT USERNAME, SYSDBA, SYSDG FROM V$PWFILE_USERS;
@@ -55,12 +59,12 @@ In these practices, you will test the primary database changes that do not requi
     SYS           TRUE       FALSE
     ```
 
-5. **Stop Media Recovery Process (mrp0) on Standby**:
+6. **Stop Media Recovery Process (mrp0) on Standby**:
     ```sql
     ALTER DATABASE RECOVER MANAGED STANDBY DATABASE CANCEL;
     ```
 
-6. **Create a New User on the Primary Database**:
+7. **Create a New User on the Primary Database**:
     - Return to the terminal connected to the primary database (`orclcdb`).
     - Create a user named `c##dba` with a password of `dba`:
     ```sql
@@ -75,16 +79,16 @@ In these practices, you will test the primary database changes that do not requi
     SELECT USERNAME, SYSDBA, SYSDG FROM V$PWFILE_USERS;
     ```
 
-7. **Check Standby's Password File**:
+8. **Check Standby's Password File**:
     - Switch to the terminal session connected to `stndby`.
     - Review the output of `V$PWFILE_USERS`. The new user may not appear immediately due to the Media Recovery process being stopped.
 
-8. **Restart Media Recovery Process on Standby**:
+9. **Restart Media Recovery Process on Standby**:
     ```sql
     ALTER DATABASE RECOVER MANAGED STANDBY DATABASE DISCONNECT FROM SESSION;
     ```
 
-9. **Change Password and Test Connection**:
+10. **Change Password and Test Connection**:
     - Return to the terminal session connected to the primary (`orcldg`).
     - Change the password for the `c##dba` user:
     ```sql
@@ -92,7 +96,7 @@ In these practices, you will test the primary database changes that do not requi
     ```
     - Test the connection to the standby database (`stndby`) with the new password.
 
-10. **Cleanup**:
+11. **Cleanup**:
     - Drop the `c##dba` user from the primary:
     ```sql
     DROP USER c##dba CASCADE;
