@@ -89,8 +89,8 @@ SQL> alter system set ENABLED_PDBS_ON_STANDBY = "ORCLPDB1","DEV2";
 
 9. **Prepare DEV3**:
 
-- Return to the terminal session on `localhost` connected to the `orcldg` database.
-    - Create a directory for `DEV3` using SQL Developer.
+- Return to the terminal session on `localhost` connected to the `orclcdb` database.
+    - Create a directory for `DEV3`.
 
 ```
 SQL> !mkdir -p /u01/app/oracle/oradata/ORCLCDB/dev3
