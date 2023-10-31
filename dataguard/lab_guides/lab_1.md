@@ -195,7 +195,7 @@ more create_standby.sql
 
 Let's do a more on create standby. So, that's connecting to the source:
 
-`rman. target sys/fenago@orclcdb auxiliary sys/fenago@orcldg`
+`rman target sys/fenago@orclcdb auxiliary sys/fenago@orcldg`
 
 So now we are connected to the target database, which is the source, the auxiliary database,
 which is the destination. Now if it says ORCLCDB not mounted, that's right because remember the database 
