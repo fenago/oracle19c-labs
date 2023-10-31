@@ -4,7 +4,7 @@
 
 In these practices, you will test the primary database changes that do not require manual intervention at the standby database with the new features.
 
-### Practice 4-1: Refreshing the Password File
+### Refreshing the Password File
 
 **Objective:** Test the automatic password change propagation feature. As of Oracle Database 19c Release 2 (19.3.0.1), password file changes done on the primary database are automatically propagated to standby databases.
 
