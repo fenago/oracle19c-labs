@@ -1,19 +1,40 @@
-Start Redo Transport and Verify Operation
+# Oracle Data Guard 19c Lab Guide: Create a Logical Standby (Temporarily a Physical)
 
-Overview
-In this practice, you will start the redo transport from localhost to stndby for the new physical standby and verify operation.
+## Overview
 
-Tasks
-1.	Use a terminal window for localhost logged in as oracle with the environment variables set to orclcdb and start redo transport by defining log_archive_dest_3 pointing to the logical standby database.
-Note: For this step, we are configuring redo transportation from the primary database to the logical standby database This is designed to illustrate a typical configuration where the primary database transports redo directly to the standby site, and provide a little variation in the architecture. Again, this is for illustration only. At a later time, we will change this to use the far sync instance.
+In this lab, you'll get hands-on experience in preparing the `stndby2` to accommodate a logical standby database. You'll use both RMAN and SQL to accomplish this.
 
-2.	Determine the last sequence number archived on the primary database.
- 
-3.	Use a terminal window on stndby2
+---
 
+## Tasks:
 
-4.	 connected as oracle with the environment variables set to stndby2. Start SQL*Plus and determine the last sequence number of the physical standby instance.
+### 1. **Preparation**:
+   - Log into a terminal as `oracle` and connect to `orcl2`.
+   - Modify the `crdir_stndby.sh` script to reference `stndby2` and execute it. Alternatively, create the necessary directories manually.
+   - Note: We're leveraging the script from practice 3-2 to speed up the process.
 
-5.	Return to the terminal window of localhost, and force a log switch to advance the online redo log sequence number. Verify that the sequence number has increased.
- 
-6.	Return to the terminal window of stndby, and verify that the stndby physical standby instance is receiving redo from the primary database instance.
+### 2. **Configuration**:
+   - Edit the `initstndby2.ora` file, replacing all instances of `stndby` with `stndby2`.
+
+### 3. **Using RMAN for Duplication**:
+   - Connect to the target database via RMAN:
+     ```sql
+     RMAN target sys/fenago@orcl2 auxiliary sys/fenago@stndby2
+     ```
+   - Execute the command to create `stndby2`:
+     ```sql
+     RMAN> duplicate target database for standby from active database;
+     ```
+
+### 4. **Restoration and Memory Script Execution**:
+   - Follow the on-screen instructions to restore the database. This involves various commands and the execution of memory scripts that set up the necessary parameters and paths for the standby database.
+
+### 5. **Final Steps**:
+   - Once the duplication process is complete, allocate the necessary channels and initiate the managed recovery process for the standby database.
+   - Finally, release all allocated channels and connections.
+
+---
+
+## Conclusion:
+
+At the end of this lab, you will have successfully set up a temporary physical standby (`stndby2`) that can be later converted to a logical standby. This is crucial for scenarios where you want to maintain both physical and logical standbys for your primary database.
