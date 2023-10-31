@@ -4,6 +4,8 @@ Lab: Setting up Oracle data guard
 
 In this lab, we are going to look at your configuration and establish your configuration.
 
+Start oracle database/services before proceeding.
+
 Right click mouse and click open terminal:
 
 ![](./images/1.png)
@@ -31,7 +33,7 @@ and the secondary database is `orcldg`:
 Okay, so the primary is `orclcdb` and the secondary is `orcldg`.
 
 
-So, let's change environment variable back to the primary ORCLCDB:
+So, let's change environment variable back to the primary `orclcdb`:
 
 `. oraenv`
 
@@ -193,9 +195,9 @@ more create_standby.sql
 
 Let's do a more on create standby. So, that's connecting to the source:
 
-`RMAN target sys/fenago@orclcdb auxiliary sys/fenago@orcldg`
+`rman. target sys/fenago@orclcdb auxiliary sys/fenago@orcldg`
 
-So now we areconnected to the target database, which is the source, the auxiliary database,
+So now we are connected to the target database, which is the source, the auxiliary database,
 which is the destination. Now if it says ORCLCDB not mounted, that's right because remember the database 
 names have to be the same.
 
@@ -205,7 +207,7 @@ names have to be the same.
 
 So then to duplicate database, run the following command:
 
-`duplicate target database for standby from active_database`
+`duplicate target database for standby from active_database;`
 
 
 ![](./images/12.png)
