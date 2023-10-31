@@ -62,13 +62,13 @@ In these practices, you will test the primary database changes that do not requi
 
 6. **Create a New User on the Primary Database**:
     - Return to the terminal connected to the primary database (`orcldg`).
-    - Create a user named `CDBA` with a password of `dba`:
+    - Create a user named `c##dba` with a password of `dba`:
     ```sql
-    CREATE USER cdba IDENTIFIED BY dba;
+    CREATE USER c##dba IDENTIFIED BY dba;
     ```
-    - Grant `SYSDBA` and `CREATE SESSION` privileges to `cdba`:
+    - Grant `SYSDBA` and `CREATE SESSION` privileges to `c##dba`:
     ```sql
-    GRANT SYSDBA, CREATE SESSION TO cdba;
+    GRANT SYSDBA, CREATE SESSION TO c##dba container=all;
     ```
     - Review the output of `V$PWFILE_USERS` to confirm the new user:
     ```sql
@@ -86,16 +86,16 @@ In these practices, you will test the primary database changes that do not requi
 
 9. **Change Password and Test Connection**:
     - Return to the terminal session connected to the primary (`orcldg`).
-    - Change the password for the `CDBA` user:
+    - Change the password for the `c##dba` user:
     ```sql
-    ALTER USER cdba IDENTIFIED BY newpassword;
+    ALTER USER c##dba IDENTIFIED BY newpassword;
     ```
     - Test the connection to the standby database (`stndby`) with the new password.
 
 10. **Cleanup**:
-    - Drop the `cdba` user from the primary:
+    - Drop the `c##dba` user from the primary:
     ```sql
-    DROP USER cdba CASCADE;
+    DROP USER c##dba CASCADE;
     ```
     - Exit SQL*Plus on both the primary (`orcldg`) and standby (`stndby`), but keep the terminal windows open for subsequent labs.
 
