@@ -1,5 +1,55 @@
 # Oracle Data Guard 19c Lab Guide: Managing Physical Standby Files After Structural Changes on the Primary Database
 
+## Pre-requisite to this lab:
+### Tasks:
+
+1. **Connect to the Database Server**:
+    - Open a terminal window.
+    - Log in as the `oracle` user:
+    ```bash
+    su - oracle
+    ```
+
+2. **Set Environment Variables**:
+    - Ensure the environment variables are set for the `orcldg` standby database instance. Use the `oraenv` utility:
+    ```bash
+    . oraenv
+    ```
+    When prompted, provide the instance name as `orcldg`.
+
+3. **Mount the Standby Database**:
+    - Invoke SQL*Plus and connect as `SYSDBA`:
+    ```bash
+    sqlplus / as sysdba
+    ```
+    - If the database is currently open, shut it down:
+    ```sql
+    SHUTDOWN IMMEDIATE;
+    ```
+    - Start the database in `NOMOUNT` mode:
+    ```sql
+    STARTUP NOMOUNT;
+    ```
+    - Mount the standby database:
+    ```sql
+    ALTER DATABASE MOUNT STANDBY DATABASE;
+    ```
+
+4. **Verification**:
+    - To verify that the `orcldg` standby database is mounted properly, use the following command:
+    ```sql
+    SELECT DATABASE_ROLE, OPEN_MODE FROM V$DATABASE;
+    ```
+
+    Expected output should indicate the role as `PHYSICAL STANDBY` and the mode as `MOUNTED`.
+
+5. **End of Lab**:
+    - You can exit SQL*Plus and the terminal session, or keep them open for further operations.
+
+### Conclusion:
+
+You've successfully mounted the standby database `orcldg`. This is a crucial step in managing standby databases, especially when performing operations like starting the redo apply process or performing role transitions in Oracle Data Guard.
+
 ## Lesson 4: Practices Overview
 
 In these practices, you will test the primary database changes that do not require manual intervention at the standby database with the new features.
