@@ -1,4 +1,4 @@
-# Oracle Data Guard 19c Lab Guide: Starting the Oracle Environment
+# Oracle Data Guard 19c Lab Guide: Starting Primary DB in the Oracle Environment
 
 ## Objective:
 In this lab guide, you will learn how to start the Oracle environment, specifically the listener and the Oracle database.
