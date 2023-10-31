@@ -61,7 +61,7 @@ In these practices, you will test the primary database changes that do not requi
     ```
 
 6. **Create a New User on the Primary Database**:
-    - Return to the terminal connected to the primary database (`orcldg`).
+    - Return to the terminal connected to the primary database (`orclcdb`).
     - Create a user named `c##dba` with a password of `dba`:
     ```sql
     CREATE USER c##dba IDENTIFIED BY dba;
