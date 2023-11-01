@@ -62,7 +62,7 @@ This feature offers multiple advantages for Oracle Data Guard:
     ```
 
 5. **Insert Row in GTT on Standby Database**:
-    - Try to insert a row into the global temporary table on the standby database. Note that this is possible even if `TEMP_UNDO_ENABLED` is set to `FALSE` on the primary, as it's enabled by default on standby.
+    - Try to insert a row into the global temporary table on the standby database. Note that this is possible even if `TEMP_UNDO_ENABLED` is set to `TRUE` on the primary, as it's disabled by default on standby.
 
     ```
     SQL> INSERT INTO gtt01 VALUES(10,'ABC');
