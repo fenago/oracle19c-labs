@@ -29,10 +29,12 @@ Use the terminal session on `localhost`.
 Run following commands to set Active Data Guard Parameters:
 
     ```sql
-    ALTER SYSTEM SET temp_undo_enable=true;
+    ALTER SYSTEM SET temp_undo_enabled=true;
     ALTER SYSTEM SET adg_redirect_dml=true SCOPE=BOTH;
     SHOW PARAMETER adg_redirect_dml;
     ```
+
+![](./images/19.png)
 
 2. **Prepare the Standby Database**:
     - Use a terminal window logged in as `oracle` to `orcldg`.
@@ -50,6 +52,8 @@ Run following commands to set Active Data Guard Parameters:
     ```
     SQL> alter database open read only;
     ```
+
+    **Note:** You can ignore if you get already open error.
 
 3. **(Optional) Open the Standby Database**:
     - If the physical standby database is in the `MOUNT` state, stop the redo apply service and open the `orclpdb1` database in `READ ONLY` mode.
@@ -72,10 +76,12 @@ Run following commands to set Active Data Guard Parameters:
     Database altered.
     ```
 
-4. **Enable Real-Time Query**:
+4. **Confirm Database Open**:
     ```
     SQL> alter pluggable database ORCLPDB1 open;
     ```
+    
+    **Note:** You can ignore if you get already open error.
 
 4. **Enable Real-Time Query**:
     - Restart the Redo Apply process on the physical standby database running in the `READ ONLY` mode. This will enable the real-time query feature.
@@ -112,12 +118,11 @@ ORA-00942: table or view does not exist
 
 6. **Switch to the orclpdb1 PDB**:
 
-Switch the SQL*Plus session to the DEV1 pluggable database (PDB) and query the
-HR.REGIONS table again
+Switch the SQL*Plus session to the ORCLPDB1 pluggable database (PDB) and query the HR.REGIONS table again
 
 
 ```
-SQL> ALTER SESSION SET CONTAINER = DEV1;
+SQL> ALTER SESSION SET CONTAINER = ORCLPDB1;
 
 Session altered.
 
@@ -132,6 +137,7 @@ REGION_ID REGION_NAME
 SQL>
 ```
 
+![](./images/18.png)
 
 
 6. **Switch to the orclpdb1 PDB (Primary)**:
