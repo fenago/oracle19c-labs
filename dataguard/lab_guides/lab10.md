@@ -26,22 +26,22 @@ In this practice, you will set up the automatic redirection of DML operations fo
 
 5. **Test on Primary's PDB**:
     - Switch back to the terminal connected to `localhost`.
-    - Connect to the `DEV1` PDB for testing.
+    - Connect to the `ORCLPDB1` PDB for testing.
 
 6. **Create a Test Table**:
     - Create a table named `TEST01` and insert a sample row.
 
 7. **Connect to Standby's PDB**:
-    - Go to the terminal session for `stndby` and connect to the `DEV1` PDB.
+    - Go to the terminal session for `stndby` and connect to the `ORCLPDB1` PDB.
 
 8. **Display Test Table Data**:
     - Query and display data from the `TEST01` table.
 
 9. **Test DML Redirection on Standby**:
-    - Test the automatic redirection of DML in the current session. It's essential to log in to the `DEV1` PDB using a username/password combination rather than using the `ALTER SESSION SET CONTAINER` command.
+    - Test the automatic redirection of DML in the current session. It's essential to log in to the `ORCLPDB1` PDB using a username/password combination rather than using the `ALTER SESSION SET CONTAINER` command.
 
 10. **Re-login and Test DML Redirection**:
-    - Exit SQL*Plus, log back into the `DEV1` PDB, and test automatic redirection of DML again.
+    - Exit SQL*Plus, log back into the `ORCLPDB1` PDB, and test automatic redirection of DML again.
 
 11. **Verify DML Redirection on Primary**:
     - Return to the terminal session connected to `localhost`.

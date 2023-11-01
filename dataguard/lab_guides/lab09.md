@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this practice, you will work with private temporary tables in the `stndby` physical standby database and explore DML/DDL operations on these tables.
+In this practice, you will work with private temporary tables in the `orcldg` physical standby database and explore DML/DDL operations on these tables.
 
 Private temporary tables are advantageous in scenarios where:
 - A specific application stores temporary data in transient tables for a single-time population, infrequent reads, followed by a drop at the end of a transaction or session.
@@ -16,8 +16,8 @@ Private temporary tables are advantageous in scenarios where:
 ## Tasks:
 
 1. **Setup and Login**:
-    - Open a terminal window and log in as the `oracle` user to `stndby`.
-    - Ensure the environment variables are correctly set for `stndby`.
+    - Open a terminal window and log in as the `oracle` user to `orcldg`.
+    - Ensure the environment variables are correctly set for `orcldg`.
     - Log in as the `SYSTEM` user.
 
 2. **Attempt PTT Creation**:
@@ -42,7 +42,7 @@ Private temporary tables are advantageous in scenarios where:
     - Extract all information related to the PTT using the `show_ptt.sql` script.
 
 8. **Verify PTT Isolation**:
-    - Open another terminal window, log in as `oracle` to `stndby`, and set environment variables.
+    - Open another terminal window, log in as `oracle` to `orcldg`, and set environment variables.
     - Log in as the `SYSTEM` user and verify that the PTT created in the first session isn't visible in this second session.
 
 9. **Test PTT Lifetime (Transaction Duration)**:
@@ -61,7 +61,7 @@ Private temporary tables are advantageous in scenarios where:
     - Issue a `COMMIT` statement and then retrieve information about the PTT. Since its duration is `SESSION`, the PTT should persist post-commit.
 
 14. **Cleanup**:
-    - Exit SQL*Plus on both `localhost` and `stndby`, but keep the terminal windows open for subsequent labs.
+    - Exit SQL*Plus on both `localhost` and `orcldg`, but keep the terminal windows open for subsequent labs.
 
 ---
 
