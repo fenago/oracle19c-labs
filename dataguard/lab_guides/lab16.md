@@ -49,8 +49,8 @@ In this lab, you'll transition the newly established physical standby database, 
 ### 9. **Initiate SQL Apply**:
    - Commence SQL Apply to instigate the application of redo data arriving from the primary database.
 
-### 10. **Open the DEV1 PDB**:
-   - Activate the `DEV1` PDB and confirm the mode it operates in.
+### 10. **Open the ORCLPDB1 PDB**:
+   - Activate the `ORCLPDB1` PDB and confirm the mode it operates in.
 
 ### 11. **Session Conclusion**:
    - Conclude any active SQL*Plus sessions on all host systems. However, ensure that terminal session windows remain active with the environment variables in place.
