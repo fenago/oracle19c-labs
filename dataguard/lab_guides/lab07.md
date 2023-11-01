@@ -1,6 +1,6 @@
 # Oracle Data Guard 19c Lab Guide: Using Oracle Active Data Guard
 
-## Lesson 7: Supported Workloads in Read-Only Standby
+## Supported Workloads in Read-Only Standby
 
 ### Practices Overview
 
