@@ -34,6 +34,21 @@ Note:  all passwords are on the file on the desktop
    /u02/middleware/bin/emctl status oms
    ```
 
+3. **Start EM Agent**:
+   - Run the following command to start the EM Agent:
+
+    ```bash
+   /u02/agent/agent_inst/bin/emctl start agent
+   ```
+
+   - To check EM agent status, run the following command:
+
+   ```bash
+   /u02/agent/agent_inst/bin/emctl status agent
+   ```
+
+
+
 ---
 
 ## Tasks:
