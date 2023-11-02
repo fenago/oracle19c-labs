@@ -54,7 +54,7 @@ Note:  all passwords are on the file on the desktop
    - Click on the Firefox Web Browser icon to access Enterprise Manager 13c.
 
 ### 2. **Access Cloud Control**:
-   - Input the URL for Cloud Control specific to your setup: `http://HOST_IP:7803/em`
+   - Input the URL for Cloud Control specific to your setup: `https://HOST_IP:7803/em`
 
    **Note:** If you have OEM installed locally, you can replace host_ip with **localhost**.
 
