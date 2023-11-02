@@ -29,13 +29,14 @@ In this exercise, you'll utilize DGMGRL for both local and remote connections. T
 
 ### 3. **Update CommunicationTimeout**:
    - Adjust the `CommunicationTimeout` property to 300. Confirm the change.
-     > **Note**: Regularly, this isn't required, but it aids labs in the VM architecture.
 
    ```
    DGMGRL> edit configuration set property 'CommunicationTimeout' = 300;
 
    DGMGRL> show configuration verbose
    ```
+
+> **Note**: Regularly, this isn't required, but it aids labs in the VM architecture.
 
 ### 4. **Update OperationTimeout**:
    - Modify the `OperationTimeout` property to its maximum of 300. Verify the change.
@@ -61,7 +62,7 @@ In this exercise, you'll utilize DGMGRL for both local and remote connections. T
    ```
 
 ### 7. **Log Switch on Primary**:
-   - Stay in DGMGRL and compel a log switch on the primary database. Remember, you're currently connected to the primary.
+   - Without exiting DGMGRL, force a log switch on the primary database.
 
    ```
    DGMGRL> SQL "alter system switch logfile";
@@ -97,7 +98,13 @@ In this exercise, you'll utilize DGMGRL for both local and remote connections. T
 ### 15. **Restart Redo Apply**:
    - Reactivate redo apply on the physical standby database. After a brief pause post-activation, ensure the apply lag is resolved. Conclude your DGMGRL session afterward.
 
----
+   ```
+   DGMGRL> edit database stndby set state = 'APPLY-ON';
+
+   DGMGRL> show database stndby
+
+   DGMGRL> exit;
+   ```
 
 ## Conclusion:
 
