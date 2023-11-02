@@ -23,14 +23,14 @@ In this exercise, you'll discover and scrutinize the Data Guard log and trace fi
    - Transition to the `trace` subdirectory in the ADR home, which is found at `<diagnostic_dest>/diag/rdbms/<dbname>/<instance_name>`.
 
    ```
-   [oracle@localhost]$ cd /u01/app/oracle/diag/rdbms/orcl2/orcl2/trace
+   [oracle@localhost]$ cd /u01/app/oracle/diag/rdbms/orclcdb/orclcdb/trace
    ```
 
 ### 3. **Check Data Guard Broker Log**:
    - Confirm that past commands that altered the state of redo apply and connection timeout are logged in the Data Guard broker log. This log is dubbed `drc<db_unique_name>.log`.
 
    ```
-   [oracle@localhost trace]$ grep CommunicationTimeout drcorcl2.log  EDIT 
+   [oracle@localhost trace]$ grep CommunicationTimeout drcorclcdb.log  EDIT 
 
    [oracle@localhost trace]$ grep APPLY drcorclcdb.log$
    ```
