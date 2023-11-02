@@ -7,6 +7,35 @@ In this exercise, you will identify the components of the Data Guard broker conf
 Note:  all passwords are on the file on the desktop
 
 
+## Starting OEM (Oracle Enterprise Manager):
+
+1. **Access Terminal**:
+   - Open a terminal window on your machine.
+   
+2. **Navigate to OEM Directory**:
+   - Set ORACLE_SID = `orcloem` using oraenv and make sure orcloem database is started:
+
+   ```
+   . oraenv
+   sqlplus / as sysdba
+   startup
+   ```
+
+3. **Start OEM**:
+   - Run the following command to start OEM:
+
+   ```bash
+   /u02/middleware/bin/emctl start oms
+   ```
+
+   - To check OMS status, run the following command:
+
+   ```bash
+   /u02/middleware/bin/emctl status oms
+   ```
+
+---
+
 ## Tasks:
 
 ### 1. **Access Enterprise Manager via Firefox**:
@@ -77,24 +106,6 @@ Note:  all passwords are on the file on the desktop
 
 ---
 
-## Starting OEM (Oracle Enterprise Manager):
-
-1. **Access Terminal**:
-   - Open a terminal window on your machine.
-   
-2. **Navigate to OEM Directory**:
-   - Change directory to where the OEM binaries reside, typically:
-     ```bash
-     cd $ORACLE_HOME/bin
-     ```
-
-3. **Start OEM**:
-   - Run the following command to start OEM:
-     ```bash
-     emctl start oms
-     ```
-
----
 
 ## Conclusion:
 
