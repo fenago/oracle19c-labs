@@ -5,7 +5,7 @@
 In this exercise, you will identify the components of the Data Guard broker configuration. Moreover, you will investigate and confirm the Data Guard broker setup via Enterprise Manager Cloud Control 13c.
 
 Note:  all passwords are on the file on the desktop
----
+
 
 ## Tasks:
 
@@ -15,21 +15,34 @@ Note:  all passwords are on the file on the desktop
 ### 2. **Access Cloud Control**:
    - Input the URL for Cloud Control specific to your setup.
 
+![](./images/e1.png)
+
 ### 3-4. **Log into Enterprise Manager Cloud Control 13c**:
    - Use the username `sysman` and the respective password (it's case-sensitive).
 
 ### 5. **Navigate to Databases Page**:
    - If you're not already on the Databases page, go there by selecting `Targets`, then `Databases` from the dropdown.
 
+![](./images/e2.png)
+
 ### 6. **Access orclcdb Target**:
    - Click the link corresponding to the `orclcdb` target.
+
+![](./images/e3.png)
 
 ### 7. **Access Data Guard Administration**:
    - From the orclcdb database homepage, choose `Data Guard Administration` from the `Availability` menu.
 
+
+![](./images/e4.png)
+
 > **Optional**: If only the `Add Standby Database` link is visible, click it. This will redirect you to the Data Guard home page instead of starting the Add Standby Database Wizard. 
-> 
+
+![](./images/e5.png)
+
 > **Optional**: If you're brought to the `Add Standby Database` page, simply click `Cancel` to get to the Data Guard home page.
+
+![](./images/e6.png)
 
 ### 8. **Database Login**:
    - On the Database Login Page, opt for `New` under the Credential option and input:
@@ -38,6 +51,8 @@ Note:  all passwords are on the file on the desktop
      - Role: `SYSDBA`
      - Save As: `NC_ORCLCDB_SYS`
    - Click `Login`.
+
+![](./images/e7.png)
 
 ### 9. **Data Guard Home Page**:
    - On this page, you'll see the Data Guard configuration you set up earlier.

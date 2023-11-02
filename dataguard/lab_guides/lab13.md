@@ -10,7 +10,7 @@ In this lab, you will inspect the primary database to discern which objects will
 
 ### 1. **Setup and Preliminary Checks**:
    - On `localhost`, open a terminal window and connect as `oracle`.
-   - Ensure the environment variables are set to `orcl2`.
+   - Ensure the environment variables are set to `orclcdb`.
    - Launch SQL*Plus.
    - Make sure all pluggable databases are accessible for queries. If any pluggable database is in the `MOUNTED` state or shut down, the subsequent steps might not yield comprehensive results.
 

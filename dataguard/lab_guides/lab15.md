@@ -9,7 +9,7 @@ In this lab, you'll get hands-on experience in preparing the `stndby2` to accomm
 ## Tasks:
 
 ### 1. **Preparation**:
-   - Log into a terminal as `oracle` and connect to `orcl2`.
+   - Log into a terminal as `oracle` and connect to `orclcdb`.
    - Modify the `crdir_stndby.sh` script to reference `stndby2` and execute it. Alternatively, create the necessary directories manually.
    - Note: We're leveraging the script from practice 3-2 to speed up the process.
 
@@ -19,7 +19,7 @@ In this lab, you'll get hands-on experience in preparing the `stndby2` to accomm
 ### 3. **Using RMAN for Duplication**:
    - Connect to the target database via RMAN:
      ```sql
-     RMAN target sys/fenago@orcl2 auxiliary sys/fenago@stndby2
+     RMAN target sys/fenago@orclcdb auxiliary sys/fenago@stndby2
      ```
    - Execute the command to create `stndby2`:
      ```sql

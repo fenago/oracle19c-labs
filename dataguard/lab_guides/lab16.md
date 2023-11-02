@@ -13,7 +13,7 @@ In this lab, you'll transition the newly established physical standby database, 
    - Cease the redo apply on the `stndby2` physical standby.
 
 ### 2. **Building the LogMiner Dictionary**:
-   - Using a terminal window on localhost and connected as `oracle` with environment variables set to `orcl2`, initiate the process to integrate the LogMiner dictionary into the redo stream.
+   - Using a terminal window on localhost and connected as `oracle` with environment variables set to `orclcdb`, initiate the process to integrate the LogMiner dictionary into the redo stream.
    - It's imperative to await the completion of this step before continuing with subsequent tasks.
 
 ### 3. **Redo Data Application**:

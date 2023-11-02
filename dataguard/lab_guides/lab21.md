@@ -9,7 +9,13 @@ In this exercise, you'll discover and scrutinize the Data Guard log and trace fi
 ## Tasks:
 
 ### 1. **Locate ADR's Root Directory**:
-   - In a terminal on localhost, with environment variables set to `orcl2`, connect to the primary database via SQL*Plus. Identify the root directory for the Automatic Diagnostic Repository (ADR). Close SQL*Plus afterward.
+   - In a terminal on localhost, with environment variables set to `orclcdb`, connect to the primary database via SQL*Plus. Identify the root directory for the Automatic Diagnostic Repository (ADR). Close SQL*Plus afterward.
+
+```
+[oracle@localhost ~]$ sqlplus / as sysdba
+
+
+```
 
 ### 2. **Navigate to ADR's Trace Subdirectory**:
    - Transition to the `trace` subdirectory in the ADR home, which is found at `<diagnostic_dest>/diag/rdbms/<dbname>/<instance_name>`.
