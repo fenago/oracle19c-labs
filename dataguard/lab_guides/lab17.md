@@ -4,7 +4,7 @@
 
 In this lab, you'll engage with the DGMGRL utility to establish both local and remote connections. The primary database's password file will be updated, and then it will be propagated to all destinations in the Data Guard configuration.
 
-> **Note**: The `oracle` user is affiliated with the `dgdba` group. As part of the class setup, this group was linked with the SYSDG privilege for Data Guard.
+> **Note**: The `oracle` user is affiliated with the `dgdba` group. As part of the class setup, this group was linked with the SYSDG privilege for Data Guard.  Also, you may need to unlock the account
 > The `sysdg` grant is exemplified as:
 
    > ```sql
