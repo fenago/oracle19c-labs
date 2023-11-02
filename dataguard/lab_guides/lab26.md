@@ -1,11 +1,9 @@
-
-
-Practice 13-4: Using SQL Tuning Advisor for an Active Data Guard Instance
--------------------------------------------------------------------------
+Lab: Using SQL Tuning Advisor for an Active Data Guard Instance
+---------------------------------------------------------------
 
 ### Overview
 
-> In this practice, you will see how to use SQL Tuning Advisor for
+> In this lab, you will see how to use SQL Tuning Advisor for
 > Active Data Guard.
 >
 > The Active Data Guard (ADG) Databases are widely used to offload
@@ -13,9 +11,6 @@ Practice 13-4: Using SQL Tuning Advisor for an Active Data Guard Instance
 > profile is different from primary and often requires tuning. Starting
 > with Oracle Database 12.2, you can run SQL Tuning Advisor to tune SQLs
 > workloads running on ADG database.
-
-![](media/image40.jpeg){width="6.214055118110236in"
-height="1.6163538932633421in"}
 
 -   All changes are done on primary and propagated from primary to
     standby by redo apply.
@@ -39,17 +34,71 @@ height="1.6163538932633421in"}
     environment variables set for orclcdb appropriately. Log in to the
     DEV1 PDB as the SYS user and run the setup13- 4.sql script.
 
+    ```
+    [oracle@localhost ~]$ . oraenv
+    ORACLE_SID = [oracle] ? orclcdb
+    The Oracle base remains unchanged with value /u01/app/oracle
+
+    [oracle@localhost ~]$ sqlplus sys/<password>@localhost:1521/dev1 as sysdba
+
+    SQL> @/home/oracle/setup/setup13-4.sql
+    SQL> exec dbms_stats.delete_table_stats('OE','orders'); PL/SQL procedure successfully completed.
+    SQL> exec dbms_stats.delete_table_stats('OE','order_items); PL/SQL procedure successfully completed.
+    ```
+
 3.  Switch to the CDB root container and create a database link in the
     primary database for the standby database.
+
+    ```
+    SQL> connect / as sysdba
+
+    SQL> CREATE DATABASE LINK dblink_to_primary CONNECT TO SYS$UMF IDENTIFIED BY <password> USING 'orclcdb';
+    ```
 
 4.  Use a terminal window logged in as oracle to stndby with the
     environment variables set for stndby appropriately. Launch SQL\*Plus
     and run the problem query in the DEV1 PDB.
 
+    ```
+    [oracle@stndby ~]$ . oraenv
+    ORACLE_SID = [oracle] ? stndby
+    The Oracle base remains unchanged with value /u01/app/oracle 
+
+    [oracle@stndby ~]$ sqlplus / as sysdba
+
+    SQL> alter session set container=dev1;
+
+    SQL> show pdbs
+
+    SQL> @/home/oracle/setup/problem_query.sql
+
+    
+    3	SQL> SELECT /* problem_query */
+    4	   SUM(UNIT_PRICE *1.10) revenue, o.order_id   --, order_status, order_datetime
+    5	   FROM Order_items I join orders o
+    6	   On o.order_id = i.order_id
+    7	   WHERE o.order_datetime < sysdate
+    8	   group by o.order_id          
+    1950 rows
+    SQL>
+    ```
+
 5.  Find sql\_id of the problem query.
+
+    ```
+    SQL> select sql_id, sql_text from v$sql where sql_text like '%problem_query%';
+    ```
 
 6.  Open a new terminal window logged in as oracle to stndby with the
     environment variables set for stndby appropriately.
+
+    ```
+    [oracle@stndby ~]$ . oraenv
+    ORACLE_SID = [oracle] ? stndby
+    The Oracle base has been set to /u01/app/oracle 
+    
+    [oracle@stndby ~]$ sqlplus / as sysdba
+    ```
 
 7.  In the same terminal session, verify that the sql\_id of the problem
     query is visible. **Note:** At times, the problem query doesn't
@@ -57,151 +106,70 @@ height="1.6163538932633421in"}
     is the case, return to the terminal session used in step 4 and run
     the problem\_query.sql script again.
 
+    ```
+    SQL> select sql_id, sql_text from v$sql where sql_text like '%problem_query%';
+    ```
+
 8.  Create a SQL Tuning Task.
 
-> ![](media/image42.jpeg){width="6.096527777777778in"
-> height="1.7944444444444445in"}**Note:** If you receive ORA-13780: SQL
-> statement does not exist, return to the terminal session used in step
-> 4 and run the problem\_query.sql script again.
+    ![](./images/25.png)
 
-9.  ![](media/image43.jpeg){width="6.21875in"
-    height="1.8506944444444444in"}Execute the SQL Tuning Task.
+    ```
+    SQL> @/home/oracle/setup/create_sts.sql
+    SQL> set echo on SQL> DECLARE
+    2	stmt_task VARCHAR2(64);
+    3	BEGIN
+    4	stmt_task:=dbms_sqltune.create_tuning_task(sql_id => 'an7zryzf86prm', task_name => 'Tune_problem_query', database_link_to => 'DBLINK_TO_PRIMARY.EXAMPLE.COM');
+    5	END;
+    6 /
+
+    PL/SQL procedure successfully completed.
+    ```
+
+    **Note:** If you receive ORA-13780: SQL
+    > statement does not exist, return to the terminal session used in step
+    > 4 and run the problem\_query.sql script again.
+
+9.  Execute the SQL Tuning Task.
+
+    ![](./images/26.png)
+
+    ```
+    SQL> @/home/oracle/setup/exec_sts.sql
+    SQL> set echo on
+    SQL> EXECUTE dbms_sqltune.execute_tuning_task(task_name => 'Tune_problem_query');
+    ```
 
 10. Generate the SQL Tuning Task report.
 
-> ![](media/image45.jpeg){width="6.209722222222222in"
-> height="1.8319444444444444in"}**Note:** The result varies.
->
-> Scope : COMPREHENSIVE
->
-> Time Limit(seconds): 1800 Completion Status : COMPLETED Started at :
-> 06/05/2020 22:21:31
->
-> Completed at : 06/05/2020 22:21:35
->
-> Schema Name : OE Container Name: DEV1
->
-> SQL ID : an7zryzf86prm
->
-> SQL Text : SELECT /\* problem\_query \*/ SUM(lo\_extendedprice \*
-> lo\_discount) revenue FROM oe.lineorder l, oe.date\_dim d
->
-> WHERE l.lo\_orderdate = d.d\_datekey
->
-> FINDINGS SECTION (2 findings)
+    ![](./images/27.png)
 
-1.  Statistics Finding
+    ```
+    SQL> @/home/oracle/setup/get_sts.sql
+    ```
 
-> Table \"OE\".\"DATE\_DIM\" was not analyzed.
->
-> Recommendation
+11. Return to the terminal session connected to localhost. Switch to the DEV1 container.
 
--   Consider collecting optimizer statistics for this table. execute
-    dbms\_stats.gather\_table\_stats(ownname =\> \'OE\',
+    ```
+    SQL> show con_name
 
-> tabname =\>
->
-> \'DATE\_DIM\', estimate\_percent =\> DBMS\_STATS.AUTO\_SAMPLE\_SIZE,
->
-> method\_opt =\> \'FOR ALL COLUMNS SIZE AUTO\');
->
-> Rationale
->
-> The optimizer requires up-to-date statistics for the table in order to
-> select a good execution plan.
-
-2.  Statistics Finding
-
-> Table \"OE\".\"order\_items\" was not analyzed.
->
-> Recommendation
-
--   Consider collecting optimizer statistics for this table. execute
-    dbms\_stats.gather\_table\_stats(ownname =\> \'OE\',
-
-> tabname =\>
->
-> \'ORDER\_ITEMS\', estimate\_percent =\>
-> DBMS\_STATS.AUTO\_SAMPLE\_SIZE,
->
-> method\_opt =\> \'FOR ALL COLUMNS SIZE AUTO\');
->
-> Rationale
->
-> The optimizer requires up-to-date statistics for the table in order to
->
-> select a good execution plan.
->
-> EXPLAIN PLANS SECTION
->
-> 1- Original
->
-> Plan hash value: 2963256899
-
-+---------+----------------+----+-----------+--------+-----------------------------+
-| > \| Id | > \| Operation | \| | > Name \| | > Rows | > \| Bytes \| Cost (%CPU)\| |
-+=========+================+====+===========+========+=============================+
-| > Time  | > \|           |    |           |        |                             |
-+---------+----------------+----+-----------+--------+-----------------------------+
-
-> \| 0 \| SELECT STATEMENT \| \| 1 \| 52 \| 6448
->
-> (1)\| 00:00:01 \|
-
-+--------+---+----+------------------+------+------+-----------------+-------+---------+
-| > \|   | 1 | \| | > SORT AGGREGATE | > \| |      | > \| 1 \|       | 52 \| |         |
-| >      |   |    | >                |      |      |                 |       |         |
-| > \|   |   |    | > \|             |      |      |                 |       |         |
-+========+===+====+==================+======+======+=================+=======+=========+
-| > \|\* | 2 | \| | > HASH JOIN      | > \| | > \| | > 1610K\| 79M\| | 6448  | > (1)\| |
-+--------+---+----+------------------+------+------+-----------------+-------+---------+
-
-> 00:00:01 \|
->
-> \| 3 \| TABLE ACCESS FULL\| DATE\_DIM \| 2556 \| 33228 \| 12
->
-> (0)\| 00:00:01 \|
->
-> \| 4 \| TABLE ACCESS FULL\| LINEORDER \| 1610K\| 59M\| 6431
->
-> (1)\| 00:00:01 \|
->
-> Query Block Name / Object Alias (identified by operation id):
->
-> 1 - SEL\$1
-
-3.  \- SEL\$1 / D\@SEL\$1
-
-4.  \- SEL\$1 / L\@SEL\$1
-
-> Predicate Information (identified by operation id):
->
-> 2 - access(\"L\".\"LO\_ORDERDATE\"=\"D\".\"D\_DATEKEY\")
->
-> Column Projection Information (identified by operation id):
-
-1.  \- (\#keys=0) SUM(\"LO\_EXTENDEDPRICE\"\*\"LO\_DISCOUNT\")\[22\]
-
-2.  \- (\#keys=1; rowset=256) \"LO\_DISCOUNT\"\[NUMBER,22\],
-    > \"LO\_EXTENDEDPRICE\"\[NUMBER,22\]
-
-3.  \- (rowset=256) \"D\".\"D\_DATEKEY\"\[NUMBER,22\]
-
-4.  \- (rowset=256) \"L\".\"LO\_ORDERDATE\"\[NUMBER,22\],
-    > \"LO\_EXTENDEDPRICE\"\[NUMBER,22\], \"LO\_DISCOUNT\"\[NUMBER,22\]
-
-> Note
->
-> \- dynamic statistics used: dynamic sampling (level=2)
-
-11. Return to the terminal session connected to localhost. Switch to the
-    > DEV1 container.
+    SQL> alter session set container=dev1;
+    ```
 
 12. Optionally, implement the recommendations.
 
-> **Note:** If the recommendation is about the implementation of a
-> profile, you can accept the profile directly in the standby database.
-> The accepted profile is written to the primary database. Then the same
-> profile is available in the standby database via redo apply.
+    > **Note:** If the recommendation is about the implementation of a
+    > profile, you can accept the profile directly in the standby database.
+    > The accepted profile is written to the primary database. Then the same
+    > profile is available in the standby database via redo apply.
+
+    ```
+    SQL> execute dbms_stats.gather_table_stats(ownname => 'OE', tabname => 'ORDER_ITEMS, estimate_percent => DBMS_STATS.AUTO_SAMPLE_SIZE, method_opt => 'FOR ALL COLUMNS SIZE AUTO');
+
+    PL/SQL procedure successfully completed.
+
+    SQL> execute dbms_stats.gather_table_stats(ownname => 'OE',tabname => 'ORDERS', estimate_percent => DBMS_STATS.AUTO_SAMPLE_SIZE, method_opt => 'FOR ALL COLUMNS SIZE AUTO');
+    PL/SQL procedure successfully completed. SQL>
+    ```
 
 13. Exit SQL\*Plus on all hosts leaving the current terminal windows.
