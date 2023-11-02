@@ -46,9 +46,6 @@ Note:  all passwords are on the file on the desktop
    ```bash
    /u02/agent/agent_inst/bin/emctl status agent
    ```
-
-
-
 ---
 
 ## Tasks:
@@ -62,8 +59,24 @@ Note:  all passwords are on the file on the desktop
    **Note:** If you have OEM installed locally, you can replace host_ip with **localhost**.
 
 
-### 3-4. **Log into Enterprise Manager Cloud Control 13c**:
+### 3. **Log into Enterprise Manager Cloud Control 13c**:
    - Use the username `sysman` and the respective password (it's case-sensitive).
+
+
+### 4. **Autodiscover orcldg**:
+
+You can autodiscover the orcldg by doing:
+
+- `Setup` > `Add Target` > `Add Targets Manually` > `Add Using Guided Process`
+- Click on the "Oracle Database, Listener...." and Add..
+- Click magnifying glass next to host and then select the only host found, then hit next
+- Processing will take 30-60 seconds
+- Check the orcldg database and then click "Specify Common Monitoring Credentials"
+- Change role to sysdba and enter sys and fenago for ID and password
+- Click "Configure" and change Listener Machine to be "localhost"
+- After that test connection
+- Click next and then save
+
 
 ### 5. **Navigate to Databases Page**:
    - If you're not already on the Databases page, go there by selecting `Targets`, then `Databases` from the dropdown.
