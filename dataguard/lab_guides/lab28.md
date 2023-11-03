@@ -125,7 +125,7 @@ It will not launch the Add Standby Database Wizard, but instead, will navigate t
 > during the switchover or failover. SESSION means user sessions are
 > retained during a switchover or failover.
 
-13. Open the DEV1 PDB and start the Media Recovery Process. Exit
+13. Open the ORCLPDB1 PDB and start the Media Recovery Process. Exit
     SQL\*Plus.
 
 > **Note:** If the Media Recovery process is already running, you will
@@ -133,7 +133,7 @@ It will not launch the Add Standby Database Wizard, but instead, will navigate t
 > error message. You can safely proceed to the next step.
 
     ```
-    SQL> alter pluggable database dev1 open;
+    SQL> alter pluggable database orclpdb1 open;
 
     Pluggable database altered.
 
@@ -151,7 +151,7 @@ It will not launch the Add Standby Database Wizard, but instead, will navigate t
 14. Now, let's establish a new session for testing.
 
     ```
-    [oracle@localhost ~]$ sqlplus oe/<password>@localhost:1521/dev1.example.com
+    [oracle@localhost ~]$ sqlplus oe/<password>@localhost:1521/orclpdb1.example.com
 
     SQL*Plus: Release 19.0.0.0.0 - Production on Sat Jun 6 08:57:31 2020
     Version 19.3.0.0.0

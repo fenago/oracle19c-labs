@@ -30,15 +30,15 @@ Lab: Recovering a Data File on Your Primary Database Over the Network
 
 2.  Use a terminal window logged in as oracle to localhost with the
     environment variables set for orclcdb appropriately. Launch
-    SQL\*Plus and create a new tablespace SAMPLE in the DEV1 pluggable
-    database with a data file `/u01/app/oracle/oradata/orclcdb/dev1/sample01.dbf` and a size of 5 MB.
+    SQL\*Plus and create a new tablespace SAMPLE in the ORCLPDB1 pluggable
+    database with a data file `/u01/app/oracle/oradata/orclcdb/orclpdb1/sample01.dbf` and a size of 5 MB.
 
     ```
     [oracle@localhost ~]$ sqlplus / as sysdba
 
-    SQL> alter session set container=DEV1;
+    SQL> alter session set container=ORCLPDB1;
 
-    SQL> create tablespace SAMPLE datafile '/u01/app/oracle/oradata/ORCLCDB/dev1/sample01.dbf' size 5M;
+    SQL> create tablespace SAMPLE datafile '/u01/app/oracle/oradata/ORCLCDB/orclpdb1/sample01.dbf' size 5M;
     ```
 
 
@@ -46,7 +46,7 @@ Lab: Recovering a Data File on Your Primary Database Over the Network
     show the standby\_file\_management parameter.
 
     ```
-    SQL> connect sys/<password>@stndby as sysdba
+    SQL> connect sys/<password>@orcldg as sysdba
 
     SQL> show parameter standby_file_management
     ```
@@ -77,7 +77,7 @@ Lab: Recovering a Data File on Your Primary Database Over the Network
     tablespace. Exit SQL\*Plus.
 
     ```
-    SQL> connect system/<password>@localhost:1521/DEV1.example.com
+    SQL> connect system/<password>@localhost:1521/ORCLPDB1.example.com
     Connected.
 
     SQL> create table hr.employees2 tablespace sample as select * from hr.employees;
@@ -96,8 +96,8 @@ Lab: Recovering a Data File on Your Primary Database Over the Network
     the primary database.
 
     ```
-    SQL> !mv /u01/app/oracle/oradata/ORCLCDB/dev1/sample01.dbf
-    /u01/app/oracle/oradata/ORCLCDB/dev1/sample01.sav
+    SQL> !mv /u01/app/oracle/oradata/ORCLCDB/orclpdb1/sample01.dbf
+    /u01/app/oracle/oradata/ORCLCDB/orclpdb1/sample01.sav
     ```
 
 10. Connect to the root container and shut down abort the primary
@@ -118,7 +118,7 @@ Lab: Recovering a Data File on Your Primary Database Over the Network
 
     SQL> startup
 
-    SQL> alter pluggable database dev1 open;
+    SQL> alter pluggable database orclpdb1 open;
 
     SQL> exit
     ```
@@ -129,7 +129,7 @@ Lab: Recovering a Data File on Your Primary Database Over the Network
     ```
     [oracle@localhost ~]$ rman target sys/<password>@orclcdb
 
-    RMAN> restore datafile 25 from service 'stndby';
+    RMAN> restore datafile 25 from service 'orcldg';
 
     RMAN> recover datafile 25;
 
@@ -148,7 +148,7 @@ Lab: Recovering a Data File on Your Primary Database Over the Network
     table.
 
     ```
-    SQL> alter session set container = DEV1;
+    SQL> alter session set container = ORCLPDB1;
 
     SQL> select * from hr.employees2;
     ```

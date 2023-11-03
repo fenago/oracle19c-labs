@@ -51,5 +51,5 @@ Practice 17-4: Configuring RMAN Parameters
     ```
     RMAN> report schema for db_unique_name orcldg;
 
-    RMAN> report schema for db_unique_name stndby;
+    RMAN> report schema for db_unique_name orcldg;
     ```

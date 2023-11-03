@@ -4,7 +4,7 @@ Practice 18-1: Creating and Testing Primary Database Services
 
 ### Overview
 
-> In this practice, you will create and test a service for the DEV1
+> In this practice, you will create and test a service for the ORCLPDB1
 > pluggable database on the primary database, and follow that service as
 > it migrates from localhost to orcldg during switchover exercises.
 
@@ -12,7 +12,7 @@ Practice 18-1: Creating and Testing Primary Database Services
 
 1.  Use a terminal window logged in as oracle to localhost with the
     environment variables set for orclcdb appropriately. Launch
-    SQL\*Plus and set the session container to the DEV1 pluggable
+    SQL\*Plus and set the session container to the ORCLPDB1 pluggable
     database.
 
     ```
@@ -22,7 +22,7 @@ Practice 18-1: Creating and Testing Primary Database Services
     
     [oracle@localhost ~]$ sqlplus / as sysdba
 
-    SQL> alter session set container=dev1;
+    SQL> alter session set container=orclpdb1;
     ```
 
 
@@ -67,7 +67,7 @@ Practice 18-1: Creating and Testing Primary Database Services
     SQL> select instance_name from v$instance;
     ```
 
-6.  Verify that your connection has been established with the DEV1
+6.  Verify that your connection has been established with the ORCLPDB1
     pluggable database and not the root container.
 
     ```
@@ -75,10 +75,10 @@ Practice 18-1: Creating and Testing Primary Database Services
     ```
 
 7.  Return to the SQL\*Plus session running on localhost for the primary
-    database. Create an on database startup trigger in the DEV1 PDB that
-    will open the DEV1 pluggable database if it is not already open. The
+    database. Create an on database startup trigger in the ORCLPDB1 PDB that
+    will open the ORCLPDB1 pluggable database if it is not already open. The
     trigger should then start the PRMY.EXAMPLE.COM service after it
-    switches the container to the DEV1 container. The logic should only
+    switches the container to the ORCLPDB1 container. The logic should only
     execute if the database is in the primary role. Exit SQL\*Plus on
     localhost.
 
@@ -105,7 +105,7 @@ Practice 18-1: Creating and Testing Primary Database Services
     ```
     DGMGRL> validate database 
 
-    DGMGRL> validate database stndby
+    DGMGRL> validate database orcldg
     ```
 
 10. Perform a switch over to the orcldg physical standby database. Do
@@ -146,7 +146,7 @@ Practice 18-1: Creating and Testing Primary Database Services
     SQL> select instance_name from v$instance;
     ```
 
-14. Verify that your connection has been established with the DEV1
+14. Verify that your connection has been established with the ORCLPDB1
     pluggable database and not the root container. Exit SQL\*Plus.
 
     ```

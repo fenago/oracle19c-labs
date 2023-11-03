@@ -42,7 +42,7 @@ Lab: Examining the Maximum Protection Mode
     ```
 
 4.  In the same terminal window on localhost, connect to the primary
-    database using SQL\*Plus and switch the session to the DEV1
+    database using SQL\*Plus and switch the session to the ORCLPDB1
     pluggable database. Leave this window
 
     ```
@@ -131,7 +131,7 @@ Lab: Examining the Maximum Protection Mode
     > available that support this mode.
 
 8.  Return to the SQL\*Plus session on orcldg to start up and mount the
-    physical standby database. Verify that the DEV1 pluggable database
+    physical standby database. Verify that the ORCLPDB1 pluggable database
     is mounted. Exit SQL\*Plus.
 
     ```

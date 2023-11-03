@@ -32,14 +32,14 @@ Lab: Using SQL Tuning Advisor for an Active Data Guard Instance
 
 2.  Use a terminal window logged in as oracle to localhost with the
     environment variables set for orclcdb appropriately. Log in to the
-    DEV1 PDB as the SYS user and run the setup13- 4.sql script.
+    ORCLPDB1 PDB as the SYS user and run the setup13- 4.sql script.
 
     ```
     [oracle@localhost ~]$ . oraenv
     ORACLE_SID = [oracle] ? orclcdb
     The Oracle base remains unchanged with value /u01/app/oracle
 
-    [oracle@localhost ~]$ sqlplus sys/<password>@localhost:1521/dev1 as sysdba
+    [oracle@localhost ~]$ sqlplus sys/<password>@localhost:1521/orclpdb1 as sysdba
 
     SQL> @/home/oracle/setup/setup13-4.sql
     SQL> exec dbms_stats.delete_table_stats('OE','orders'); PL/SQL procedure successfully completed.
@@ -57,7 +57,7 @@ Lab: Using SQL Tuning Advisor for an Active Data Guard Instance
 
 4.  Use a terminal window logged in as oracle to orcldg with the
     environment variables set for orcldg appropriately. Launch SQL\*Plus
-    and run the problem query in the DEV1 PDB.
+    and run the problem query in the ORCLPDB1 PDB.
 
     ```
     [oracle@orcldg ~]$ . oraenv
@@ -66,7 +66,7 @@ Lab: Using SQL Tuning Advisor for an Active Data Guard Instance
 
     [oracle@orcldg ~]$ sqlplus / as sysdba
 
-    SQL> alter session set container=dev1;
+    SQL> alter session set container=orclpdb1;
 
     SQL> show pdbs
 
@@ -148,12 +148,12 @@ Lab: Using SQL Tuning Advisor for an Active Data Guard Instance
     SQL> @/home/oracle/setup/get_sts.sql
     ```
 
-11. Return to the terminal session connected to localhost. Switch to the DEV1 container.
+11. Return to the terminal session connected to localhost. Switch to the ORCLPDB1 container.
 
     ```
     SQL> show con_name
 
-    SQL> alter session set container=dev1;
+    SQL> alter session set container=orclpdb1;
     ```
 
 12. Optionally, implement the recommendations.

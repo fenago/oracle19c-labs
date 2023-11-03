@@ -59,11 +59,11 @@ Lab: Rolling Forward a Standby Database with One Command
     SQL> select thread#, sequence# from v$log where status='CURRENT' order by 1;
     ```
 
-5.  In the DEV1 PDB, create a simple table named hr.test17 and insert a
+5.  In the ORCLPDB1 PDB, create a simple table named hr.test17 and insert a
     few rows.
 
     ```
-    SQL> alter session set container=DEV1;
+    SQL> alter session set container=ORCLPDB1;
 
     Session altered.
 
@@ -119,14 +119,14 @@ Lab: Rolling Forward a Standby Database with One Command
     ```
     SQL> startup
 
-    SQL> alter pluggable database dev1 open;
+    SQL> alter pluggable database orclpdb1 open;
     ```
 
-11. In the DEV1 PDB, verify that the physical standby is synchronized
+11. In the ORCLPDB1 PDB, verify that the physical standby is synchronized
     with the primary database. Exit SQL\*Plus.
 
     ```
-    SQL> alter session set container=DEV1;
+    SQL> alter session set container=ORCLPDB1;
 
     SQL> select * from hr.test17;
 
@@ -184,7 +184,7 @@ Lab: Rolling Forward a Standby Database with One Command
 
     SQL> alter database open;
 
-    SQL> alter pluggable database dev1 open;
+    SQL> alter pluggable database orclpdb1 open;
     ```
 
 15. Return to the DGMGRL session on localhost. Start the redo apply
@@ -195,11 +195,11 @@ Lab: Rolling Forward a Standby Database with One Command
     ```
 
 16. Return to the SQL\*Plus session on orcldg connected to the orcldg
-    database. In the DEV1 PDB, verify that the physical standby applies
+    database. In the ORCLPDB1 PDB, verify that the physical standby applies
     the change made to the primary database. Exit SQL\*Plus.
 
     ```
-    SQL> alter session set container=DEV1;
+    SQL> alter session set container=ORCLPDB1;
 
     SQL> select * from hr.test17;
     ```
