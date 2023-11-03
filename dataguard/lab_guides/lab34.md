@@ -4,32 +4,96 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
 
 ### Overview
 
-> In this practice, you will resolve problems such as missing or
-> corrupted archive log file, an unrecoverable archive gap, or the need
-> to roll standby forward in time without applying a large number of
-> archivelog files.
+    > In this practice, you will resolve problems such as missing or
+    > corrupted archive log file, an unrecoverable archive gap, or the need
+    > to roll standby forward in time without applying a large number of
+    > archivelog files.
 
 ### Tasks
 
 1.  Use the terminal window on localhost as the oracle user. Make sure
     that you set up your environment variables correctly.
 
+    ```
+    [oracle@localhost ~]$ . oraenv
+    ORACLE_SID = [orclcdb] ? orclcdb
+    The Oracle base remains unchanged with value /u01/app/oracle [oracle@localhost ~]$
+    ```
+
 2.  Disable the redo transport service in preparation of the practice.
+
+    ```
+    [oracle@localhost ~]$ dgmgrl
+    DGMGRL for Linux: Release 19.0.0.0.0 - Production on Sun Jun 7 10:35:59 2020
+    Version 19.3.0.0.0
+
+    (c) 1982, 2019, Oracle and/or its affiliates. All rights reserved.
+
+    Welcome to DGMGRL, type "help" for information. DGMGRL> connect sysdg/<password>@orclcdb Connected to "orclcdb"
+    Connected as SYSDG.
+    DGMGRL> edit database orclcdb set state='TRANSPORT-OFF';
+    Succeeded.
+    DGMGRL>
+    ```
 
 3.  Use the terminal window on stndby as the oracle user. Make sure that
     you set up your environment variables correctly. Launch SQL\*Plus to
     stop the stndby standby database.
+
+    ```
+    [oracle@stndby ~]$ . oraenv
+    ORACLE_SID = [oracle] ? stndby
+    The Oracle base has been set to /u01/app/oracle [oracle@stndby ~]$ sqlplus / as sysdba
+
+    SQL*Plus: Release 19.0.0.0.0 - Production on Sun Jun 7 10:39:29 2020
+    Version 19.3.0.0.0
+
+    (c) 1982, 2019, Oracle. All rights reserved.
+
+    Connected to:
+    Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+    Version 19.3.0.0.0
+
+    SQL> shutdown immediate
+    Database closed. Database dismounted.
+    ORACLE instance shut down. SQL>
+    ```
 
 4.  Open a new terminal window on localhost. Then make a note of the
     current log sequence number. Record the sequence number of the
     online redo log file in thread 1. In your case, the sequence\#
     is 82)
 
+    ```
+    [oracle@localhost ~]$ . oraenv
+    ORACLE_SID = [oracle] ? orclcdb
+    The Oracle base has been set to /u01/app/oracle [oracle@localhost ~]$ sqlplus / as sysdba
+    ```
+
 5.  In the DEV1 PDB, create a simple table named hr.test17 and insert a
     few rows.
 
+    ```
+    SQL> alter session set container=DEV1;
+
+    Session altered.
+
+    SQL> @/home/oracle/setup/setup_17-6.sql
+    ```
+
 6.  Switch the current log file to advance the online redo log sequence
     number.
+
+    ```
+    SQL> connect / as sysdba
+    Connected.
+    SQL> alter system switch logfile;
+
+    System altered.
+
+    SQL> SELECT THREAD#, MAX(SEQUENCE#) FROM V$ARCHIVED_LOG WHERE RESETLOGS_CHANGE# = (SELECT MAX(RESETLOGS_CHANGE#) FROM V$ARCHIVED_LOG) GROUP BY THREAD#;
+    ```
+
 
 7.  Identify the most current archived log files by using the number
     identified in step 6.
@@ -37,195 +101,112 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
 > **Note:** If there are more than one entries, choose the latest
 > archived log file. Exit SQL\*Plus.
 
+    ```
+    SQL> col name format a65
+    SQL> select thread#, name from v$archived_log where thread#=1 and sequence#=82;
+    ```
+
 8.  Now, simulate a loss of the archived log file before transferring to
     the standby database. Remove the archived log file identified in the
     previous step.
 
+    ```
+    [oracle@localhost ~]$ rm
+    /u01/app/oracle/fast_recovery_area/ORCLCDB/archivelog/2020_06_07/o1
+    _mf_1_82_hft449l6_.arc
+    [oracle@localhost ~]$
+    ```
+
+
 9.  Return to the DGMGRL session on localhost. Start the redo transport
     service to the physical standby database.
+
+    ```
+    DGMGRL> edit database orclcdb set state='TRANSPORT-ON';
+    Succeeded.
+    DGMGRL>
+    ```
 
 10. Return to the SQL\*Plus session on stndby and start the physical
     standby database.
 
+    ```
+    SQL> startup
+    ```
+
 11. In the DEV1 PDB, verify that the physical standby is synchronized
     with the primary database. Exit SQL\*Plus.
 
-> **Note:** The changes made to the primary database have not been
-> applied due to the missing archived log files in the primary database.
-> Remember that you have removed the most current archived log files to
-> simulate the unrecoverable archived log file gap issue.
+    ```
+    SQL> alter session set container=DEV1;
+
+    Session altered.
+
+    SQL> select * from hr.test17;
+    select * from hr.test17
+    *
+    ERROR at line 1:
+    ORA-00942: table or view does not exist
+
+    SQL> exit
+    Disconnected from Oracle Database 19c Enterprise Edition Release
+    19.0.0.0.0 - Production Version 19.3.0.0.0 [oracle@stndby ~]$
+    ```
+
+
+    > **Note:** The changes made to the primary database have not been
+    > applied due to the missing archived log files in the primary database.
+    > Remember that you have removed the most current archived log files to
+    > simulate the unrecoverable archived log file gap issue.
 
 12. Return to the DGMGRL session on localhost, stop the Managed Recovery
     Process to prepare for the standby database recovery.
+
+    ```
+    DGMGRL> edit database stndby set state='APPLY-OFF';
+    Succeeded.
+    DGMGRL>
+    ```
 
 13. Return to the terminal session on stndby. Let's see how we can
     refresh the standby database with one command in case of the
     unresolvable scenario. Launch the RMAN utility to recover the
     standby database with one command. Exit the RMAN utility.
 
-> \[oracle\@stndby \~\]\$ **rman target /**
->
-> Recovery Manager: Release 19.0.0.0.0 - Production on Sun Jun 7
-> 11:28:41 2020
->
-> Version 19.3.0.0.0
->
-> \(c\) 1982, 2019, Oracle and/or its affiliates. All rights reserved.
->
-> connected to target database: ORCLCDB (DBID=2732274290, not open)
-> RMAN\> **RECOVER STANDBY DATABASE FROM SERVICE=orclcdb;**
->
-> Starting recover at 07-JUN-20
->
-> using target database control file instead of recovery catalog
-> Executing: alter database flashback off
->
-> Executing: alter database disable block change tracking Oracle
-> instance started
->
-> Total System Global Area 629145352 bytes
->
-> Fixed Size 9137928 bytes Variable Size 373293056 bytes
->
-> Database Buffers 239075328 bytes Redo Buffers 7639040 bytes
->
-> contents of Memory Script:
->
-> {
->
-> restore standby controlfile from service \'orclcdb\'; alter database
-> mount standby database;
->
-> }
->
-> executing Memory Script
->
-> Starting restore at 07-JUN-20 allocated channel: ORA\_DISK\_1
->
-> channel ORA\_DISK\_1: SID=20 device type=DISK
->
-> channel ORA\_DISK\_1: starting datafile backup set restore channel
-> ORA\_DISK\_1: using network backup set from service orclcdb channel
-> ORA\_DISK\_1: restoring control file
->
-> channel ORA\_DISK\_1: restore complete, elapsed time: 00:00:02 output
-> file name=/u01/app/oracle/oradata/STNDBY/control01.ctl output file
-> name=/u01/app/oracle/fast\_recovery\_area/STNDBY/control02.ctl
-> Finished restore at 07-JUN-20
->
-> released channel: ORA\_DISK\_1 Statement processed
->
-> Executing: alter system set standby\_file\_management=manual
->
-> contents of Memory Script:
->
-> {
->
-> recover database from service \'orclcdb\';
->
-> }
->
-> executing Memory Script
->
-> Starting recover at 07-JUN-20
->
-> Starting implicit crosscheck backup at 07-JUN-20 allocated channel:
-> ORA\_DISK\_1
->
-> channel ORA\_DISK\_1: SID=24 device type=DISK Crosschecked 14 objects
->
-> Finished implicit crosscheck backup at 07-JUN-20
->
-> Starting implicit crosscheck copy at 07-JUN-20 using channel
-> ORA\_DISK\_1
->
-> Crosschecked 2 objects
->
-> Finished implicit crosscheck copy at 07-JUN-20
->
-> searching for all files in the recovery area cataloging files\...
->
-> cataloging done
->
-> List of Cataloged Files
->
-> =======================
->
-> File Name:
->
-> /u01/app/oracle/fast\_recovery\_area/STNDBY/archivelog/2020\_06\_07/o1
->
-> \_mf\_1\_60\_hfry8lng\_.arc
->
-> \...
->
-> File Name:
->
-> /u01/app/oracle/fast\_recovery\_area/STNDBY/autobackup/2020\_06\_06/o1
->
-> \_mf\_s\_1042403484\_hfrfpq8w\_.bkp
->
-> using channel ORA\_DISK\_1
->
-> skipping datafile 5; already restored to SCN 1944601 skipping datafile
-> 6; already restored to SCN 1944601 skipping datafile 8; already
-> restored to SCN 1944601 channel ORA\_DISK\_1: starting incremental
-> datafile backup set restore
->
-> channel ORA\_DISK\_1: using network backup set from service orclcdb
-> destination for restore of datafile 00001:
->
-> /u01/app/oracle/oradata/STNDBY/system01.dbf
->
-> channel ORA\_DISK\_1: restore complete, elapsed time: 00:00:35 channel
-> ORA\_DISK\_1: starting incremental datafile backup set restore
->
-> channel ORA\_DISK\_1: using network backup set from service orclcdb
-> destination for restore of datafile 00003:
->
-> /u01/app/oracle/oradata/STNDBY/sysaux01.dbf
->
-> channel ORA\_DISK\_1: restore complete, elapsed time: 00:00:35 channel
-> ORA\_DISK\_1: starting incremental datafile backup set
->
-> \...
->
-> starting media recovery
->
-> archived log for thread 1 with sequence xx is already on disk as file
->
-> /u01/app/oracle/fast\_recovery\_area/STNDBY/archivelog/2020\_06\_23/o1
->
-> \_mf\_1\_37\_hh53htbg\_.arc archived log file
->
-> name=/u01/app/oracle/fast\_recovery\_area/STNDBY/archivelog/2020\_06\_
-> 23/o1\_mf\_1\_37\_hh53htbg\_.arc thread=1 sequence=37
->
-> media recovery complete, elapsed time: 00:00:01 Finished recover at
-> 23-JUN-20
->
-> Reenabling controlfile options for auxiliary database
->
-> Executing: alter database enable block change tracking using file
-> \'/u01/app/oracle/oradata/STNDBY/rman\_change\_track.file\' Executing:
-> alter system set standby\_file\_management=auto
->
-> Finished recover at 23-JUN-20 RMAN\> **exit**
->
-> Recovery Manager complete. \[oracle\@stndby \~\]\$
+    ```
+    [oracle@stndby ~]$ rman target /
+    ```
 
 14. Using SQL\*Plus, connect to the stndby database. Start the database
     and its PDB.
 
+    ```
+    [oracle@stndby ~]$ sqlplus / as sysdba
+    ```
+
 15. Return to the DGMGRL session on localhost. Start the redo apply
     service.
+
+    ```
+    DGMGRL> edit database stndby set state='APPLY-ON';
+    Succeeded.
+    DGMGRL>
+    ```
 
 16. Return to the SQL\*Plus session on stndby connected to the stndby
     database. In the DEV1 PDB, verify that the physical standby applies
     the change made to the primary database. Exit SQL\*Plus.
 
+    ```
+    SQL> alter session set container=DEV1;
+    ```
+
 17. Return to the DGMGRL session on localhost. Display the status of the
     data guard broker configuration.
+
+    ```
+    DGMGRL> show configuration
+    ```
 
 > **Note:** In this practice, we tested how to recover the physical
 > standby database with a single command in case of the unrecoverable
@@ -236,6 +217,26 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
 
 > **Note:** We can safely disable the stndby2 database because it will
 > not be used in later practices.
+
+    ```
+    DGMGRL> disable database stndby2;
+    Disabled.
+    DGMGRL> show configuration
+
+    Configuration - DRSolution
+
+    Protection Mode: MaxPerformance Members:
+    orclcdb	- Primary database orclcdbFS - Far sync instance
+    stndby	- Physical standby database
+    stndby2 - Logical standby database (disabled) ORA-16749: The member was disabled manually.
+
+    stndbyFS - Far sync instance
+    Fast-Start Failover: Disabled Configuration Status:
+    SUCCESS	(status updated 48 seconds ago)
+
+    DGMGRL>
+    ```
+
 
 19. Exit DGMGRL and SQL\*Plus leaving the terminal window open for
     future practices.

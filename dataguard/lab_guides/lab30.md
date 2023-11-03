@@ -11,8 +11,8 @@ Practice 17-2: Creating a Recovery Manager Catalog
 
 1.  Open a terminal window connected to localhost as the oracle OS user.
     Enter \<password\>
-> when you are prompted for the password. Set the environment variables
-> to ORCL.
+    > when you are prompted for the password. Set the environment variables
+    > to ORCL.
 
     ```
     [oracle8c793fb03eed ~]$ . oraenv ORACLE_SID = [ORCL] ? ORCL

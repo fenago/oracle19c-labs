@@ -15,75 +15,67 @@ Practice 18-1: Creating and Testing Primary Database Services
     SQL\*Plus and set the session container to the DEV1 pluggable
     database.
 
+    ```
+    [oracle@localhost ~]$ . oraenv
+    ORACLE_SID = [oracle] ? orclcdb
+    The Oracle base has been set to /u01/app/oracle [oracle@localhost ~]$ sqlplus / as sysdba
+    SQL*Plus: Release 19.0.0.0.0 - Production on Sun Jun 7 14:44:47 2020
+    Version 19.3.0.0.0
+
+    (c) 1982, 2019, Oracle. All rights reserved.
+
+
+    Connected to:
+    Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+    Version 19.3.0.0.0
+
+    SQL> alter session set container=dev1;
+
+    Session altered.
+    ```
+
+
 2.  Create and start a service with the name PRMY
+
+    ```
+    SQL> exec DBMS_SERVICE.CREATE_SERVICE('PRMY','PRMY')
+
+    PL/SQL procedure successfully completed.
+
+    SQL> exec DBMS_SERVICE.START_SERVICE('PRMY')
+
+    PL/SQL procedure successfully completed.
+    ```
+
 
 3.  From within SQL\*Plus, display the status of the Oracle listener
     running on localhost and verify that the service was started
     successfully. Do not exit SQL\*Plus.
 
-> SQL\> **!lsnrctl status**
->
-> LSNRCTL for Linux: Version 12.1.0.1.0 - Production on 20-DEC-2013
-> 16:06:01
->
-> \(c\) 1991, 2013, Oracle. All rights reserved.
->
-> Connecting to
-> (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost.example.com)(PORT=
-> 1521)(SEND\_SDU=10485760)(RECV\_SDU=10485760)))
->
-> STATUS of the LISTENER
->
-> Alias LISTENER
->
-> Version TNSLSNR for Linux: Version 12.1.0.1.0 - Production
->
-> Start Date 18-DEC-2013 10:25:42
->
-> Uptime 2 days 5 hr. 40 min. 21 sec
->
-> Trace Level off
->
-> Security ON: Local OS Authentication
->
-> SNMP OFF
->
-> Listener Parameter File
->
-> /u01/app/oracle/product/12.1.0/dbhome\_1/network/admin/listener.ora
->
-> Listener Log File
->
-> /u01/app/oracle/diag/tnslsnr/localhost/listener/alert/log.xml
-> Listening Endpoints Summary\...
->
-> (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=localhost.example.com)(PORT=
-> 1521)))
->
-> (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1521)))
->
-> (DESCRIPTION=(ADDRESS=(PROTOCOL=tcps)(HOST=localhost.example.com)(PORT
->
-> =5500))(Security=(my\_wallet\_directory=/u01/app/oracle/admin/orclcdb/
-> xdb\_wallet))(Presentation=HTTP)(Session=RAW))
->
-> (DESCRIPTION=(ADDRESS=(PROTOCOL=tcps)(HOST=localhost.example.com)(PORT
->
-> =5501))(Security=(my\_wallet\_directory=/u01/app/oracle/admin/orclcdb/
-> xdb\_wallet))(Presentation=HTTP)(Session=RAW))
->
-> Services Summary\...
->
-> ***Service \"PRMY\" has 1 instance(s).***
->
-> ***Instance \"orclcdb\", status READY, has 1 handler(s) for this
-> service\...***
->
-> Service \"orclcdb.example.com\" has 2 instance(s).
+    ```
+    SQL> !lsnrctl status
+    ```
 
 4.  Use another terminal window logged in as oracle to host02 with the
     environment variables set for orclcdbFS appropriately. Launch
     SQL\*Plus and connect to the PRMY.EXAMPLE.COM service.
+
+    ```
+    [oracle@host02 ~]$ . oranev
+    ORACLE_SID = [oracle] ? orclcdbFS
+    The Oracle base has been set to /u01/app/oracle
+
+    [oracle@host02 ~]$ sqlplus system/<password>@prmy
+    SQL*Plus: Release 19.0.0.0.0 - Production on Sun Jun 7 14:47:38 2020
+    Version 19.3.0.0.0
+
+    (c) 1982, 2019, Oracle. All rights reserved.
+    Last Successful login time: Sun Jun 07 2020 09:26:10 -04:00 Connected to:
+    Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+    Version 19.3.0.0.0
+
+    SQL>
+    ```
 
 > **Note:** The tnsnames.ora network configuration file was already
 > created, with an entry PRMY that attempts to connect to both
@@ -93,8 +85,16 @@ Practice 18-1: Creating and Testing Primary Database Services
 5.  Verify that you are indeed connected to the orclcdb instance (the
     primary database).
 
+    ```
+    SQL> select instance_name from v$instance;
+    ```
+
 6.  Verify that your connection has been established with the DEV1
     pluggable database and not the root container.
+
+    ```
+    SQL> select sys_context ('USERENV', 'CON_NAME') as container FROM dual;
+    ```
 
 7.  Return to the SQL\*Plus session running on localhost for the primary
     database. Create an on database startup trigger in the DEV1 PDB that
@@ -104,108 +104,80 @@ Practice 18-1: Creating and Testing Primary Database Services
     execute if the database is in the primary role. Exit SQL\*Plus on
     localhost.
 
-+---------+------------------------------------------+---------------+
-| > SQL\> | > create or replace trigger              |               |
-|         | > primary\_services                      |               |
-+=========+==========================================+===============+
-| > 2     | > after startup on database              |               |
-+---------+------------------------------------------+---------------+
-| > 3     | > declare                                |               |
-+---------+------------------------------------------+---------------+
-| > 4     | > role varchar2(30);                     |               |
-+---------+------------------------------------------+---------------+
-| > 5     | > omode varchar2(30);                    |               |
-+---------+------------------------------------------+---------------+
-| > 6     | > begin                                  |               |
-+---------+------------------------------------------+---------------+
-| > 7     | > select database\_role into role from   |               |
-|         | > v\$database;                           |               |
-+---------+------------------------------------------+---------------+
-| > 8     | > select open\_mode into omode from      | > = \'DEV1\'; |
-|         | > v\$pdbs where name                     |               |
-+---------+------------------------------------------+---------------+
-| > 9     | > if role = \'PRIMARY\' then             |               |
-+---------+------------------------------------------+---------------+
-| > 10    | > if omode != \'READ WRITE\' then        |               |
-+---------+------------------------------------------+---------------+
+    ```
+    SQL> show con_name
+    ```
 
 8.  Launch DGMGRL and connect to the SYSDG account. Show the
     configuration.
 
+    ```
+    [oracle@localhost ~]$ dgmgrl sysdg/<password>@orclcdb
+    ```
+
 9.  Validate that the primary and physical standby databases are ready
     for switchover.
+
+    ```
+    DGMGRL> validate database 
+    ```
 
 10. Perform a switch over to the stndby physical standby database. Do
     not exit DGMGRL.
 
+    ```
+    DGMGRL> switchover to stndby
+    ```
+
 11. Return to the SQL\*Plus session on localhost Attempt to verify that
     your session is now on the stndby database.
-
 > **Note:** During switchover, you lost the exiting session.
 
+    ```
+    SQL> select instance_name from v$instance;
+    select instance_name from v$instance
+    *
+    ERROR at line 1:
+    ORA-03113: end-of-file on communication channel Process ID: 24566
+    Session ID: 297 Serial number: 59237
+    ```
+
 12. Establish a new session using the PRMY.EXAMPLE.COM service.
+
+    ```
+    SQL> connect system/<password>@prmy
+    Connected.
+    SQL>
+    ```
 
 13. Verify that you are now connected to the stndby instance (the
     primary database).
 
+    ```
+    SQL> select instance_name from v$instance;
+    ```
+
 14. Verify that your connection has been established with the DEV1
     pluggable database and not the root container. Exit SQL\*Plus.
+
+    ```
+    SQL> select sys_context ('USERENV', 'CON_NAME') as container FROM dual;
+    ```
 
 15. Return to the DGMGRL session running on localhost in Step 10.
     Validate both databases are ready for switchover, and then perform a
     switchover to return the configuration to the way it was at the
     start of this practice.
 
-> DGMGRL\> **validate database stndby** Database Role: Primary database
-> Ready for Switchover: ***Yes***
->
-> DGMGRL\> **validate database orclcdb**
->
-> Database Role: Physical standby database Primary Database: stndby
->
-> Ready for Switchover: ***Yes***
->
-> Ready for Failover: Yes (Primary Running) Current Log File Groups
-> Configuration:
->
-> Thread \# Online Redo Log Groups Standby Redo Log Groups (stndby)
->
-> 1 3 2
->
-> Future Log File Groups Configuration:
-
-+-------------+---------------+-------+----------+---------------------------+
-| > Thread \# | > Online Redo | > Log | > Groups | > Standby Redo Log Groups |
-|             |               |       |          | >                         |
-|             |               |       |          | > (stndby)                |
-+=============+===============+=======+==========+===========================+
-| > 1         | > 3           |       |          | > 2                       |
-+-------------+---------------+-------+----------+---------------------------+
-
-> DGMGRL\> **switchover to orclcdb**
->
-> Performing switchover NOW, please wait\...
->
-> Operation requires a connection to database \"orclcdb\" Connecting
-> \...
->
-> Connected to \"orclcdb\" Connected as SYSDG.
->
-> New primary database \"orclcdb\" is opening\...
->
-> Operation requires start up of instance \"stndby\" on database
-> \"stndby\"
->
-> Starting instance \"stndby\"\... Connected to an idle instance. ORACLE
-> instance started.
->
-> Connected to \"stndby\" Database mounted.
->
-> Database opened. Connected to \"stndby\" Connected to \"orclcdb\"
->
-> Switchover succeeded, new primary is \"orclcdb\" DGMGRL\>
+    ```
+    DGMGRL> validate database stndby 
+    ```
 
 16. Display the status of the data guard configuration. Wait until all
     warning messages are cleared for practice 18-2.
+
+    ```
+    DGMGRL> show configuration
+    ```
 
 17. Keep the DGMGRL session on localhost for practice 18-2.
