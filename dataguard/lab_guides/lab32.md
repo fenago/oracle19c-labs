@@ -34,7 +34,7 @@ Practice 17-4: Configuring RMAN Parameters
 4.  Configure the connect identifier for your physical standby database.
 
     ```
-    RMAN> configure db_unique_name stndby connect identifier 'stndby';
+    RMAN> configure db_unique_name orcldg connect identifier 'orcldg';
     ```
 
 5.  Your physical standby database is registered with the recovery
@@ -49,5 +49,5 @@ Practice 17-4: Configuring RMAN Parameters
     your physical standby database. Exit RMAN when done.
 
     ```
-    RMAN> report schema for db_unique_name stndby;
+    RMAN> report schema for db_unique_name orcldg;
     ```

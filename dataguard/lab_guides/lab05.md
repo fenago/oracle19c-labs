@@ -90,7 +90,7 @@ In these practices, you will test the primary database changes that do not requi
 
 4. **Connect to the Standby Database**:
     - Open a new terminal window.
-    - Connect to `stndby` as the `oracle` OS user:
+    - Connect to `orcldg` as the `oracle` OS user:
     ```bash
     su - oracle
     ```
@@ -130,7 +130,7 @@ In these practices, you will test the primary database changes that do not requi
     ```
 
 8. **Check Standby's Password File**:
-    - Switch to the terminal session connected to `stndby`.
+    - Switch to the terminal session connected to `orcldg`.
     - Review the output of `V$PWFILE_USERS`. The new user may not appear immediately due to the Media Recovery process being stopped.
 
 9. **Restart Media Recovery Process on Standby**:
@@ -144,14 +144,14 @@ In these practices, you will test the primary database changes that do not requi
     ```sql
     ALTER USER c##dba IDENTIFIED BY newpassword;
     ```
-    - Test the connection to the standby database (`stndby`) with the new password.
+    - Test the connection to the standby database (`orcldg`) with the new password.
 
 11. **Cleanup**:
     - Drop the `c##dba` user from the primary:
     ```sql
     DROP USER c##dba CASCADE;
     ```
-    - Exit SQL*Plus on both the primary (`orcldg`) and standby (`stndby`), but keep the terminal windows open for subsequent labs.
+    - Exit SQL*Plus on both the primary (`orcldg`) and standby (`orcldg`), but keep the terminal windows open for subsequent labs.
 
 ### Conclusion:
 You've successfully tested the automatic propagation of password file changes from the primary to the standby database in Oracle 19c. This feature simplifies the management of Data Guard configurations and ensures security synchronization between the primary and standby databases.

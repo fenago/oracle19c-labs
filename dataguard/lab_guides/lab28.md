@@ -18,20 +18,20 @@ Practice 14-2: Keeping Physical Standby Session Connected During Role Transition
 
 ![](./images/28.png)
 
-2.  Add the stndby database as an EM target
+2.  Add the orcldg database as an EM target
     in preparation of the Switchover practice through Enterprise
     Manager. Click **Add** \> **Oracle Database**.
 
 ![](./images/29.png)
 
 3.  On the Database Discovery: Search
-    Criteria page, enter the name of the host (stndby) by clicking the
+    Criteria page, enter the name of the host (orcldg) by clicking the
     magnifying glass icon and selecting the host name in the dialog box.
     Then click **Next** to proceed.
 
 ![](./images/30.png)
 
-4.  On the Database Discovery: Results page, select the stndby database
+4.  On the Database Discovery: Results page, select the orcldg database
     and provide the following information:
 
     -   Monitor Username: sys
@@ -46,7 +46,7 @@ Practice 14-2: Keeping Physical Standby Session Connected During Role Transition
 
 ![](./images/31.png)
 
-5.  Select the listed listener on stndby.
+5.  Select the listed listener on orcldg.
     Click **Next**.
 
 ![](./images/32.png)
@@ -56,7 +56,7 @@ Practice 14-2: Keeping Physical Standby Session Connected During Role Transition
 7.  In the Confirmation dialog box, click **Close**.
 
 8.  On the Databases page, set the Auto Refresh option
-    to 30 seconds and wait until the stndby.example.com target becomes
+    to 30 seconds and wait until the orcldg.example.com target becomes
     normal. Click the link for the orclcdb.example.com target.
 
 ![](./images/33.png)
@@ -201,7 +201,7 @@ b.  On the Host Login (localhost.example.com) page, select **Preferred**
 
 ![](./images/39.png)
 
-c.  On the Host Login (stndby.example.com)
+c.  On the Host Login (orcldg.example.com)
     page, select **Preferred** in the Credential option. Click
     **Continue**.
 

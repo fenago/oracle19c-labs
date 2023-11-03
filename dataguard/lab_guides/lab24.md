@@ -15,7 +15,7 @@ Lab: Examining the Maximum Protection Mode
     protection mode for the Data Guard configuration.
 
     ```
-    DGMGRL> edit database orcl2 set property 'RedoRoutes' = '(orcl2:stndby SYNC)';
+    DGMGRL> edit database orclcdb set property 'RedoRoutes' = '(orclcdb:orcldg SYNC)';
     Property "RedoRoutes" updated
 
     DGMGRL> edit configuration set protection mode as maxprotection;
@@ -49,21 +49,21 @@ Lab: Examining the Maximum Protection Mode
     [oracle@localhost ~]$ sqlplus / as sysdba
     ```
 
-5.  Use a terminal window on stndby connected as oracle with the
-    environment variables set to stndby. Connect to the physical standby
+5.  Use a terminal window on orcldg connected as oracle with the
+    environment variables set to orcldg. Connect to the physical standby
     database using SQL\*Plus and perform a shutdown abort.
 
     ```
-    [oracle@stndby ~]$ . oraenv
-    ORACLE_SID = [oracle] ? stndby
+    [oracle@orcldg ~]$ . oraenv
+    ORACLE_SID = [oracle] ? orcldg
     The Oracle base has been set to /u01/app/oracle 
 
-    [oracle@stndby ~]$ sqlplus / as sysdba
+    [oracle@orcldg ~]$ sqlplus / as sysdba
 
     SQL> shutdown abort
     ```
 
-6.  Return to the SQL\*Plus session on localhost with orcl2. Display the
+6.  Return to the SQL\*Plus session on localhost with orclcdb. Display the
     current data for the HR.REGIONS table and then insert a new row into
     the table. Exit the terminated session.
 
@@ -130,7 +130,7 @@ Lab: Examining the Maximum Protection Mode
     > with the maximum protection mode and no other standby databases
     > available that support this mode.
 
-8.  Return to the SQL\*Plus session on stndby to start up and mount the
+8.  Return to the SQL\*Plus session on orcldg to start up and mount the
     physical standby database. Verify that the DEV1 pluggable database
     is mounted. Exit SQL\*Plus.
 
@@ -177,7 +177,7 @@ Lab: Examining the Maximum Protection Mode
     log switch on the primary database.
 
     ```
-    DGMGRL> edit database stndby set state = 'APPLY-ON';
+    DGMGRL> edit database orcldg set state = 'APPLY-ON';
 
     DGMGRL> SQL "alter system switch logfile";
     ```
@@ -195,11 +195,11 @@ Lab: Examining the Maximum Protection Mode
 
 14. Before proceeding with additional lab steps, give the transport lag
     and apply lag an opportunity to catch up. Use the \'show
-    configuration\' and \'show database verbose stndby\' commands until
+    configuration\' and \'show database verbose orcldg\' commands until
     the lag clears. Repeat these commands as needed.
 
     ```
-    DGMGRL> show database stndby
+    DGMGRL> show database orcldg
     ```
 
 15. Exit DGMGRL and SQL\*Plus leaving the terminal windows open for

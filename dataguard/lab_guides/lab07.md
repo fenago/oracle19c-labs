@@ -178,7 +178,7 @@ REGION_ID REGION_NAME
     ```
 
 8. **Verify Real-Time Query on Standby**:
-    - Switch back to the SQL*Plus session connected to the `orclpdb1` PDB on the `stndby` standby database.
+    - Switch back to the SQL*Plus session connected to the `orclpdb1` PDB on the `orcldg` standby database.
     - Query the `HR.REGIONS` table. The new row should be immediately available on the physical standby database, showcasing the real-time query capability of Active Data Guard.
 
     ```

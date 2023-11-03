@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this lab, you'll get hands-on experience in preparing the `stndby2` to accommodate a logical standby database. You'll use both RMAN and SQL to accomplish this.
+In this lab, you'll get hands-on experience in preparing the `orcldg2` to accommodate a logical standby database. You'll use both RMAN and SQL to accomplish this.
 
 ---
 
@@ -10,18 +10,18 @@ In this lab, you'll get hands-on experience in preparing the `stndby2` to accomm
 
 ### 1. **Preparation**:
    - Log into a terminal as `oracle` and connect to `orclcdb`.
-   - Modify the `crdir_stndby.sh` script to reference `stndby2` and execute it. Alternatively, create the necessary directories manually.
+   - Modify the `crdir_orcldg.sh` script to reference `orcldg2` and execute it. Alternatively, create the necessary directories manually.
    - Note: We're leveraging the script from practice 3-2 to speed up the process.
 
 ### 2. **Configuration**:
-   - Edit the `initstndby2.ora` file, replacing all instances of `stndby` with `stndby2`.
+   - Edit the `initorcldg2.ora` file, replacing all instances of `orcldg` with `orcldg2`.
 
 ### 3. **Using RMAN for Duplication**:
    - Connect to the target database via RMAN:
      ```sql
-     RMAN target sys/fenago@orclcdb auxiliary sys/fenago@stndby2
+     RMAN target sys/fenago@orclcdb auxiliary sys/fenago@orcldg2
      ```
-   - Execute the command to create `stndby2`:
+   - Execute the command to create `orcldg2`:
      ```sql
      RMAN> duplicate target database for standby from active database;
      ```
@@ -37,4 +37,4 @@ In this lab, you'll get hands-on experience in preparing the `stndby2` to accomm
 
 ## Conclusion:
 
-At the end of this lab, you will have successfully set up a temporary physical standby (`stndby2`) that can be later converted to a logical standby. This is crucial for scenarios where you want to maintain both physical and logical standbys for your primary database.
+At the end of this lab, you will have successfully set up a temporary physical standby (`orcldg2`) that can be later converted to a logical standby. This is crucial for scenarios where you want to maintain both physical and logical standbys for your primary database.

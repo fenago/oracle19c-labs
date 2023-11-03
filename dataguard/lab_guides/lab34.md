@@ -36,14 +36,14 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
     DGMGRL>
     ```
 
-3.  Use the terminal window on stndby as the oracle user. Make sure that
+3.  Use the terminal window on orcldg as the oracle user. Make sure that
     you set up your environment variables correctly. Launch SQL\*Plus to
-    stop the stndby standby database.
+    stop the orcldg standby database.
 
     ```
-    [oracle@stndby ~]$ . oraenv
-    ORACLE_SID = [oracle] ? stndby
-    The Oracle base has been set to /u01/app/oracle [oracle@stndby ~]$ sqlplus / as sysdba
+    [oracle@orcldg ~]$ . oraenv
+    ORACLE_SID = [oracle] ? orcldg
+    The Oracle base has been set to /u01/app/oracle [oracle@orcldg ~]$ sqlplus / as sysdba
 
     SQL*Plus: Release 19.0.0.0.0 - Production on Sun Jun 7 10:39:29 2020
     Version 19.3.0.0.0
@@ -127,7 +127,7 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
     DGMGRL>
     ```
 
-10. Return to the SQL\*Plus session on stndby and start the physical
+10. Return to the SQL\*Plus session on orcldg and start the physical
     standby database.
 
     ```
@@ -150,7 +150,7 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
 
     SQL> exit
     Disconnected from Oracle Database 19c Enterprise Edition Release
-    19.0.0.0.0 - Production Version 19.3.0.0.0 [oracle@stndby ~]$
+    19.0.0.0.0 - Production Version 19.3.0.0.0 [oracle@orcldg ~]$
     ```
 
 
@@ -163,37 +163,37 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
     Process to prepare for the standby database recovery.
 
     ```
-    DGMGRL> edit database stndby set state='APPLY-OFF';
+    DGMGRL> edit database orcldg set state='APPLY-OFF';
     Succeeded.
     DGMGRL>
     ```
 
-13. Return to the terminal session on stndby. Let's see how we can
+13. Return to the terminal session on orcldg. Let's see how we can
     refresh the standby database with one command in case of the
     unresolvable scenario. Launch the RMAN utility to recover the
     standby database with one command. Exit the RMAN utility.
 
     ```
-    [oracle@stndby ~]$ rman target /
+    [oracle@orcldg ~]$ rman target /
     ```
 
-14. Using SQL\*Plus, connect to the stndby database. Start the database
+14. Using SQL\*Plus, connect to the orcldg database. Start the database
     and its PDB.
 
     ```
-    [oracle@stndby ~]$ sqlplus / as sysdba
+    [oracle@orcldg ~]$ sqlplus / as sysdba
     ```
 
 15. Return to the DGMGRL session on localhost. Start the redo apply
     service.
 
     ```
-    DGMGRL> edit database stndby set state='APPLY-ON';
+    DGMGRL> edit database orcldg set state='APPLY-ON';
     Succeeded.
     DGMGRL>
     ```
 
-16. Return to the SQL\*Plus session on stndby connected to the stndby
+16. Return to the SQL\*Plus session on orcldg connected to the orcldg
     database. In the DEV1 PDB, verify that the physical standby applies
     the change made to the primary database. Exit SQL\*Plus.
 
@@ -210,16 +210,16 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
 
 > **Note:** In this practice, we tested how to recover the physical
 > standby database with a single command in case of the unrecoverable
-> redo gap scenario. The ORA-\* warning message in the stndby2 standby
+> redo gap scenario. The ORA-\* warning message in the orcldg2 standby
 > database was caused by the missing redo from the primary database.
 
-18. Disable the stndby2 logical standby database.
+18. Disable the orcldg2 logical standby database.
 
-> **Note:** We can safely disable the stndby2 database because it will
+> **Note:** We can safely disable the orcldg2 database because it will
 > not be used in later practices.
 
     ```
-    DGMGRL> disable database stndby2;
+    DGMGRL> disable database orcldg2;
     Disabled.
     DGMGRL> show configuration
 
@@ -227,10 +227,10 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
 
     Protection Mode: MaxPerformance Members:
     orclcdb	- Primary database orclcdbFS - Far sync instance
-    stndby	- Physical standby database
-    stndby2 - Logical standby database (disabled) ORA-16749: The member was disabled manually.
+    orcldg	- Physical standby database
+    orcldg2 - Logical standby database (disabled) ORA-16749: The member was disabled manually.
 
-    stndbyFS - Far sync instance
+    orcldgFS - Far sync instance
     Fast-Start Failover: Disabled Configuration Status:
     SUCCESS	(status updated 48 seconds ago)
 

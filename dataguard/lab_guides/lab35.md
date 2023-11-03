@@ -6,7 +6,7 @@ Practice 18-1: Creating and Testing Primary Database Services
 
 > In this practice, you will create and test a service for the DEV1
 > pluggable database on the primary database, and follow that service as
-> it migrates from localhost to stndby during switchover exercises.
+> it migrates from localhost to orcldg during switchover exercises.
 
 ### Tasks
 
@@ -79,7 +79,7 @@ Practice 18-1: Creating and Testing Primary Database Services
 
 > **Note:** The tnsnames.ora network configuration file was already
 > created, with an entry PRMY that attempts to connect to both
-> localhost.example.com and stndby.example.com, and access a service
+> localhost.example.com and orcldg.example.com, and access a service
 > name of PRMY.EXAMPLE.COM.
 
 5.  Verify that you are indeed connected to the orclcdb instance (the
@@ -122,15 +122,15 @@ Practice 18-1: Creating and Testing Primary Database Services
     DGMGRL> validate database 
     ```
 
-10. Perform a switch over to the stndby physical standby database. Do
+10. Perform a switch over to the orcldg physical standby database. Do
     not exit DGMGRL.
 
     ```
-    DGMGRL> switchover to stndby
+    DGMGRL> switchover to orcldg
     ```
 
 11. Return to the SQL\*Plus session on localhost Attempt to verify that
-    your session is now on the stndby database.
+    your session is now on the orcldg database.
 > **Note:** During switchover, you lost the exiting session.
 
     ```
@@ -150,7 +150,7 @@ Practice 18-1: Creating and Testing Primary Database Services
     SQL>
     ```
 
-13. Verify that you are now connected to the stndby instance (the
+13. Verify that you are now connected to the orcldg instance (the
     primary database).
 
     ```
@@ -170,7 +170,7 @@ Practice 18-1: Creating and Testing Primary Database Services
     start of this practice.
 
     ```
-    DGMGRL> validate database stndby 
+    DGMGRL> validate database orcldg 
     ```
 
 16. Display the status of the data guard configuration. Wait until all

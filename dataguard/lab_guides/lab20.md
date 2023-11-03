@@ -51,14 +51,14 @@ In this exercise, you'll utilize DGMGRL for both local and remote connections. T
    - Use `SHOW DATABASE` for the physical standby database to check the current transport lag, apply lag, and apply rate.
 
    ```
-   DGMGRL> show database stndby
+   DGMGRL> show database orcldg
    ```
 
 ### 6. **Halt Redo Apply**:
    - Cease redo apply on the physical standby to induce an apply rate lag.
 
    ```
-   DGMGRL> edit database stndby set state = 'APPLY-OFF';
+   DGMGRL> edit database orcldg set state = 'APPLY-OFF';
    ```
 
 ### 7. **Log Switch on Primary**:
@@ -72,14 +72,14 @@ In this exercise, you'll utilize DGMGRL for both local and remote connections. T
    - Use `SHOW DATABASE` for the physical standby database to view the present apply lag rate.
 
    ```
-   DGMGRL> show database stndby
+   DGMGRL> show database orcldg
    ```
 
 ### 9. **Check Standby Receive Queue**:
    - Display the standby receive queue for the physical standby.
 
    ```
-   DGMGRL> show database stndby 'RecvQEntries';
+   DGMGRL> show database orcldg 'RecvQEntries';
    ```
 
 ### 10-12. **Enterprise Manager Navigation**:
@@ -99,9 +99,9 @@ In this exercise, you'll utilize DGMGRL for both local and remote connections. T
    - Reactivate redo apply on the physical standby database. After a brief pause post-activation, ensure the apply lag is resolved. Conclude your DGMGRL session afterward.
 
    ```
-   DGMGRL> edit database stndby set state = 'APPLY-ON';
+   DGMGRL> edit database orcldg set state = 'APPLY-ON';
 
-   DGMGRL> show database stndby
+   DGMGRL> show database orcldg
 
    DGMGRL> exit;
    ```

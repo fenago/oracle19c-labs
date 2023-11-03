@@ -46,15 +46,15 @@ Practice 14-1: Performing Switchover
 4.  Validate that the physical standby database is ready for role reversal using the VERBOSE option.
 
     ```
-    DGMGRL> validate database verbose stndby
+    DGMGRL> validate database verbose orcldg
     ```
 
-5.  Use the terminal connected to stndby as oracle with the environment variables set to stndby. Launch SQL\*Plus and connect as the SYSDG user.
+5.  Use the terminal connected to orcldg as oracle with the environment variables set to orcldg. Launch SQL\*Plus and connect as the SYSDG user.
 
     ```
-    [oracle@stndby ~]$ . oraenv
-    ORACLE_SID = [oracle] ? stndby
-    The Oracle base has been set to /u01/app/oracle [oracle@stndby ~]$ sqlplus / as sysdba
+    [oracle@orcldg ~]$ . oraenv
+    ORACLE_SID = [oracle] ? orcldg
+    The Oracle base has been set to /u01/app/oracle [oracle@orcldg ~]$ sqlplus / as sysdba
 
     SQL*Plus: Release 19.0.0.0.0 - Production on Sat Jun 6 07:36:51 2020
     Version 19.3.0.0.0
@@ -100,11 +100,11 @@ Practice 14-1: Performing Switchover
     ```
 
 
-8.  Return to the DGMGRL session on localhost. Switch over to the stndby
+8.  Return to the DGMGRL session on localhost. Switch over to the orcldg
     physical standby database.
 
     ```
-    DGMGRL> switchover to stndby
+    DGMGRL> switchover to orcldg
     ```
 
 
@@ -121,7 +121,7 @@ Practice 14-1: Performing Switchover
 > CONFIGURATION
 > command indicates the hierarchy of how redo is being forwarded.
 
-10. Return to the terminal session connected to stndby. Check the
+10. Return to the terminal session connected to orcldg. Check the
     current status of the session that was connected to the original
     physical standby database. Exit SQL\*Plus.
 
@@ -137,30 +137,30 @@ Practice 14-1: Performing Switchover
 
     SQL> exit
     Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
-    Version 19.3.0.0.0 [oracle@stndby ~]$
+    Version 19.3.0.0.0 [oracle@orcldg ~]$
     ```
 
 
 > **Note:** The physical standby session was lost during role
 > transition. This is the default behavior.
 
-11. In the same terminal window on stndby, launch the DGMGRL utility and
+11. In the same terminal window on orcldg, launch the DGMGRL utility and
     > connect as the
 > SYSDG user.
 
     ```
-    [oracle@stndby ~]$ dgmgrl
+    [oracle@orcldg ~]$ dgmgrl
     DGMGRL for Linux: Release 19.0.0.0.0 - Production on Sat Jun 6 08:21:20 2020
     Version 19.3.0.0.0
 
     (c) 1982, 2019, Oracle and/or its affiliates. All rights reserved.
 
-    Welcome to DGMGRL, type "help" for information. DGMGRL> connect sysdg/<password>@stndby Connected to "stndby"
+    Welcome to DGMGRL, type "help" for information. DGMGRL> connect sysdg/<password>@orcldg Connected to "orcldg"
     Connected as SYSDG.
     ```
 
 
-12. Perform a log switch on the new primary database stndby from within
+12. Perform a log switch on the new primary database orcldg from within
     > DGMGRL.
 
     ```

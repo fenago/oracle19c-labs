@@ -55,16 +55,16 @@ Lab: Using SQL Tuning Advisor for an Active Data Guard Instance
     SQL> CREATE DATABASE LINK dblink_to_primary CONNECT TO SYS$UMF IDENTIFIED BY <password> USING 'orclcdb';
     ```
 
-4.  Use a terminal window logged in as oracle to stndby with the
-    environment variables set for stndby appropriately. Launch SQL\*Plus
+4.  Use a terminal window logged in as oracle to orcldg with the
+    environment variables set for orcldg appropriately. Launch SQL\*Plus
     and run the problem query in the DEV1 PDB.
 
     ```
-    [oracle@stndby ~]$ . oraenv
-    ORACLE_SID = [oracle] ? stndby
+    [oracle@orcldg ~]$ . oraenv
+    ORACLE_SID = [oracle] ? orcldg
     The Oracle base remains unchanged with value /u01/app/oracle 
 
-    [oracle@stndby ~]$ sqlplus / as sysdba
+    [oracle@orcldg ~]$ sqlplus / as sysdba
 
     SQL> alter session set container=dev1;
 
@@ -89,15 +89,15 @@ Lab: Using SQL Tuning Advisor for an Active Data Guard Instance
     SQL> select sql_id, sql_text from v$sql where sql_text like '%problem_query%';
     ```
 
-6.  Open a new terminal window logged in as oracle to stndby with the
-    environment variables set for stndby appropriately.
+6.  Open a new terminal window logged in as oracle to orcldg with the
+    environment variables set for orcldg appropriately.
 
     ```
-    [oracle@stndby ~]$ . oraenv
-    ORACLE_SID = [oracle] ? stndby
+    [oracle@orcldg ~]$ . oraenv
+    ORACLE_SID = [oracle] ? orcldg
     The Oracle base has been set to /u01/app/oracle 
     
-    [oracle@stndby ~]$ sqlplus / as sysdba
+    [oracle@orcldg ~]$ sqlplus / as sysdba
     ```
 
 7.  In the same terminal session, verify that the sql\_id of the problem

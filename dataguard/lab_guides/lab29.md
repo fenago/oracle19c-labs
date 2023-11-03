@@ -4,20 +4,20 @@ Practice 17-1: Enable Change Tracking on the Physical Standby Database
 ### Overview
 
 > In this practice, you will enable the change tracking feature on
-> stndby for the physical standby database and verify its usage.
+> orcldg for the physical standby database and verify its usage.
 
 ### Tasks
 
-1.  Use a terminal window logged in as oracle to stndby with the
-    environment variables set for stndby appropriately. Using operating
+1.  Use a terminal window logged in as oracle to orcldg with the
+    environment variables set for orcldg appropriately. Using operating
     system authentication, SQL\*Plus connects, by default, to the root
     container in the lab environment. Enable change tracking by using
-    the file /u01/app/oracle/oradata/stndby/rman\_change\_track.file.
+    the file /u01/app/oracle/oradata/orcldg/rman\_change\_track.file.
 
     ```
-    [oracle@stndby ~]$ . oraenv
-    ORACLE_SID = [oracle] ? stndby
-    The Oracle base has been set to /u01/app/oracle [oracle@stndby ~]$ sqlplus / as sysdba
+    [oracle@orcldg ~]$ . oraenv
+    ORACLE_SID = [oracle] ? orcldg
+    The Oracle base has been set to /u01/app/oracle [oracle@orcldg ~]$ sqlplus / as sysdba
 
     SQL*Plus: Release 19.0.0.0.0 - Production on Sun Jun 7 08:48:36 2020
     Version 19.3.0.0.0
@@ -29,7 +29,7 @@ Practice 17-1: Enable Change Tracking on the Physical Standby Database
     Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
     Version 19.3.0.0.0
 
-    SQL> alter database enable block change tracking using file '/u01/app/oracle/oradata/STNDBY/rman_change_track.file';
+    SQL> alter database enable block change tracking using file '/u01/app/oracle/oradata/orcldg/rman_change_track.file';
     Database altered. SQL>
     ```
 
@@ -43,12 +43,12 @@ Practice 17-1: Enable Change Tracking on the Physical Standby Database
     FILENAME
 
     STATUS               BYTES
-    /u01/app/oracle/oradata/stndby/rman_change_track.file
+    /u01/app/oracle/oradata/orcldg/rman_change_track.file
     ENABLED	           11599872
     ```
 
 
-3.  Exit SQL\*Plus on stndby of the physical standby database. It is
+3.  Exit SQL\*Plus on orcldg of the physical standby database. It is
     recommended to keep the terminal session open with the environment
     variables set appropriately.
 

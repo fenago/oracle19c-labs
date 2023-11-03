@@ -15,12 +15,12 @@ Practice 17-5: Recovering a Data File on Your Primary Database Over the Network
     DB\_FILE\_NAME\_CONVERT parameter. This will cause an error when a
     tablespace is created on the primary database and force the Logical
     Apply process to shut down because the directory doesn\'t exit. Use
-    a terminal window logged in as oracle to stndby. Create a symbolic
-    link ORCLCDB linking to stndby2 so that file creation can proceed.
+    a terminal window logged in as oracle to orcldg. Create a symbolic
+    link ORCLCDB linking to orcldg2 so that file creation can proceed.
 
     ```
-    [oracle@stndby ~]$ cd /u01/app/oracle/oradata
-    [oracle@stndby oradata]$ ln -s stndby2 ORCLCDB
+    [oracle@orcldg ~]$ cd /u01/app/oracle/oradata
+    [oracle@orcldg oradata]$ ln -s orcldg2 ORCLCDB
     ```
 
 > **Note:** The Data Guard documentation shows how to create a DDL
@@ -62,7 +62,7 @@ Practice 17-5: Recovering a Data File on Your Primary Database Over the Network
 > standby\_file\_management parameter.
 
 +--------------------------------------------------------+---+----------+---+---------+
-| > SQL\> **connect sys/\<password\>\@stndby as sysdba** |   |          |   |         |
+| > SQL\> **connect sys/\<password\>\@orcldg as sysdba** |   |          |   |         |
 | >                                                      |   |          |   |         |
 | > Connected.                                           |   |          |   |         |
 | >                                                      |   |          |   |         |
@@ -84,7 +84,7 @@ Practice 17-5: Recovering a Data File on Your Primary Database Over the Network
 5.  Connect to your logical standby instance as the SYSDBA user.
 
     ```
-    SQL> connect sys/<password>@stndby2 as sysdba
+    SQL> connect sys/<password>@orcldg2 as sysdba
     Connected.
     ```
 

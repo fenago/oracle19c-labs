@@ -17,8 +17,8 @@ In this practice, you will set up the automatic redirection of DML operations fo
     - Configure the primary database to automatically redirect DML operations.
 
 3. **Login to Standby Database**:
-    - In a new terminal, log in as the `oracle` user to `stndby`.
-    - Ensure the environment variables are set for `stndby`.
+    - In a new terminal, log in as the `oracle` user to `orcldg`.
+    - Ensure the environment variables are set for `orcldg`.
     - Log in as the `SYS` user.
 
 4. **Enable DML Redirection on Standby**:
@@ -32,7 +32,7 @@ In this practice, you will set up the automatic redirection of DML operations fo
     - Create a table named `TEST01` and insert a sample row.
 
 7. **Connect to Standby's PDB**:
-    - Go to the terminal session for `stndby` and connect to the `ORCLPDB1` PDB.
+    - Go to the terminal session for `orcldg` and connect to the `ORCLPDB1` PDB.
 
 8. **Display Test Table Data**:
     - Query and display data from the `TEST01` table.
@@ -48,7 +48,7 @@ In this practice, you will set up the automatic redirection of DML operations fo
     - Validate the effects of the automatic redirection of DML operations in the `orclcdb` primary database. The `DELETE` statement issued from the standby should be redirected and executed on the primary database.
 
 12. **Cleanup**:
-    - Exit SQL*Plus on both `localhost` and `stndby`. Keep the terminal windows open for subsequent labs.
+    - Exit SQL*Plus on both `localhost` and `orcldg`. Keep the terminal windows open for subsequent labs.
 
 ---
 

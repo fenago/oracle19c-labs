@@ -67,7 +67,7 @@ Practice 18-2: Modifying the Primary Database Service for Application Continuity
 
     # Use new replay datasource datasource=oracle.jdbc.replay.OracleDataSourceImpl
 
-    url=jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=h ost01.example.com)(PORT=1521)(ADDRESS=(PROTOCOL=tcp)(HOST=stndby. example.com)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=prmy)))
+    url=jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=h ost01.example.com)(PORT=1521)(ADDRESS=(PROTOCOL=tcp)(HOST=orcldg. example.com)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=prmy)))
 
     # UCP setting:
     ucp_pool_size=2 ucp_validate_connection_on_borrow=true ucp_connection_wait_timeout=60
@@ -86,7 +86,7 @@ Practice 18-2: Modifying the Primary Database Service for Application Continuity
 
     ```
     [oracle@host02 ~]$ cd /home/oracle/setup/lab_18-2/ [oracle@host02 lab_18-2]$ ./runreplay ######################################################
-    Connecting to jdbc:oracle:thin:@(DESCRIPTION_LIST=(DESCRIPTION=(ADDRESS=(PROTOC OL=tcp)(HOST=localhost.example.com)(PORT=1521))(CONNECT_DATA=(SERVIC E_NAME=PRMY.EXAMPLE.COM)))(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HO ST=stndby.example.com)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=PRM Y.EXAMPLE.COM))))
+    Connecting to jdbc:oracle:thin:@(DESCRIPTION_LIST=(DESCRIPTION=(ADDRESS=(PROTOC OL=tcp)(HOST=localhost.example.com)(PORT=1521))(CONNECT_DATA=(SERVIC E_NAME=PRMY.EXAMPLE.COM)))(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HO ST=orcldg.example.com)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=PRM Y.EXAMPLE.COM))))
     # of Threads	: 6
     UCP pool size	: 2
     Thread think time	: 20 ms ######################################################
@@ -154,10 +154,10 @@ Practice 18-2: Modifying the Primary Database Service for Application Continuity
     Operation requires a connection to database "orclcdb" Connecting ...
     Connected to "orclcdb" Connected as SYSDG.
     New primary database "orclcdb" is opening...
-    Operation requires start up of instance "stndby" on database "stndby"
-    Starting instance "stndby"... Connected to an idle instance. ORACLE instance started.
-    Connected to "stndby" Database mounted.
-    Database opened. Connected to "stndby" 
+    Operation requires start up of instance "orcldg" on database "orcldg"
+    Starting instance "orcldg"... Connected to an idle instance. ORACLE instance started.
+    Connected to "orcldg" Database mounted.
+    Database opened. Connected to "orcldg" 
     ```
 
 11. Exit DGMGRL on localhost.
