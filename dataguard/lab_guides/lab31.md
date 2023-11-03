@@ -10,48 +10,22 @@ Practice 17-3: Registering Your Database in the Recovery Catalog
 ### Tasks
 
 1.  Return to the RMAN session on localhost. Connect to the orclcdb
-    primary database with
-> SYSDBA privilege and register the database.
+    primary database with SYSDBA privilege and register the database.
 
     ```
-    RMAN> connect target 'sys/<password>@orclcdb as sysdba' connected to target database: ORCLCDB (DBID=2732402101) RMAN> register database;
-    database registered in recovery catalog starting full resync of recovery catalog full resync complete
-
-    RMAN>
+    RMAN> connect target 'sys/<password>@orclcdb as sysdba' 
+    
+    RMAN> register database;
     ```
 
 > **Note:** Your DBID may be different.
 
 2.  List the DB\_UNIQUE\_NAME for all databases known to the recovery
     catalog.
-
-+---------+---+---------+---------+---+---------+---+---------+
-| >       |   |         |         |   |         |   |         |
-|  RMAN\> |   |         |         |   |         |   |         |
-| >       |   |         |         |   |         |   |         |
-|  **list |   |         |         |   |         |   |         |
-| > db    |   |         |         |   |         |   |         |
-| \_uniqu |   |         |         |   |         |   |         |
-| e\_name |   |         |         |   |         |   |         |
-| > of    |   |         |         |   |         |   |         |
-| > data  |   |         |         |   |         |   |         |
-| base;** |   |         |         |   |         |   |         |
-+=========+===+=========+=========+===+=========+===+=========+
-| > List  |   | > Da    | > DB ID |   | > D     |   | > Db    |
-| > of DB |   | tabases |         |   | atabase |   | \_uniqu |
-| > Key   |   | > DB    |         |   | > Role  |   | e\_name |
-|         |   | > Name  |         |   |         |   |         |
-+---------+---+---------+---------+---+---------+---+---------+
-| > 1     |   |         |         |   |         |   |         |
-| >       |   |         |         |   |         |   |         |
-| ORCLCDB |   |         |         |   |         |   |         |
-| > 273   |   |         |         |   |         |   |         |
-| 2402101 |   |         |         |   |         |   |         |
-| >       |   |         |         |   |         |   |         |
-| PRIMARY |   |         |         |   |         |   |         |
-| >       |   |         |         |   |         |   |         |
-| ORCLCDB |   |         |         |   |         |   |         |
-+---------+---+---------+---------+---+---------+---+---------+
+    
+    ```
+    RMAN> list db_unique_name of database;
+    ```
 
 3.  Generate a schema report for the orclcdb primary database.
 

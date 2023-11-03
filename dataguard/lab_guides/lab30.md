@@ -1,5 +1,5 @@
 
-Practice 17-2: Creating a Recovery Manager Catalog
+Lab: Creating a Recovery Manager Catalog
 --------------------------------------------------
 
 ### Overview
@@ -11,11 +11,11 @@ Practice 17-2: Creating a Recovery Manager Catalog
 
 1.  Open a terminal window connected to localhost as the oracle OS user.
     Enter \<password\>
-    > when you are prompted for the password. Set the environment variables
-    > to ORCL.
+    > when you are prompted for the password. Set the environment variables to ORCL.
 
     ```
-    [oracle8c793fb03eed ~]$ . oraenv ORACLE_SID = [ORCL] ? ORCL
+    [oracle8c793fb03eed ~]$ . oraenv 
+    ORACLE_SID = [ORCL] ? ORCL
     The Oracle base remains unchanged with value /u01/app/oracle
     ```
 
@@ -24,13 +24,14 @@ Practice 17-2: Creating a Recovery Manager Catalog
 
     ```
     [oracle8c793fb03eed ~]$ sqlplus / as sysdba
+
+    SQL> show pdbs
     ```
 
 3.  Connect to the RCATPDB PDB.
 
     ```
     SQL> alter session set container=ORCL;
-    Session altered. SQL>
     ```
 
 4.  Determine where the current data files are stored at:
@@ -67,9 +68,6 @@ Practice 17-2: Creating a Recovery Manager Catalog
     Grant succeeded.
 
     SQL> exit
-    Disconnected from Oracle Database 19c Enterprise Edition Release
-    19.0.0.0.0 - Production Version 19.3.0.0.0
-    [oracle8c793fb03eed ~]$
     ```
 
 8.  Use a terminal window on localhost connected as oracle with the
@@ -80,6 +78,7 @@ Practice 17-2: Creating a Recovery Manager Catalog
     [oracle@localhost ~]$ . oraenv
     ORACLE_SID = [oracle] ? orclcdb
     The Oracle base has been set to /u01/app/oracle
+
     [oracle@localhost ~]$ rman catalog rcowner/<password>@em13c:1521/ORCL
 
     Recovery Manager: Release 19.0.0.0.0 - Production on Sun Jun 7 13:05:44 2020
@@ -94,5 +93,4 @@ Practice 17-2: Creating a Recovery Manager Catalog
 
     ```
     RMAN> create catalog;
-    recovery catalog created
     ```

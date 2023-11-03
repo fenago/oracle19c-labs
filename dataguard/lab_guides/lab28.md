@@ -1,5 +1,5 @@
 
-Practice 14-2: Keeping Physical Standby Session Connected During Role Transition
+Lab: Keeping Physical Standby Session Connected During Role Transition
 --------------------------------------------------------------------------------
 
 ### Overview
@@ -13,8 +13,7 @@ Practice 14-2: Keeping Physical Standby Session Connected During Role Transition
 
 ### Tasks
 
-1.  With the navigation techniques learned
-    in practice 10-3, navigate to the Databases pages.
+1.  Navigate to the Databases pages.
 
 ![](./images/28.png)
 
@@ -41,13 +40,11 @@ Practice 14-2: Keeping Physical Standby Session Connected During Role Transition
     -   Role: SYSDBA
 
 > **Note:**
-> You can also choose dbsnmp to lower the privilege instead of the SYS
-> user.
+> You can also choose dbsnmp to lower the privilege instead of the SYS user.
 
 ![](./images/31.png)
 
-5.  Select the listed listener on orcldg.
-    Click **Next**.
+5.  Select the listed listener on orcldg. Click **Next**.
 
 ![](./images/32.png)
 
@@ -66,10 +63,8 @@ Practice 14-2: Keeping Physical Standby Session Connected During Role Transition
 
 ![](./images/34.png)
 
-**(Optional)** If only the **Add Standby
-> Database** link is visible, then select it. It will not launch the Add
-> Standby Database Wizard, but instead, will navigate to the Data Guard
-> home page.
+**(Optional)** If only the **Add Standby Database** link is visible, then select it. 
+It will not launch the Add Standby Database Wizard, but instead, will navigate to the Data Guard home page.
 
 ![](./images/35.png)
 
@@ -104,12 +99,9 @@ Practice 14-2: Keeping Physical Standby Session Connected During Role Transition
     ```
     [oracle@localhost ~]$ . oraenv
     ORACLE_SID = [oracle] ? orclcdb
-    The Oracle base has been set to /u01/app/oracle [oracle@localhost ~]$ sqlplus / as sysdba
-
-    SQL*Plus: Release 19.0.0.0.0 - Production on Sat Jun 6 07:36:51 2020
-    Version 19.3.0.0.0
-
-    (c) 1982, 2019, Oracle. All rights reserved.
+    The Oracle base has been set to /u01/app/oracle 
+    
+    [oracle@localhost ~]$ sqlplus / as sysdba
     ```
 
 
@@ -117,19 +109,11 @@ Practice 14-2: Keeping Physical Standby Session Connected During Role Transition
     SESSION and restart the orclcdb database.
 
     ```
-    SQL> alter system set STANDBY_DB_PRESERVE_STATES = session
-    scope=spfile;
-
-    System altered.
+    SQL> alter system set STANDBY_DB_PRESERVE_STATES = session scope=spfile;
 
     SQL> shutdown immediate
-    Database closed. Database dismounted.
-    ORACLE instance shut down. SQL> startup
-    ORACLE instance started.
-
-    Total System Global Area 629145352 bytes Fixed Size	9137928 bytes Variable Size		373293056 bytes Database Buffers 239075328 bytes
-    Redo Buffers	7639040 bytes Database mounted.
-    Database opened.
+  
+    SQL> startup
 
     SQL> show pdbs
     ```
@@ -148,20 +132,19 @@ Practice 14-2: Keeping Physical Standby Session Connected During Role Transition
 > receive the ORA-01153
 > error message. You can safely proceed to the next step.
 
-  ```
+    ```
     SQL> alter pluggable database dev1 open;
 
     Pluggable database altered.
 
     SQL> alter database recover managed standby database disconnect;
+
     alter database recover managed standby database disconnect
     *
     ERROR at line 1:
     ORA-01153: an incompatible media recovery is active
 
     SQL> exit
-    Disconnected from Oracle Database 19c Enterprise Edition Release
-    19.0.0.0.0 - Production Version 19.3.0.0.0 [oracle@localhost ~]$
     ```
 
 
@@ -217,38 +200,21 @@ e. Monitor the progress of Switchover.
 ![](./images/42.png)
 
 16. Return to the SQL\*Plus session connected on localhost. Check the
-    current status of the OE
-> session periodically. Exit SQL\*Plus.
+    current status of the OE session periodically. Exit SQL\*Plus.
 
-+---------------+---+-----+---+----------+---------+
-| > SQL\> **/** |   | SID |   | SERIAL\# |         |
-| >             |   |     |   |          |         |
-| > USERNAME    |   |     |   |          |         |
-+===============+===+=====+===+==========+=========+
-| > OE          |   |     |   | > 42     | > 40779 |
-| >             |   |     |   |          |         |
-| > SQL\> **/** |   |     |   |          |         |
-+---------------+---+-----+---+----------+---------+
-| > USERNAME    |   | SID |   | SERIAL\# |         |
-+---------------+---+-----+---+----------+---------+
-| > OE          |   |     |   | > 42     | > 40779 |
-| >             |   |     |   |          |         |
-| > SQL\> **/** |   |     |   |          |         |
-+---------------+---+-----+---+----------+---------+
+    ```
+    SQL> /
 
-+----------------+---+-----+---+----------+---------+
-| USERNAME       |   | SID |   | SERIAL\# |         |
-+================+===+=====+===+==========+=========+
-| OE             |   |     |   | > 42     | > 40779 |
-|                |   |     |   |          |         |
-| SQL\> **/**    |   |     |   |          |         |
-+----------------+---+-----+---+----------+---------+
-| USERNAME       |   | SID |   | SERIAL\# |         |
-+----------------+---+-----+---+----------+---------+
-| OE             |   |     |   | > 42     | > 40779 |
-|                |   |     |   |          |         |
-| SQL\> **exit** |   |     |   |          |         |
-+----------------+---+-----+---+----------+---------+
+    SQL> /
+
+    SQL> /
+
+    SQL> /
+
+    SQL> /
+
+    SQL> exit
+    ```
 
 > **Note:** The OE session hangs for a while and resumes. With the new
 > feature, the session is retained during role transition.

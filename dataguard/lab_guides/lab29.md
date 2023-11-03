@@ -1,4 +1,4 @@
-Practice 17-1: Enable Change Tracking on the Physical Standby Database
+Lab: Enable Change Tracking on the Physical Standby Database
 ----------------------------------------------------------------------
 
 ### Overview
@@ -17,20 +17,12 @@ Practice 17-1: Enable Change Tracking on the Physical Standby Database
     ```
     [oracle@orcldg ~]$ . oraenv
     ORACLE_SID = [oracle] ? orcldg
-    The Oracle base has been set to /u01/app/oracle [oracle@orcldg ~]$ sqlplus / as sysdba
+    The Oracle base has been set to /u01/app/oracle 
+    
+    [oracle@orcldg ~]$ sqlplus / as sysdba
 
-    SQL*Plus: Release 19.0.0.0.0 - Production on Sun Jun 7 08:48:36 2020
-    Version 19.3.0.0.0
-
-    (c) 1982, 2019, Oracle. All rights reserved.
-
-
-    Connected to:
-    Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
-    Version 19.3.0.0.0
 
     SQL> alter database enable block change tracking using file '/u01/app/oracle/oradata/orcldg/rman_change_track.file';
-    Database altered. SQL>
     ```
 
 
@@ -39,12 +31,6 @@ Practice 17-1: Enable Change Tracking on the Physical Standby Database
 
     ```
     SQL> select filename, status, bytes from v$block_change_tracking;
-
-    FILENAME
-
-    STATUS               BYTES
-    /u01/app/oracle/oradata/orcldg/rman_change_track.file
-    ENABLED	           11599872
     ```
 
 

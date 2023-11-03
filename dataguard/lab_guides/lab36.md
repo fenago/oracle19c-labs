@@ -17,7 +17,9 @@ Practice 18-2: Modifying the Primary Database Service for Application Continuity
     ```
     [oracle@localhost]$ . oraenv
     ORACLE_SID = [oracle] ? orclcdb
-    The Oracle base has been set to /u01/app/oracle [oracle@localhost ~]$ /home/oracle/setup/lab_18-2/setup18.sh
+    The Oracle base has been set to /u01/app/oracle 
+    
+    [oracle@localhost ~]$ /home/oracle/setup/lab_18-2/setup18.sh
 
     drop table emp
     * ERROR at line 1:
@@ -31,6 +33,8 @@ Practice 18-2: Modifying the Primary Database Service for Application Continuity
 
     ```
     [oracle@localhost ~]$ sqlplus / as sysdba
+
+    SQL> alter session set container=dev1;
     ```
 
 3.  Modify the service PRMY.EXAMPLE.COM to support Application
@@ -38,6 +42,8 @@ Practice 18-2: Modifying the Primary Database Service for Application Continuity
 
     ```
     SQL> @/home/oracle/setup/modify_svc.sql
+
+    SQL> exit
     ```
 
 4.  Examine the script that you will soon use to execute the practice
@@ -46,9 +52,6 @@ Practice 18-2: Modifying the Primary Database Service for Application Continuity
 
     ```
     [oracle@localhost ~]$ cat /home/oracle/setup/lab_18-2/runreplay
-    java -
-    classpath ./actest.jar:$ORACLE_HOME/ucp/lib/ucp.jar:$ORACLE_HOME/ jdbc/lib/ojdbc8.jar actest.ACTest actest_replay.properties
-    [oracle@localhost ~]$
     ```
 
 5.  Examine the properties file.
@@ -61,23 +64,7 @@ Practice 18-2: Modifying the Primary Database Service for Application Continuity
     -   Use the Application Continuity supported connection pool: UCP
 
     ```
-    [oracle@localhost ~]$
-    cat /home/oracle/setup/lab_18-2/actest_replay.properties
-    username=hr password=hr autoCommit=false
-
-    # Use new replay datasource datasource=oracle.jdbc.replay.OracleDataSourceImpl
-
-    url=jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=h ost01.example.com)(PORT=1521)(ADDRESS=(PROTOCOL=tcp)(HOST=orcldg. example.com)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=prmy)))
-
-    # UCP setting:
-    ucp_pool_size=2 ucp_validate_connection_on_borrow=true ucp_connection_wait_timeout=60
-
-    # Think Time taken to process the results from the database. Time in milliseconds.
-    # -1 means no sleep. thread_think_time=20
-
-    # Number of concurrent threads running in the application # UCP is tuned to have MAX and MIN limit set to this number_of_threads=6
-
-    verbose=true [oracle@localhost ~]$
+    [oracle@localhost ~]$ cat /home/oracle/setup/lab_18-2/actest_replay.properties
     ```
 
 6.  Use the terminal window connected to host02. Execute the practice
@@ -85,17 +72,9 @@ Practice 18-2: Modifying the Primary Database Service for Application Continuity
     is displayed.
 
     ```
-    [oracle@host02 ~]$ cd /home/oracle/setup/lab_18-2/ [oracle@host02 lab_18-2]$ ./runreplay ######################################################
-    Connecting to jdbc:oracle:thin:@(DESCRIPTION_LIST=(DESCRIPTION=(ADDRESS=(PROTOC OL=tcp)(HOST=localhost.example.com)(PORT=1521))(CONNECT_DATA=(SERVIC E_NAME=PRMY.EXAMPLE.COM)))(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HO ST=orcldg.example.com)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=PRM Y.EXAMPLE.COM))))
-    # of Threads	: 6
-    UCP pool size	: 2
-    Thread think time	: 20 ms ######################################################
-
-    2 active connections, avg response time from db 6 ms
-    1 active connections, avg response time from db 5 ms
-    1 active connections, avg response time from db 5 ms
+    [oracle@host02 ~]$ cd /home/oracle/setup/lab_18-2/ 
+    [oracle@host02 lab_18-2]$ ./runreplay 
     ...
-```
 
 7.  While the application continues to execute, return to the DGMGRL
     session on localhost. Check the status of the data guard
@@ -110,35 +89,14 @@ Practice 18-2: Modifying the Primary Database Service for Application Continuity
 
     ```
     DGMGRL> validate database orclcdb
+
+    DGMGRL> validate database stndby
+
+    DGMGRL> switchover to stndby
     ```
 
 9.  Return to the terminal session on host02. Press Ctrl+C to abort the
     application.
-
-    ```
-    …
-    2	
-    active	
-    connections,	
-    avg	
-    response	
-    time	
-    from	
-    db	
-    5	
-    ms
-    2	active	connections,	avg	response	time	from	db	5	ms
-    0	active	connections,	avg	response	time	from	db	5	ms
-    2	active	connections,	avg	response	time	from	db	5	ms
-    1
-    2	active active	connections, connections,	avg avg	response response	time time	from from	db db	111 ms
-    5 ms
-    2	active	connections,	avg	response	time	from	db	7	ms
-    0	active	connections,	avg	response	time	from	db	6	ms
-    1	active	connections,	avg	response	time	from	db	5	ms
-    2	active	connections,	avg	response	time	from	db	5	ms
-    …									
-    ```
 
 
 > **Note:** Your application is still connected without having any
@@ -150,14 +108,6 @@ Practice 18-2: Modifying the Primary Database Service for Application Continuity
 
     ```
     DGMGRL> switchover to orclcdb
-    Performing switchover NOW, please wait...
-    Operation requires a connection to database "orclcdb" Connecting ...
-    Connected to "orclcdb" Connected as SYSDG.
-    New primary database "orclcdb" is opening...
-    Operation requires start up of instance "orcldg" on database "orcldg"
-    Starting instance "orcldg"... Connected to an idle instance. ORACLE instance started.
-    Connected to "orcldg" Database mounted.
-    Database opened. Connected to "orcldg" 
     ```
 
 11. Exit DGMGRL on localhost.

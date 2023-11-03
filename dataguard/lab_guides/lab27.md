@@ -1,4 +1,4 @@
-Practice 14-1: Performing Switchover
+Lab: Performing Switchover
 ------------------------------------
 
 ### Overview
@@ -18,13 +18,13 @@ Practice 14-1: Performing Switchover
     ```
     [oracle@localhost ~]$ . oraenv
     ORACLE_SID = [oracle] ? orclcdb
-    The Oracle base has been set to /u01/app/oracle [oracle@localhost ~]$ dgmgrl
-    DGMGRL for Linux: Release 19.0.0.0.0 - Production on Sat Jun 6 07:29:43 2020
-    Version 19.3.0.0.0
+    The Oracle base has been set to /u01/app/oracle 
+    
+    [oracle@localhost ~]$ dgmgrl
 
-    (c) 1982, 2019, Oracle and/or its affiliates. All rights reserved.
-
-    Welcome to DGMGRL, type "help" for information. DGMGRL> connect sysdg/<password>@orclcdb Connected to "orclcdb"
+    DGMGRL> connect sysdg/<password>@orclcdb 
+    
+    Connected to "orclcdb"
     Connected as SYSDG.
     DGMGRL>
     ```
@@ -54,33 +54,17 @@ Practice 14-1: Performing Switchover
     ```
     [oracle@orcldg ~]$ . oraenv
     ORACLE_SID = [oracle] ? orcldg
-    The Oracle base has been set to /u01/app/oracle [oracle@orcldg ~]$ sqlplus / as sysdba
-
-    SQL*Plus: Release 19.0.0.0.0 - Production on Sat Jun 6 07:36:51 2020
-    Version 19.3.0.0.0
-
-    (c) 1982, 2019, Oracle. All rights reserved.
-
-
-
-    Connected to:
-    Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
-    Version 19.3.0.0.0
-
-    SQL>
+    The Oracle base has been set to /u01/app/oracle 
+    
+    [oracle@orcldg ~]$ sqlplus / as sysdba
     ```
 
 
 6.  Check the value of the STANDBY\_DB\_PRESERVE\_STATES parameter.
 
-+----------------------------------------+---+----------+---+---------+
-| > SQL\> **show parameter               |   |          |   |         |
-| > STANDBY\_DB\_PRESERVE\_STATES**      |   |          |   |         |
-+========================================+===+==========+===+=========+
-| > NAME                                 |   | > TYPE   |   | > VALUE |
-+----------------------------------------+---+----------+---+---------+
-| > standby\_db\_preserve\_states SQL\>  |   | > string |   | > NONE  |
-+----------------------------------------+---+----------+---+---------+
+    ```
+    SQL> show parameter STANDBY_DB_PRESERVE_STATES
+    ```
 
 > **Note:** When a physical standby database is converted to a primary,
 > you have the option of keeping any sessions connected to the physical
@@ -117,6 +101,7 @@ Practice 14-1: Performing Switchover
 
 > **Note:** It takes a few minutes to clear up the ORA-\* error
 > messages.
+
 > **Note:** Remember that the indentation used in the output of the SHOW
 > CONFIGURATION
 > command indicates the hierarchy of how redo is being forwarded.
@@ -127,12 +112,12 @@ Practice 14-1: Performing Switchover
 
     ```
     SQL> select open_mode from v$database;
+
     select open_mode from v$database
     *
     ERROR at line 1:
     ORA-03135: connection lost contact Process ID: 15166
     Session ID: 52 Serial number: 2296
-
 
 
     SQL> exit
@@ -144,18 +129,14 @@ Practice 14-1: Performing Switchover
 > **Note:** The physical standby session was lost during role
 > transition. This is the default behavior.
 
-11. In the same terminal window on orcldg, launch the DGMGRL utility and
-    > connect as the
-> SYSDG user.
+11. In the same terminal window on orcldg, launch the DGMGRL utility and connect as theSYSDG user.
 
     ```
     [oracle@orcldg ~]$ dgmgrl
-    DGMGRL for Linux: Release 19.0.0.0.0 - Production on Sat Jun 6 08:21:20 2020
-    Version 19.3.0.0.0
-
-    (c) 1982, 2019, Oracle and/or its affiliates. All rights reserved.
-
-    Welcome to DGMGRL, type "help" for information. DGMGRL> connect sysdg/<password>@orcldg Connected to "orcldg"
+    
+    DGMGRL> connect sysdg/<password>@orcldg 
+    
+    Connected to "orcldg"
     Connected as SYSDG.
     ```
 

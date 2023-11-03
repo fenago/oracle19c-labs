@@ -1,5 +1,5 @@
 
-Practice 17-5: Recovering a Data File on Your Primary Database Over the Network
+Lab: Recovering a Data File on Your Primary Database Over the Network
 -------------------------------------------------------------------------------
 
 ### Overview
@@ -31,47 +31,25 @@ Practice 17-5: Recovering a Data File on Your Primary Database Over the Network
 2.  Use a terminal window logged in as oracle to localhost with the
     environment variables set for orclcdb appropriately. Launch
     SQL\*Plus and create a new tablespace SAMPLE in the DEV1 pluggable
-    database with a data file
-> /u01/app/oracle/oradata/orclcdb/dev1/sample01.dbf and a size of 5 MB.
+    database with a data file `/u01/app/oracle/oradata/orclcdb/dev1/sample01.dbf` and a size of 5 MB.
 
     ```
     [oracle@localhost ~]$ sqlplus / as sysdba
 
-    SQL*Plus: Release 19.0.0.0.0 - Production on Sun Jun 7 09:19:53 2020
-    Version 19.3.0.0.0
-
-    (c) 1982, 2019, Oracle. All rights reserved.
-
-
-    Connected to:
-    Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
-    Version 19.3.0.0.0
-
     SQL> alter session set container=DEV1;
 
-    Session altered.
-
     SQL> create tablespace SAMPLE datafile '/u01/app/oracle/oradata/ORCLCDB/dev1/sample01.dbf' size 5M;
-    Tablespace created. SQL>
     ```
 
 
 3.  Connect to your physical standby instance as the SYSDBA user and
-    show the
+    show the standby\_file\_management parameter.
 
-> standby\_file\_management parameter.
+    ```
+    SQL> connect sys/<password>@stndby as sysdba
 
-+--------------------------------------------------------+---+----------+---+---------+
-| > SQL\> **connect sys/\<password\>\@orcldg as sysdba** |   |          |   |         |
-| >                                                      |   |          |   |         |
-| > Connected.                                           |   |          |   |         |
-| >                                                      |   |          |   |         |
-| > SQL\> **show parameter standby\_file\_management**   |   |          |   |         |
-+========================================================+===+==========+===+=========+
-| > NAME                                                 |   | > TYPE   |   | > VALUE |
-+--------------------------------------------------------+---+----------+---+---------+
-| > standby\_file\_management SQL\>                      |   | > string |   | > AUTO  |
-+--------------------------------------------------------+---+----------+---+---------+
+    SQL> show parameter standby_file_management
+    ```
 
 4.  Verify that the data file has successfully been created on the
     physical standby database.
@@ -85,15 +63,14 @@ Practice 17-5: Recovering a Data File on Your Primary Database Over the Network
 
     ```
     SQL> connect sys/<password>@orcldg2 as sysdba
-    Connected.
     ```
 
 6.  Verify that the data file has successfully been created on the
     logical standby database.
 
-```
-SQL> select file#,name from v$datafile;
-```
+    ```
+    SQL> select file#,name from v$datafile;
+    ```
 
 7.  Reconnect to your primary database and create the hr.employees2
     table as a copy of the hr.employees table into the newly created
@@ -128,21 +105,22 @@ SQL> select file#,name from v$datafile;
 
     ```
     SQL> connect sys/<password>@orclcdb as sysdba
-    Connected.
 
     SQL> shutdown abort
-    ORACLE instance shut down.
 
     SQL> exit
-    Disconnected from Oracle Database 19c Enterprise Edition Release
-    19.0.0.0.0 - Production Version 19.3.0.0.0
-    [oracle@localhost ~]$
     ```
 
 11. Launch SQL\*Plus and start the database instance. Exit SQL\*Plus.
 
     ```
     [oracle@localhost]$ sqlplus / as sysdba
+
+    SQL> startup
+
+    SQL> alter pluggable database dev1 open;
+
+    SQL> exit
     ```
 
 12. Use RMAN to restore the missing datafile using the physical standby
@@ -150,12 +128,20 @@ SQL> select file#,name from v$datafile;
 
     ```
     [oracle@localhost ~]$ rman target sys/<password>@orclcdb
+
+    RMAN> restore datafile 25 from service 'stndby';
+
+    RMAN> recover datafile 25;
+
+    RMAN> exit
     ```
 
 13. Launch SQL\*Plus and switch the container to the pluggable database.
 
     ```
     [oracle@localhost ~]$ sqlplus / as sysdba
+
+    SQL> show pdbs
     ```
 
 14. Verify that the table has been recovered and the rows exist in the
@@ -163,6 +149,8 @@ SQL> select file#,name from v$datafile;
 
     ```
     SQL> alter session set container = DEV1;
+
+    SQL> select * from hr.employees2;
     ```
 
 15. Drop the tablespace that was created in the lab along with the data
@@ -170,8 +158,6 @@ SQL> select file#,name from v$datafile;
 
     ```
     SQL> drop tablespace sample including contents and datafiles;
-    Tablespace dropped; SQL> exit
-    Disconnected from Oracle Database 19c Enterprise Edition Release
-    19.0.0.0.0 - Production Version 19.3.0.0.0
-    [oracle@localhost ~]$
+    
+    SQL> exit
     ```

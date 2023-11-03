@@ -18,20 +18,11 @@ Practice 18-1: Creating and Testing Primary Database Services
     ```
     [oracle@localhost ~]$ . oraenv
     ORACLE_SID = [oracle] ? orclcdb
-    The Oracle base has been set to /u01/app/oracle [oracle@localhost ~]$ sqlplus / as sysdba
-    SQL*Plus: Release 19.0.0.0.0 - Production on Sun Jun 7 14:44:47 2020
-    Version 19.3.0.0.0
-
-    (c) 1982, 2019, Oracle. All rights reserved.
-
-
-    Connected to:
-    Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
-    Version 19.3.0.0.0
+    The Oracle base has been set to /u01/app/oracle 
+    
+    [oracle@localhost ~]$ sqlplus / as sysdba
 
     SQL> alter session set container=dev1;
-
-    Session altered.
     ```
 
 
@@ -40,11 +31,7 @@ Practice 18-1: Creating and Testing Primary Database Services
     ```
     SQL> exec DBMS_SERVICE.CREATE_SERVICE('PRMY','PRMY')
 
-    PL/SQL procedure successfully completed.
-
     SQL> exec DBMS_SERVICE.START_SERVICE('PRMY')
-
-    PL/SQL procedure successfully completed.
     ```
 
 
@@ -66,15 +53,6 @@ Practice 18-1: Creating and Testing Primary Database Services
     The Oracle base has been set to /u01/app/oracle
 
     [oracle@host02 ~]$ sqlplus system/<password>@prmy
-    SQL*Plus: Release 19.0.0.0.0 - Production on Sun Jun 7 14:47:38 2020
-    Version 19.3.0.0.0
-
-    (c) 1982, 2019, Oracle. All rights reserved.
-    Last Successful login time: Sun Jun 07 2020 09:26:10 -04:00 Connected to:
-    Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
-    Version 19.3.0.0.0
-
-    SQL>
     ```
 
 > **Note:** The tnsnames.ora network configuration file was already
@@ -106,6 +84,10 @@ Practice 18-1: Creating and Testing Primary Database Services
 
     ```
     SQL> show con_name
+
+    SQL> @/home/oracle/setup/create_trigger.sql
+
+    exit
     ```
 
 8.  Launch DGMGRL and connect to the SYSDG account. Show the
@@ -113,6 +95,8 @@ Practice 18-1: Creating and Testing Primary Database Services
 
     ```
     [oracle@localhost ~]$ dgmgrl sysdg/<password>@orclcdb
+
+    DGMGRL> show configuration
     ```
 
 9.  Validate that the primary and physical standby databases are ready
@@ -120,6 +104,8 @@ Practice 18-1: Creating and Testing Primary Database Services
 
     ```
     DGMGRL> validate database 
+
+    DGMGRL> validate database stndby
     ```
 
 10. Perform a switch over to the orcldg physical standby database. Do
@@ -135,6 +121,8 @@ Practice 18-1: Creating and Testing Primary Database Services
 
     ```
     SQL> select instance_name from v$instance;
+
+
     select instance_name from v$instance
     *
     ERROR at line 1:
@@ -146,6 +134,7 @@ Practice 18-1: Creating and Testing Primary Database Services
 
     ```
     SQL> connect system/<password>@prmy
+
     Connected.
     SQL>
     ```
@@ -162,6 +151,8 @@ Practice 18-1: Creating and Testing Primary Database Services
 
     ```
     SQL> select sys_context ('USERENV', 'CON_NAME') as container FROM dual;
+
+    SQL> exit
     ```
 
 15. Return to the DGMGRL session running on localhost in Step 10.
@@ -171,6 +162,10 @@ Practice 18-1: Creating and Testing Primary Database Services
 
     ```
     DGMGRL> validate database orcldg 
+
+    DGMGRL> validate database orclcdb
+
+    DGMGRL> switchover to orclcdb
     ```
 
 16. Display the status of the data guard configuration. Wait until all

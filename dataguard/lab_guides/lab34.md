@@ -1,5 +1,5 @@
 
-Practice 17-6: Rolling Forward a Standby Database with One Command
+Lab: Rolling Forward a Standby Database with One Command
 ------------------------------------------------------------------
 
 ### Overview
@@ -17,23 +17,17 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
     ```
     [oracle@localhost ~]$ . oraenv
     ORACLE_SID = [orclcdb] ? orclcdb
-    The Oracle base remains unchanged with value /u01/app/oracle [oracle@localhost ~]$
+    The Oracle base remains unchanged with value /u01/app/oracle 
     ```
 
 2.  Disable the redo transport service in preparation of the practice.
 
     ```
     [oracle@localhost ~]$ dgmgrl
-    DGMGRL for Linux: Release 19.0.0.0.0 - Production on Sun Jun 7 10:35:59 2020
-    Version 19.3.0.0.0
+    
+    DGMGRL> connect sysdg/<password>@orclcdb Connected to "orclcdb"
 
-    (c) 1982, 2019, Oracle and/or its affiliates. All rights reserved.
-
-    Welcome to DGMGRL, type "help" for information. DGMGRL> connect sysdg/<password>@orclcdb Connected to "orclcdb"
-    Connected as SYSDG.
     DGMGRL> edit database orclcdb set state='TRANSPORT-OFF';
-    Succeeded.
-    DGMGRL>
     ```
 
 3.  Use the terminal window on orcldg as the oracle user. Make sure that
@@ -43,20 +37,11 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
     ```
     [oracle@orcldg ~]$ . oraenv
     ORACLE_SID = [oracle] ? orcldg
-    The Oracle base has been set to /u01/app/oracle [oracle@orcldg ~]$ sqlplus / as sysdba
-
-    SQL*Plus: Release 19.0.0.0.0 - Production on Sun Jun 7 10:39:29 2020
-    Version 19.3.0.0.0
-
-    (c) 1982, 2019, Oracle. All rights reserved.
-
-    Connected to:
-    Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
-    Version 19.3.0.0.0
+    The Oracle base has been set to /u01/app/oracle 
+    
+    [oracle@orcldg ~]$ sqlplus / as sysdba
 
     SQL> shutdown immediate
-    Database closed. Database dismounted.
-    ORACLE instance shut down. SQL>
     ```
 
 4.  Open a new terminal window on localhost. Then make a note of the
@@ -67,7 +52,11 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
     ```
     [oracle@localhost ~]$ . oraenv
     ORACLE_SID = [oracle] ? orclcdb
-    The Oracle base has been set to /u01/app/oracle [oracle@localhost ~]$ sqlplus / as sysdba
+    The Oracle base has been set to /u01/app/oracle 
+    
+    [oracle@localhost ~]$ sqlplus / as sysdba
+
+    SQL> select thread#, sequence# from v$log where status='CURRENT' order by 1;
     ```
 
 5.  In the DEV1 PDB, create a simple table named hr.test17 and insert a
@@ -86,10 +75,8 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
 
     ```
     SQL> connect / as sysdba
-    Connected.
-    SQL> alter system switch logfile;
 
-    System altered.
+    SQL> alter system switch logfile;
 
     SQL> SELECT THREAD#, MAX(SEQUENCE#) FROM V$ARCHIVED_LOG WHERE RESETLOGS_CHANGE# = (SELECT MAX(RESETLOGS_CHANGE#) FROM V$ARCHIVED_LOG) GROUP BY THREAD#;
     ```
@@ -103,7 +90,9 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
 
     ```
     SQL> col name format a65
+
     SQL> select thread#, name from v$archived_log where thread#=1 and sequence#=82;
+    exit
     ```
 
 8.  Now, simulate a loss of the archived log file before transferring to
@@ -114,7 +103,6 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
     [oracle@localhost ~]$ rm
     /u01/app/oracle/fast_recovery_area/ORCLCDB/archivelog/2020_06_07/o1
     _mf_1_82_hft449l6_.arc
-    [oracle@localhost ~]$
     ```
 
 
@@ -123,8 +111,6 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
 
     ```
     DGMGRL> edit database orclcdb set state='TRANSPORT-ON';
-    Succeeded.
-    DGMGRL>
     ```
 
 10. Return to the SQL\*Plus session on orcldg and start the physical
@@ -132,6 +118,8 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
 
     ```
     SQL> startup
+
+    SQL> alter pluggable database dev1 open;
     ```
 
 11. In the DEV1 PDB, verify that the physical standby is synchronized
@@ -140,15 +128,15 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
     ```
     SQL> alter session set container=DEV1;
 
-    Session altered.
-
     SQL> select * from hr.test17;
+
     select * from hr.test17
     *
     ERROR at line 1:
     ORA-00942: table or view does not exist
 
     SQL> exit
+
     Disconnected from Oracle Database 19c Enterprise Edition Release
     19.0.0.0.0 - Production Version 19.3.0.0.0 [oracle@orcldg ~]$
     ```
@@ -164,8 +152,6 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
 
     ```
     DGMGRL> edit database orcldg set state='APPLY-OFF';
-    Succeeded.
-    DGMGRL>
     ```
 
 13. Return to the terminal session on orcldg. Let's see how we can
@@ -175,6 +161,17 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
 
     ```
     [oracle@orcldg ~]$ rman target /
+
+    RMAN> RECOVER STANDBY DATABASE FROM SERVICE=orclcdb;
+
+    ...
+    contents of Memory Script:
+    {
+    restore standby controlfile from service 'orclcdb'; alter database mount standby database;
+    }
+    ...
+
+    RMAN> exit
     ```
 
 14. Using SQL\*Plus, connect to the orcldg database. Start the database
@@ -182,6 +179,12 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
 
     ```
     [oracle@orcldg ~]$ sqlplus / as sysdba
+
+    SQL> show pdbs
+
+    SQL> alter database open;
+
+    SQL> alter pluggable database dev1 open;
     ```
 
 15. Return to the DGMGRL session on localhost. Start the redo apply
@@ -189,8 +192,6 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
 
     ```
     DGMGRL> edit database orcldg set state='APPLY-ON';
-    Succeeded.
-    DGMGRL>
     ```
 
 16. Return to the SQL\*Plus session on orcldg connected to the orcldg
@@ -199,6 +200,8 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
 
     ```
     SQL> alter session set container=DEV1;
+
+    SQL> select * from hr.test17;
     ```
 
 17. Return to the DGMGRL session on localhost. Display the status of the
@@ -220,23 +223,9 @@ Practice 17-6: Rolling Forward a Standby Database with One Command
 
     ```
     DGMGRL> disable database orcldg2;
-    Disabled.
+
     DGMGRL> show configuration
-
-    Configuration - DRSolution
-
-    Protection Mode: MaxPerformance Members:
-    orclcdb	- Primary database orclcdbFS - Far sync instance
-    orcldg	- Physical standby database
-    orcldg2 - Logical standby database (disabled) ORA-16749: The member was disabled manually.
-
-    orcldgFS - Far sync instance
-    Fast-Start Failover: Disabled Configuration Status:
-    SUCCESS	(status updated 48 seconds ago)
-
-    DGMGRL>
     ```
 
 
-19. Exit DGMGRL and SQL\*Plus leaving the terminal window open for
-    future practices.
+19. Exit DGMGRL and SQL\*Plus leaving the terminal window open for future practices.
