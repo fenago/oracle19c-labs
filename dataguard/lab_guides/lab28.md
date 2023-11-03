@@ -13,20 +13,23 @@ Practice 14-2: Keeping Physical Standby Session Connected During Role Transition
 
 ### Tasks
 
-1.  ![](media/image15.jpeg){width="6.2in"
-    height="2.4923611111111112in"}With the navigation techniques learned
+1.  With the navigation techniques learned
     in practice 10-3, navigate to the Databases pages.
 
-2.  ![](media/image47.jpeg){width="6.2756944444444445in"
-    height="1.917361111111111in"}Add the stndby database as an EM target
+![](./images/28.png)
+
+2.  Add the stndby database as an EM target
     in preparation of the Switchover practice through Enterprise
     Manager. Click **Add** \> **Oracle Database**.
 
-3.  ![](media/image49.jpeg){width="6.18125in"
-    height="3.0965277777777778in"}On the Database Discovery: Search
+![](./images/29.png)
+
+3.  On the Database Discovery: Search
     Criteria page, enter the name of the host (stndby) by clicking the
     magnifying glass icon and selecting the host name in the dialog box.
     Then click **Next** to proceed.
+
+![](./images/30.png)
 
 4.  On the Database Discovery: Results page, select the stndby database
     and provide the following information:
@@ -37,42 +40,46 @@ Practice 14-2: Keeping Physical Standby Session Connected During Role Transition
 
     -   Role: SYSDBA
 
-> ![](media/image51.jpeg){width="6.18125in" height="1.6625in"}**Note:**
+> **Note:**
 > You can also choose dbsnmp to lower the privilege instead of the SYS
 > user.
 
-5.  ![](media/image53.jpeg){width="6.18125in"
-    height="1.1243055555555554in"}Select the listed listener on stndby.
+![](./images/31.png)
+
+5.  Select the listed listener on stndby.
     Click **Next**.
+
+![](./images/32.png)
 
 6.  On the Database Discovery: Review page, click **Save**.
 
 7.  In the Confirmation dialog box, click **Close**.
 
-8.  ![](media/image55.jpeg){width="6.284722222222222in"
-    height="1.9375in"}On the Databases page, set the Auto Refresh option
+8.  On the Databases page, set the Auto Refresh option
     to 30 seconds and wait until the stndby.example.com target becomes
     normal. Click the link for the orclcdb.example.com target.
 
-9.  On the orclcdb.example.com database home page, select **Data Guard
-    Administration**
+![](./images/33.png)
 
-> ![](media/image16.jpeg){width="6.21875in"
-> height="1.8506944444444444in"}from the Availability menu.
->
-> ![](media/image18.jpeg){width="6.14375in"
-> height="2.7284722222222224in"}**(Optional)** If only the **Add Standby
+9.  On the orclcdb.example.com database home page, select **Data Guard
+    Administration** from the Availability menu.
+
+![](./images/34.png)
+
+**(Optional)** If only the **Add Standby
 > Database** link is visible, then select it. It will not launch the Add
 > Standby Database Wizard, but instead, will navigate to the Data Guard
 > home page.
->
+
+![](./images/35.png)
+
 > **(Optional)** If the Add Standby Database link shows the Add Standby
 > Database page, click
->
-> ![](media/image20.jpeg){width="6.152777777777778in"
-> height="1.6340277777777779in"}**Cancel** to navigate to the Data Guard
+>**Cancel** to navigate to the Data Guard
 > home page.
->
+
+![](./images/36.png)
+
 > (**Optional**) On the Database Login Page, select **New** in the
 > Credential option with the following values. Click **Login**.
 
@@ -84,23 +91,53 @@ Practice 14-2: Keeping Physical Standby Session Connected During Role Transition
 
 -   Save As: NC\_ORCLCDB\_SYS2
 
-10. ![](media/image57.jpeg){width="5.468055555555556in"
-    height="4.804166666666666in"}On the Data Guard home page, make sure
+10. On the Data Guard home page, make sure
     that the status of the current primary and physical standby is
     Normal.
 
-11. Use the terminal connected to localhost as oracle with the
-    environment variables set to
+![](./images/37.png)
 
-> orclcdb. Launch SQL\*Plus and connect as the SYS user.
+
+11. Use the terminal connected to localhost as oracle with the
+    environment variables set to orclcdb. Launch SQL\*Plus and connect as the SYS user.
+
+    ```
+    [oracle@localhost ~]$ . oraenv
+    ORACLE_SID = [oracle] ? orclcdb
+    The Oracle base has been set to /u01/app/oracle [oracle@localhost ~]$ sqlplus / as sysdba
+
+    SQL*Plus: Release 19.0.0.0.0 - Production on Sat Jun 6 07:36:51 2020
+    Version 19.3.0.0.0
+
+    (c) 1982, 2019, Oracle. All rights reserved.
+    ```
+
 
 12. Set the value of the STANDBY\_DB\_PRESERVE\_STATES parameter to
     SESSION and restart the orclcdb database.
 
+    ```
+    SQL> alter system set STANDBY_DB_PRESERVE_STATES = session
+    scope=spfile;
+
+    System altered.
+
+    SQL> shutdown immediate
+    Database closed. Database dismounted.
+    ORACLE instance shut down. SQL> startup
+    ORACLE instance started.
+
+    Total System Global Area 629145352 bytes Fixed Size	9137928 bytes Variable Size		373293056 bytes Database Buffers 239075328 bytes
+    Redo Buffers	7639040 bytes Database mounted.
+    Database opened.
+
+    SQL> show pdbs
+    ```
+
+
 > **Note:** When a physical standby database is converted to a primary,
 > you have the option of keeping any sessions connected to the physical
 > standby connected, without disruption,
->
 > during the switchover or failover. SESSION means user sessions are
 > retained during a switchover or failover.
 
@@ -109,10 +146,42 @@ Practice 14-2: Keeping Physical Standby Session Connected During Role Transition
 
 > **Note:** If the Media Recovery process is already running, you will
 > receive the ORA-01153
->
 > error message. You can safely proceed to the next step.
 
+  ```
+    SQL> alter pluggable database dev1 open;
+
+    Pluggable database altered.
+
+    SQL> alter database recover managed standby database disconnect;
+    alter database recover managed standby database disconnect
+    *
+    ERROR at line 1:
+    ORA-01153: an incompatible media recovery is active
+
+    SQL> exit
+    Disconnected from Oracle Database 19c Enterprise Edition Release
+    19.0.0.0.0 - Production Version 19.3.0.0.0 [oracle@localhost ~]$
+    ```
+
+
 14. Now, let's establish a new session for testing.
+
+    ```
+    [oracle@localhost ~]$ sqlplus oe/<password>@localhost:1521/dev1.example.com
+
+    SQL*Plus: Release 19.0.0.0.0 - Production on Sat Jun 6 08:57:31 2020
+    Version 19.3.0.0.0
+
+    (c) 1982, 2019, Oracle. All rights reserved.
+    Last Successful login time: Fri Jun 05 2020 22:19:26 -04:00 Connected to:
+    Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+    Version 19.3.0.0.0
+
+    SQL> col username format a10
+    SQL> select username, sid, serial# from v$session where sid=SYS_CONTEXT('USERENV','SID');
+    ```
+
 
 15. With the navigation techniques learned, return to the EM Data Guard
     Home page. Switch over to the orclcdb physical standby database like
@@ -121,37 +190,34 @@ Practice 14-2: Keeping Physical Standby Session Connected During Role Transition
 > **Note:** If the EM page shows a warning message due to the restart of
 > the orclcdb database, refresh the bowser.
 
-a.  ![](media/image59.jpeg){width="5.893055555555556in"
-    height="2.079861111111111in"}On the EM Data Guard Home page, select
+a.  On the EM Data Guard Home page, select
     orclcdb.example.com in the Standby Databases section. Click
     **Switchover**.
+
+![](./images/38.png)
 
 b.  On the Host Login (localhost.example.com) page, select **Preferred**
     in the Credential option. Click **Continue**.
 
-> ![](media/image61.jpeg){width="5.892361111111111in"
-> height="1.3756944444444446in"}
+![](./images/39.png)
 
-c.  ![](media/image63.jpeg){width="5.876388888888889in"
-    height="1.3208333333333333in"}On the Host Login (stndby.example.com)
+c.  On the Host Login (stndby.example.com)
     page, select **Preferred** in the Credential option. Click
     **Continue**.
 
+![](./images/40.png)
+
 d.  On the Confirmation page, click **Yes**.
 
-> ![](media/image65.jpeg){width="5.910416666666666in"
-> height="1.413888888888889in"}
+![](./images/41.png)
 
-e.  ![](media/image67.jpeg){width="5.907638888888889in"
-    height="1.1965277777777779in"}Monitor the progress of Switchover.
+e. Monitor the progress of Switchover.
     **DON'T WAIT** for completion. Move on to the next step.
 
-```{=html}
-<!-- -->
-```
+![](./images/42.png)
+
 16. Return to the SQL\*Plus session connected on localhost. Check the
     current status of the OE
-
 > session periodically. Exit SQL\*Plus.
 
 +---------------+---+-----+---+----------+---------+
@@ -187,7 +253,8 @@ e.  ![](media/image67.jpeg){width="5.907638888888889in"
 > **Note:** The OE session hangs for a while and resumes. With the new
 > feature, the session is retained during role transition.
 
-17. ![](media/image69.jpeg){width="4.983333333333333in"
-    height="3.8979166666666667in"}Return to the EM page. Once the
+17. Return to the EM page. Once the
     switchover operation is complete, you will see the new primary
     database on the Data Guard home page.
+
+![](./images/43.png)
