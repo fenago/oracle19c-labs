@@ -21,67 +21,67 @@ echo $ORACLE_SID > /tmp/break.log
 # to perform recovery.
 
 #sqlplus / as sysdba >> /tmp/break.log 2>&1  <<EOF
-sqlplus sys/cloud_4U@orclpdb1 as sysdba >> /tmp/break.log 2>&1  <<EOF
+sqlplus sys/fenago@orclpdb1 as sysdba >> /tmp/break.log 2>&1  <<EOF
 EXEC DBMS_LOCK.SLEEP(1.5);
 connect / as sysdba
 ALTER SYSTEM SWITCH LOGFILE;
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 UPDATE BAR.BARCOPY SET salary = salary+1;
 Commit;
 
 EXEC DBMS_LOCK.SLEEP(1.5);
 connect / as sysdba
 ALTER SYSTEM SWITCH LOGFILE;
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 UPDATE BAR.BARCOPY SET salary = salary+1;
 Commit;
 
 EXEC DBMS_LOCK.SLEEP(1.5);
 connect / as sysdba
 ALTER SYSTEM SWITCH LOGFILE;
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 UPDATE BAR.BARCOPY SET salary = salary+1;
 Commit;
 
 EXEC DBMS_LOCK.SLEEP(1.5);
 connect / as sysdba
 ALTER SYSTEM SWITCH LOGFILE;
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 UPDATE BAR.BARCOPY SET salary = salary+1;
 Commit;
 
 EXEC DBMS_LOCK.SLEEP(1.5);
 connect / as sysdba
 ALTER SYSTEM SWITCH LOGFILE;
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 UPDATE BAR.BARCOPY SET salary = salary+1;
 Commit;
 
 EXEC DBMS_LOCK.SLEEP(1.5);
 connect / as sysdba
 ALTER SYSTEM SWITCH LOGFILE;
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 UPDATE BAR.BARCOPY SET salary = salary+1;
 Commit;
 
 EXEC DBMS_LOCK.SLEEP(1.5);
 connect / as sysdba
 ALTER SYSTEM SWITCH LOGFILE;
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 UPDATE BAR.BARCOPY SET salary = salary+1;
 Commit;
 
 EXEC DBMS_LOCK.SLEEP(1.5);
 connect / as sysdba
 ALTER SYSTEM SWITCH LOGFILE;
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 UPDATE BAR.BARCOPY SET salary = salary+1;
 Commit;
 exit
 EOF
 
 echo "The last digit of the salary indicates how many times this table has been updated" >> /tmp/break.log
-sqlplus sys/cloud_4U@orclpdb1 as sysdba <<EOF
+sqlplus sys/fenago@orclpdb1 as sysdba <<EOF
 select salary from BAR.BARCOPY
 where rownum = 1;
 connect / as sysdba

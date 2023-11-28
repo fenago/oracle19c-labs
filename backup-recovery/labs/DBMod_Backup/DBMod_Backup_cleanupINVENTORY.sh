@@ -7,7 +7,7 @@
 #
 # Start this script as OS user: oracle
 
-rman target "'sys/cloud_4U@orclpdb1 as sysdba'" > /tmp/cleanup.log 2>&1 <<EOF
+rman target "'sys/fenago@orclpdb1 as sysdba'" > /tmp/cleanup.log 2>&1 <<EOF
 delete NOPROMPT backup of tablespace INVENTORY;
 exit;
 EOF

@@ -32,7 +32,7 @@ DATAFILE '/u01/app/oracle/oradata/ORCLCDB/orclpdb1/bar91tbs01.dbf' SIZE 10M
 SEGMENT SPACE MANAGEMENT MANUAL;
 
 -- Create user
-CREATE USER bar91 IDENTIFIED BY cloud_4U 
+CREATE USER bar91 IDENTIFIED BY fenago 
 DEFAULT TABLESPACE bar91tbs
 QUOTA UNLIMITED ON bar91tbs;
 
@@ -54,7 +54,7 @@ EOF
 
 #-- Create backup of the bar*tbs tablespace
 
-rman target "'sys/cloud_4U@orclpdb1 as sysdba'">> /tmp/setup.log 2>&1 <<EOF
+rman target "'sys/fenago@orclpdb1 as sysdba'">> /tmp/setup.log 2>&1 <<EOF
 
 BACKUP AS COPY TABLESPACE bar91tbs;
 EOF

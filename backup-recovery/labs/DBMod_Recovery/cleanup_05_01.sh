@@ -14,13 +14,13 @@ ORAENV_ASK='NO'
 ORAENV_ASK=''
 echo $ORACLE_SID >> /tmp/break.log
 
-rman target "'sys/cloud_4U@orclpdb1 as sysdba'" > /tmp/cleanup.log 2>&1 <<EOF
+rman target "'sys/fenago@orclpdb1 as sysdba'" > /tmp/cleanup.log 2>&1 <<EOF
 delete NOPROMPT copy of tablespace bctbs;
 exit;
 EOF
 
 sqlplus -S /nolog >> /tmp/cleanup.log 2>&1 <<EOF
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 DROP USER bc CASCADE;
 DROP TABLESPACE bctbs INCLUDING CONTENTS AND DATAFILES;
 EXIT;

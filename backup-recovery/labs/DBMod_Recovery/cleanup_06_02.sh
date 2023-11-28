@@ -9,13 +9,13 @@
 #
 
 echo $ORACLE_SID > /tmp/cleanup.log
-rman target "'sys/cloud_4U@orclpdb1 as sysdba'" > /tmp/cleanup.log 2>&1 <<EOF
+rman target "'sys/fenago@orclpdb1 as sysdba'" > /tmp/cleanup.log 2>&1 <<EOF
 delete NOPROMPT copy of tablespace bartbs;
 exit;
 EOF
 
 sqlplus -S /nolog >> /tmp/cleanup.log 2>&1 <<EOF
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 
 ALTER PLUGGABLE DATABASE ORCLPDB1 OPEN;
 

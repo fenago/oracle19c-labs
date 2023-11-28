@@ -8,7 +8,7 @@
 -- First drop it, so that this script can be executed repeatedly.
 
 set echo on
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 DROP TABLE BAR.test_table;
 
 CREATE TABLE BAR.test_table
@@ -22,9 +22,9 @@ INSERT INTO BAR.test_table VALUES (2,'Second test row',sysdate);
 INSERT INTO BAR.test_table VALUES (3,'Third test row',NULL);
 commit;
 
-connect sys/cloud_4U@ORCLCDB as sysdba
+connect sys/fenago@ORCLCDB as sysdba
 ALTER SYSTEM SWITCH logfile;
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 ALTER SYSTEM checkpoint;
 
 -- **** Note the SCN!

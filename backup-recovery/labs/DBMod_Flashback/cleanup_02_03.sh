@@ -7,13 +7,13 @@
 #  -- Run as ORACLE OS user
 #-- Cleanup the tablespace, and user
 
-rman target sys/cloud_4U@orclpdb1 > /home/oracle/labs/DBMod_Flashback/cleanup.log 2>&1 <<EOF
+rman target sys/fenago@orclpdb1 > /home/oracle/labs/DBMod_Flashback/cleanup.log 2>&1 <<EOF
 delete NOPROMPT copy of tablespace bartbs;
 exit;
 EOF
 
 sqlplus -S /nolog >> /home/oracle/labs/DBMod_Flashback/cleanup.log 2>&1 <<EOF
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 
 -- CLEANUP from previous run
 DROP USER bar CASCADE;
@@ -25,7 +25,7 @@ EOF
 
 # CLEANUP Undo parameters so lab 14 is repeatable
 sqlplus -S /nolog >> /home/oracle/labs/DBMod_Flashback/cleanup.log 2>&1 <<EOF
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 
 ALTER TABLESPACE UNDOTBS1 RETENTION NOGUARANTEE;
 ALTER SYSTEM set UNDO_RETENTION = 900 SCOPE=BOTH;

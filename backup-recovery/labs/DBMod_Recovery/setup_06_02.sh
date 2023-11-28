@@ -18,7 +18,7 @@ ORAENV_ASK=''
 
 echo "ORACLE_SID is $ORACLE_SID" >/tmp/setup.log
 sqlplus  /nolog >> /tmp/setup.log 2>&1 <<EOF
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 
 -- CLEANUP from previous run
 DROP USER bar CASCADE;
@@ -31,7 +31,7 @@ DATAFILE '/u01/app/oracle/oradata/ORCLCDB/orclpdb1/bartbs.dbf' SIZE 10M
 SEGMENT SPACE MANAGEMENT MANUAL;
 
 -- Create user
-CREATE USER BAR IDENTIFIED BY cloud_4U
+CREATE USER BAR IDENTIFIED BY fenago
 DEFAULT TABLESPACE bartbs
 QUOTA UNLIMITED ON bartbs;
 
@@ -53,14 +53,14 @@ EOF
 
 #-- Create backup of the bartbs tablespace
 
-rman target "'sys/cloud_4U@orclpdb1 as sysdba'" >> /tmp/setup.log 2>&1 <<EOF
+rman target "'sys/fenago@orclpdb1 as sysdba'" >> /tmp/setup.log 2>&1 <<EOF
 
 BACKUP AS COPY TABLESPACE bartbs;
 EOF
 
 #-- update the table
 sqlplus  /nolog >> /tmp/setup.log 2>&1 <<EOF
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 
 UPDATE BAR.BARCOPY SET salary = salary+1;
 

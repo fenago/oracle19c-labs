@@ -6,7 +6,7 @@
 #  -- You should always run new scripts on a test instance initially.
 #  -- Run as ORACLE OS user
 
-sqlplus sys/cloud_4U@orclpdb1 as sysdba >/home/oracle/labs/DBMod_Flashback/break.log <<EOF
+sqlplus sys/fenago@orclpdb1 as sysdba >/home/oracle/labs/DBMod_Flashback/break.log <<EOF
 
 create table bar.bar101 as select * from BAR.BARCOPY;
 ALTER TABLE BAR.BAR101 add (address_line1 VARCHAR2(200), address_line2 VARCHAR2(200));

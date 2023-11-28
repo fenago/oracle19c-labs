@@ -4,7 +4,7 @@
 -- The script has been tested and appears to work as intended.
 -- You should always run new scripts on a test instance initially.
 
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 
 -- Find the file and block numbers
 

@@ -17,7 +17,7 @@ ORAENV_ASK='NO'
 ORAENV_ASK=''
 
 sqlplus -S /nolog >> /tmp/cleanup.log 2>&1 <<EOF
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 
 -- CLEANUP from previous run
 DROP USER bar CASCADE;

@@ -12,7 +12,7 @@ ORAENV_ASK=''
  
 mkdir -p /u01/app/oracle/backup/test
 sqlplus -S /nolog > /tmp/setup.log 2>&1 <<EOF
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 
 -- CLEANUP from previous run
 DROP USER bar CASCADE;
@@ -24,7 +24,7 @@ DATAFILE '/u01/app/oracle/oradata/ORCLCDB/orclpdb1/bartbs.dbf' SIZE 10M REUSE
 SEGMENT SPACE MANAGEMENT MANUAL;
 
 -- Create user
-CREATE USER BAR IDENTIFIED BY cloud_4U
+CREATE USER BAR IDENTIFIED BY fenago
 DEFAULT TABLESPACE bartbs
 QUOTA UNLIMITED ON bartbs;
 
@@ -42,9 +42,9 @@ SELECT * FROM BAR.BARCOPY;
 INSERT INTO BAR.BARCOPY
 SELECT * FROM BAR.BARCOPY;
 
-connect sys/cloud_4U@ORCLCDB as sysdba
+connect sys/fenago@ORCLCDB as sysdba
 ALTER SYSTEM SWITCH logfile;
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 ALTER SYSTEM checkpoint;
 EOF
 

@@ -13,7 +13,7 @@ ORAENV_ASK='NO'
 . oraenv >> /dev/null
 ORAENV_ASK=''
 
-rman target "'/ as sysbackup'" catalog rco/cloud_4U@rcatpdb  > /tmp/backup.log 2>&1 <<EOF
+rman target "'/ as sysbackup'" catalog rco/fenago@rcatpdb  > /tmp/backup.log 2>&1 <<EOF
 BACKUP DATABASE PLUS ARCHIVELOG delete input;
 exit;
 EOF

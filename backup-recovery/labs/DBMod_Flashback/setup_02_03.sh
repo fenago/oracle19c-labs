@@ -11,7 +11,7 @@
 # the table is updated to prepare for this practice.
 
 sqlplus -S /nolog > /home/oracle/labs/DBMod_Flashback/setup.log 2>&1 <<EOF
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 
 -- CLEANUP from previous run
 DROP USER bar CASCADE;
@@ -23,7 +23,7 @@ DATAFILE '/u01/app/oracle/oradata/ORCLCDB/orclpdb1/bartbs.dbf' SIZE 10M REUSE
 SEGMENT SPACE MANAGEMENT MANUAL;
 
 -- Create user
-CREATE USER BAR IDENTIFIED BY cloud_4U 
+CREATE USER BAR IDENTIFIED BY fenago 
 DEFAULT TABLESPACE bartbs
 QUOTA UNLIMITED ON bartbs;
 
@@ -57,7 +57,7 @@ EOF
 
 #-- Create backup of the bartbs tablespace
 
-rman target sys/cloud_4U@orclpdb1 >> /home/oracle/labs/DBMod_Flashback/setup.log 2>&1 <<EOF
+rman target sys/fenago@orclpdb1 >> /home/oracle/labs/DBMod_Flashback/setup.log 2>&1 <<EOF
 SHUTDOWN IMMEDIATE;
 STARTUP MOUNT;
 BACKUP AS COPY TABLESPACE bartbs;
@@ -66,7 +66,7 @@ EOF
 
 #-- update the table
 sqlplus -S /nolog >> /home/oracle/labs/DBMod_Flashback/setup.log 2>&1 <<EOF
-connect sys/cloud_4U@orclpdb1 as sysdba
+connect sys/fenago@orclpdb1 as sysdba
 
 UPDATE BAR.BARCOPY SET salary = salary+1;
 COMMIT;

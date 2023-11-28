@@ -22,7 +22,7 @@ startup
 exit
 EOF
 
-sqlplus sys/cloud_4U@orclpdb1 as sysdba > /tmp/setup.log 2>&1 <<EOF
+sqlplus sys/fenago@orclpdb1 as sysdba > /tmp/setup.log 2>&1 <<EOF
 show con_name
 ALTER DATABASE open;
 show pdbs
@@ -37,7 +37,7 @@ DATAFILE '/u01/app/oracle/oradata/ORCLCDB/orclpdb1/bctbs01.dbf' SIZE 10M REUSE
 SEGMENT SPACE MANAGEMENT MANUAL;
 
 -- Create user
-CREATE USER bc IDENTIFIED BY cloud_4U
+CREATE USER bc IDENTIFIED BY fenago
 DEFAULT TABLESPACE bctbs
 QUOTA UNLIMITED ON bctbs;
 
@@ -59,12 +59,12 @@ EOF
 
 #-- Create backup of the bctbs tablespace
 
-rman target "'sys/cloud_4U@orclpdb1 as sysdba'" >> /tmp/setup.log 2>&1 <<EOF
+rman target "'sys/fenago@orclpdb1 as sysdba'" >> /tmp/setup.log 2>&1 <<EOF
 BACKUP AS COPY TABLESPACE bctbs;
 EOF
 
 #-- update the table
-sqlplus sys/cloud_4U@orclpdb1 as sysdba >> /tmp/setup.log 2>&1 <<EOF
+sqlplus sys/fenago@orclpdb1 as sysdba >> /tmp/setup.log 2>&1 <<EOF
 show con_name
 UPDATE bc.bccopy SET salary = salary+1;
 COMMIT;

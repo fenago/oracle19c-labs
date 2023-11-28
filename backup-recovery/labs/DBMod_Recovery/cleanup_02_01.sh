@@ -8,12 +8,12 @@
 # cleanup
 
 # rman target / > /tmp/cleanup.log 2>&1 <<EOF
- rman target "'sys/cloud_4U@orclpdb1 as sysdba'" > /tmp/cleanup.log 2>&1 <<EOF
+ rman target "'sys/fenago@orclpdb1 as sysdba'" > /tmp/cleanup.log 2>&1 <<EOF
 delete NOPROMPT copy of tablespace bar91tbs;
 exit;
 EOF
 
-sqlplus sys/cloud_4U@orclpdb1 as sysdba >>/tmp/cleanup.log 2>&1 <<EOF
+sqlplus sys/fenago@orclpdb1 as sysdba >>/tmp/cleanup.log 2>&1 <<EOF
 show con_name
 -- CLEANUP from previous run
 DROP USER bar91 CASCADE;
