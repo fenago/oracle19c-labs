@@ -20,7 +20,9 @@ exit;
 EOF
 
 sqlplus -S /nolog >> /tmp/cleanup.log 2>&1 <<EOF
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 DROP USER bc CASCADE;
 DROP TABLESPACE bctbs INCLUDING CONTENTS AND DATAFILES;
 EXIT;

@@ -25,56 +25,72 @@ sqlplus sys/fenago@orclpdb1 as sysdba >> /tmp/break.log 2>&1  <<EOF
 EXEC DBMS_LOCK.SLEEP(1.5);
 connect / as sysdba
 ALTER SYSTEM SWITCH LOGFILE;
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 UPDATE BAR.BARCOPY SET salary = salary+1;
 Commit;
 
 EXEC DBMS_LOCK.SLEEP(1.5);
 connect / as sysdba
 ALTER SYSTEM SWITCH LOGFILE;
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 UPDATE BAR.BARCOPY SET salary = salary+1;
 Commit;
 
 EXEC DBMS_LOCK.SLEEP(1.5);
 connect / as sysdba
 ALTER SYSTEM SWITCH LOGFILE;
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 UPDATE BAR.BARCOPY SET salary = salary+1;
 Commit;
 
 EXEC DBMS_LOCK.SLEEP(1.5);
 connect / as sysdba
 ALTER SYSTEM SWITCH LOGFILE;
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 UPDATE BAR.BARCOPY SET salary = salary+1;
 Commit;
 
 EXEC DBMS_LOCK.SLEEP(1.5);
 connect / as sysdba
 ALTER SYSTEM SWITCH LOGFILE;
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 UPDATE BAR.BARCOPY SET salary = salary+1;
 Commit;
 
 EXEC DBMS_LOCK.SLEEP(1.5);
 connect / as sysdba
 ALTER SYSTEM SWITCH LOGFILE;
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 UPDATE BAR.BARCOPY SET salary = salary+1;
 Commit;
 
 EXEC DBMS_LOCK.SLEEP(1.5);
 connect / as sysdba
 ALTER SYSTEM SWITCH LOGFILE;
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 UPDATE BAR.BARCOPY SET salary = salary+1;
 Commit;
 
 EXEC DBMS_LOCK.SLEEP(1.5);
 connect / as sysdba
 ALTER SYSTEM SWITCH LOGFILE;
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 UPDATE BAR.BARCOPY SET salary = salary+1;
 Commit;
 exit

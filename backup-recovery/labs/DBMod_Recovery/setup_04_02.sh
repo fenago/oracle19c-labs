@@ -12,7 +12,9 @@ ORAENV_ASK=''
  
 mkdir -p /u01/app/oracle/backup/test
 sqlplus -S /nolog > /tmp/setup.log 2>&1 <<EOF
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 
 -- CLEANUP from previous run
 DROP USER bar CASCADE;
@@ -44,7 +46,9 @@ SELECT * FROM BAR.BARCOPY;
 
 connect sys/fenago@ORCLCDB as sysdba
 ALTER SYSTEM SWITCH logfile;
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 ALTER SYSTEM checkpoint;
 EOF
 

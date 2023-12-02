@@ -13,7 +13,9 @@ exit;
 EOF
 
 sqlplus -S /nolog >> /home/oracle/labs/DBMod_Flashback/cleanup.log 2>&1 <<EOF
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 
 -- CLEANUP from previous run
 DROP USER bar CASCADE;
@@ -25,7 +27,9 @@ EOF
 
 # CLEANUP Undo parameters so lab 14 is repeatable
 sqlplus -S /nolog >> /home/oracle/labs/DBMod_Flashback/cleanup.log 2>&1 <<EOF
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 
 ALTER TABLESPACE UNDOTBS1 RETENTION NOGUARANTEE;
 ALTER SYSTEM set UNDO_RETENTION = 900 SCOPE=BOTH;

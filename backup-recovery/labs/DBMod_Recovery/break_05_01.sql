@@ -4,7 +4,9 @@
 -- The script has been tested and appears to work as intended.
 -- You should always run new scripts on a test instance initially.
 
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 
 -- Find the file and block numbers
 

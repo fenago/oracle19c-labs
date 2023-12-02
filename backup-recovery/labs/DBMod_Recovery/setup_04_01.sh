@@ -24,7 +24,9 @@ mkdir -p /u01/app/oracle/backup/ORCLCDB/orclpdb1
 BACKUPDIR=/u01/app/oracle/backup/ORCLCDB/orclpdb1
 
 sqlplus  /nolog >> /tmp/setup.log <<EOF
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 show con_name
 
 -- CLEANUP from previous run
@@ -69,7 +71,9 @@ EOF
 
 #-- update the table
 sqlplus  /nolog >> /tmp/setup.log <<EOF
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 show con_name
 UPDATE BAR.BARCOPY SET salary = salary+1;
 COMMIT;

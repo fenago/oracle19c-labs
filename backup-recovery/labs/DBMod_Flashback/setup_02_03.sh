@@ -11,7 +11,9 @@
 # the table is updated to prepare for this practice.
 
 sqlplus -S /nolog > /home/oracle/labs/DBMod_Flashback/setup.log 2>&1 <<EOF
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 
 -- CLEANUP from previous run
 DROP USER bar CASCADE;
@@ -66,7 +68,9 @@ EOF
 
 #-- update the table
 sqlplus -S /nolog >> /home/oracle/labs/DBMod_Flashback/setup.log 2>&1 <<EOF
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 
 UPDATE BAR.BARCOPY SET salary = salary+1;
 COMMIT;

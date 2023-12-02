@@ -8,7 +8,9 @@
 -- First drop it, so that this script can be executed repeatedly.
 
 set echo on
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 DROP TABLE BAR.test_table;
 
 CREATE TABLE BAR.test_table
@@ -24,7 +26,9 @@ commit;
 
 connect sys/fenago@ORCLCDB as sysdba
 ALTER SYSTEM SWITCH logfile;
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 ALTER SYSTEM checkpoint;
 
 -- **** Note the SCN!

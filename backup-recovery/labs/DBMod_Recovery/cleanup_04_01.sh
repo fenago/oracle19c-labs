@@ -10,7 +10,9 @@
 rm -f  /u01/app/oracle/backup/*bartest* > /tmp/cleanup.log
 
 sqlplus /nolog >> /tmp/cleanup.log <<EOF
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 
 -- CLEANUP from previous run
 DROP USER bar CASCADE;

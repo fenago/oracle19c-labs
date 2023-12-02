@@ -27,7 +27,9 @@ ORAENV_ASK=''
 sqlplus -S / as sysdba >> /tmp/setup.log 2>&1 <<EOF
 ALTER PLUGGABLE DATABASE ORCLPDB1 OPEN;
 
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 
 show con_name
 
@@ -71,7 +73,9 @@ EOF
 
 #-- update the table
 sqlplus  /nolog >> /tmp/setup.log 2>&1 <<EOF
-connect sys/fenago@orclpdb1 as sysdba
+connect / as sysdba
+
+ALTER SESSION set container=orclpdb1;
 
 UPDATE BAR.BARCOPY SET salary = salary+1;
 COMMIT;
