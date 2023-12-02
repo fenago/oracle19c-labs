@@ -22,7 +22,8 @@ startup
 exit
 EOF
 
-sqlplus sys/fenago@orclpdb1 as sysdba > /tmp/setup.log 2>&1 <<EOF
+sqlplus / as sysdba > /tmp/setup.log 2>&1 <<EOF
+ALTER SESSION set container=orclpdb1;
 show con_name
 ALTER DATABASE open;
 show pdbs
@@ -64,7 +65,8 @@ BACKUP AS COPY TABLESPACE bctbs;
 EOF
 
 #-- update the table
-sqlplus sys/fenago@orclpdb1 as sysdba >> /tmp/setup.log 2>&1 <<EOF
+sqlplus / as sysdba >> /tmp/setup.log 2>&1 <<EOF
+ALTER SESSION set container=orclpdb1;
 show con_name
 UPDATE bc.bccopy SET salary = salary+1;
 COMMIT;

@@ -13,7 +13,9 @@
 
 sleep 30
 
-sqlplus sys/fenago@orclpdb1 as sysdba > /home/oracle/labs/DBMod_Flashback/break.log <<EOF
+sqlplus / as sysdba > /home/oracle/labs/DBMod_Flashback/break.log <<EOF
+
+ALTER SESSION set container=orclpdb1;
 
   UPDATE BAR.BARDEPT SET DEPARTMENT_NAME = 'ADMIRATION'
  	WHERE DEPARTMENT_ID = 10;
