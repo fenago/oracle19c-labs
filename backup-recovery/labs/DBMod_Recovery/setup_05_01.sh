@@ -65,6 +65,8 @@ rman target "'sys/fenago as sysdba'" >> /tmp/setup.log 2>&1 <<EOF
 BACKUP AS COPY TABLESPACE bctbs;
 EOF
 
+unset ORACLE_PDB_SID
+
 #-- update the table
 sqlplus / as sysdba >> /tmp/setup.log 2>&1 <<EOF
 ALTER SESSION set container=orclpdb1;

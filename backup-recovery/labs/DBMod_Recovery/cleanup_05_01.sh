@@ -20,6 +20,8 @@ delete NOPROMPT copy of tablespace bctbs;
 exit;
 EOF
 
+unset ORACLE_PDB_SID
+
 sqlplus -S /nolog >> /tmp/cleanup.log 2>&1 <<EOF
 connect / as sysdba
 

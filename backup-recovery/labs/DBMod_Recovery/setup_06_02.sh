@@ -61,6 +61,8 @@ rman target "'sys/fenago as sysdba'" >> /tmp/setup.log 2>&1 <<EOF
 BACKUP AS COPY TABLESPACE bartbs;
 EOF
 
+unset ORACLE_PDB_SID
+
 #-- update the table
 sqlplus  /nolog >> /tmp/setup.log 2>&1 <<EOF
 connect / as sysdba

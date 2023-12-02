@@ -14,6 +14,8 @@ delete NOPROMPT copy of tablespace bar91tbs;
 exit;
 EOF
 
+unset ORACLE_PDB_SID
+
 sqlplus / as sysdba >>/tmp/cleanup.log 2>&1 <<EOF
 ALTER SESSION set container=orclpdb1;
 show con_name

@@ -53,9 +53,13 @@ SELECT * FROM bar91.BARCOPY;
 EOF
 
 #-- Create backup of the bar*tbs tablespace
+export ORACLE_PDB_SID=ORCLPDB1
 rman target "'sys/fenago as sysdba'">> /tmp/setup.log 2>&1 <<EOF
 BACKUP AS COPY TABLESPACE bar91tbs;
 EOF
+
+unset ORACLE_PDB_SID
+
 #-- update the table
 sqlplus -S /nolog >> /tmp/setup.log 2>&1 <<EOF
 connect / as sysdba

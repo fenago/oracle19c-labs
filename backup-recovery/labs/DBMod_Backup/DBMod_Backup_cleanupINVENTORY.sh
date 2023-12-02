@@ -13,6 +13,8 @@ delete NOPROMPT backup of tablespace INVENTORY;
 exit;
 EOF
 
+unset ORACLE_PDB_SID
+
 sqlplus /nolog >> /tmp/cleanup.log 2>&1 <<EOF
 connect / as sysdba
 alter session set container=orclpdb1;

@@ -70,6 +70,8 @@ BACKUP AS COPY TAG 'BARTEST' TABLESPACE bartbs;
 }
 EOF
 
+unset ORACLE_PDB_SID
+
 #-- update the table
 sqlplus  /nolog >> /tmp/setup.log <<EOF
 connect / as sysdba
