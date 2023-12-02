@@ -61,10 +61,7 @@ EOF
 export ORACLE_PDB_SID=ORCLPDB1
 
 rman target sys/fenago >> /home/oracle/labs/DBMod_Flashback/setup.log 2>&1 <<EOF
-SHUTDOWN IMMEDIATE;
-STARTUP MOUNT;
 BACKUP AS COPY TABLESPACE bartbs;
-ALTER DATABASE OPEN;
 EOF
 
 unset ORACLE_PDB_SID
