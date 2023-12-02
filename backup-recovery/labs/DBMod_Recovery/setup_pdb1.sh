@@ -1,7 +1,7 @@
 #!/bin/sh
 # use bash shell
 #
-# Written by: Dominique.Jeunot@oracle.com
+# Written by: 
 #
 
 export ORACLE_SID=orclcdb
