@@ -6,11 +6,13 @@
 #  -- You should always run new scripts on a test instance initially.
 #  -- Run as ORACLE OS user
 #-- Cleanup the tablespace, and user
-
-rman target sys/fenago@orclpdb1 > /home/oracle/labs/DBMod_Flashback/cleanup.log 2>&1 <<EOF
+export ORACLE_PDB_SID=ORCLPDB1
+rman target sys/fenago > /home/oracle/labs/DBMod_Flashback/cleanup.log 2>&1 <<EOF
 delete NOPROMPT copy of tablespace bartbs;
 exit;
 EOF
+
+unset ORACLE_PDB_SID
 
 sqlplus -S /nolog >> /home/oracle/labs/DBMod_Flashback/cleanup.log 2>&1 <<EOF
 connect / as sysdba

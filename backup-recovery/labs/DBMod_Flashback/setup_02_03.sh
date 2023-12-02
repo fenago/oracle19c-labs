@@ -58,13 +58,16 @@ ADD CONSTRAINT dept_id_FK FOREIGN KEY (department_id)
 EOF
 
 #-- Create backup of the bartbs tablespace
+export ORACLE_PDB_SID=ORCLPDB1
 
-rman target sys/fenago@orclpdb1 >> /home/oracle/labs/DBMod_Flashback/setup.log 2>&1 <<EOF
+rman target sys/fenago >> /home/oracle/labs/DBMod_Flashback/setup.log 2>&1 <<EOF
 SHUTDOWN IMMEDIATE;
 STARTUP MOUNT;
 BACKUP AS COPY TABLESPACE bartbs;
 ALTER DATABASE OPEN;
 EOF
+
+unset ORACLE_PDB_SID
 
 #-- update the table
 sqlplus -S /nolog >> /home/oracle/labs/DBMod_Flashback/setup.log 2>&1 <<EOF

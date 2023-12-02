@@ -11,7 +11,8 @@ ORAENV_ASK=''
 
 mkdir -p /u01/app/oracle/oradata/ORCLCDB/orclpdb1
 $ORACLE_HOME/bin/sqlplus -s /nolog  <<EOF
-conn sys/fenago@orclpdb1 as sysdba 
+conn sys/fenago as sysdba 
+ALTER SESSION set container=orclpdb1;
 drop tablespace TBS_APP including contents and datafiles;
 create tablespace TBS_APP datafile '/u01/app/oracle/oradata/ORCLCDB/orclpdb1/tbs_app01.dbf' size 800M;
 drop user odr cascade;
