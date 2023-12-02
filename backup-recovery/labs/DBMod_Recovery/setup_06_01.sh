@@ -66,7 +66,8 @@ EOF
 
 #-- Create backup of the bartbs tablespace
 
-rman target "'sys/fenago@orclpdb1 as sysdba'" >> /tmp/setup.log 2>&1 <<EOF
+export ORACLE_PDB_SID=ORCLPDB1
+rman target "'sys/fenago as sysdba'" >> /tmp/setup.log 2>&1 <<EOF
 
 BACKUP AS COPY TABLESPACE bartbs;
 EOF

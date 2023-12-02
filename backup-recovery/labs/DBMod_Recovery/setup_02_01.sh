@@ -52,4 +52,16 @@ SELECT * FROM bar91.BARCOPY;
 
 EOF
 
+#-- Create backup of the bar*tbs tablespace
+rman target "'sys/fenago as sysdba'">> /tmp/setup.log 2>&1 <<EOF
+BACKUP AS COPY TABLESPACE bar91tbs;
+EOF
+#-- update the table
+sqlplus -S /nolog >> /tmp/setup.log 2>&1 <<EOF
+connect / as sysdba
+alter session set container=orclpdb1;
+UPDATE bar91.BARCOPY SET salary = salary+1;
+COMMIT;
+EOF
+
 echo "Setup complete." >> /tmp/setup.log

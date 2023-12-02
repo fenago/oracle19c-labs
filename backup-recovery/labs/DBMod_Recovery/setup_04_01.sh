@@ -61,7 +61,8 @@ EOF
 
 #-- Create backup of the bartbs tablespace
 
-rman target "'sys/fenago@orclpdb1 as sysdba'" >> /tmp/setup.log <<EOF
+export ORACLE_PDB_SID=ORCLPDB1
+rman target "'sys/fenago as sysdba'" >> /tmp/setup.log <<EOF
 
 run {
 ALLOCATE CHANNEL "ch1" DEVICE TYPE DISK FORMAT "/u01/app/oracle/backup/ORCLCDB/orclpdb1/bartest%U";
